@@ -166,7 +166,6 @@
   "Download and prepare": "Descargar y preparar",
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Sin preparar. Jugar descarga Minecraft {version} de Mojang para tu cuenta y lo prepara.",
   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "No preparado. Horizon puede descargar Minecraft {version} desde Mojang para tu cuenta, o usar tu propia instalación.",
-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "No preparado. Inicia sesión primero con la cuenta de Microsoft que posea Minecraft {version}.",
   "Cancel": "Cancelar",
   "Native mods (experimental)": "Mods nativos (experimental)",
   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Los mods nativos de la página Mods se compilan en el juego con el compilador Rust del propio lanzador. No están aislados: pueden hacer cualquier cosa que tú puedas hacer en este ordenador.",
@@ -237,5 +236,7 @@
   "{source} · needed by another mod": "{source} · lo necesita otro mod",
   "Local file · {file}": "Archivo local · {file}",
   "Update {version}": "Actualizar a {version}",
-  "Choose image…": "Elegir imagen…"
+  "Choose image…": "Elegir imagen…",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "O juega sin conexión: una cuenta sin conexión no necesita inicio de sesión. Solo los servidores en línea y la descarga del juego desde Mojang lo necesitan.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "No preparado. Horizon puede preparar Minecraft {version} desde tu propia instalación; inicia sesión para descargarlo de Mojang en su lugar."
 }
