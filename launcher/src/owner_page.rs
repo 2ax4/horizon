@@ -1,26 +1,12 @@
 //! The owner gate in the window (`horizon_launcher::account::launch`): the screen that asks for a
-//! Microsoft account that owns Minecraft: Java Edition. It covers the launcher once for players
-//! without one (those who played offline before the gate), and again whenever Play is refused.
-//! The sign-in runs on it, code and all.
 use super::*;
 
 impl Launcher {
-    /// Whether the screen covers the window: no owner, and either Play was refused or the player
-    /// hasn't read it yet. The data question comes first.
     pub(crate) fn asking_owner(&self) -> bool {
-        (self.owner_shown() == Some(false) || sign_in_preview())
-            && (self.owner_screen_open || !self.settings.owner_notice_seen || sign_in_preview())
+        (self.owner == Some(false) || sign_in_preview())
+            && self.owner_screen_open
             && !self.asking_consent()
             && self.opening.is_none()
-    }
-
-    /// `owner` as the window shows it: the developer option that lets offline names play without
-    /// an owner (`dev_options`) hides the gate, as if the keychain hadn't answered yet.
-    pub(crate) fn owner_shown(&self) -> Option<bool> {
-        match self.owner {
-            Some(false) if self.settings.dev_offline => None,
-            owner => owner,
-        }
     }
 
     /// Opens the screen and starts the sign-in on it.
@@ -33,10 +19,8 @@ impl Launcher {
     fn close_owner_screen(&mut self) {
         self.cancel_sign_in();
         self.owner_screen_open = false;
-        if !self.settings.owner_notice_seen {
-            self.settings.owner_notice_seen = true;
-            self.settings.save();
-        }
+        self.settings.owner_notice_seen = true;
+        self.settings.save();
     }
 
     pub(crate) fn owner_screen(&mut self, cx: &mut Context<Self>) -> Stateful<Div> {
@@ -79,6 +63,10 @@ impl Launcher {
             ))
             .child(line(
                 "No Minecraft install needed: Horizon downloads it from Mojang for your account.",
+                n.ink_soft,
+            ))
+            .child(line(
+                "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.",
                 n.ink_soft,
             ))
             .child(line(
@@ -183,6 +171,25 @@ impl Launcher {
             .gap(px(10.))
             .mt(px(14.))
             .children(main)
+            .child(
+                shell::action("owner-offline", shell::Action::Quiet, &t)
+                    .child(shell::label(tr("Play offline").to_string()))
+                    .on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
+                        this.close_owner_screen();
+                        let who = this
+                            .accounts
+                            .offline
+                            .first()
+                            .cloned()
+                            .map(account::Player::Offline)
+                            .unwrap_or(account::Player::GameName);
+                        this.play_as(who);
+                        if this.can_start_selected() {
+                            this.play();
+                        }
+                        cx.notify();
+                    })),
+            )
             .child(
                 shell::action("owner-later", shell::Action::Quiet, &t)
                     .child(shell::label(tr("Not now").to_string()))

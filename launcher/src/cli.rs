@@ -124,14 +124,16 @@ enum AccountCmd {
         /// Its name or UUID
         who: String,
     },
-    /// Play as this account, or as one of your offline names
-    Select { who: String },
-    /// Play offline (LAN, offline-mode servers) beside a signed-in account that owns the game:
-    /// as NAME (kept to switch back to; 3 to 16 letters, digits or _), or as the name the game
-    /// made up
-    Offline { name: Option<String> },
+    Select {
+        who: String,
+    },
+    Offline {
+        name: Option<String>,
+    },
     /// Forget one of your offline names; its skin and cape go with it
-    ForgetOffline { name: String },
+    ForgetOffline {
+        name: String,
+    },
     /// Show or set an offline name's skin and cape: a 64x64 (or 64x32) skin PNG, a 64x32 cape
     /// PNG, the model. Kept by the launcher and given to the game when that name plays
     Skin {
@@ -1365,7 +1367,7 @@ fn execute(command: Cmd, as_json: bool) -> Result<(), String> {
                 None => None,
             };
             if let Some(who) = &who {
-                accounts.play_as(account::store(), who.clone())?;
+                accounts.play_as(who.clone())?;
             }
             let mut cmd =
                 backend::client_as(&instance.resolve_version(version.as_deref())?, who.as_ref())?;
@@ -1775,8 +1777,9 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                 }));
             } else if accounts.accounts.is_empty() && accounts.offline.is_empty() {
                 println!(
-                    "No Microsoft account signed in. Play needs one that owns Minecraft: Java \
-                     Edition: horizon-launcher account sign-in"
+                    "No accounts yet. `horizon-launcher account offline NAME` adds an offline \
+                     account and plays as it. `account sign-in` signs in with Microsoft, for \
+                     online-mode servers and for downloading the game."
                 );
             } else {
                 for a in &accounts.accounts {
@@ -1798,7 +1801,10 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                     );
                 }
                 if !accounts.has_owner(account::store()) {
-                    println!("{}.", account::NEEDS_OWNER);
+                    println!(
+                        "A Microsoft account that owns Minecraft: Java Edition is only needed for \
+                         online-mode servers and for downloading the game (`account sign-in`)."
+                    );
                 }
             }
         }
@@ -1889,7 +1895,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                 ),
                 (None, None) => return Err(find(&accounts, &who).unwrap_err()),
             };
-            accounts.play_as(account::store(), player)?;
+            accounts.play_as(player)?;
             accounts.save()?;
             println!("The game plays as {name}.");
         }
@@ -1898,7 +1904,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                 Some(n) => account::Player::Offline(n),
                 None => account::Player::GameName,
             };
-            accounts.play_as(account::store(), player)?;
+            accounts.play_as(player)?;
             accounts.save()?;
             match accounts.name_arg() {
                 Some(n) => println!("The game plays offline as {n}."),
