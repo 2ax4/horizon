@@ -164,7 +164,6 @@
   "From my install": "使用已有安装",
   "Download and prepare": "下载并准备",
   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "未准备。Horizon 可以为你的账户从 Mojang 下载 Minecraft {version}，也可以使用你已有的安装。",
-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "未准备。请先登录拥有 Minecraft {version} 的 Microsoft 账户。",
   "Cancel": "取消",
   "None needed: Horizon downloads Minecraft from Mojang for your account.": "无需指定文件夹：Horizon 会为你的账户从 Mojang 下载 Minecraft。",
   "Sponsor": "赞助",
@@ -237,5 +236,7 @@
   "No mod matches.": "没有匹配的模组。",
   "{source} · needed by another mod": "{source} · 其他模组需要",
   "Local file · {file}": "本地文件 · {file}",
-  "Update {version}": "更新到 {version}"
+  "Update {version}": "更新到 {version}",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "或者离线游玩：离线账户无需登录。只有在线模式服务器和从 Mojang 下载游戏才需要登录。",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未准备。Horizon 可以从你已有的安装准备 Minecraft {version}；登录即可改为从 Mojang 下载。"
 }

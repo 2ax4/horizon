@@ -167,7 +167,6 @@
   "Download and prepare": "Скачать и подготовить",
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не подготовлено. «Играть» скачает Minecraft {version} у Mojang для вашего аккаунта и подготовит его.",
   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Не подготовлено. Horizon может скачать Minecraft {version} у Mojang для вашего аккаунта или взять вашу установку.",
-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Не подготовлено. Сначала войдите в аккаунт Microsoft, у которого есть Minecraft {version}.",
   "Cancel": "Отмена",
   "Delete old versions automatically": "Автоматически удалять старые версии",
   "Keeps the {count} newest, the one in use and the ones your instances use. Deleted versions install again from the Versions page.": "Оставляет {count} самых новых, используемую и те, что нужны вашим сборкам. Удалённую версию можно снова установить на странице «Версии».",
@@ -237,5 +236,7 @@
   "No mod matches.": "Нет подходящих модов.",
   "{source} · needed by another mod": "{source} · нужен другому моду",
   "Local file · {file}": "Локальный файл · {file}",
-  "Update {version}": "Обновить до {version}"
+  "Update {version}": "Обновить до {version}",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Или играйте офлайн: офлайн-аккаунту не нужен вход. Он нужен только сетевым серверам и загрузке игры от Mojang.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей установки; войдите, чтобы скачать его у Mojang вместо этого."
 }

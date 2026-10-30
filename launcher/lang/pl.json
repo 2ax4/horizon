@@ -176,7 +176,6 @@
   "Download and prepare": "Pobierz i przygotuj",
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nieprzygotowane. Przycisk Graj pobierze Minecrafta {version} z Mojang dla twojego konta i go przygotuje.",
   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Nieprzygotowane. Horizon może pobrać Minecrafta {version} z Mojang dla twojego konta lub użyć twojej instalacji.",
-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Nieprzygotowane. Najpierw zaloguj się na konto Microsoft posiadające Minecrafta {version}.",
   "Keeps the {count} newest, the one in use and the ones your instances use. Deleted versions install again from the Versions page.": "Zachowuje {count} najnowszych wersji, używaną wersję oraz wersje używane przez instancje. Usunięte wersje można ponownie zainstalować na stronie Wersje.",
   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Mody natywne ze strony Mody są kompilowane do gry za pomocą Rusta launchera. Nie działają w izolacji: mogą zrobić wszystko, co ty na tym komputerze.",
   "{version} plays in this instance.": "Ta instancja używa wersji {version}.",
@@ -237,5 +236,7 @@
   "No mod matches.": "Żaden mod nie pasuje.",
   "{source} · needed by another mod": "{source} · wymagany przez inny mod",
   "Local file · {file}": "Plik lokalny · {file}",
-  "Update {version}": "Aktualizuj do {version}"
+  "Update {version}": "Aktualizuj do {version}",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "A albo graj offline: konto offline nie wymaga logowania. Wymagają go tylko serwery online i pobieranie gry z Mojang.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nieprzygotowane. Horizon może przygotować Minecrafta {version} z twojej instalacji; zaloguj się, aby pobrać go z Mojang zamiast tego."
 }
