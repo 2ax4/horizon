@@ -472,5 +472,7 @@
   "Use an access token…": "Использовать токен доступа…",
   "Make an invitation": "Создать приглашение",
   "One invitation per friend. With an email Tailscale sends it; without, send them the link. They accept it in their own Tailscale account.": "Одно приглашение на друга. Если указать email, Tailscale отправит его сам; иначе отправьте ссылку вручную. Друг принимает его в своём аккаунте Tailscale.",
-  "Forget the access token": "Забыть токен доступа"
+  "Forget the access token": "Забыть токен доступа",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Или играйте офлайн: офлайн-аккаунту не нужен вход. Он нужен только сетевым серверам и загрузке игры от Mojang.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей установки; войдите, чтобы скачать его у Mojang вместо этого."
 }

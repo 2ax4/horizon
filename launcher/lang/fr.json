@@ -472,5 +472,7 @@
   "Use an access token…": "Utiliser un jeton d'accès…",
   "Make an invitation": "Créer une invitation",
   "One invitation per friend. With an email Tailscale sends it; without, send them the link. They accept it in their own Tailscale account.": "Une invitation par ami. Avec un e-mail, Tailscale l'envoie ; sans, envoyez-leur le lien. Ils l'acceptent dans leur propre compte Tailscale.",
-  "Forget the access token": "Oublier le jeton d'accès"
+  "Forget the access token": "Oublier le jeton d'accès",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Ou jouez hors ligne : un compte hors ligne n'a besoin d'aucune connexion. Seuls les serveurs en ligne et le téléchargement du jeu depuis Mojang en ont besoin.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Pas préparé. Horizon peut préparer Minecraft {version} depuis votre propre installation ; connectez-vous pour le télécharger depuis Mojang à la place."
 }

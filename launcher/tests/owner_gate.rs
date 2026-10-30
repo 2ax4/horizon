@@ -1,25 +1,18 @@
-//! The owner gate from the outside: with no account that owns Minecraft: Java Edition in the
-//! launcher, neither `horizon-launcher play` nor the MCP server's play starts the game.
 use std::io::Write;
 use std::path::{Path, PathBuf};
 use std::process::{Command, Output, Stdio};
 
 const REFUSED: &str = "Sign in with a Microsoft account that owns Minecraft: Java Edition to play.";
+const NOT_PREPARED: &str = "is not prepared yet";
 
-/// Fresh homes with one installed (not prepared) version and an offline name, as a player who
-/// played offline before the gate has.
-fn home(name: &str) -> PathBuf {
+fn home(name: &str, accounts: &str) -> PathBuf {
     let root =
         std::env::temp_dir().join(format!("horizon-owner-gate-{name}-{}", std::process::id()));
     let _ = std::fs::remove_dir_all(&root);
     let version = root.join("launcher/versions/v2026.10.27.01");
     std::fs::create_dir_all(&version).unwrap();
     std::fs::write(version.join(".installed"), "").unwrap();
-    std::fs::write(
-        root.join("launcher/accounts.json"),
-        r#"{"accounts":[],"selected":null,"offline":["Builder_1"],"offline_selected":"Builder_1"}"#,
-    )
-    .unwrap();
+    std::fs::write(root.join("launcher/accounts.json"), accounts).unwrap();
     root
 }
 
@@ -44,14 +37,22 @@ fn text(out: &Output) -> String {
 }
 
 #[test]
-fn the_cli_refuses_to_play_without_an_owner() {
-    let root = home("cli");
+fn an_offline_account_is_added_and_played_without_any_account() {
+    let root = home("cli-offline", r#"{"accounts":[],"selected":null}"#);
+    let out = launcher(&root, &["account", "offline", "Builder_1"])
+        .output()
+        .unwrap();
+    let said = text(&out);
+    assert!(out.status.success(), "{said}");
+    assert!(said.contains("plays offline as Builder_1"), "{said}");
+    let accounts = std::fs::read_to_string(root.join("launcher/accounts.json")).unwrap();
+    assert!(accounts.contains("Builder_1"), "{accounts}");
     let out = launcher(&root, &["play"]).output().unwrap();
     let said = text(&out);
     assert!(!out.status.success(), "{said}");
-    assert!(said.contains(REFUSED), "{said}");
-    assert!(said.contains("horizon-launcher account sign-in"), "{said}");
-    // Nothing of the game ran, and the offline name is still there.
+    assert!(said.contains(NOT_PREPARED), "{said}");
+    assert!(!said.contains(REFUSED), "{said}");
+    assert!(!said.contains("account sign-in"), "{said}");
     assert!(!root.join("game/sessions").exists());
     let accounts = std::fs::read_to_string(root.join("launcher/accounts.json")).unwrap();
     assert!(accounts.contains("Builder_1"), "{accounts}");
@@ -59,8 +60,23 @@ fn the_cli_refuses_to_play_without_an_owner() {
 }
 
 #[test]
-fn the_mcp_server_refuses_to_play_without_an_owner() {
-    let root = home("mcp");
+fn a_selected_microsoft_account_with_no_owner_still_meets_the_gate() {
+    let root = home(
+        "cli-gate",
+        r#"{"accounts":[{"uuid":"abc123","name":"Notch"}],"selected":"abc123"}"#,
+    );
+    let out = launcher(&root, &["play"]).output().unwrap();
+    let said = text(&out);
+    assert!(!out.status.success(), "{said}");
+    assert!(said.contains(REFUSED), "{said}");
+    assert!(said.contains("horizon-launcher account sign-in"), "{said}");
+    assert!(!root.join("game/sessions").exists());
+    let _ = std::fs::remove_dir_all(&root);
+}
+
+#[test]
+fn the_mcp_server_plays_an_offline_account_past_the_gate() {
+    let root = home("mcp", r#"{"accounts":[],"selected":null}"#);
     let mut child = launcher(&root, &["mcp"])
         .stdin(Stdio::piped())
         .stdout(Stdio::piped())
@@ -84,6 +100,7 @@ fn the_mcp_server_refuses_to_play_without_an_owner() {
         .expect("a reply to play");
     assert_eq!(reply["result"]["isError"], true, "{reply}");
     let said = reply["result"]["content"][0]["text"].as_str().unwrap();
-    assert!(said.contains(REFUSED), "{said}");
+    assert!(said.contains(NOT_PREPARED), "{said}");
+    assert!(!said.contains(REFUSED), "{said}");
     let _ = std::fs::remove_dir_all(&root);
 }

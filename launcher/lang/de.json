@@ -472,5 +472,7 @@
   "Use an access token…": "Zugriffstoken verwenden…",
   "Make an invitation": "Einladung erstellen",
   "One invitation per friend. With an email Tailscale sends it; without, send them the link. They accept it in their own Tailscale account.": "Eine Einladung pro Freund. Mit E-Mail-Adresse versendet Tailscale sie; ohne schickst du ihnen den Link. Sie nehmen sie in ihrem eigenen Tailscale-Konto an.",
-  "Forget the access token": "Zugriffstoken vergessen"
+  "Forget the access token": "Zugriffstoken vergessen",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Oder spiele offline: ein Offline-Konto braucht keine Anmeldung. Nur Online-Server und das Herunterladen des Spiels von Mojang brauchen sie.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
 }

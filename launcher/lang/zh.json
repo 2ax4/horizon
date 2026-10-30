@@ -472,5 +472,7 @@
   "Use an access token…": "使用访问令牌…",
   "Make an invitation": "生成邀请",
   "One invitation per friend. With an email Tailscale sends it; without, send them the link. They accept it in their own Tailscale account.": "每位好友对应一个邀请。填写邮箱后由 Tailscale 发送；不填则将链接发给对方。好友在自己的 Tailscale 账号中接受邀请。",
-  "Forget the access token": "忘记访问令牌"
+  "Forget the access token": "忘记访问令牌",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "或者离线游玩：离线账户无需登录。只有在线模式服务器和从 Mojang 下载游戏才需要登录。",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未准备。Horizon 可以从你已有的安装准备 Minecraft {version}；登录即可改为从 Mojang 下载。"
 }
