@@ -171,7 +171,6 @@
   "Download and prepare": "Завантажити й підготувати",
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не підготовлено. «Грати» завантажить Minecraft {version} від Mojang для вашого облікового запису й підготує його.",
   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Не підготовлено. Horizon може завантажити Minecraft {version} від Mojang для вашого облікового запису або використати ваше встановлення.",
-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Не підготовлено. Спершу увійдіть з обліковим записом Microsoft, який має Minecraft {version}.",
   "Cancel": "Скасувати",
   "Native mods (experimental)": "Нативні моди (експериментально)",
   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Нативні моди зі сторінки «Моди» компілюються в гру власним Rust лаунчера. Без пісочниці: вони можуть робити все, що можете ви на цьому комп’ютері.",
@@ -192,5 +191,7 @@
   "Keep": "Залишити",
   "Move to Trash": "Перемістити до кошика",
   "Install and turn on native mods": "Встановити й увімкнути нативні моди",
-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Нативні моди компілюються в окрему гру. Встановлення такого мода вмикає нативні моди: потім ви збираєте з ним гру в «Налаштування > Нативні моди». Перше збирання завантажує Rust і може тривати 20–30 хвилин; наступні швидші."
+  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Нативні моди компілюються в окрему гру. Встановлення такого мода вмикає нативні моди: потім ви збираєте з ним гру в «Налаштування > Нативні моди». Перше збирання завантажує Rust і може тривати 20–30 хвилин; наступні швидші.",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Або грайте офлайн: офлайн-акаунту не потрібен вхід. Він потрібен лише мережевим серверам і завантаженню гри від Mojang.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} з вашого встановлення; увійдіть, щоб завантажити його від Mojang натомість."
 }
