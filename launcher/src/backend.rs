@@ -10,6 +10,7 @@ use std::sync::mpsc::Sender;
 use std::sync::{Arc, Mutex};
 
 pub const REPO: &str = "horizon-rust/horizon";
+pub const LAUNCHER_REPO: &str = "2ax4/horizon";
 pub const README_URL: &str = "https://github.com/horizon-rust/horizon/blob/main/launcher/README.md";
 /// The players' page on connecting an AI agent (the website's docs/agents.md).
 pub const AGENT_DOCS_URL: &str = "https://playhorizon.dev/docs/agents";
@@ -584,7 +585,16 @@ pub(crate) fn fetch_small(url: &str) -> Result<Option<Vec<u8>>, String> {
 
 /// The SHA-256 the release's signed checksums give for `asset`, or why it must not be installed.
 fn signed_digest(tag: &str, asset: &str) -> Result<String, String> {
+    digest_on(REPO, tag, asset)
+}
+
+fn launcher_digest(tag: &str, asset: &str) -> Result<String, String> {
+    digest_on(LAUNCHER_REPO, tag, asset)
+}
+
+fn digest_on(repo: &str, tag: &str, asset: &str) -> Result<String, String> {
     crate::signed::digest(
+        repo,
         tag,
         asset,
         &horizon_release_sign::trusted_keys(),
@@ -651,6 +661,7 @@ pub fn install(release: &Release, progress: impl Fn(f32)) -> Result<(), String> 
     let sha256 = match &release.nightly {
         // Signed for the Nightly channel, served under its own GitHub tag.
         Some(published) => crate::signed::nightly_digest(
+            REPO,
             published,
             ASSET.unwrap_or_default(),
             &horizon_release_sign::trusted_keys(),
@@ -2466,13 +2477,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
 pub fn releases_and_updates(
     on_releases: impl FnOnce(Result<Vec<Release>, String>),
 ) -> Result<Updates, String> {
-    releases_and_updates_with(release_list, installed, launcher_releases_in, on_releases)
+    releases_and_updates_with(
+        release_list,
+        installed,
+        launcher_releases_in,
+        launcher_release_list,
+        on_releases,
+    )
+}
+
+fn launcher_release_list() -> Result<serde_json::Value, String> {
+    let url = format!("https://api.github.com/repos/{LAUNCHER_REPO}/releases?per_page=100");
+    get(&url)?.into_json().map_err(|e| e.to_string())
 }
 
 fn releases_and_updates_with(
     load: impl FnOnce() -> Result<serde_json::Value, String>,
     installed: impl FnOnce() -> Vec<String>,
     launchers: impl FnOnce(&serde_json::Value) -> Vec<Release>,
+    fork_load: impl FnOnce() -> Result<serde_json::Value, String>,
     on_releases: impl FnOnce(Result<Vec<Release>, String>),
 ) -> Result<Updates, String> {
     let list = match load() {
@@ -2483,11 +2506,12 @@ fn releases_and_updates_with(
         }
     };
     let releases = game_releases(&list);
+    on_releases(Ok(releases.clone()));
     let horizon = horizon_update(&installable_updates(&releases), &installed());
-    on_releases(Ok(releases));
+    let fork = fork_load().unwrap_or(serde_json::Value::Null);
     Ok(Updates {
         horizon,
-        launcher: launcher_update(&launchers(&list)),
+        launcher: launcher_update(&launchers(&fork)),
     })
 }
 
@@ -2716,7 +2740,7 @@ pub fn self_update(release: &Release, progress: impl Fn(f32)) -> Result<(), Stri
         progress(1.0);
         return Ok(());
     }
-    let sha256 = signed_digest(&release.tag, LAUNCHER_ASSET.unwrap_or_default())?;
+    let sha256 = launcher_digest(&release.tag, LAUNCHER_ASSET.unwrap_or_default())?;
     let work = data_dir().join(".launcher-update");
     let _ = fs::remove_dir_all(&work);
     fs::create_dir_all(&work).map_err(|e| e.to_string())?;

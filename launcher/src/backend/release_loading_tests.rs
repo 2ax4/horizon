@@ -42,33 +42,73 @@ fn baseline(load: impl Fn() -> Result<serde_json::Value, String>) -> (Vec<Releas
     (releases, updates)
 }
 
-fn shared(load: impl FnOnce() -> Result<serde_json::Value, String>) -> (Vec<Release>, Updates) {
+fn shared(
+    load: impl FnOnce() -> Result<serde_json::Value, String> + Copy,
+    fork_load: impl FnOnce() -> Result<serde_json::Value, String>,
+) -> (Vec<Release>, Updates) {
     let mut releases = None;
     let updates = releases_and_updates_with(
         load,
         installed_fixture,
         |list| parse_releases(list, LAUNCHER_ASSET, is_launcher_tag),
+        fork_load,
         |r| releases = Some(r.unwrap()),
     )
     .unwrap();
     (releases.unwrap(), updates)
 }
 
+fn fork_fixture() -> String {
+    serde_json::to_string(&[serde_json::json!({
+        "tag_name": "launcher@98.0.0-offline", "name": "Launcher", "body": "Notes",
+        "assets": [{"name": LAUNCHER_ASSET.unwrap_or("unsupported"),
+            "browser_download_url": "https://example.test/fork-launcher", "size": 6789}]
+    })])
+    .unwrap()
+}
+
 #[test]
-fn one_response_preserves_both_startup_results() {
+fn the_launcher_updates_from_the_fork_only() {
     let text = fixture();
-    let requests = AtomicUsize::new(0);
-    let load = || {
-        requests.fetch_add(1, Ordering::Relaxed);
-        Ok(serde_json::from_str(&text).unwrap())
-    };
-    let old = baseline(load);
-    assert_eq!(requests.swap(0, Ordering::Relaxed), 2);
-    let new = shared(load);
-    assert_eq!(requests.load(Ordering::Relaxed), 1);
+    let mut published = None;
+    let updates = releases_and_updates_with(
+        || Ok(serde_json::from_str(&text).unwrap()),
+        installed_fixture,
+        |list| parse_releases(list, LAUNCHER_ASSET, is_launcher_tag),
+        || Ok(serde_json::from_str(&fork_fixture()).unwrap()),
+        |r| published = Some(r.unwrap()),
+    )
+    .unwrap();
+    assert_eq!(published.unwrap()[0].tag, "v2026.10.14.98");
     assert_eq!(
-        serde_json::to_value(old).unwrap(),
-        serde_json::to_value(new).unwrap()
+        updates.launcher.map(|r| r.tag),
+        Some("launcher@98.0.0-offline".into())
+    );
+}
+
+#[test]
+fn a_fork_tag_newer_than_this_launcher_is_the_update() {
+    let asset = || Some((String::from("https://example.test/fork-launcher"), 1));
+    let release = |tag: &str| Release {
+        tag: tag.into(),
+        name: tag.into(),
+        body: String::new(),
+        date: String::new(),
+        asset: asset(),
+        prerelease: false,
+        nightly: None,
+    };
+    let own = "launcher@0.2.29-offline";
+    assert!(launcher_update_from(&[release("launcher@0.2.29-offline")], own).is_none());
+    assert_eq!(
+        launcher_update_from(&[release("launcher@0.2.30-offline")], own)
+            .unwrap()
+            .tag,
+        "launcher@0.2.30-offline"
+    );
+    assert_eq!(
+        launcher_version("launcher@0.2.30-offline"),
+        Some("0.2.30-offline")
     );
 }
 
@@ -84,6 +124,7 @@ fn errors_reach_releases_and_updates_without_fallback() {
             || Err(error.into()),
             || panic!("no installed scan after failure"),
             |_| panic!("no fallback after failure"),
+            || panic!("no fork lookup after failure"),
             |r| published = Some(r),
         );
         assert_eq!(published.unwrap().unwrap_err(), error);
@@ -92,7 +133,7 @@ fn errors_reach_releases_and_updates_without_fallback() {
 }
 
 #[test]
-fn publish_games_before_older_launcher_fallback() {
+fn publish_games_before_the_fork_launcher_lookup() {
     let events = RefCell::new(Vec::new());
     let result = releases_and_updates_with(
         || Ok(serde_json::json!([{"tag_name": "v2026.10.14", "assets": []}])),
@@ -102,10 +143,10 @@ fn publish_games_before_older_launcher_fallback() {
                 assert_eq!(events.borrow().first(), Some(&"releases"));
                 events.borrow_mut().push("fallback");
                 if url.contains("matching-refs") {
-                    Ok(serde_json::json!([{"ref": "refs/tags/launcher@99.0.0"}]))
+                    Ok(serde_json::json!([{"ref": "refs/tags/launcher@99.0.0-offline"}]))
                 } else {
                     Ok(
-                        serde_json::json!({"tag_name": "launcher@99.0.0", "assets": [{
+                        serde_json::json!({"tag_name": "launcher@99.0.0-offline", "assets": [{
                             "name": LAUNCHER_ASSET.unwrap_or("unsupported"),
                             "browser_download_url": "u", "size": 1
                         }]}),
@@ -113,6 +154,7 @@ fn publish_games_before_older_launcher_fallback() {
                 }
             })
         },
+        || Ok(serde_json::json!([])),
         |r| {
             assert_eq!(r.unwrap()[0].tag, "v2026.10.14");
             events.borrow_mut().push("releases");
@@ -124,17 +166,19 @@ fn publish_games_before_older_launcher_fallback() {
 }
 
 #[test]
-fn failed_launcher_fallback_keeps_game_result_and_checks_stay_fresh() {
+fn failed_fork_lookup_keeps_game_result_and_no_launcher_update() {
     let requests = AtomicUsize::new(0);
     for day in [14, 15] {
         let mut published = None;
         let updates = releases_and_updates_with(
             || {
                 requests.fetch_add(1, Ordering::Relaxed);
-                Ok(serde_json::json!([{"tag_name": format!("v2026.10.{day}")}]))
+                Ok(serde_json::json!([{"tag_name": format!("v2026.10.{day}")}
+                ]))
             },
             Vec::new,
             |list| launcher_releases_in_with(list, |_| Err("offline".into())),
+            || Err("offline".into()),
             |r| published = Some(r.unwrap()),
         )
         .unwrap();
@@ -157,7 +201,7 @@ fn benchmark_shared_startup_response() {
         serde_json::from_str(black_box(&text)).map_err(|e| e.to_string())
     };
     let old = || baseline(|| load(Duration::ZERO));
-    let new = || shared(|| load(Duration::ZERO));
+    let new = || shared(|| load(Duration::ZERO), || load(Duration::ZERO));
     assert_eq!(
         serde_json::to_value(old()).unwrap(),
         serde_json::to_value(new()).unwrap()
@@ -187,7 +231,12 @@ fn benchmark_shared_startup_response() {
     let threaded_new = || {
         std::thread::scope(|scope| {
             scope
-                .spawn(|| shared(|| load(Duration::from_millis(5))))
+                .spawn(|| {
+                    shared(
+                        || load(Duration::from_millis(5)),
+                        || load(Duration::from_millis(5)),
+                    )
+                })
                 .join()
                 .unwrap()
         })
@@ -227,7 +276,7 @@ fn benchmark_shared_startup_response() {
             measure(threaded_new, &requests),
         ),
     ] {
-        assert_eq!((before.1, after.1), (402, 201));
+        assert_eq!((before.1, after.1), (402, 402));
         println!(
             "{label}: before={} after={} ratio={:.3}x requests={}->{}",
             before.0,
