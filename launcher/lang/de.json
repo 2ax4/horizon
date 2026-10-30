@@ -171,7 +171,6 @@
   "Download and prepare": "Herunterladen und vorbereiten",
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nicht vorbereitet. „Spielen“ lädt Minecraft {version} von Mojang für dein Konto herunter und bereitet es vor.",
   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Nicht vorbereitet. Horizon kann Minecraft {version} von Mojang für dein Konto herunterladen oder deine eigene Installation verwenden.",
-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Nicht vorbereitet. Melde dich zuerst mit dem Microsoft-Konto an, das Minecraft {version} besitzt.",
   "Cancel": "Abbrechen",
   "Native mods (experimental)": "Native Mods (experimentell)",
   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Native Mods von der Mods-Seite werden mit dem launcher-eigenen Rust in das Spiel kompiliert. Nicht in einer Sandbox: Sie können alles tun, was du auf diesem Computer tun kannst.",
@@ -192,5 +191,7 @@
   "Keep": "Behalten",
   "Move to Trash": "In den Papierkorb",
   "Install and turn on native mods": "Installieren und native Mods einschalten",
-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Native Mods werden in ein eigenes Spiel kompiliert. Wenn du eine installierst, werden native Mods eingeschaltet: Danach baust du das Spiel damit unter Einstellungen > Native Mods. Der erste Build lädt Rust herunter und kann 20 bis 30 Minuten dauern; spätere Builds sind schneller."
+  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Native Mods werden in ein eigenes Spiel kompiliert. Wenn du eine installierst, werden native Mods eingeschaltet: Danach baust du das Spiel damit unter Einstellungen > Native Mods. Der erste Build lädt Rust herunter und kann 20 bis 30 Minuten dauern; spätere Builds sind schneller.",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Oder spiele offline: ein Offline-Konto braucht keine Anmeldung. Nur Online-Server und das Herunterladen des Spiels von Mojang brauchen sie.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
 }

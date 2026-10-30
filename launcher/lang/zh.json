@@ -168,7 +168,6 @@
   "From my install": "使用已有安装",
   "Download and prepare": "下载并准备",
   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "未准备。Horizon 可以为你的账户从 Mojang 下载 Minecraft {version}，也可以使用你已有的安装。",
-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "未准备。请先登录拥有 Minecraft {version} 的 Microsoft 账户。",
   "Cancel": "取消",
   "None needed: Horizon downloads Minecraft from Mojang for your account.": "无需指定文件夹：Horizon 会为你的账户从 Mojang 下载 Minecraft。",
   "Sponsor": "赞助",
@@ -192,5 +191,7 @@
   "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "要将 {name} 连同其世界和设置一起移到回收站吗？你之后可以从那里恢复。",
   "Install and turn on native mods": "安装并启用原生模组",
   "Minecraft {version} (Java Edition). Play downloads it from Mojang for your account the first time, with the Java it needs.": "Minecraft {version}（Java 版）。首次点击“开始游戏”时，会用你的账户从 Mojang 下载游戏及其所需的 Java。",
-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "原生模组会编译成一个独立的游戏。安装原生模组会启用“原生模组”：之后你需要在“设置 > 原生模组”中构建包含它的游戏。首次构建会下载 Rust，可能需要 20 到 30 分钟；之后的构建会更快。"
+  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "原生模组会编译成一个独立的游戏。安装原生模组会启用“原生模组”：之后你需要在“设置 > 原生模组”中构建包含它的游戏。首次构建会下载 Rust，可能需要 20 到 30 分钟；之后的构建会更快。",
+  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "或者离线游玩：离线账户无需登录。只有在线模式服务器和从 Mojang 下载游戏才需要登录。",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未准备。Horizon 可以从你已有的安装准备 Minecraft {version}；登录即可改为从 Mojang 下载。"
 }
