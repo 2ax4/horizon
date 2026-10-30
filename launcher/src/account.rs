@@ -1590,7 +1590,7 @@ fn launch_as(
         accounts.offline.clone(),
     );
     let pass = accounts
-        .play_as(store, who.clone())
+        .play_as(who.clone())
         .and_then(|()| launch(ep, client_id, store, accounts).map_err(|e| e.to_string()));
     (
         accounts.selected,

@@ -3,3 +3,4 @@
 # The private keys exist only as the RELEASE_SIGNING_KEY secret(s) of the repository's `release` environment.
 # Changing this file needs Ludovic's review (.github/CODEOWNERS).
 MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
+DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
