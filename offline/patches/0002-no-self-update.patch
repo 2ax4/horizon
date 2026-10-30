@@ -1,0 +1,27 @@
+From 3d2baf7151aa48215fab44cf3d370d625db6a739 Mon Sep 17 00:00:00 2001
+From: 2ax4 <2ax4@users.noreply.github.com>
+Date: Fri, 30 Oct 2026 16:56:01 +0000
+Subject: [PATCH] Offline build: never replace the launcher itself
+
+---
+ launcher/src/backend.rs | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
+index bba1a4b5c..0990d8a05 100644
+--- a/launcher/src/backend.rs
++++ b/launcher/src/backend.rs
+@@ -2461,9 +2461,8 @@ pub fn exe_path() -> &'static Path {
+     EXE.get_or_init(|| std::env::current_exe().unwrap_or_else(|_| PathBuf::from(LAUNCHER_BINARY)))
+ }
+ 
+-/// Development builds and `HORIZON_LAUNCHER_NO_SELF_UPDATE` never replace themselves.
+ pub fn self_update_allowed() -> bool {
+-    !cfg!(debug_assertions) && std::env::var_os("HORIZON_LAUNCHER_NO_SELF_UPDATE").is_none()
++    false
+ }
+ 
+ /// The version in `horizon-launcher --version`'s output (`horizon-launcher 0.1.5`).
+-- 
+2.47.3
+

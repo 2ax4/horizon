@@ -1,0 +1,111 @@
+name: launcher-release
+on:
+  push:
+    tags: ['launcher-v*']
+  workflow_call:
+    inputs:
+      ref:
+        description: 'Build alinacak git ref (bos ise tetikleyen ref)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+env:
+  HORIZON_TELEMETRY_URL: "off"
+
+jobs:
+  build:
+    name: build ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: windows
+            os: windows-latest
+            asset: horizon-launcher-windows-x64.zip
+            binary: horizon-launcher.exe
+            rustflags: -C target-feature=+crt-static
+          - name: linux
+            os: ubuntu-latest
+            asset: horizon-launcher-linux-x86_64.tar.gz
+            binary: horizon-launcher
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    env:
+      RUSTFLAGS: ${{ matrix.rustflags }}
+    defaults:
+      run:
+        working-directory: launcher
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: launcher
+          shared-key: launcher-${{ matrix.name }}
+
+      - name: GPUI'in baglandigi Linux kutuphaneleri
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxkbcommon-x11-dev libwayland-dev libx11-xcb-dev libfontconfig-dev libvulkan-dev libasound2-dev
+
+      - name: Testler
+        run: cargo test --release --locked
+
+      - name: Derle
+        env:
+          HORIZON_LAUNCHER_TAG: launcher@999.0.0
+        run: cargo build --release --locked
+
+      - name: Surum kontrolu
+        run: ./target/release/${{ matrix.binary }} --version
+
+      - name: Paketle
+        run: |
+          rm -rf dist out && mkdir -p dist out
+          cp target/release/${{ matrix.binary }} dist/
+          case "${{ matrix.asset }}" in
+            *.zip) (cd dist && 7z a ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
+            *.tar.gz) (cd dist && tar czf ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
+          esac
+          ls -l out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset }}
+          path: launcher/out/*
+          retention-days: 3
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RELEASE_TAG: ${{ inputs.ref || github.ref_name }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - name: Release yayinla
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$RELEASE_TAG" \
+            --title "Horizon Launcher ${RELEASE_TAG#launcher-v} (offline accounts)" \
+            --notes "Microsoft hesabi gerektirmeyen offline hesap destegi icerir.
+          - Hesap ekleme: Settings > Offline name, ya da: horizon-launcher account offline ISIM
+          - Windows: horizon-launcher-windows-x64.zip | Linux: horizon-launcher-linux-x86_64.tar.gz
+          - Bu build kendi kendini guncellemez; yeni surumler repodaki Releases sayfasinda otomatik yayinlanir.
+          - Kalite kapisi: cargo test (lib + bin + owner_gate) CI uzerinde gecildi." \
+            dist/*

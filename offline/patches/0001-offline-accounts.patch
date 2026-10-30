@@ -1,0 +1,1089 @@
+From dd217745ba800aa174719704019a5330e2abb4a7 Mon Sep 17 00:00:00 2001
+From: 2ax4 <2ax4@users.noreply.github.com>
+Date: Fri, 30 Oct 2026 15:47:31 +0300
+Subject: [PATCH] Offline accounts: add and play with no Microsoft account
+
+---
+ docs/launcher-commands.md     |  6 ---
+ launcher/lang/de.json         |  5 +-
+ launcher/lang/es.json         |  5 +-
+ launcher/lang/fr.json         |  5 +-
+ launcher/lang/pl.json         |  5 +-
+ launcher/lang/ru.json         |  5 +-
+ launcher/lang/uk.json         |  5 +-
+ launcher/lang/zh.json         |  5 +-
+ launcher/src/account.rs       | 58 +++------------------
+ launcher/src/account/tests.rs | 83 ++++++++++---------------------
+ launcher/src/backend.rs       | 20 ++------
+ launcher/src/cli.rs           | 32 ++++++------
+ launcher/src/dev_options.rs   | 62 -----------------------
+ launcher/src/main.rs          | 94 +++++++++++++----------------------
+ launcher/src/mcp.rs           |  1 -
+ launcher/src/owner_page.rs    | 46 +++++++++--------
+ launcher/src/switch_page.rs   |  4 +-
+ launcher/tests/owner_gate.rs  | 53 +++++++++++++-------
+ 18 files changed, 173 insertions(+), 321 deletions(-)
+ delete mode 100644 launcher/src/dev_options.rs
+
+diff --git a/docs/launcher-commands.md b/docs/launcher-commands.md
+index 50b83f3f8..15ccab853 100644
+--- a/docs/launcher-commands.md
++++ b/docs/launcher-commands.md
+@@ -111,8 +111,6 @@ MCP: `account_list`.
+ 
+ ## `horizon-launcher account sign-in`
+ 
+-Sign in with a Microsoft account in your browser (device code). Play needs one that owns Minecraft: Java Edition.
+-
+     horizon-launcher account sign-in
+ 
+ MCP: `account_sign_in`.
+@@ -129,8 +127,6 @@ MCP: `account_sign_out`, needs `confirm: true`.
+ 
+ ## `horizon-launcher account select`
+ 
+-Play as this account, or as one of your offline names.
+-
+     horizon-launcher account select <WHO>
+ 
+ - `WHO`
+@@ -139,8 +135,6 @@ MCP: `account_select`.
+ 
+ ## `horizon-launcher account offline`
+ 
+-Play offline (LAN, offline-mode servers) beside a signed-in account that owns the game: as NAME (kept to switch back to; 3 to 16 letters, digits or _), or as the name the game made up.
+-
+     horizon-launcher account offline [NAME]
+ 
+ - `NAME`
+diff --git a/launcher/lang/de.json b/launcher/lang/de.json
+index c31dd4814..dd85cb3a7 100644
+--- a/launcher/lang/de.json
++++ b/launcher/lang/de.json
+@@ -171,7 +171,6 @@
+   "Download and prepare": "Herunterladen und vorbereiten",
+   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nicht vorbereitet. „Spielen“ lädt Minecraft {version} von Mojang für dein Konto herunter und bereitet es vor.",
+   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Nicht vorbereitet. Horizon kann Minecraft {version} von Mojang für dein Konto herunterladen oder deine eigene Installation verwenden.",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Nicht vorbereitet. Melde dich zuerst mit dem Microsoft-Konto an, das Minecraft {version} besitzt.",
+   "Cancel": "Abbrechen",
+   "Native mods (experimental)": "Native Mods (experimentell)",
+   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Native Mods von der Mods-Seite werden mit dem launcher-eigenen Rust in das Spiel kompiliert. Nicht in einer Sandbox: Sie können alles tun, was du auf diesem Computer tun kannst.",
+@@ -192,5 +191,7 @@
+   "Keep": "Behalten",
+   "Move to Trash": "In den Papierkorb",
+   "Install and turn on native mods": "Installieren und native Mods einschalten",
+-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Native Mods werden in ein eigenes Spiel kompiliert. Wenn du eine installierst, werden native Mods eingeschaltet: Danach baust du das Spiel damit unter Einstellungen > Native Mods. Der erste Build lädt Rust herunter und kann 20 bis 30 Minuten dauern; spätere Builds sind schneller."
++  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Native Mods werden in ein eigenes Spiel kompiliert. Wenn du eine installierst, werden native Mods eingeschaltet: Danach baust du das Spiel damit unter Einstellungen > Native Mods. Der erste Build lädt Rust herunter und kann 20 bis 30 Minuten dauern; spätere Builds sind schneller.",
++  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Oder spiele offline: ein Offline-Konto braucht keine Anmeldung. Nur Online-Server und das Herunterladen des Spiels von Mojang brauchen sie.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
+ }
+diff --git a/launcher/lang/es.json b/launcher/lang/es.json
+index 4c350b392..6e3739687 100644
+--- a/launcher/lang/es.json
++++ b/launcher/lang/es.json
+@@ -171,7 +171,6 @@
+   "Download and prepare": "Descargar y preparar",
+   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Sin preparar. Jugar descarga Minecraft {version} de Mojang para tu cuenta y lo prepara.",
+   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "No preparado. Horizon puede descargar Minecraft {version} desde Mojang para tu cuenta, o usar tu propia instalación.",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "No preparado. Inicia sesión primero con la cuenta de Microsoft que posea Minecraft {version}.",
+   "Cancel": "Cancelar",
+   "Native mods (experimental)": "Mods nativos (experimental)",
+   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Los mods nativos de la página Mods se compilan en el juego con el compilador Rust del propio lanzador. No están aislados: pueden hacer cualquier cosa que tú puedas hacer en este ordenador.",
+@@ -192,5 +191,7 @@
+   "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "¿Mover {name} a la papelera, con sus mundos y ajustes? Podrás recuperarlo desde allí.",
+   "Install and turn on native mods": "Instalar y activar los mods nativos",
+   "Minecraft {version} (Java Edition). Play downloads it from Mojang for your account the first time, with the Java it needs.": "Minecraft {version} (Java Edition). La primera vez, Jugar lo descarga de Mojang para tu cuenta, junto con el Java que necesita.",
+-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Los mods nativos se compilan en un juego propio. Al instalar uno se activan los mods nativos: después compilas el juego con él en Ajustes > Mods nativos. La primera compilación descarga Rust y puede tardar de 20 a 30 minutos; las siguientes son más rápidas."
++  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Los mods nativos se compilan en un juego propio. Al instalar uno se activan los mods nativos: después compilas el juego con él en Ajustes > Mods nativos. La primera compilación descarga Rust y puede tardar de 20 a 30 minutos; las siguientes son más rápidas.",
++  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "O juega sin conexión: una cuenta sin conexión no necesita inicio de sesión. Solo los servidores en línea y la descarga del juego desde Mojang lo necesitan.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "No preparado. Horizon puede preparar Minecraft {version} desde tu propia instalación; inicia sesión para descargarlo de Mojang en su lugar."
+ }
+diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
+index 9b69bd842..e83784a9c 100644
+--- a/launcher/lang/fr.json
++++ b/launcher/lang/fr.json
+@@ -171,7 +171,6 @@
+   "Download and prepare": "Télécharger et préparer",
+   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Pas préparé. Jouer télécharge Minecraft {version} depuis Mojang pour votre compte et le prépare.",
+   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Pas préparé. Horizon peut télécharger Minecraft {version} depuis Mojang pour votre compte, ou utiliser votre propre installation.",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Pas préparé. Connectez-vous d'abord avec le compte Microsoft qui possède Minecraft {version}.",
+   "Cancel": "Annuler",
+   "Delete old versions automatically": "Supprimer automatiquement les anciennes versions",
+   "Keeps the {count} newest, the one in use and the ones your instances use. Deleted versions install again from the Versions page.": "Garde les {count} plus récentes, celle utilisée et celles de vos instances. Une version supprimée se réinstalle depuis la page Versions.",
+@@ -192,5 +191,7 @@
+   "Delete…": "Supprimer…",
+   "Keep": "Garder",
+   "Move to Trash": "Mettre à la corbeille",
+-  "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "Mettre {name} à la corbeille, avec ses mondes et ses réglages ? Vous pourrez l'y récupérer."
++  "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "Mettre {name} à la corbeille, avec ses mondes et ses réglages ? Vous pourrez l'y récupérer.",
++  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Ou jouez hors ligne : un compte hors ligne n'a besoin d'aucune connexion. Seuls les serveurs en ligne et le téléchargement du jeu depuis Mojang en ont besoin.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Pas préparé. Horizon peut préparer Minecraft {version} depuis votre propre installation ; connectez-vous pour le télécharger depuis Mojang à la place."
+ }
+diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
+index 0798c0cf5..92a10b6ed 100644
+--- a/launcher/lang/pl.json
++++ b/launcher/lang/pl.json
+@@ -180,7 +180,6 @@
+   "Download and prepare": "Pobierz i przygotuj",
+   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nieprzygotowane. Przycisk Graj pobierze Minecrafta {version} z Mojang dla twojego konta i go przygotuje.",
+   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Nieprzygotowane. Horizon może pobrać Minecrafta {version} z Mojang dla twojego konta lub użyć twojej instalacji.",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Nieprzygotowane. Najpierw zaloguj się na konto Microsoft posiadające Minecrafta {version}.",
+   "Keeps the {count} newest, the one in use and the ones your instances use. Deleted versions install again from the Versions page.": "Zachowuje {count} najnowszych wersji, używaną wersję oraz wersje używane przez instancje. Usunięte wersje można ponownie zainstalować na stronie Wersje.",
+   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Mody natywne ze strony Mody są kompilowane do gry za pomocą Rusta launchera. Nie działają w izolacji: mogą zrobić wszystko, co ty na tym komputerze.",
+   "{version} plays in this instance.": "Ta instancja używa wersji {version}.",
+@@ -192,5 +191,7 @@
+   "Minecraft {version} (Java Edition). Play downloads it from Mojang for your account the first time, with the Java it needs.": "Minecraft {version} (Java Edition). Za pierwszym razem Graj pobiera go od Mojang dla Twojego konta, razem z potrzebną Javą.",
+   "Move to Trash": "Przenieś do kosza",
+   "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "Przenieść {name} do kosza razem z jego światami i ustawieniami? Możesz go stamtąd przywrócić.",
+-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Mody natywne kompilują się we własną wersję gry. Zainstalowanie jednego włącza mody natywne: potem budujesz z nim grę w Ustawienia > Mody natywne. Pierwsza kompilacja pobiera Rust i może potrwać od 20 do 30 minut; kolejne są szybsze."
++  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Mody natywne kompilują się we własną wersję gry. Zainstalowanie jednego włącza mody natywne: potem budujesz z nim grę w Ustawienia > Mody natywne. Pierwsza kompilacja pobiera Rust i może potrwać od 20 do 30 minut; kolejne są szybsze.",
++  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "A albo graj offline: konto offline nie wymaga logowania. Wymagają go tylko serwery online i pobieranie gry z Mojang.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nieprzygotowane. Horizon może przygotować Minecrafta {version} z twojej instalacji; zaloguj się, aby pobrać go z Mojang zamiast tego."
+ }
+diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
+index 5b1986d52..7c94f8d1d 100644
+--- a/launcher/lang/ru.json
++++ b/launcher/lang/ru.json
+@@ -171,7 +171,6 @@
+   "Download and prepare": "Скачать и подготовить",
+   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не подготовлено. «Играть» скачает Minecraft {version} у Mojang для вашего аккаунта и подготовит его.",
+   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Не подготовлено. Horizon может скачать Minecraft {version} у Mojang для вашего аккаунта или взять вашу установку.",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Не подготовлено. Сначала войдите в аккаунт Microsoft, у которого есть Minecraft {version}.",
+   "Cancel": "Отмена",
+   "Delete old versions automatically": "Автоматически удалять старые версии",
+   "Keeps the {count} newest, the one in use and the ones your instances use. Deleted versions install again from the Versions page.": "Оставляет {count} самых новых, используемую и те, что нужны вашим сборкам. Удалённую версию можно снова установить на странице «Версии».",
+@@ -192,5 +191,7 @@
+   "Delete…": "Удалить…",
+   "Keep": "Оставить",
+   "Move to Trash": "В корзину",
+-  "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "Переместить {name} в корзину вместе с мирами и настройками? Оттуда его можно вернуть."
++  "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "Переместить {name} в корзину вместе с мирами и настройками? Оттуда его можно вернуть.",
++  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Или играйте офлайн: офлайн-аккаунту не нужен вход. Он нужен только сетевым серверам и загрузке игры от Mojang.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей установки; войдите, чтобы скачать его у Mojang вместо этого."
+ }
+diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
+index cf4b3497d..ccc541f8c 100644
+--- a/launcher/lang/uk.json
++++ b/launcher/lang/uk.json
+@@ -171,7 +171,6 @@
+   "Download and prepare": "Завантажити й підготувати",
+   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не підготовлено. «Грати» завантажить Minecraft {version} від Mojang для вашого облікового запису й підготує його.",
+   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Не підготовлено. Horizon може завантажити Minecraft {version} від Mojang для вашого облікового запису або використати ваше встановлення.",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Не підготовлено. Спершу увійдіть з обліковим записом Microsoft, який має Minecraft {version}.",
+   "Cancel": "Скасувати",
+   "Native mods (experimental)": "Нативні моди (експериментально)",
+   "Native mods from the Mods page compile into the game with the launcher's own Rust. Not sandboxed: they can do anything you can on this computer.": "Нативні моди зі сторінки «Моди» компілюються в гру власним Rust лаунчера. Без пісочниці: вони можуть робити все, що можете ви на цьому комп’ютері.",
+@@ -192,5 +191,7 @@
+   "Keep": "Залишити",
+   "Move to Trash": "Перемістити до кошика",
+   "Install and turn on native mods": "Встановити й увімкнути нативні моди",
+-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Нативні моди компілюються в окрему гру. Встановлення такого мода вмикає нативні моди: потім ви збираєте з ним гру в «Налаштування > Нативні моди». Перше збирання завантажує Rust і може тривати 20–30 хвилин; наступні швидші."
++  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "Нативні моди компілюються в окрему гру. Встановлення такого мода вмикає нативні моди: потім ви збираєте з ним гру в «Налаштування > Нативні моди». Перше збирання завантажує Rust і може тривати 20–30 хвилин; наступні швидші.",
++  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "Або грайте офлайн: офлайн-акаунту не потрібен вхід. Він потрібен лише мережевим серверам і завантаженню гри від Mojang.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} з вашого встановлення; увійдіть, щоб завантажити його від Mojang натомість."
+ }
+diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
+index d0bc4fbbf..da5cbd629 100644
+--- a/launcher/lang/zh.json
++++ b/launcher/lang/zh.json
+@@ -168,7 +168,6 @@
+   "From my install": "使用已有安装",
+   "Download and prepare": "下载并准备",
+   "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "未准备。Horizon 可以为你的账户从 Mojang 下载 Minecraft {version}，也可以使用你已有的安装。",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "未准备。请先登录拥有 Minecraft {version} 的 Microsoft 账户。",
+   "Cancel": "取消",
+   "None needed: Horizon downloads Minecraft from Mojang for your account.": "无需指定文件夹：Horizon 会为你的账户从 Mojang 下载 Minecraft。",
+   "Sponsor": "赞助",
+@@ -192,5 +191,7 @@
+   "Move {name} to the Trash, with its worlds and settings? You can get it back from there.": "要将 {name} 连同其世界和设置一起移到回收站吗？你之后可以从那里恢复。",
+   "Install and turn on native mods": "安装并启用原生模组",
+   "Minecraft {version} (Java Edition). Play downloads it from Mojang for your account the first time, with the Java it needs.": "Minecraft {version}（Java 版）。首次点击“开始游戏”时，会用你的账户从 Mojang 下载游戏及其所需的 Java。",
+-  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "原生模组会编译成一个独立的游戏。安装原生模组会启用“原生模组”：之后你需要在“设置 > 原生模组”中构建包含它的游戏。首次构建会下载 Rust，可能需要 20 到 30 分钟；之后的构建会更快。"
++  "Native mods compile into a game of their own. Installing one turns Native mods on: you then build the game with it in Settings > Native mods. The first build downloads Rust and can take 20 to 30 minutes; later builds are faster.": "原生模组会编译成一个独立的游戏。安装原生模组会启用“原生模组”：之后你需要在“设置 > 原生模组”中构建包含它的游戏。首次构建会下载 Rust，可能需要 20 到 30 分钟；之后的构建会更快。",
++  "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.": "或者离线游玩：离线账户无需登录。只有在线模式服务器和从 Mojang 下载游戏才需要登录。",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未准备。Horizon 可以从你已有的安装准备 Minecraft {version}；登录即可改为从 Mojang 下载。"
+ }
+diff --git a/launcher/src/account.rs b/launcher/src/account.rs
+index 8c0d55888..6e70caaa7 100644
+--- a/launcher/src/account.rs
++++ b/launcher/src/account.rs
+@@ -5,8 +5,6 @@
+ //! reads once (`--session-file`), never on its command line. Tokens never reach logs, errors or
+ //! output.
+ //!
+-//! The owner gate ([`launch`]): the launcher starts the game only while an account in it owns
+-//! Minecraft: Java Edition, as other launchers do. Offline names play behind such an account.
+ //! The game binary itself, its harnesses and the servers don't go through the launcher's gate.
+ //!
+ //! The Azure app (client ID) is Horizon's own and is configuration: `HORIZON_MSA_CLIENT_ID` at
+@@ -841,9 +839,6 @@ pub enum Player {
+     GameName,
+ }
+ 
+-const OFFLINE_NEEDS_OWNER: &str =
+-    "Offline names need a Microsoft account that owns Minecraft: Java Edition in the launcher.";
+-
+ /// The secrets an account keeps in `store`, if it still has them there.
+ fn secrets_in(store: &dyn SecretStore, uuid: &str) -> Option<Secrets> {
+     store
+@@ -907,7 +902,6 @@ impl Accounts {
+         Ok(())
+     }
+     /// Whether an account here owned the game at its last check (the keychain's answer, no
+-    /// request): what Play and offline names need.
+     pub fn has_owner(&self, store: &dyn SecretStore) -> bool {
+         self.accounts
+             .iter()
+@@ -923,21 +917,7 @@ impl Accounts {
+         }
+     }
+ 
+-    /// Plays as `who`: an account, an offline name (kept, only beside an account that owns the
+-    /// game), or the game's own name.
+-    pub fn play_as(&mut self, store: &dyn SecretStore, who: Player) -> Result<(), String> {
+-        self.play_as_with(store, who, false)
+-    }
+-
+-    /// [`Self::play_as`], where `offline_without_owner` (the window's hidden developer option,
+-    /// `backend::Settings::dev_offline`) lets an offline name play without an account that owns
+-    /// the game.
+-    pub fn play_as_with(
+-        &mut self,
+-        store: &dyn SecretStore,
+-        who: Player,
+-        offline_without_owner: bool,
+-    ) -> Result<(), String> {
++    pub fn play_as(&mut self, who: Player) -> Result<(), String> {
+         match who {
+             Player::Microsoft(uuid) => {
+                 if !self.accounts.iter().any(|a| a.uuid == uuid) {
+@@ -946,9 +926,6 @@ impl Accounts {
+                 self.selected = Some(uuid);
+             }
+             Player::Offline(name) => {
+-                if !offline_without_owner && !self.has_owner(store) {
+-                    return Err(OFFLINE_NEEDS_OWNER.into());
+-                }
+                 let name = self.add_offline(&name)?;
+                 self.selected = None;
+                 self.offline_selected = Some(name);
+@@ -1027,8 +1004,6 @@ impl Accounts {
+         }
+     }
+ 
+-    /// Sign out: the secrets leave the keychain, the account the list. Offline names stay, but
+-    /// play only once an account that owns the game is back.
+     pub fn remove(&mut self, store: &dyn SecretStore, uuid: &str) -> Result<(), String> {
+         store.delete(uuid)?;
+         self.accounts.retain(|a| a.uuid != uuid);
+@@ -1144,23 +1119,6 @@ pub fn launch(
+     }
+ }
+ 
+-/// The owner gate before the game starts. With the window's hidden developer option
+-/// (`backend::Settings::dev_offline`, `offline_without_owner`) no owner is no refusal: the game
+-/// starts offline, without a session and without an `owner`. Downloads never come through here:
+-/// `backend::download_for_owner` asks [`launch`] itself, so the option never downloads the game.
+-pub fn launch_for_game(
+-    ep: &Endpoints,
+-    client_id: Option<&str>,
+-    store: &dyn SecretStore,
+-    accounts: &mut Accounts,
+-    offline_without_owner: bool,
+-) -> Result<Launch, NoOwner> {
+-    match launch(ep, client_id, store, accounts) {
+-        Err(NoOwner) if offline_without_owner => Ok(Launch::default()),
+-        pass => pass,
+-    }
+-}
+-
+ /// Write the session for the game, readable by this user only, in a fresh file it deletes
+ /// when it reads it.
+ pub fn write_session_file(
+@@ -1253,20 +1211,16 @@ impl SignIn {
+     }
+ }
+ 
+-/// The owner gate for the game about to start, then the selected account's session in a file
+-/// for it: the file (none: offline) and why the account plays offline this time, if it does.
+-/// `offline_without_owner`: see [`launch_for_game`].
+-pub fn session_for_game(
+-    game_home: &Path,
+-    offline_without_owner: bool,
+-) -> Result<(Option<PathBuf>, Option<String>), NoOwner> {
++pub fn session_for_game(game_home: &Path) -> Result<(Option<PathBuf>, Option<String>), NoOwner> {
+     let mut accounts = Accounts::load();
+-    let pass = launch_for_game(
++    if accounts.selected.is_none() {
++        return Ok((None, None));
++    }
++    let pass = launch(
+         &Endpoints::live(),
+         client_id().as_deref(),
+         store(),
+         &mut accounts,
+-        offline_without_owner,
+     )?;
+     let _ = accounts.save();
+     let Some((account, secrets)) = pass.session else {
+diff --git a/launcher/src/account/tests.rs b/launcher/src/account/tests.rs
+index bb4f7bd8b..b6affcd30 100644
+--- a/launcher/src/account/tests.rs
++++ b/launcher/src/account/tests.rs
+@@ -509,76 +509,48 @@ fn any_owner_opens_the_gate_and_the_one_who_plays_brings_the_session() {
+     let pass = launch(&ep, Some("test-client"), &store, &mut accounts).unwrap();
+     assert!(pass.session.is_none() && pass.offline.is_none());
+     assert_eq!(m.lock().unwrap().log.len(), 2);
+-    // No account at all.
+     assert!(launch(&ep, Some("test-client"), &store, &mut Accounts::default()).is_err());
+ }
+ 
+ #[test]
+-fn offline_names_play_only_beside_an_owner() {
++fn offline_accounts_play_without_an_owner() {
+     let store = MemoryStore::default();
+     let mut accounts = Accounts::default();
+-    let refused = accounts.play_as(&store, Player::Offline("Builder_1".into()));
+-    assert_eq!(refused.unwrap_err(), OFFLINE_NEEDS_OWNER);
+-    assert!(accounts.offline.is_empty());
+-    let mut accounts = signed_in(&store, &secrets("mc-token", true));
+     accounts
+-        .play_as(&store, Player::Offline("Builder_1".into()))
++        .play_as(Player::Offline("Builder_1".into()))
+         .unwrap();
+-    // Signing the last owner out keeps the name, which no longer plays.
+-    accounts.remove(&store, UUID).unwrap();
+-    assert_eq!(accounts.offline, ["Builder_1"]);
+     assert_eq!(accounts.player(), Player::Offline("Builder_1".into()));
++    assert_eq!(accounts.name_arg(), Some("Builder_1"));
+     assert!(!accounts.has_owner(&store));
+-    let (_, ep) = mock(|_| {});
++    let (m, ep) = mock(|m| m.owns_game = false);
+     assert!(launch(&ep, Some("test-client"), &store, &mut accounts).is_err());
+-    assert!(accounts
+-        .play_as(&store, Player::Offline("Builder_2".into()))
+-        .is_err());
++    assert!(
++        m.lock().unwrap().log.is_empty(),
++        "no request for an offline player"
++    );
++    accounts
++        .play_as(Player::Offline("builder_2".into()))
++        .unwrap();
++    assert_eq!(accounts.offline, ["Builder_1", "builder_2"]);
++    accounts.play_as(Player::GameName).unwrap();
++    assert_eq!(accounts.player(), Player::GameName);
+ }
+ 
+ #[test]
+-fn the_developer_option_off_is_the_owner_gate() {
++fn signing_the_last_owner_out_leaves_offline_accounts_playing() {
+     let store = MemoryStore::default();
+-    let mut accounts = Accounts::default();
+-    let refused = accounts.play_as_with(&store, Player::Offline("Builder_1".into()), false);
+-    assert_eq!(refused.unwrap_err(), OFFLINE_NEEDS_OWNER);
+-    assert_eq!(accounts, Accounts::default());
+-    let (_, ep) = mock(|m| m.owns_game = false);
+-    let refused = launch_for_game(&ep, Some("test-client"), &store, &mut accounts, false);
+-    assert_eq!(refused.unwrap_err(), NoOwner);
+     let mut accounts = signed_in(&store, &secrets("mc-token", true));
+-    let refused = launch_for_game(&ep, Some("test-client"), &store, &mut accounts, false);
+-    assert_eq!(refused.unwrap_err(), NoOwner);
+-}
+-
+-#[test]
+-fn the_developer_option_plays_offline_names_without_an_owner() {
+-    let store = MemoryStore::default();
+-    let mut accounts = Accounts::default();
+     accounts
+-        .play_as_with(&store, Player::Offline("Builder_1".into()), true)
++        .play_as(Player::Offline("Builder_1".into()))
+         .unwrap();
++    accounts.remove(&store, UUID).unwrap();
++    assert_eq!(accounts.offline, ["Builder_1"]);
+     assert_eq!(accounts.player(), Player::Offline("Builder_1".into()));
+-    assert_eq!(accounts.name_arg(), Some("Builder_1"));
+-    // The game starts offline: no request, no session, and no owner to download the game for.
+-    let (m, ep) = mock(|_| {});
+-    let pass = launch_for_game(&ep, Some("test-client"), &store, &mut accounts, true).unwrap();
+-    assert!(pass.session.is_none() && pass.owner.is_none() && pass.offline.is_none());
+-    assert!(m.lock().unwrap().log.is_empty());
+-    // Beside an account the services say doesn't own the game: the same, still no owner.
+-    let (_, ep) = mock(|m| m.owns_game = false);
+-    let mut accounts = signed_in(&store, &secrets("mc-token", true));
++    assert!(!accounts.has_owner(&store));
+     accounts
+-        .play_as_with(&store, Player::Offline("Builder_1".into()), true)
++        .play_as(Player::Offline("Builder_2".into()))
+         .unwrap();
+-    let pass = launch_for_game(&ep, Some("test-client"), &store, &mut accounts, true).unwrap();
+-    assert!(pass.session.is_none() && pass.owner.is_none());
+-    assert!(!accounts.has_owner(&store));
+-    // A real owner is still found and brings what it brings without the option.
+-    let (_, ep) = mock(|_| {});
+-    let mut accounts = signed_in(&store, &secrets("mc-token", true));
+-    let pass = launch_for_game(&ep, Some("test-client"), &store, &mut accounts, true).unwrap();
+-    assert_eq!(pass.owner.unwrap().0.name, "Notch");
++    assert_eq!(accounts.offline, ["Builder_1", "Builder_2"]);
+ }
+ 
+ #[test]
+@@ -758,23 +730,20 @@ fn offline_names_switch_with_accounts() {
+     };
+     assert_eq!(a.player(), Player::Microsoft("abc".into()));
+     assert_eq!(a.name_arg(), None);
+-    a.play_as(&store, Player::Offline("Builder_1".into()))
+-        .unwrap();
++    a.play_as(Player::Offline("Builder_1".into())).unwrap();
+     assert_eq!(a.player(), Player::Offline("Builder_1".into()));
+     assert_eq!(a.name_arg(), Some("Builder_1"));
+     // Kept once, as first written, whatever the case.
+-    a.play_as(&store, Player::Offline("builder_1".into()))
+-        .unwrap();
++    a.play_as(Player::Offline("builder_1".into())).unwrap();
+     assert_eq!(a.offline, ["Builder_1"]);
+     assert_eq!(a.name_arg(), Some("Builder_1"));
+     assert!(a.add_offline("no spaces").is_err());
+     assert!(a.add_offline("ab").is_err());
+     assert!(a.add_offline("seventeen_letters").is_err());
+-    a.play_as(&store, Player::Microsoft("abc".into())).unwrap();
++    a.play_as(Player::Microsoft("abc".into())).unwrap();
+     assert_eq!(a.name_arg(), None, "an account plays with its own name");
+-    assert!(a.play_as(&store, Player::Microsoft("zzz".into())).is_err());
+-    a.play_as(&store, Player::Offline("Builder_1".into()))
+-        .unwrap();
++    assert!(a.play_as(Player::Microsoft("zzz".into())).is_err());
++    a.play_as(Player::Offline("Builder_1".into())).unwrap();
+     // Forgetting drops the look and the name's skin and cape files too.
+     let dir = std::env::temp_dir().join(format!("horizon-accounts-{}", std::process::id()));
+     let _ = std::fs::remove_dir_all(&dir);
+diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
+index f482e03bb..bba1a4b5c 100644
+--- a/launcher/src/backend.rs
++++ b/launcher/src/backend.rs
+@@ -1320,8 +1320,6 @@ fn download_for_owner(
+     log: &dyn Fn(String),
+ ) -> Result<(), String> {
+     let mut accounts = account::Accounts::load();
+-    // The strict gate, never `launch_for_game`: the developer option that lets offline names
+-    // play without an owner must not download the game for them.
+     let pass = account::launch(
+         &account::Endpoints::live(),
+         account::client_id().as_deref(),
+@@ -2214,11 +2212,8 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
+     }
+ }
+ 
+-/// The client's command, once the owner gate lets it start and its resources are prepared. Past
+-/// the gate, a sign-in that can't be renewed (no network, expired) still lets the game start,
+-/// offline.
+ pub fn client(tag: &str) -> Result<Command, String> {
+-    let (session, offline) = account::session_for_game(&game_home(), false)
++    let (session, offline) = account::session_for_game(&game_home())
+         .map_err(|refused| format!("{refused} Sign in with `horizon-launcher account sign-in`."))?;
+     need_prepared(tag)?;
+     complete_assets(tag);
+@@ -3017,12 +3012,6 @@ pub struct Settings {
+     /// The player has read what installing a native mod starts (`native_mods::needs_notice`).
+     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+     pub native_mods_noticed: bool,
+-    /// Developer options (hidden: seven clicks on the sidebar's launcher version reveal them):
+-    /// offline names play without an account that owns the game, in the window only
+-    /// (`account::Accounts::play_as_with`, `account::launch_for_game`). Never a download: the game still
+-    /// comes from the player's own install. Off by default, and absent from the file while off.
+-    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+-    pub dev_offline: bool,
+ }
+ 
+ impl Settings {
+@@ -3122,8 +3111,6 @@ mod tests {
+     }
+ 
+     /// The launcher downloads Mojang's game files (client jar, libraries, assets) only for an
+-    /// account the services said owns the game: never without one, and never past the gate by
+-    /// the developer option (`Settings::dev_offline`), whose pass has no owner.
+     #[test]
+     fn mojang_downloads_only_for_an_owner() {
+         let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
+@@ -3218,7 +3205,10 @@ mod tests {
+         };
+         assert!(body("download_for").contains("mojang::download("));
+         assert!(body("download_for_owner").contains("account::launch("));
+-        assert!(!body("download_for_owner").contains("launch_for_game("));
++        assert!(
++            !body("download_for_owner").contains("session_for_game("),
++            "downloads never go through the play path"
++        );
+         // `download_for` is defined once and called once, by `download_for_owner`.
+         assert_eq!(backend.matches("download_for(").count(), 2);
+         assert!(body("download_for_owner").contains("download_for("));
+diff --git a/launcher/src/cli.rs b/launcher/src/cli.rs
+index e2efb90ab..da98fd5c9 100644
+--- a/launcher/src/cli.rs
++++ b/launcher/src/cli.rs
+@@ -101,22 +101,22 @@ enum ServersCmd {
+ enum AccountCmd {
+     /// The signed-in accounts and which one plays
+     List,
+-    /// Sign in with a Microsoft account in your browser (device code). Play needs one that owns
+-    /// Minecraft: Java Edition
+     SignIn,
+     /// Sign out: the account's tokens leave the keychain
+     SignOut {
+         /// Its name or UUID
+         who: String,
+     },
+-    /// Play as this account, or as one of your offline names
+-    Select { who: String },
+-    /// Play offline (LAN, offline-mode servers) beside a signed-in account that owns the game:
+-    /// as NAME (kept to switch back to; 3 to 16 letters, digits or _), or as the name the game
+-    /// made up
+-    Offline { name: Option<String> },
++    Select {
++        who: String,
++    },
++    Offline {
++        name: Option<String>,
++    },
+     /// Forget one of your offline names; its skin and cape go with it
+-    ForgetOffline { name: String },
++    ForgetOffline {
++        name: String,
++    },
+     /// Show or set an offline name's skin and cape: a 64x64 (or 64x32) skin PNG, a 64x32 cape
+     /// PNG, the model. Kept by the launcher and given to the game when that name plays
+     Skin {
+@@ -1635,8 +1635,9 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+                 }));
+             } else if accounts.accounts.is_empty() && accounts.offline.is_empty() {
+                 println!(
+-                    "No Microsoft account signed in. Play needs one that owns Minecraft: Java \
+-                     Edition: horizon-launcher account sign-in"
++                    "No accounts yet. `horizon-launcher account offline NAME` adds an offline \
++                     account and plays as it. `account sign-in` signs in with Microsoft, for \
++                     online-mode servers and for downloading the game."
+                 );
+             } else {
+                 for a in &accounts.accounts {
+@@ -1657,7 +1658,10 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+                     );
+                 }
+                 if !accounts.has_owner(account::store()) {
+-                    println!("{}.", account::NEEDS_OWNER);
++                    println!(
++                        "A Microsoft account that owns Minecraft: Java Edition is only needed for \
++                         online-mode servers and for downloading the game (`account sign-in`)."
++                    );
+                 }
+             }
+         }
+@@ -1698,7 +1702,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+                 ),
+                 (None, None) => return Err(find(&accounts, &who).unwrap_err()),
+             };
+-            accounts.play_as(account::store(), player)?;
++            accounts.play_as(player)?;
+             accounts.save()?;
+             println!("The game plays as {name}.");
+         }
+@@ -1707,7 +1711,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+                 Some(n) => account::Player::Offline(n),
+                 None => account::Player::GameName,
+             };
+-            accounts.play_as(account::store(), player)?;
++            accounts.play_as(player)?;
+             accounts.save()?;
+             match accounts.name_arg() {
+                 Some(n) => println!("The game plays offline as {n}."),
+diff --git a/launcher/src/dev_options.rs b/launcher/src/dev_options.rs
+deleted file mode 100644
+index d75ab2e11..000000000
+--- a/launcher/src/dev_options.rs
++++ /dev/null
+@@ -1,62 +0,0 @@
+-//! Developer options: a Settings section nothing in the window points to. Seven clicks on the
+-//! sidebar's "Launcher x.y.z" reveal it for this run; it stays shown while one of its options is
+-//! on. Its one option lets offline names play without an account that owns the game
+-//! (`backend::Settings::dev_offline`). The game still comes from the player's own install: the
+-//! launcher downloads Mojang's files only for an owner (`backend::download_for_owner`).
+-use super::*;
+-
+-/// Clicks on the launcher's version that reveal the section.
+-const CLICKS: u8 = 7;
+-
+-impl Launcher {
+-    /// A click on the sidebar's launcher version; the last one opens Settings on the section.
+-    pub(super) fn version_clicked(&mut self) {
+-        if self.dev_options {
+-            return;
+-        }
+-        self.dev_clicks += 1;
+-        if self.dev_clicks >= CLICKS {
+-            self.dev_options = true;
+-            self.go(Page::Settings);
+-        }
+-    }
+-
+-    /// The section, when revealed or when one of its options is on.
+-    pub(super) fn dev_options_section(&self, cx: &mut Context<Self>) -> Option<Div> {
+-        if !self.dev_options && !self.settings.dev_offline {
+-            return None;
+-        }
+-        let t = self.theme;
+-        let toggle = switch("dev-offline", self.settings.dev_offline, &t).on_click(cx.listener(
+-            |this, _: &ClickEvent, _, cx| {
+-                this.settings.dev_offline = !this.settings.dev_offline;
+-                this.settings.save();
+-                cx.notify();
+-            },
+-        ));
+-        Some(
+-            div()
+-                .flex()
+-                .flex_col()
+-                .child(
+-                    section_title("Developer options", "terminal", &t)
+-                        .mt(px(20.))
+-                        .mb(px(12.)),
+-                )
+-                .child(index_row(
+-                    0,
+-                    "Offline names without an account",
+-                    Some(
+-                        div()
+-                            .child(
+-                                "Offline names play without a Microsoft account that owns the game. \
+-                                 Minecraft still comes from your own install.",
+-                            )
+-                            .into_any_element(),
+-                    ),
+-                    Some(toggle.into_any_element()),
+-                    &t,
+-                )),
+-        )
+-    }
+-}
+diff --git a/launcher/src/main.rs b/launcher/src/main.rs
+index b90d0fd8a..af7e2abdc 100644
+--- a/launcher/src/main.rs
++++ b/launcher/src/main.rs
+@@ -13,7 +13,6 @@ mod console;
+ mod console_page;
+ mod cull;
+ mod datapacks_page;
+-mod dev_options;
+ mod export_page;
+ mod game_tools;
+ mod import_page;
+@@ -221,10 +220,6 @@ struct Launcher {
+     owner: Option<bool>,
+     /// Play was refused (or Home's Sign in pressed): the owner gate's screen is open.
+     owner_screen_open: bool,
+-    /// Clicks on the sidebar's launcher version, and whether they revealed the developer options
+-    /// (`dev_options`) for this run.
+-    dev_clicks: u8,
+-    dev_options: bool,
+     /// The game is waiting for its session (a token renewal), or a Java instance for its files
+     /// and Java (`start_java`), before it starts.
+     starting_client: Option<String>,
+@@ -446,8 +441,6 @@ impl Launcher {
+             keychain: None,
+             owner: None,
+             owner_screen_open: false,
+-            dev_clicks: 0,
+-            dev_options: false,
+             starting_client: None,
+             play_when_prepared: None,
+             friend_code: line_edit::LineEdit::new(String::new(), 256, 32),
+@@ -733,8 +726,7 @@ impl Launcher {
+                                 continue;
+                             }
+                         };
+-                        // Past the gate by the developer option alone is no owner.
+-                        if !self.settings.dev_offline {
++                        if file.is_some() {
+                             self.owner = Some(true);
+                         }
+                         if let Some(file) = file {
+@@ -1255,10 +1247,9 @@ impl Launcher {
+         self.starting_client = Some(tag.clone());
+         self.play_pressed = Some(Instant::now());
+         let tx = self.tx.clone();
+-        let offline_without_owner = self.settings.dev_offline;
+         std::thread::spawn(move || {
+             backend::complete_assets(&tag);
+-            let session = account::session_for_game(&backend::game_home(), offline_without_owner);
++            let session = account::session_for_game(&backend::game_home());
+             let _ = tx.send(Msg::Session(session));
+         });
+     }
+@@ -1676,20 +1667,15 @@ fn segments<T: Copy + PartialEq + 'static>(
+ #[derive(Clone, Copy, Debug, PartialEq, Eq)]
+ enum PlayPress {
+     Play,
+-    /// Not prepared, for an account that owns the game: prepare it (from the player's install,
+-    /// else downloaded from Mojang for that account), then play, as the official launcher does.
+     PrepareThenPlay,
+-    /// Not prepared and no owner (signing in comes first), or busy preparing or playing.
+     Nothing,
+ }
+ 
+-/// `owner`: whether an account here owns the game, by the keychain (`Launcher::owner`).
+-fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
+-    match (prepared, owner) {
++fn play_press(prepared: bool, busy: bool) -> PlayPress {
++    match (prepared, busy) {
+         _ if busy => PlayPress::Nothing,
+         (true, _) => PlayPress::Play,
+-        (false, Some(true)) => PlayPress::PrepareThenPlay,
+-        (false, _) => PlayPress::Nothing,
++        (false, _) => PlayPress::PrepareThenPlay,
+     }
+ }
+ 
+@@ -1697,7 +1683,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
+ /// code, a pack's Play) starts it now: only when Play would play. Never while a preparation runs:
+ /// the game would open on half-written files.
+ fn starts_now(prepared: bool, preparing: bool, running: bool) -> bool {
+-    play_press(prepared, None, preparing || running) == PlayPress::Play
++    play_press(prepared, preparing || running) == PlayPress::Play
+ }
+ 
+ /// The selected version once one has been removed: the saved choice if it is still installed,
+@@ -2277,11 +2263,7 @@ impl Launcher {
+                 .id("launcher-version")
+                 .px(px(8.))
+                 .pt(px(6.))
+-                .text_color(t.muted)
+-                .on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
+-                    this.version_clicked();
+-                    cx.notify();
+-                })),
++                .text_color(t.muted),
+         );
+         div()
+             .id("sidebar")
+@@ -2486,11 +2468,7 @@ impl Launcher {
+                     .top(px(17.))
+                     .child(blocks::icon("play", 22., t.on_face)),
+             );
+-        match play_press(
+-            prepared || java.is_some(),
+-            self.owner,
+-            self.preparing || running,
+-        ) {
++        match play_press(prepared || java.is_some(), self.preparing || running) {
+             PlayPress::Nothing => play = disabled(play),
+             PlayPress::Play => {
+                 play = play.on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
+@@ -2530,10 +2508,8 @@ impl Launcher {
+                     .child(play),
+             );
+ 
+-        // Not prepared: an owner can have Horizon download Minecraft from Mojang; without an
+-        // owner there is nothing to play, so signing in comes first.
+         let first = (!prepared && !self.preparing)
+-            .then_some(self.owner_shown())
++            .then_some(self.owner)
+             .flatten();
+         // No launcher folder with Minecraft on this computer: an owner needs none.
+         let no_install = self.settings.minecraft_dir.is_none();
+@@ -2548,7 +2524,7 @@ impl Launcher {
+                 &[("version", &version)],
+             ),
+             Some(false) => trf(
+-                "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.",
++                "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
+                 &[("version", &version)],
+             ),
+             None => backend::resources_summary(prepared, !silent, &version),
+@@ -2607,14 +2583,25 @@ impl Launcher {
+                         cx.notify();
+                     })),
+                 ),
+-            Some(false) => div().child(
+-                button("prepare-sign-in", "Sign in", Kind::Secondary, &t).on_click(cx.listener(
+-                    |this, _: &ClickEvent, _, cx| {
+-                        this.sign_in_to_play();
+-                        cx.notify();
+-                    },
+-                )),
+-            ),
++            Some(false) => div()
++                .flex()
++                .gap(px(8.))
++                .child(
++                    button("prepare-install", "From my install", Kind::Secondary, &t).on_click(
++                        cx.listener(|this, _: &ClickEvent, _, cx| {
++                            this.prepare(backend::MinecraftFrom::Install);
++                            cx.notify();
++                        }),
++                    ),
++                )
++                .child(
++                    button("prepare-sign-in", "Sign in", Kind::Ghost, &t).on_click(cx.listener(
++                        |this, _: &ClickEvent, _, cx| {
++                            this.sign_in_to_play();
++                            cx.notify();
++                        },
++                    )),
++                ),
+             None => div().child(prepare),
+         };
+         let owner = self.owner == Some(true);
+@@ -2682,8 +2669,7 @@ impl Launcher {
+                 rows = rows.child(self.join_friend_row(self.can_start(&tag), cx));
+             }
+             // The top bar shows who plays; a row only when there is something to do about it:
+-            // no account that owns the game (Play needs one), or offline.
+-            if self.owner_shown() == Some(false) {
++            if self.owner == Some(false) {
+                 rows = rows.child(index_row(
+                     5,
+                     tr("Microsoft account"),
+@@ -3361,7 +3347,6 @@ impl Launcher {
+             )
+             .child(self.collection_section(cx))
+             .children(self.agents_section(cx))
+-            .children(self.dev_options_section(cx))
+     }
+ 
+     /// Settings' Game arguments row: the extra arguments the game starts with, kept in
+@@ -4664,22 +4649,13 @@ mod tests {
+         );
+     }
+ 
+-    /// An owner's Play works on a version not prepared yet: it prepares it (downloading
+-    /// Minecraft from Mojang when this computer has no install), then plays. Without an owner
+-    /// it stays off: signing in comes first.
+     #[test]
+-    fn play_prepares_first_for_an_owner() {
++    fn play_prepares_first() {
+         use super::{play_press, PlayPress};
+-        assert_eq!(play_press(true, Some(true), false), PlayPress::Play);
+-        assert_eq!(play_press(true, None, false), PlayPress::Play);
+-        assert_eq!(
+-            play_press(false, Some(true), false),
+-            PlayPress::PrepareThenPlay
+-        );
+-        assert_eq!(play_press(false, Some(false), false), PlayPress::Nothing);
+-        assert_eq!(play_press(false, None, false), PlayPress::Nothing);
+-        assert_eq!(play_press(false, Some(true), true), PlayPress::Nothing);
+-        assert_eq!(play_press(true, Some(true), true), PlayPress::Nothing);
++        assert_eq!(play_press(true, false), PlayPress::Play);
++        assert_eq!(play_press(false, false), PlayPress::PrepareThenPlay);
++        assert_eq!(play_press(true, true), PlayPress::Nothing);
++        assert_eq!(play_press(false, true), PlayPress::Nothing);
+     }
+ 
+     /// A server's Join (and every other shortcut) waits like Play: not while the version's
+diff --git a/launcher/src/mcp.rs b/launcher/src/mcp.rs
+index e9a665f93..3d411d120 100644
+--- a/launcher/src/mcp.rs
++++ b/launcher/src/mcp.rs
+@@ -200,7 +200,6 @@ impl Session {
+                     "plays_as": accounts.selected().map(|a| a.name.clone()),
+                     "sign_in_configured": account::client_id().is_some(),
+                     "keychain": account::store().persistent(),
+-                    // Play needs an account that owns the game (the owner gate).
+                     "owner": accounts.has_owner(account::store()),
+                     "sign_in": sign_in,
+                 }))
+diff --git a/launcher/src/owner_page.rs b/launcher/src/owner_page.rs
+index bc455142a..d3d69eeaf 100644
+--- a/launcher/src/owner_page.rs
++++ b/launcher/src/owner_page.rs
+@@ -1,28 +1,14 @@
+ //! The owner gate in the window (`horizon_launcher::account::launch`): the screen that asks for a
+-//! Microsoft account that owns Minecraft: Java Edition. It covers the launcher once for players
+-//! without one (those who played offline before the gate), and again whenever Play is refused.
+-//! The sign-in runs on it, code and all.
+ use super::*;
+ 
+ impl Launcher {
+-    /// Whether the screen covers the window: no owner, and either Play was refused or the player
+-    /// hasn't read it yet. The data question comes first.
+     pub(crate) fn asking_owner(&self) -> bool {
+-        self.owner_shown() == Some(false)
+-            && (self.owner_screen_open || !self.settings.owner_notice_seen)
++        self.owner == Some(false)
++            && self.owner_screen_open
+             && !self.asking_consent()
+             && self.opening.is_none()
+     }
+ 
+-    /// `owner` as the window shows it: the developer option that lets offline names play without
+-    /// an owner (`dev_options`) hides the gate, as if the keychain hadn't answered yet.
+-    pub(crate) fn owner_shown(&self) -> Option<bool> {
+-        match self.owner {
+-            Some(false) if self.settings.dev_offline => None,
+-            owner => owner,
+-        }
+-    }
+-
+     /// Opens the screen and starts the sign-in on it.
+     pub(crate) fn sign_in_to_play(&mut self) {
+         self.owner_screen_open = true;
+@@ -36,10 +22,8 @@ impl Launcher {
+         }
+         self.sign_in_state = None;
+         self.owner_screen_open = false;
+-        if !self.settings.owner_notice_seen {
+-            self.settings.owner_notice_seen = true;
+-            self.settings.save();
+-        }
++        self.settings.owner_notice_seen = true;
++        self.settings.save();
+     }
+ 
+     pub(crate) fn owner_screen(&mut self, cx: &mut Context<Self>) -> Stateful<Div> {
+@@ -59,6 +43,9 @@ impl Launcher {
+             .child(text(theme::UI).text_color(t.muted).child(tr(
+                 "Horizon needs a Microsoft account that owns Minecraft: Java Edition, like other launchers.",
+             )))
++            .child(text(theme::UI).text_color(t.muted).child(tr(
++                "Or play offline: an offline account needs no sign-in. Only online-mode servers and the game's download from Mojang do.",
++            )))
+             .child(text(theme::UI).text_color(t.muted).child(tr(
+                 "Your worlds, offline names and settings stay where they are.",
+             )));
+@@ -97,6 +84,25 @@ impl Launcher {
+             .gap(px(12.))
+             .px(px(28.))
+             .pb(px(28.))
++            .child(
++                button("owner-offline", "Play offline", Kind::Secondary, &t).on_click(cx.listener(
++                    |this, _: &ClickEvent, _, cx| {
++                        this.close_owner_screen();
++                        let who = this
++                            .accounts
++                            .offline
++                            .first()
++                            .cloned()
++                            .map(account::Player::Offline)
++                            .unwrap_or(account::Player::GameName);
++                        this.play_as(who);
++                        if this.can_start_selected() {
++                            this.play();
++                        }
++                        cx.notify();
++                    },
++                )),
++            )
+             .child(
+                 button("owner-later", "Not now", Kind::Secondary, &t).on_click(cx.listener(
+                     |this, _: &ClickEvent, _, cx| {
+diff --git a/launcher/src/switch_page.rs b/launcher/src/switch_page.rs
+index 92de67697..571b68ee0 100644
+--- a/launcher/src/switch_page.rs
++++ b/launcher/src/switch_page.rs
+@@ -24,9 +24,7 @@ impl Launcher {
+ 
+     pub(super) fn play_as(&mut self, who: Player) {
+         let mut accounts = Accounts::load();
+-        let done = accounts
+-            .play_as_with(account::store(), who, self.settings.dev_offline)
+-            .and_then(|()| accounts.save());
++        let done = accounts.play_as(who).and_then(|()| accounts.save());
+         match done {
+             Ok(()) => self.accounts = accounts,
+             Err(e) => self.sign_in_state = Some(SignInState::Done(Err(e))),
+diff --git a/launcher/tests/owner_gate.rs b/launcher/tests/owner_gate.rs
+index 3a7869272..8f263f93b 100644
+--- a/launcher/tests/owner_gate.rs
++++ b/launcher/tests/owner_gate.rs
+@@ -1,25 +1,18 @@
+-//! The owner gate from the outside: with no account that owns Minecraft: Java Edition in the
+-//! launcher, neither `horizon-launcher play` nor the MCP server's play starts the game.
+ use std::io::Write;
+ use std::path::{Path, PathBuf};
+ use std::process::{Command, Output, Stdio};
+ 
+ const REFUSED: &str = "Sign in with a Microsoft account that owns Minecraft: Java Edition to play.";
++const NOT_PREPARED: &str = "is not prepared yet";
+ 
+-/// Fresh homes with one installed (not prepared) version and an offline name, as a player who
+-/// played offline before the gate has.
+-fn home(name: &str) -> PathBuf {
++fn home(name: &str, accounts: &str) -> PathBuf {
+     let root =
+         std::env::temp_dir().join(format!("horizon-owner-gate-{name}-{}", std::process::id()));
+     let _ = std::fs::remove_dir_all(&root);
+     let version = root.join("launcher/versions/v2026.10.27.01");
+     std::fs::create_dir_all(&version).unwrap();
+     std::fs::write(version.join(".installed"), "").unwrap();
+-    std::fs::write(
+-        root.join("launcher/accounts.json"),
+-        r#"{"accounts":[],"selected":null,"offline":["Builder_1"],"offline_selected":"Builder_1"}"#,
+-    )
+-    .unwrap();
++    std::fs::write(root.join("launcher/accounts.json"), accounts).unwrap();
+     root
+ }
+ 
+@@ -44,14 +37,22 @@ fn text(out: &Output) -> String {
+ }
+ 
+ #[test]
+-fn the_cli_refuses_to_play_without_an_owner() {
+-    let root = home("cli");
++fn an_offline_account_is_added_and_played_without_any_account() {
++    let root = home("cli-offline", r#"{"accounts":[],"selected":null}"#);
++    let out = launcher(&root, &["account", "offline", "Builder_1"])
++        .output()
++        .unwrap();
++    let said = text(&out);
++    assert!(out.status.success(), "{said}");
++    assert!(said.contains("plays offline as Builder_1"), "{said}");
++    let accounts = std::fs::read_to_string(root.join("launcher/accounts.json")).unwrap();
++    assert!(accounts.contains("Builder_1"), "{accounts}");
+     let out = launcher(&root, &["play"]).output().unwrap();
+     let said = text(&out);
+     assert!(!out.status.success(), "{said}");
+-    assert!(said.contains(REFUSED), "{said}");
+-    assert!(said.contains("horizon-launcher account sign-in"), "{said}");
+-    // Nothing of the game ran, and the offline name is still there.
++    assert!(said.contains(NOT_PREPARED), "{said}");
++    assert!(!said.contains(REFUSED), "{said}");
++    assert!(!said.contains("account sign-in"), "{said}");
+     assert!(!root.join("game/sessions").exists());
+     let accounts = std::fs::read_to_string(root.join("launcher/accounts.json")).unwrap();
+     assert!(accounts.contains("Builder_1"), "{accounts}");
+@@ -59,8 +60,23 @@ fn the_cli_refuses_to_play_without_an_owner() {
+ }
+ 
+ #[test]
+-fn the_mcp_server_refuses_to_play_without_an_owner() {
+-    let root = home("mcp");
++fn a_selected_microsoft_account_with_no_owner_still_meets_the_gate() {
++    let root = home(
++        "cli-gate",
++        r#"{"accounts":[{"uuid":"abc123","name":"Notch"}],"selected":"abc123"}"#,
++    );
++    let out = launcher(&root, &["play"]).output().unwrap();
++    let said = text(&out);
++    assert!(!out.status.success(), "{said}");
++    assert!(said.contains(REFUSED), "{said}");
++    assert!(said.contains("horizon-launcher account sign-in"), "{said}");
++    assert!(!root.join("game/sessions").exists());
++    let _ = std::fs::remove_dir_all(&root);
++}
++
++#[test]
++fn the_mcp_server_plays_an_offline_account_past_the_gate() {
++    let root = home("mcp", r#"{"accounts":[],"selected":null}"#);
+     let mut child = launcher(&root, &["mcp"])
+         .stdin(Stdio::piped())
+         .stdout(Stdio::piped())
+@@ -84,6 +100,7 @@ fn the_mcp_server_refuses_to_play_without_an_owner() {
+         .expect("a reply to play");
+     assert_eq!(reply["result"]["isError"], true, "{reply}");
+     let said = reply["result"]["content"][0]["text"].as_str().unwrap();
+-    assert!(said.contains(REFUSED), "{said}");
++    assert!(said.contains(NOT_PREPARED), "{said}");
++    assert!(!said.contains(REFUSED), "{said}");
+     let _ = std::fs::remove_dir_all(&root);
+ }
+-- 
+2.47.3
+
