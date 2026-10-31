@@ -1,0 +1,176 @@
+name: launcher-release
+on:
+  workflow_call:
+    inputs:
+      ref:
+        description: 'Git ref to build (empty means the triggering ref)'
+        required: false
+        type: string
+        default: ''
+
+permissions:
+  contents: write
+
+env:
+  HORIZON_TELEMETRY_URL: "off"
+
+jobs:
+  build:
+    name: build ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: windows
+            os: windows-latest
+            asset: horizon-launcher-windows-x64.zip
+            binary: horizon-launcher.exe
+            rustflags: -C target-feature=+crt-static
+          - name: linux
+            os: ubuntu-latest
+            asset: horizon-launcher-linux-x86_64.tar.gz
+            binary: horizon-launcher
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 45
+    env:
+      RUSTFLAGS: ${{ matrix.rustflags }}
+    defaults:
+      run:
+        working-directory: launcher
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+
+      - name: Embed the release version and tag into the build
+        run: |
+          raw="${{ inputs.ref }}"
+          [ -n "$raw" ] || raw="${GITHUB_REF_NAME}"
+          echo "RELEASE_TAG=$raw" >> "$GITHUB_ENV"
+          echo "HORIZON_LAUNCHER_TAG=$raw" >> "$GITHUB_ENV"
+          echo "HORIZON_LAUNCHER_VERSION=${raw#launcher@}" >> "$GITHUB_ENV"
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: launcher
+          shared-key: launcher-${{ matrix.name }}
+
+      - name: Linux libraries GPUI links against
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxkbcommon-x11-dev libwayland-dev libx11-xcb-dev libfontconfig-dev libvulkan-dev libasound2-dev
+
+      - name: Tests
+        run: cargo test --release --locked
+
+      - name: Build
+        run: cargo build --release --locked
+
+      - name: Version check
+        run: |
+          out=$(./target/release/${{ matrix.binary }} --version)
+          echo "$out"
+          [[ "$out" == "horizon-launcher $HORIZON_LAUNCHER_VERSION" ]] || {
+            echo "::error::expected: horizon-launcher $HORIZON_LAUNCHER_VERSION"
+            exit 1
+          }
+
+      - name: Package
+        run: |
+          rm -rf dist out && mkdir -p dist out
+          cp target/release/${{ matrix.binary }} dist/
+          case "${{ matrix.asset }}" in
+            *.zip) (cd dist && 7z a ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
+            *.tar.gz) (cd dist && tar czf ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
+          esac
+          ls -l out
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.asset }}
+          path: launcher/out/*
+          retention-days: 3
+
+  sign:
+    name: sign
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      RELEASE_TAG: ${{ inputs.ref || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          sparse-checkout: tools/ci/sign_release.sh
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: horizon-launcher-*
+          merge-multiple: true
+
+      - name: Signing key present
+        env:
+          RELEASE_SIGNING_KEY: ${{ secrets.RELEASE_SIGNING_KEY }}
+        run: |
+          [ -n "$RELEASE_SIGNING_KEY" ] || {
+            echo "::error::RELEASE_SIGNING_KEY private key is missing: add it under Settings > Secrets and variables > Actions > New repository secret"
+            exit 1
+          }
+
+      - name: Sign the checksums (SHA256SUMS, SHA256SUMS.sig)
+        env:
+          RELEASE_SIGNING_KEY: ${{ secrets.RELEASE_SIGNING_KEY }}
+        run: bash tools/ci/sign_release.sh "$RELEASE_TAG" dist/horizon-launcher-*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: signature
+          path: dist/SHA256SUMS*
+          if-no-files-found: error
+          retention-days: 3
+
+  release:
+    needs: [build, sign]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      RELEASE_TAG: ${{ inputs.ref || github.ref_name }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.ref }}
+          persist-credentials: false
+
+      - uses: dtolnay/rust-toolchain@stable
+
+      - name: Verify the signature (the same way the launcher does)
+        run: cargo run --locked --quiet -p horizon-release-sign -- verify --tag "$RELEASE_TAG" dist
+
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release delete "$RELEASE_TAG" --yes
+          fi
+          gh release create "$RELEASE_TAG" \
+            --title "Horizon Launcher ${RELEASE_TAG#launcher@} (offline accounts)" \
+            --notes "Includes offline account support that does not need a Microsoft account.
+          - Add an account: Settings > Offline name, or: horizon-launcher account offline NAME
+          - Windows: horizon-launcher-windows-x64.zip | Linux: horizon-launcher-linux-x86_64.tar.gz
+          - When a new offline release comes out, the launcher updates itself from this repository on startup.
+          - Quality gate: cargo test (lib + bin + owner_gate) passed on CI; the checksums are signed." \
+            dist/*

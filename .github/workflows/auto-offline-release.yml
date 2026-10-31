@@ -1,0 +1,131 @@
+name: auto-offline-release
+on:
+  schedule:
+    - cron: '37 */4 * * *'
+  workflow_dispatch: {}
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: auto-offline-release
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: upstream check
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      should_build: ${{ steps.decide.outputs.should_build }}
+      tag: ${{ steps.decide.outputs.tag }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Find the latest upstream launcher release
+        id: upstream
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          up_tag=$(gh api 'repos/horizon-rust/horizon/releases?per_page=100' \
+            --jq '[.[] | select(.draft == false) | select(.tag_name | test("^launcher[@-]v?[0-9]"))][0].tag_name // empty')
+          if [ -z "$up_tag" ]; then
+            echo "::error::No launcher release found on upstream"
+            exit 1
+          fi
+          echo "upstream launcher release: $up_tag"
+          case "$up_tag" in
+            launcher@*) up_version="${up_tag#launcher@}" ;;
+            launcher-v*) up_version="${up_tag#launcher-v}" ;;
+            *)
+              echo "::error::Unknown launcher tag format: $up_tag"
+              exit 1
+              ;;
+          esac
+          up_sha=$(gh api "repos/horizon-rust/horizon/commits/${up_tag}" --jq .sha)
+          echo "upstream launcher version: $up_version ($up_sha)"
+          {
+            echo "tag=$up_tag"
+            echo "version=$up_version"
+            echo "sha=$up_sha"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Is a new offline release needed
+        id: decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+          UPSTREAM_VERSION: ${{ steps.upstream.outputs.version }}
+        run: |
+          set -euo pipefail
+          target="launcher@${UPSTREAM_VERSION}-offline"
+          if git rev-parse -q --verify "refs/tags/${target}" >/dev/null 2>&1 \
+            && gh release view "$target" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "already released: ${target}"
+            echo "should_build=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "tag or release missing: ${target}"
+            echo "should_build=true" >> "$GITHUB_OUTPUT"
+            echo "tag=${target}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Apply the patches, tag and publish
+        if: steps.decide.outputs.should_build == 'true'
+        env:
+          UPSTREAM_TAG: ${{ steps.upstream.outputs.tag }}
+          UPSTREAM_SHA: ${{ steps.upstream.outputs.sha }}
+          TARGET_TAG: ${{ steps.decide.outputs.tag }}
+          RELEASE_SIGNING_KEY: ${{ secrets.RELEASE_SIGNING_KEY }}
+        run: |
+          set -euo pipefail
+          git config user.name "2ax4"
+          git config user.email "2ax4@users.noreply.github.com"
+          git remote add upstream https://github.com/horizon-rust/horizon.git
+          git fetch --filter=blob:none upstream "refs/tags/${UPSTREAM_TAG}" --no-tags
+          mkdir -p /tmp/patches
+          cp offline/patches/*.patch /tmp/patches/
+          git checkout -B offline-auto "$UPSTREAM_SHA"
+          for p in /tmp/patches/*.patch; do
+            echo "::group::git am $(basename "$p")"
+            git am --3way "$p" || {
+              echo "::error::Failed to apply patch: $p (upstream changed the relevant files)"
+              git am --show-current-patch=diff || true
+              git am --abort || true
+              exit 1
+            }
+            echo "::endgroup::"
+          done
+          rm -rf .github/workflows
+          mkdir -p .github/workflows
+          git show origin/main:.github/workflows/launcher-release.yml > .github/workflows/launcher-release.yml
+          git show origin/main:.github/workflows/auto-offline-release.yml > .github/workflows/auto-offline-release.yml
+          git checkout origin/main -- offline/patches
+          pub=$(printf '%s' "$RELEASE_SIGNING_KEY" | base64 --decode \
+            | openssl pkey -inform DER -pubout -outform DER | tail -c 32 | base64)
+          grep -qx "$pub" crates/horizon-release-sign/release-keys.txt || {
+            echo "::error::RELEASE_SIGNING_KEY does not match any key in crates/horizon-release-sign/release-keys.txt: update the secret or the key inside offline/patches/0003-offline-update-notice.patch"
+            exit 1
+          }
+          git add -A .github/workflows offline
+          git commit -m "CI: offline release pipeline"
+          git tag -f "$TARGET_TAG"
+          if git diff --quiet origin/main HEAD; then
+            echo "main is already up to date, skipping the main push"
+          else
+            git push --force-with-lease=refs/heads/main origin HEAD:main \
+              || echo "::warning::could not push main, the tag was still published"
+          fi
+          git push --force origin "refs/tags/${TARGET_TAG}"
+
+  build:
+    name: offline build
+    needs: sync
+    if: needs.sync.outputs.should_build == 'true'
+    uses: ./.github/workflows/launcher-release.yml
+    with:
+      ref: ${{ needs.sync.outputs.tag }}
+    secrets: inherit
