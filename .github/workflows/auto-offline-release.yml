@@ -91,7 +91,6 @@ jobs:
             exit 0
           fi
           echo "building offline release from upstream ${chosen}"
-          rm -rf .github/workflows
           mkdir -p .github/workflows
           git show origin/main:.github/workflows/launcher-release.yml > .github/workflows/launcher-release.yml
           git show origin/main:.github/workflows/auto-offline-release.yml > .github/workflows/auto-offline-release.yml
