@@ -91,9 +91,6 @@ jobs:
             exit 0
           fi
           echo "building offline release from upstream ${chosen}"
-          # main keeps only this fork's two workflows. The token of a workflow run (GITHUB_TOKEN) can never
-          # create, change or delete a workflow file, and the rebuilt upstream tree brings back all of
-          # upstream's (ci.yml, release.yml, nightly.yml, ...): pushing that is what made every run fail.
           mkdir -p .github/workflows
           find .github/workflows -type f \
             ! -name launcher-release.yml ! -name auto-offline-release.yml -delete
@@ -113,8 +110,6 @@ jobs:
             git checkout -q -B attempt origin/main
             needs_push=false
           else
-            # One commit on top of main (a fast-forward, no force push), so that no pushed commit touches a
-            # workflow file: main's two workflows are identical in the parent and in this tree.
             commit=$(git commit-tree "$tree" -p origin/main \
               -m "CI: offline release from upstream ${chosen}" \
               -m "Upstream launcher@${chosen} with offline/patches applied, built by auto-offline-release.")
