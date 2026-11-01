@@ -191,14 +191,12 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          ver="${RELEASE_TAG#launcher@}"
+          ver="${ver%-offline}"
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release delete "$RELEASE_TAG" --yes
           fi
           gh release create "$RELEASE_TAG" \
-            --title "Horizon Launcher ${RELEASE_TAG#launcher@} (offline accounts)" \
-            --notes "Includes offline account support that does not need a Microsoft account.
-          - Add an account: Settings > Offline name, or: horizon-launcher account offline NAME
-          - Windows: horizon-launcher-windows-x64.zip | Linux: horizon-launcher-linux-x86_64.tar.gz
-          - When a new offline release comes out, the launcher updates itself from this repository on startup.
-          - Quality gate: cargo test (lib + bin + owner_gate) passed on CI; the checksums are signed." \
+            --title "Horizon Launcher ${RELEASE_TAG#launcher@}" \
+            --notes "Includes offline account support that does not need a Microsoft account. Based on ${ver}." \
             dist/*
