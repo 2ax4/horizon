@@ -1,13 +1,19 @@
 name: auto-offline-release
 on:
   schedule:
-    - cron: '37 */4 * * *'
-  workflow_dispatch: {}
+    - cron: '3-59/5 * * * *'
+  workflow_dispatch:
+    inputs:
+      retry:
+        description: 'Retry versions that already failed with these patches'
+        type: boolean
+        default: false
   push:
     branches: [main]
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: auto-offline-release
@@ -21,6 +27,9 @@ jobs:
     outputs:
       should_build: ${{ steps.pick.outputs.should_build }}
       tag: ${{ steps.pick.outputs.tag }}
+      marker: ${{ steps.pick.outputs.marker }}
+      sha: ${{ steps.pick.outputs.sha }}
+      alert: ${{ steps.pick.outputs.alert }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,13 +40,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_SIGNING_KEY: ${{ secrets.RELEASE_SIGNING_KEY }}
+          RETRY: ${{ inputs.retry }}
         run: |
           set -euo pipefail
           git config user.name "2ax4"
           git config user.email "2ax4@users.noreply.github.com"
           gh api 'repos/horizon-rust/horizon/releases?per_page=100' \
             --jq '[.[] | select(.draft == false) | select(.tag_name | test("^launcher[@-]v?[0-9]"))][].tag_name' \
-            | sed 's/^launcher@//; s/^launcher-v//' > /tmp/versions.txt
+            | sed 's/^launcher@//; s/^launcher-v//' \
+            | grep -E '^[0-9][0-9A-Za-z._-]*$' > /tmp/versions.txt || true
           if [ ! -s /tmp/versions.txt ]; then
             echo "::error::No launcher release found on upstream"
             exit 1
@@ -48,12 +59,20 @@ jobs:
           git remote add upstream https://github.com/horizon-rust/horizon.git
           mkdir -p /tmp/patches
           cp offline/patches/*.patch /tmp/patches/
+          phash=$(cat /tmp/patches/*.patch .github/workflows/launcher-release.yml | sha256sum | cut -c1-8)
+          newest=$(head -1 /tmp/candidates.txt)
+          alert=""
           chosen=""
           while IFS= read -r version; do
             [ -z "$version" ] && continue
             target="launcher@${version}-offline"
+            marker="offline-failed/${version}-${phash}"
             if gh release view "$target" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
               echo "already released: ${target}"
+              continue
+            fi
+            if [ "${RETRY:-}" != true ] && git ls-remote --exit-code --tags origin "refs/tags/${marker}" >/dev/null 2>&1; then
+              echo "skipping ${version}: it already failed with these patches and workflows; change them, or run this workflow with retry"
               continue
             fi
             refname=$(git ls-remote upstream "refs/tags/launcher@${version}" "refs/tags/launcher-v${version}" \
@@ -80,11 +99,21 @@ jobs:
             echo "::endgroup::"
             if [ "$ok" != true ]; then
               echo "::warning::patches do not apply to upstream ${version}, trying the next older release"
+              git am --abort >/dev/null 2>&1 || true
+              git push origin "origin/main:refs/tags/${marker}" >/dev/null 2>&1 || true
+              if [ "$version" = "$newest" ]; then
+                alert="offline/patches do not apply to upstream ${version}: rebase them onto it"
+                gh issue create -R "$GITHUB_REPOSITORY" \
+                  --title "Offline patches do not apply to upstream ${version}" \
+                  --body "Upstream launcher ${version} was released and offline/patches do not apply to it. Rebase them onto launcher@${version} and upload them again. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+                  >/dev/null 2>&1 || true
+              fi
               continue
             fi
             chosen="$version"
             break
           done < /tmp/candidates.txt
+          echo "alert=${alert}" >> "$GITHUB_OUTPUT"
           if [ -z "$chosen" ]; then
             echo "::notice::the patches apply to none of the pending upstream releases and every supported version is already published. Rebase offline/patches/ onto the latest upstream to release it."
             echo "should_build=false" >> "$GITHUB_OUTPUT"
@@ -129,6 +158,8 @@ jobs:
           git push --force origin "refs/tags/${target}" \
             || { sleep 8; git push --force origin "refs/tags/${target}"; }
           echo "tag=${target}" >> "$GITHUB_OUTPUT"
+          echo "marker=offline-failed/${chosen}-${phash}" >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           echo "should_build=true" >> "$GITHUB_OUTPUT"
 
   build:
@@ -139,3 +170,35 @@ jobs:
     with:
       ref: ${{ needs.sync.outputs.tag }}
     secrets: inherit
+
+  alert:
+    name: patches need a rebase
+    needs: sync
+    if: needs.sync.outputs.alert != ''
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fail the run so GitHub notifies you
+        env:
+          ALERT: ${{ needs.sync.outputs.alert }}
+        run: |
+          echo "::error::${ALERT}"
+          exit 1
+
+  remember-failure:
+    name: remember the failed build
+    needs: [sync, build]
+    if: ${{ always() && needs.build.result == 'failure' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Stop retrying this version until something changes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          MARKER: ${{ needs.sync.outputs.marker }}
+          SHA: ${{ needs.sync.outputs.sha }}
+          TAG: ${{ needs.sync.outputs.tag }}
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/git/refs" -f "ref=refs/tags/${MARKER}" -f "sha=${SHA}" >/dev/null || true
+          gh issue create -R "$GITHUB_REPOSITORY" \
+            --title "Offline build failed: ${TAG}" \
+            --body "The build of ${TAG} failed. It will not be retried until offline/patches or launcher-release.yml change, or this workflow is run with retry. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            >/dev/null 2>&1 || true
