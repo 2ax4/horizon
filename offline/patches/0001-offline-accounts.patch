@@ -1,4 +1,4 @@
-From 9ea3a1f00506972bdf9eb3de30676414d5bd0160 Mon Sep 17 00:00:00 2001
+From 01f144d1e69df226d2c3fa327720890f1e8f5d11 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Fri, 30 Oct 2026 15:47:31 +0300
 Subject: [PATCH 1/2] Offline accounts: add and play with no Microsoft account
@@ -30,7 +30,7 @@ Subject: [PATCH 1/2] Offline accounts: add and play with no Microsoft account
  delete mode 100644 launcher/src/dev_options.rs
 
 diff --git a/docs/launcher-commands.md b/docs/launcher-commands.md
-index 1b5e04a..07facf9 100644
+index 1429c5b..c27e01d 100644
 --- a/docs/launcher-commands.md
 +++ b/docs/launcher-commands.md
 @@ -125,8 +125,6 @@ MCP: `account_list`.
@@ -61,7 +61,7 @@ index 1b5e04a..07facf9 100644
  
  - `NAME`
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index c273a7e..cf08142 100644
+index 1a23ddd..e779c1c 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
 @@ -2,7 +2,6 @@
@@ -80,7 +80,7 @@ index c273a7e..cf08142 100644
    "crash reports beside it": "absturzberichte daneben",
    "Install all": "Alle installieren",
    "No group": "Keine Gruppe",
-@@ -346,7 +344,7 @@
+@@ -354,7 +352,7 @@
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nicht vorbereitet. „Spielen“ lädt Minecraft {version} von Mojang für dein Konto herunter und bereitet es vor.",
    "Join a friend": "Einem Freund beitreten",
    "Not found. Choose the folder where your launcher keeps Minecraft.": "Nicht gefunden. Wähle den Ordner aus, in dem dein Launcher Minecraft speichert.",
@@ -89,7 +89,7 @@ index c273a7e..cf08142 100644
    "CurseForge (coming soon)": "CurseForge (demnächst)",
    "Copy report": "Bericht kopieren",
    "Reading the mods…": "Mods werden gelesen…",
-@@ -400,7 +398,6 @@
+@@ -408,7 +406,6 @@
    "The wordmark, while the release list loads.": "Das Logo, während die Versionsliste lädt.",
    "Playing offline": "Offline spielen",
    "Sign in to Tailscale": "Bei Tailscale anmelden",
@@ -97,7 +97,7 @@ index c273a7e..cf08142 100644
    "Help make Horizon faster and steadier?": "Help make Horizon faster and steadier?",
    "Sign in to play": "Zum Spielen anmelden",
    "Ported": "Ported",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
    "Couldn't load releases. {error}": "Couldn't load releases. {error}",
    "Launcher updated to {version}": "Launcher updated to {version}",
@@ -106,7 +106,7 @@ index c273a7e..cf08142 100644
    "Manage versions": "Manage versions",
    "No build for this platform": "No build for this platform",
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index 32e7bca..ac3e149 100644
+index eb8ea86..1febdaf 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
 @@ -2,7 +2,6 @@
@@ -125,7 +125,7 @@ index 32e7bca..ac3e149 100644
    "crash reports beside it": "informes de fallos al lado",
    "Install all": "Instalar todos",
    "No group": "Sin grupo",
-@@ -346,7 +344,7 @@
+@@ -354,7 +352,7 @@
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Sin preparar. Jugar descarga Minecraft {version} de Mojang para tu cuenta y lo prepara.",
    "Join a friend": "Unirse a un amigo",
    "Not found. Choose the folder where your launcher keeps Minecraft.": "No encontrado. Elige la carpeta donde tu lanzador guarda Minecraft.",
@@ -134,7 +134,7 @@ index 32e7bca..ac3e149 100644
    "CurseForge (coming soon)": "CurseForge (próximamente)",
    "Copy report": "Copiar informe",
    "Reading the mods…": "Leyendo los mods…",
-@@ -400,7 +398,6 @@
+@@ -408,7 +406,6 @@
    "The wordmark, while the release list loads.": "El logotipo mientras carga la lista de versiones.",
    "Playing offline": "Jugando sin conexión",
    "Sign in to Tailscale": "Iniciar sesión en Tailscale",
@@ -142,7 +142,7 @@ index 32e7bca..ac3e149 100644
    "Help make Horizon faster and steadier?": "¿Nos ayudas a hacer Horizon más rápido y estable?",
    "Sign in to play": "Inicia sesión para jugar",
    "Ported": "Portados",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
    "Couldn't load releases. {error}": "Couldn't load releases. {error}",
    "Launcher updated to {version}": "Launcher updated to {version}",
@@ -151,7 +151,7 @@ index 32e7bca..ac3e149 100644
    "Manage versions": "Manage versions",
    "No build for this platform": "No build for this platform",
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 0207bf6..2b48e0c 100644
+index df55c18..5b130af 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
 @@ -2,7 +2,6 @@
@@ -170,7 +170,7 @@ index 0207bf6..2b48e0c 100644
    "crash reports beside it": "rapports de plantage à côté",
    "Install all": "Tout installer",
    "No group": "Aucun groupe",
-@@ -346,7 +344,7 @@
+@@ -354,7 +352,7 @@
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Pas préparé. Jouer télécharge Minecraft {version} depuis Mojang pour votre compte et le prépare.",
    "Join a friend": "Rejoindre un ami",
    "Not found. Choose the folder where your launcher keeps Minecraft.": "Introuvable. Choisissez le dossier où votre launcher garde Minecraft.",
@@ -179,7 +179,7 @@ index 0207bf6..2b48e0c 100644
    "CurseForge (coming soon)": "CurseForge (bientôt disponible)",
    "Copy report": "Copier le rapport",
    "Reading the mods…": "Lecture des mods…",
-@@ -400,7 +398,6 @@
+@@ -408,7 +406,6 @@
    "The wordmark, while the release list loads.": "Le logo, pendant que la liste des versions se charge.",
    "Playing offline": "Jeu hors ligne",
    "Sign in to Tailscale": "Se connecter à Tailscale",
@@ -187,7 +187,7 @@ index 0207bf6..2b48e0c 100644
    "Help make Horizon faster and steadier?": "Help make Horizon faster and steadier?",
    "Sign in to play": "Connectez-vous pour jouer",
    "Ported": "Ported",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
    "Couldn't load releases. {error}": "Couldn't load releases. {error}",
    "Launcher updated to {version}": "Launcher updated to {version}",
@@ -196,7 +196,7 @@ index 0207bf6..2b48e0c 100644
    "Manage versions": "Manage versions",
    "No build for this platform": "No build for this platform",
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index a884289..17d24d1 100644
+index 91335d3..8562371 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
 @@ -165,7 +165,7 @@
@@ -224,7 +224,7 @@ index a884289..17d24d1 100644
    "No group": "No group",
    "Export to share": "Export to share",
    "My instance": "My instance",
-@@ -571,7 +569,6 @@
+@@ -579,7 +577,6 @@
    "{name}'s shortcut is in the trash.": "{name}'s shortcut is in the trash.",
    "{name} is on.": "{name} is on.",
    "The frame time, CPU and GPU overlay.": "The frame time, CPU and GPU overlay.",
@@ -232,7 +232,7 @@ index a884289..17d24d1 100644
    "{name} is off.": "{name} is off.",
    "Copying…": "Copying…",
    "Name": "Name",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "パッチノートを読み込めませんでした。{error}",
    "Couldn't load releases. {error}": "リリースを読み込めませんでした。{error}",
    "Launcher updated to {version}": "ランチャーを {version} に更新しました",
@@ -241,7 +241,7 @@ index a884289..17d24d1 100644
    "Manage versions": "バージョンを管理",
    "No build for this platform": "このプラットフォーム向けのビルドはありません",
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index fed70bf..935f81e 100644
+index c29a7aa..7e30b77 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
 @@ -2,7 +2,6 @@
@@ -260,7 +260,7 @@ index fed70bf..935f81e 100644
    "crash reports beside it": "raporty awarii znajdują się obok",
    "Install all": "Zainstaluj wszystkie",
    "No group": "Brak grupy",
-@@ -346,7 +344,7 @@
+@@ -354,7 +352,7 @@
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nieprzygotowane. Przycisk Graj pobierze Minecrafta {version} z Mojang dla twojego konta i go przygotuje.",
    "Join a friend": "Dołącz do znajomego",
    "Not found. Choose the folder where your launcher keeps Minecraft.": "Nie znaleziono. Wybierz folder, w którym launcher przechowuje Minecrafta.",
@@ -269,7 +269,7 @@ index fed70bf..935f81e 100644
    "CurseForge (coming soon)": "CurseForge (wkrótce)",
    "Copy report": "Kopiuj raport",
    "Reading the mods…": "Odczytywanie modów…",
-@@ -400,7 +398,6 @@
+@@ -408,7 +406,6 @@
    "The wordmark, while the release list loads.": "Logo podczas ładowania listy wersji.",
    "Playing offline": "Gra offline",
    "Sign in to Tailscale": "Zaloguj się do Tailscale",
@@ -277,7 +277,7 @@ index fed70bf..935f81e 100644
    "Help make Horizon faster and steadier?": "Help make Horizon faster and steadier?",
    "Sign in to play": "Zaloguj się, aby grać",
    "Ported": "Ported",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
    "Couldn't load releases. {error}": "Couldn't load releases. {error}",
    "Launcher updated to {version}": "Launcher updated to {version}",
@@ -286,7 +286,7 @@ index fed70bf..935f81e 100644
    "Manage versions": "Manage versions",
    "No build for this platform": "No build for this platform",
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index eba96c0..11361d7 100644
+index 408f988..ffe6ea5 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
 @@ -165,7 +165,7 @@
@@ -314,7 +314,7 @@ index eba96c0..11361d7 100644
    "No group": "Sem grupo",
    "Export to share": "Exportar para compartilhar",
    "My instance": "Minha instância",
-@@ -571,7 +569,6 @@
+@@ -579,7 +577,6 @@
    "{name}'s shortcut is in the trash.": "O atalho de {name} está na lixeira.",
    "{name} is on.": "{name} está ativado.",
    "The frame time, CPU and GPU overlay.": "O overlay de tempo de quadro, CPU e GPU.",
@@ -322,7 +322,7 @@ index eba96c0..11361d7 100644
    "{name} is off.": "{name} está desativado.",
    "Copying…": "Copiando…",
    "Name": "Nome",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Não foi possível carregar as notas de atualização. {error}",
    "Couldn't load releases. {error}": "Não foi possível carregar as versões. {error}",
    "Launcher updated to {version}": "Launcher atualizado para {version}",
@@ -331,7 +331,7 @@ index eba96c0..11361d7 100644
    "Manage versions": "Gerenciar versões",
    "No build for this platform": "Nenhuma build para esta plataforma",
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index 0e5fcb4..73bae02 100644
+index 0557b49..01316f3 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
 @@ -2,7 +2,6 @@
@@ -350,7 +350,7 @@ index 0e5fcb4..73bae02 100644
    "crash reports beside it": "отчёты о сбоях рядом",
    "Install all": "Установить все",
    "No group": "Без группы",
-@@ -346,7 +344,7 @@
+@@ -354,7 +352,7 @@
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не подготовлено. «Играть» скачает Minecraft {version} у Mojang для вашего аккаунта и подготовит его.",
    "Join a friend": "Присоединиться к другу",
    "Not found. Choose the folder where your launcher keeps Minecraft.": "Не найдено. Выберите папку, где ваш лаунчер хранит Minecraft.",
@@ -359,7 +359,7 @@ index 0e5fcb4..73bae02 100644
    "CurseForge (coming soon)": "CurseForge (скоро)",
    "Copy report": "Скопировать отчёт",
    "Reading the mods…": "Чтение модов…",
-@@ -400,7 +398,6 @@
+@@ -408,7 +406,6 @@
    "The wordmark, while the release list loads.": "Логотип, пока загружается список версий.",
    "Playing offline": "Игра офлайн",
    "Sign in to Tailscale": "Войти в Tailscale",
@@ -367,7 +367,7 @@ index 0e5fcb4..73bae02 100644
    "Help make Horizon faster and steadier?": "Help make Horizon faster and steadier?",
    "Sign in to play": "Войдите, чтобы играть",
    "Ported": "Ported",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Не удалось загрузить список изменений. {error}",
    "Couldn't load releases. {error}": "Не удалось загрузить сборки. {error}",
    "Launcher updated to {version}": "Лаунчер обновлён до {version}",
@@ -376,11 +376,11 @@ index 0e5fcb4..73bae02 100644
    "Manage versions": "Управление версиями",
    "No build for this platform": "Нет сборки для этой платформы",
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index 8d6cb7e..7a8e12a 100644
+index b9ed0bc..64b2fea 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
 @@ -165,7 +165,7 @@
-   "Download and prepare": "İndir ve hazirla",
+   "Download and prepare": "İndir ve hazırla",
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Hazırlanmadı. Oyna düğmesi, hesabınız için Minecraft {version} sürümünü Mojang'dan indirir ve hazırlar.",
    "Not prepared. Horizon can download Minecraft {version} from Mojang for your account, or use your own install.": "Hazırlanmadı. Horizon, hesabınız için Minecraft {version} sürümünü Mojang'dan indirebilir veya kendi kurulumunuzu kullanabilir.",
 -  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "Hazırlanmadı. Önce Minecraft {version} sürümüne sahip olan Microsoft hesabıyla oturum açın.",
@@ -404,7 +404,7 @@ index 8d6cb7e..7a8e12a 100644
    "No group": "No group",
    "Export to share": "Export to share",
    "My instance": "My instance",
-@@ -571,7 +569,6 @@
+@@ -579,7 +577,6 @@
    "{name}'s shortcut is in the trash.": "{name}'s shortcut is in the trash.",
    "{name} is on.": "{name} is on.",
    "The frame time, CPU and GPU overlay.": "The frame time, CPU and GPU overlay.",
@@ -412,7 +412,7 @@ index 8d6cb7e..7a8e12a 100644
    "{name} is off.": "{name} is off.",
    "Copying…": "Copying…",
    "Name": "Name",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
    "Couldn't load releases. {error}": "Couldn't load releases. {error}",
    "Launcher updated to {version}": "Launcher updated to {version}",
@@ -421,7 +421,7 @@ index 8d6cb7e..7a8e12a 100644
    "Manage versions": "Manage versions",
    "No build for this platform": "No build for this platform",
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index aafa391..70f1866 100644
+index 32e97c5..e91db0c 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
 @@ -2,7 +2,6 @@
@@ -440,7 +440,7 @@ index aafa391..70f1866 100644
    "crash reports beside it": "звіти про збої поруч",
    "Install all": "Встановити всі",
    "No group": "Без групи",
-@@ -346,7 +344,7 @@
+@@ -354,7 +352,7 @@
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не підготовлено. «Грати» завантажить Minecraft {version} від Mojang для вашого облікового запису й підготує його.",
    "Join a friend": "Приєднатися до друга",
    "Not found. Choose the folder where your launcher keeps Minecraft.": "Не знайдено. Виберіть теку, де ваш лаунчер зберігає Minecraft.",
@@ -449,7 +449,7 @@ index aafa391..70f1866 100644
    "CurseForge (coming soon)": "CurseForge (незабаром)",
    "Copy report": "Копіювати звіт",
    "Reading the mods…": "Читання модів…",
-@@ -400,7 +398,6 @@
+@@ -408,7 +406,6 @@
    "The wordmark, while the release list loads.": "Логотип, поки завантажується список релізів.",
    "Playing offline": "Гра офлайн",
    "Sign in to Tailscale": "Увійти в Tailscale",
@@ -457,7 +457,7 @@ index aafa391..70f1866 100644
    "Help make Horizon faster and steadier?": "Help make Horizon faster and steadier?",
    "Sign in to play": "Увійдіть, щоб грати",
    "Ported": "Ported",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
    "Couldn't load releases. {error}": "Couldn't load releases. {error}",
    "Launcher updated to {version}": "Launcher updated to {version}",
@@ -466,7 +466,7 @@ index aafa391..70f1866 100644
    "Manage versions": "Manage versions",
    "No build for this platform": "No build for this platform",
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index 995bf3d..1d0ba3a 100644
+index 17a505e..23b8930 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
 @@ -2,7 +2,6 @@
@@ -485,7 +485,7 @@ index 995bf3d..1d0ba3a 100644
    "crash reports beside it": "崩溃报告也在旁边",
    "Install all": "全部安装",
    "No group": "无分组",
-@@ -346,7 +344,7 @@
+@@ -354,7 +352,7 @@
    "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "未准备。点击“开始游戏”后，Horizon 会为你的账户从 Mojang 下载 Minecraft {version} 并完成准备。",
    "Join a friend": "加入好友",
    "Not found. Choose the folder where your launcher keeps Minecraft.": "未找到。请选择你的启动器存放 Minecraft 的文件夹。",
@@ -494,7 +494,7 @@ index 995bf3d..1d0ba3a 100644
    "CurseForge (coming soon)": "CurseForge（即将推出）",
    "Copy report": "复制报告",
    "Reading the mods…": "正在读取模组…",
-@@ -400,7 +398,6 @@
+@@ -408,7 +406,6 @@
    "The wordmark, while the release list loads.": "版本列表加载时显示的标志。",
    "Playing offline": "离线游玩中",
    "Sign in to Tailscale": "登录 Tailscale",
@@ -502,7 +502,7 @@ index 995bf3d..1d0ba3a 100644
    "Help make Horizon faster and steadier?": "Help make Horizon faster and steadier?",
    "Sign in to play": "登录以开始游戏",
    "Ported": "Ported",
-@@ -617,7 +614,6 @@
+@@ -625,7 +622,6 @@
    "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
    "Couldn't load releases. {error}": "Couldn't load releases. {error}",
    "Launcher updated to {version}": "Launcher updated to {version}",
@@ -511,10 +511,10 @@ index 995bf3d..1d0ba3a 100644
    "Manage versions": "Manage versions",
    "No build for this platform": "No build for this platform",
 diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index aa4f890..c021452 100644
+index bec90f7..fd5d774 100644
 --- a/launcher/src/account.rs
 +++ b/launcher/src/account.rs
-@@ -5,8 +5,6 @@
+@@ -6,8 +6,6 @@
  //! reads once (`--session-file`), never on its command line. Tokens never reach logs, errors or
  //! output.
  //!
@@ -523,7 +523,7 @@ index aa4f890..c021452 100644
  //! The game binary itself, its harnesses and the servers don't go through the launcher's gate.
  //!
  //! The Azure app (client ID) is Horizon's own and is configuration: `HORIZON_MSA_CLIENT_ID` at
-@@ -1090,9 +1088,6 @@ pub enum Player {
+@@ -1516,9 +1514,6 @@ pub enum Player {
      GameName,
  }
  
@@ -533,7 +533,7 @@ index aa4f890..c021452 100644
  /// The secrets an account keeps in `store`, if it still has them there.
  fn secrets_in(store: &dyn SecretStore, uuid: &str) -> Option<Secrets> {
      store
-@@ -1171,7 +1166,6 @@ impl Accounts {
+@@ -1597,7 +1592,6 @@ impl Accounts {
          Ok(())
      }
      /// Whether an account here owned the game at its last check (the keychain's answer, no
@@ -541,7 +541,7 @@ index aa4f890..c021452 100644
      pub fn has_owner(&self, store: &dyn SecretStore) -> bool {
          // The selected account first: it owning the game ends the search after one account's
          // item — every account's item read can ask for the keychain (macOS, #4912).
-@@ -1190,21 +1184,7 @@ impl Accounts {
+@@ -1616,21 +1610,7 @@ impl Accounts {
          }
      }
  
@@ -564,7 +564,7 @@ index aa4f890..c021452 100644
          match who {
              Player::Microsoft(uuid) => {
                  if !self.accounts.iter().any(|a| a.uuid == uuid) {
-@@ -1213,9 +1193,6 @@ impl Accounts {
+@@ -1639,9 +1619,6 @@ impl Accounts {
                  self.selected = Some(uuid);
              }
              Player::Offline(name) => {
@@ -574,7 +574,7 @@ index aa4f890..c021452 100644
                  let name = self.add_offline(&name)?;
                  self.selected = None;
                  self.offline_selected = Some(name);
-@@ -1294,8 +1271,6 @@ impl Accounts {
+@@ -1720,8 +1697,6 @@ impl Accounts {
          }
      }
  
@@ -583,7 +583,7 @@ index aa4f890..c021452 100644
      pub fn remove(&mut self, store: &dyn SecretStore, uuid: &str) -> Result<(), String> {
          let _operation = session::lock(store)?;
          store.delete(uuid)?;
-@@ -1417,23 +1392,6 @@ pub fn launch(
+@@ -1843,23 +1818,6 @@ pub fn launch(
      }
  }
  
@@ -607,7 +607,7 @@ index aa4f890..c021452 100644
  /// Write the session for the game, readable by this user only, in a fresh file it deletes
  /// when it reads it.
  pub fn write_session_file(
-@@ -1583,20 +1541,16 @@ impl SignIn {
+@@ -2009,20 +1967,16 @@ impl SignIn {
      }
  }
  
@@ -634,7 +634,7 @@ index aa4f890..c021452 100644
      let _ = accounts.save();
      Ok(session_file(game_home, pass))
 diff --git a/launcher/src/account/tests.rs b/launcher/src/account/tests.rs
-index 080fe67..74cbd70 100644
+index 3b97804..b726577 100644
 --- a/launcher/src/account/tests.rs
 +++ b/launcher/src/account/tests.rs
 @@ -524,76 +524,48 @@ fn any_owner_opens_the_gate_and_the_one_who_plays_brings_the_session() {
@@ -765,7 +765,7 @@ index 080fe67..74cbd70 100644
      let dir = std::env::temp_dir().join(format!("horizon-accounts-{}", std::process::id()));
      let _ = std::fs::remove_dir_all(&dir);
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 6ff89dd..11056c1 100644
+index 2a72e2e..a7e6b20 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
 @@ -1439,8 +1439,6 @@ fn download_for_owner(
@@ -777,7 +777,7 @@ index 6ff89dd..11056c1 100644
      let pass = account::launch(
          &account::Endpoints::live(),
          account::client_id().as_deref(),
-@@ -2377,9 +2375,6 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
+@@ -2381,9 +2379,6 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
      }
  }
  
@@ -787,7 +787,7 @@ index 6ff89dd..11056c1 100644
  pub fn client(tag: &str) -> Result<Command, String> {
      client_as(tag, None)
  }
-@@ -2387,7 +2382,7 @@ pub fn client(tag: &str) -> Result<Command, String> {
+@@ -2391,7 +2386,7 @@ pub fn client(tag: &str) -> Result<Command, String> {
  /// [`client`], playing as `who` for this launch only (`play --account`).
  pub fn client_as(tag: &str, who: Option<&account::Player>) -> Result<Command, String> {
      let (session, offline) = match who {
@@ -796,7 +796,7 @@ index 6ff89dd..11056c1 100644
          Some(who) => account::session_for_game_as(&game_home(), who),
      }
      .map_err(|refused| format!("{refused} Sign in with `horizon-launcher account sign-in`."))?;
-@@ -3284,12 +3279,6 @@ pub struct Settings {
+@@ -3288,12 +3283,6 @@ pub struct Settings {
      /// slower to build, slightly faster game.
      #[serde(default, skip_serializing_if = "std::ops::Not::not")]
      pub native_release: bool,
@@ -809,7 +809,7 @@ index 6ff89dd..11056c1 100644
  }
  
  impl Settings {
-@@ -3437,8 +3426,6 @@ mod tests {
+@@ -3441,8 +3430,6 @@ mod tests {
      }
  
      /// The launcher downloads Mojang's game files (client jar, libraries, assets) only for an
@@ -818,7 +818,7 @@ index 6ff89dd..11056c1 100644
      #[test]
      fn mojang_downloads_only_for_an_owner() {
          let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
-@@ -3533,7 +3520,10 @@ mod tests {
+@@ -3537,7 +3524,10 @@ mod tests {
          };
          assert!(body("download_for").contains("mojang::download("));
          assert!(body("download_for_owner").contains("account::launch("));
@@ -831,7 +831,7 @@ index 6ff89dd..11056c1 100644
          assert_eq!(backend.matches("download_for(").count(), 2);
          assert!(body("download_for_owner").contains("download_for("));
 diff --git a/launcher/src/cli.rs b/launcher/src/cli.rs
-index 438f92c..1c04376 100644
+index 598fe58..7958a4f 100644
 --- a/launcher/src/cli.rs
 +++ b/launcher/src/cli.rs
 @@ -124,14 +124,16 @@ enum AccountCmd {
@@ -867,7 +867,7 @@ index 438f92c..1c04376 100644
              }
              let mut cmd =
                  backend::client_as(&instance.resolve_version(version.as_deref())?, who.as_ref())?;
-@@ -1775,8 +1777,9 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -1776,8 +1778,9 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                  }));
              } else if accounts.accounts.is_empty() && accounts.offline.is_empty() {
                  println!(
@@ -879,7 +879,7 @@ index 438f92c..1c04376 100644
                  );
              } else {
                  for a in &accounts.accounts {
-@@ -1798,7 +1801,10 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -1799,7 +1802,10 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                      );
                  }
                  if !accounts.has_owner(account::store()) {
@@ -891,7 +891,7 @@ index 438f92c..1c04376 100644
                  }
              }
          }
-@@ -1889,7 +1895,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -1890,7 +1896,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                  ),
                  (None, None) => return Err(find(&accounts, &who).unwrap_err()),
              };
@@ -900,7 +900,7 @@ index 438f92c..1c04376 100644
              accounts.save()?;
              println!("The game plays as {name}.");
          }
-@@ -1898,7 +1904,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -1899,7 +1905,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                  Some(n) => account::Player::Offline(n),
                  None => account::Player::GameName,
              };
@@ -991,7 +991,7 @@ index 4c2481c..e60bdb3 100644
              PlayPress::Play => {
                  play = play.on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index e7307d2..aca3fb8 100644
+index f5069a5..e433d21 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
 @@ -13,7 +13,6 @@ mod console;
@@ -1013,7 +1013,7 @@ index e7307d2..aca3fb8 100644
      /// The game is waiting for its session (a token renewal), or a Java instance for its files
      /// and Java (`start_java`), before it starts.
      starting_client: Option<String>,
-@@ -521,8 +516,6 @@ impl Launcher {
+@@ -523,8 +518,6 @@ impl Launcher {
              keychain: None,
              owner: None,
              owner_screen_open: false,
@@ -1022,7 +1022,7 @@ index e7307d2..aca3fb8 100644
              starting_client: None,
              play_when_prepared: None,
              friend_code: line_edit::LineEdit::new(String::new(), 256, 32),
-@@ -910,8 +903,7 @@ impl Launcher {
+@@ -913,8 +906,7 @@ impl Launcher {
                                  continue;
                              }
                          };
@@ -1032,7 +1032,7 @@ index e7307d2..aca3fb8 100644
                              self.owner = Some(true);
                          }
                          if let Some(file) = file {
-@@ -1443,10 +1435,9 @@ impl Launcher {
+@@ -1447,10 +1439,9 @@ impl Launcher {
          self.starting_client = Some(tag.clone());
          self.play_pressed = Some(Instant::now());
          let tx = self.tx.clone();
@@ -1044,7 +1044,7 @@ index e7307d2..aca3fb8 100644
              let _ = tx.send(Msg::Session(session));
          });
      }
-@@ -1973,10 +1964,7 @@ fn segments<T: Copy + PartialEq + 'static>(
+@@ -1977,10 +1968,7 @@ fn segments<T: Copy + PartialEq + 'static>(
  #[derive(Clone, Copy, Debug, PartialEq, Eq)]
  enum PlayPress {
      Play,
@@ -1055,7 +1055,7 @@ index e7307d2..aca3fb8 100644
      Nothing,
  }
  
-@@ -2023,13 +2011,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
+@@ -2027,13 +2015,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
      Some(next)
  }
  
@@ -1072,7 +1072,7 @@ index e7307d2..aca3fb8 100644
      }
  }
  
-@@ -2037,7 +2023,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
+@@ -2041,7 +2027,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
  /// code, a pack's Play) starts it now: only when Play would play. Never while a preparation runs:
  /// the game would open on half-written files.
  fn starts_now(prepared: bool, preparing: bool, running: bool) -> bool {
@@ -1081,7 +1081,7 @@ index e7307d2..aca3fb8 100644
  }
  
  /// Whether `tag` can start being deleted now: it is installed, no install is writing it, and it
-@@ -2542,11 +2528,7 @@ impl Launcher {
+@@ -2546,11 +2532,7 @@ impl Launcher {
                  .id("launcher-version")
                  .px(px(8.))
                  .pt(px(6.))
@@ -1094,7 +1094,7 @@ index e7307d2..aca3fb8 100644
          );
          // Custom title bars carry the mark and name already.
          let brand = (!titlebar::draws_brand(window)).then(|| {
-@@ -2762,10 +2744,8 @@ impl Launcher {
+@@ -2768,10 +2750,8 @@ impl Launcher {
          let left = self.download_left();
          let steps = self.preparing.then(|| self.steps(&version, left));
  
@@ -1106,7 +1106,7 @@ index e7307d2..aca3fb8 100644
              .flatten();
          // No launcher folder with Minecraft on this computer: an owner needs none.
          let no_install = self.settings.minecraft_dir.is_none();
-@@ -2780,7 +2760,7 @@ impl Launcher {
+@@ -2786,7 +2766,7 @@ impl Launcher {
                  &[("version", &version)],
              ),
              Some(false) => trf(
@@ -1115,7 +1115,7 @@ index e7307d2..aca3fb8 100644
                  &[("version", &version)],
              ),
              None => backend::resources_summary(prepared, !silent, &version),
-@@ -2839,12 +2819,25 @@ impl Launcher {
+@@ -2845,12 +2825,25 @@ impl Launcher {
                          cx.notify();
                      })),
                  ),
@@ -1147,7 +1147,7 @@ index e7307d2..aca3fb8 100644
              None => div().child(prepare),
          };
          let owner = self.owner == Some(true);
-@@ -2908,8 +2901,7 @@ impl Launcher {
+@@ -2915,8 +2908,7 @@ impl Launcher {
          };
          {
              // The top bar shows who plays; a row only when there is something to do about it:
@@ -1157,7 +1157,7 @@ index e7307d2..aca3fb8 100644
                  rows = rows.child(index_row(
                      5,
                      tr("Microsoft account"),
-@@ -3398,7 +3390,6 @@ impl Launcher {
+@@ -3405,7 +3397,6 @@ impl Launcher {
              )
              .child(self.collection_section(cx))
              .children(self.agents_section(cx))
@@ -1165,7 +1165,7 @@ index e7307d2..aca3fb8 100644
      }
  
      /// The warning before a native build: what the mods can do and which mods. The build starts
-@@ -4795,22 +4786,13 @@ mod tests {
+@@ -4898,22 +4889,13 @@ mod tests {
          );
      }
  
@@ -1194,13 +1194,13 @@ index e7307d2..aca3fb8 100644
  
      /// A server's Join (and every other shortcut) waits like Play: not while the version's
 diff --git a/launcher/src/mcp.rs b/launcher/src/mcp.rs
-index b123dfd..f0220c9 100644
+index deece1e..da3e966 100644
 --- a/launcher/src/mcp.rs
 +++ b/launcher/src/mcp.rs
-@@ -201,7 +201,6 @@ impl Session {
-                     "plays_as": accounts.selected().map(|a| a.name.clone()),
-                     "sign_in_configured": account::client_id().is_some(),
+@@ -218,7 +218,6 @@ impl Session {
+                     // where it refused them (`secrets_file`: the file holds a sign-in).
                      "keychain": account::store().persistent(),
+                     "secrets_file": account::in_secrets_file(),
 -                    // Play needs an account that owns the game (the owner gate).
                      "owner": accounts.has_owner(account::store()),
                      "sign_in": sign_in,
@@ -1402,5 +1402,5 @@ index 3a78692..8f263f9 100644
      let _ = std::fs::remove_dir_all(&root);
  }
 -- 
-2.47.3
+2.43.0
 

@@ -1,4 +1,4 @@
-From 40438818a8a66fa2ac3433864343bf2cf3359a01 Mon Sep 17 00:00:00 2001
+From 8a29862d8f0ca681a9445ee6ac9e04b8bcb2e02a Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Fri, 30 Oct 2026 20:15:00 +0000
 Subject: [PATCH 2/2] Offline updates follow the fork's releases
@@ -22,7 +22,7 @@ index c39be44..c510154 100644
  MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
 +DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
 diff --git a/docs/launcher-commands.md b/docs/launcher-commands.md
-index 07facf9..2fceb23 100644
+index c27e01d..b413d6b 100644
 --- a/docs/launcher-commands.md
 +++ b/docs/launcher-commands.md
 @@ -125,6 +125,8 @@ MCP: `account_list`.
@@ -35,10 +35,10 @@ index 07facf9..2fceb23 100644
  
  - `--for`: Sign this account (name or UUID) in again: another Microsoft account is refused and who plays stays the same
 diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index c021452..d04f720 100644
+index fd5d774..d545503 100644
 --- a/launcher/src/account.rs
 +++ b/launcher/src/account.rs
-@@ -1590,7 +1590,7 @@ fn launch_as(
+@@ -2016,7 +2016,7 @@ fn launch_as(
          accounts.offline.clone(),
      );
      let pass = accounts
@@ -48,7 +48,7 @@ index c021452..d04f720 100644
      (
          accounts.selected,
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 11056c1..5f58c89 100644
+index a7e6b20..e8929cc 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
 @@ -10,6 +10,7 @@ use std::sync::mpsc::Sender;
@@ -84,7 +84,7 @@ index 11056c1..5f58c89 100644
              published,
              ASSET.unwrap_or_default(),
              &horizon_release_sign::trusted_keys(),
-@@ -2549,13 +2560,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
+@@ -2553,13 +2564,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
  pub fn releases_and_updates(
      on_releases: impl FnOnce(Result<Vec<Release>, String>),
  ) -> Result<Updates, String> {
@@ -111,7 +111,7 @@ index 11056c1..5f58c89 100644
      on_releases: impl FnOnce(Result<Vec<Release>, String>),
  ) -> Result<Updates, String> {
      let list = match load() {
-@@ -2566,11 +2589,12 @@ fn releases_and_updates_with(
+@@ -2570,11 +2593,12 @@ fn releases_and_updates_with(
          }
      };
      let releases = game_releases(&list);
@@ -126,7 +126,7 @@ index 11056c1..5f58c89 100644
      })
  }
  
-@@ -2866,7 +2890,7 @@ pub fn self_update(release: &Release, progress: impl Fn(f32)) -> Result<(), Stri
+@@ -2870,7 +2894,7 @@ pub fn self_update(release: &Release, progress: impl Fn(f32)) -> Result<(), Stri
          progress(1.0);
          return Ok(());
      }
@@ -498,5 +498,5 @@ index 9f2b439..2c003e3 100644
      }
  }
 -- 
-2.47.3
+2.43.0
 
