@@ -193,10 +193,20 @@ jobs:
         run: |
           ver="${RELEASE_TAG#launcher@}"
           ver="${ver%-offline}"
+          body_file="$(mktemp)"
+          up_body="$(gh release view "launcher@${ver}" -R horizon-rust/horizon --json body -q .body 2>/dev/null \
+            || gh release view "launcher-v${ver}" -R horizon-rust/horizon --json body -q .body 2>/dev/null \
+            || true)"
+          {
+            echo "Includes offline account support that does not need a Microsoft account. Based on ${ver}"
+            echo
+            printf '%s\n' "$up_body"
+          } > "$body_file"
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release delete "$RELEASE_TAG" --yes
           fi
           gh release create "$RELEASE_TAG" \
             --title "Horizon Launcher ${RELEASE_TAG#launcher@}" \
-            --notes "Includes offline account support that does not need a Microsoft account. Based on ${ver}." \
+            --notes-file "$body_file" \
             dist/*
+          rm -f "$body_file"
