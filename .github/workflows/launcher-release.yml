@@ -65,7 +65,24 @@ jobs:
           sudo apt-get install -y libxkbcommon-x11-dev libwayland-dev libx11-xcb-dev libfontconfig-dev libvulkan-dev libasound2-dev
 
       - name: Tests
-        run: cargo test --release --locked
+        run: |
+          # Runs every test (no early stop) and names what failed as run annotations and in the job summary,
+          # so the cause is visible on the run page without opening the raw log.
+          set +e
+          cargo test --release --locked --no-fail-fast 2>&1 | tee test.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            {
+              echo "### cargo test failed (exit $status) on ${{ matrix.name }}"
+              echo '```'
+              grep -E '^test .* FAILED$|^error(\[E[0-9]+\])?: |^error: could not compile|panicked at ' test.log | sort -u | head -40
+              echo '```'
+            } >> "$GITHUB_STEP_SUMMARY"
+            grep -E '^test .* FAILED$|^error(\[E[0-9]+\])?: ' test.log | sort -u | head -10 \
+              | while IFS= read -r line; do echo "::error title=cargo test (${{ matrix.name }})::${line}"; done
+          fi
+          exit "$status"
 
       - name: Build
         run: cargo build --release --locked
