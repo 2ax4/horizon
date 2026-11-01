@@ -5,7 +5,7 @@
 //! dimension changes (spec 1.2).
 
 use horizon_client::camera::CameraFluid;
-use horizon_client::gfx::pack_uniforms::PackInputs;
+use horizon_client::gfx::pack_uniforms::{PackInputs, PlayerStatus};
 use horizon_client::shader_options::ShaderOptions;
 use horizon_client::text::Text;
 use horizon_shaders::{BlockIds, Macros, Pack, Properties, dimension_folder, load_post};
@@ -158,10 +158,11 @@ impl Game<'_> {
             self.streaming.shader_pack_lighting = pack_lighting;
             self.all_sections_changed();
         }
-        let picked = picked_pack(&self.settings);
+        let picked = picked_pack(&self.settings).to_owned();
         if self.native_shaders.picked != picked {
             // Another pack, or none: drop what ran.
-            self.native_shaders = super::native_shaders::NativeShaders::picking(picked);
+            self.native_shaders = super::native_shaders::NativeShaders::picking(&picked);
+            self.set_translucent_layers(Vec::new());
             self.pack_ids = None;
             if let Some(renderer) = &mut self.renderer {
                 renderer.drop_shader_packs();
@@ -170,7 +171,7 @@ impl Game<'_> {
         if picked.is_empty() {
             return PackInputs::default();
         }
-        let name = picked.to_owned();
+        let name = picked;
         let dimension = match self.dim {
             Dim::Overworld => 0,
             Dim::Nether => -1,
@@ -293,6 +294,8 @@ impl Game<'_> {
             .get(&(at.x >> 4, at.z >> 4))
             .map(|c| c.biome(at.x, at.y, at.z));
         let (held_items, held_light) = self.held_for_pack();
+        let status = self.pack_player_status();
+        let (end_flash, end_flash_direction) = self.end_flash_for_pack(partial);
         let info = biome.map(|b| world_biomes!(self).get(b));
         PackInputs {
             day_time: self.world.day_time,
@@ -331,6 +334,40 @@ impl Game<'_> {
                 sky.cloud_height,
             ),
             mod_params: self.native_shader_params_now(partial),
+            status,
+            end_flash,
+            end_flash_direction,
+        }
+    }
+
+    /// The local player's state for Iris's status uniforms, read as the HUD reads it.
+    fn pack_player_status(&mut self) -> PlayerStatus {
+        let spectator = self.spectator();
+        let survival = !self.creative && !spectator;
+        let invisible = self.own_invisible();
+        let riding = self.riding.is_some();
+        let Some(p) = &mut self.player else {
+            return PlayerStatus::default();
+        };
+        PlayerStatus {
+            survival,
+            health: p.health.health(),
+            max_health: p.attribute("minecraft:max_health").unwrap_or(20.0) as f32,
+            food: p.health.food.food as f32,
+            air: p.air as f32,
+            armor: p
+                .attribute("minecraft:armor")
+                .or_else(|_| p.attribute("armor"))
+                .unwrap_or(0.0) as f32,
+            spectator,
+            riding,
+            feet_in_water: p.fluids.was_touching_water,
+            swimming: p.pose == horizon_client::pose::Pose::Swimming,
+            burning: p.fire_ticks > 0 && !spectator,
+            hurt: p.health.hurt_animation_time > 0,
+            invisible,
+            sneaking: p.pose == horizon_client::pose::Pose::Crouching,
+            sprinting: p.sprinting,
         }
     }
 
@@ -533,7 +570,7 @@ fn name_id(name: &str) -> i32 {
 /// their sprite layer, not their block. A layer takes the id of the block named like its sprite
 /// (`block/oak_leaves` for `oak_leaves`), else the id most blocks drawing it share (ties: the
 /// lowest); -1 when no block drawing it has one. y is 1 for the fluid sprites, -1 otherwise.
-fn block_id_table(pack: &super::PackResources, ids: &BlockIds) -> Vec<i32> {
+pub(super) fn block_id_table(pack: &super::PackResources, ids: &BlockIds) -> Vec<i32> {
     use std::collections::{BTreeMap, BTreeSet};
     let layers = pack
         .render

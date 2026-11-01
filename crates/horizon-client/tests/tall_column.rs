@@ -1,6 +1,7 @@
 //! A level taller than vanilla's (To The Max's Overworld: -64..2032, 131
 //! sections) streams, lights and meshes to its top, and edits near the top
 //! relight and remesh it.
+extern crate horizon_client_lib as horizon_client;
 use horizon_client::{
     assets::Assets,
     biome::Biomes,
@@ -132,6 +133,7 @@ fn a_tall_column_streams_lights_and_meshes_to_its_top() {
             blend_radius: 2,
             smooth_lighting: true,
             cutout_leaves: true,
+            translucent_layers: &[],
             leaf_culling: LeafCullingMode::Off,
             assets: &context.assets,
             render: &context.render,
