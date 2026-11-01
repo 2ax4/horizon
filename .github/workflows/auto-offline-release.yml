@@ -105,15 +105,20 @@ jobs:
           git commit -m "CI: offline release pipeline"
           target="launcher@${chosen}-offline"
           git tag -f "$target"
-          echo "tag=${target}" >> "$GITHUB_OUTPUT"
-          echo "should_build=true" >> "$GITHUB_OUTPUT"
           if git diff --quiet origin/main HEAD; then
             echo "main is already up to date, skipping the main push"
           else
             git push --force-with-lease=refs/heads/main origin HEAD:main \
-              || echo "::warning::could not push main, the tag was still published"
+              || { sleep 8; git push --force-with-lease=refs/heads/main origin HEAD:main; } \
+              || {
+                echo "::error::could not push main; the next run will retry, no build starts on an unpushed tree"
+                exit 1
+              }
           fi
-          git push --force origin "refs/tags/${target}"
+          git push --force origin "refs/tags/${target}" \
+            || { sleep 8; git push --force origin "refs/tags/${target}"; }
+          echo "tag=${target}" >> "$GITHUB_OUTPUT"
+          echo "should_build=true" >> "$GITHUB_OUTPUT"
 
   build:
     name: offline build
