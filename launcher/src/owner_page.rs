@@ -30,7 +30,7 @@ impl Launcher {
         // The screenshot preview shows a code without asking Microsoft for one.
         let state = match &self.sign_in_state {
             _ if sign_in_preview() => Shown::Code("https://www.microsoft.com/link", "K7Q-4MXR"),
-            _ if !configured => Shown::Error(tr(account::NOT_CONFIGURED)),
+            _ if !configured => Shown::Idle,
             Some(SignInState::Starting) => Shown::Starting("Asking Microsoft…"),
             Some(SignInState::Working(phase)) => Shown::Starting(phase.label()),
             Some(SignInState::Code(code)) => Shown::Code(&code.verification_uri, &code.user_code),
@@ -149,7 +149,7 @@ impl Launcher {
                 )
             }
             Shown::Starting(_) => None,
-            Shown::Error(_) if !configured => None,
+            _ if !configured => None,
             _ => Some(
                 microsoft::sign_in_button("owner-sign-in", &t).on_click(cx.listener(
                     |this, _: &ClickEvent, _, cx| {

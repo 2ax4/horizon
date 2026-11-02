@@ -10,7 +10,7 @@ use std::sync::mpsc::Sender;
 use std::sync::{Arc, Mutex};
 
 pub const REPO: &str = "horizon-rust/horizon";
-pub const LAUNCHER_REPO: &str = "2ax4/horizon";
+pub const LAUNCHER_REPO: &str = "2ax4/horizon-offline-auto-update";
 pub const README_URL: &str = "https://github.com/horizon-rust/horizon/blob/main/launcher/README.md";
 /// The players' page on connecting an AI agent (the website's docs/agents.md).
 pub const AGENT_DOCS_URL: &str = "https://playhorizon.dev/docs/agents";
@@ -3321,13 +3321,6 @@ pub struct Settings {
     /// one now (the owner gate's screen).
     #[serde(default)]
     pub owner_notice_seen: bool,
-    /// Seconds a partner banner (the sidebar's card or the Servers page's banner) has been on
-    /// screen, over every start, up to `partner::SEEN_BEFORE_HIDE`: only then can the player hide it.
-    #[serde(default)]
-    pub partner_seen_secs: u64,
-    /// The player hid a partner banner: the sidebar's card and the Servers page's banner are both gone for good.
-    #[serde(default)]
-    pub partner_hidden: bool,
     /// What the window does while the game runs. Stays by default.
     #[serde(default)]
     pub while_playing: WhilePlaying,

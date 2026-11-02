@@ -21,7 +21,7 @@ use std::time::{Duration, SystemTime, UNIX_EPOCH};
 /// The keychain service name every secret is stored under.
 pub const SERVICE: &str = "dev.playhorizon.launcher";
 const SCOPE: &str = "XboxLive.signin offline_access";
-pub const NOT_CONFIGURED: &str = "This build of the launcher has no Microsoft sign-in (HORIZON_MSA_CLIENT_ID), so it can't start the game.";
+pub const NOT_CONFIGURED: &str = "Microsoft sign-in is not available in this build.";
 /// What every Play says while no account in the launcher owns the game.
 pub const NEEDS_OWNER: &str =
     "Sign in with a Microsoft account that owns Minecraft: Java Edition to play";
