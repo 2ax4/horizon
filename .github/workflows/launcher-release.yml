@@ -27,11 +27,20 @@ jobs:
             binary: horizon-launcher.exe
             rustflags: -C target-feature=+crt-static
           - name: linux
-            os: ubuntu-latest
+            os: ubuntu-22.04
             asset: horizon-launcher-linux-x86_64.tar.gz
             binary: horizon-launcher
+          - name: macos
+            os: macos-15
+            asset: horizon-launcher-macos-arm64.zip
+            binary: horizon-launcher
+          - name: macos-x64
+            os: macos-15
+            target: x86_64-apple-darwin
+            asset: horizon-launcher-macos-x64.zip
+            binary: horizon-launcher
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 45
+    timeout-minutes: 60
     env:
       RUSTFLAGS: ${{ matrix.rustflags }}
     defaults:
@@ -52,6 +61,8 @@ jobs:
           echo "HORIZON_LAUNCHER_VERSION=${raw#launcher@}" >> "$GITHUB_ENV"
 
       - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
 
       - uses: Swatinem/rust-cache@v2
         with:
@@ -64,7 +75,21 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y libxkbcommon-x11-dev libwayland-dev libx11-xcb-dev libfontconfig-dev libvulkan-dev libasound2-dev patchelf
 
+      - name: Binary directory
+        run: |
+          dir=target/release
+          [ -z "${{ matrix.target }}" ] || dir="target/${{ matrix.target }}/release"
+          echo "BIN_DIR=$dir" >> "$GITHUB_ENV"
+
+      - name: Metal shaders at run time without the Metal toolchain
+        if: runner.os == 'macOS'
+        run: |
+          if ! xcrun metal --version > /dev/null 2>&1; then
+            echo "LAUNCHER_FEATURES=gpui/runtime_shaders" >> "$GITHUB_ENV"
+          fi
+
       - name: Tests
+        if: runner.os != 'macOS'
         run: |
           set +e
           cargo test --release --locked --no-fail-fast -- --skip platform_assets_are_published 2>&1 | tee test.log
@@ -83,11 +108,11 @@ jobs:
           exit "$status"
 
       - name: Build
-        run: cargo build --release --locked
+        run: cargo build --release --locked ${LAUNCHER_FEATURES:+--features "$LAUNCHER_FEATURES"} ${{ matrix.target && format('--target {0}', matrix.target) || '' }}
 
       - name: Version check
         run: |
-          out=$(./target/release/${{ matrix.binary }} --version)
+          out=$("$BIN_DIR/${{ matrix.binary }}" --version)
           echo "$out"
           [[ "$out" == "horizon-launcher $HORIZON_LAUNCHER_VERSION" ]] || {
             echo "::error::expected: horizon-launcher $HORIZON_LAUNCHER_VERSION"
@@ -97,15 +122,17 @@ jobs:
       - name: Package
         run: |
           rm -rf dist out && mkdir -p dist out
-          cp target/release/${{ matrix.binary }} dist/
+          cp "$BIN_DIR/${{ matrix.binary }}" dist/
           case "${{ matrix.asset }}" in
-            *.zip) (cd dist && 7z a ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
+            *.zip) if [ "${{ runner.os }}" = "Windows" ]; then
+                     (cd dist && 7z a ../out/${{ matrix.asset }} ${{ matrix.binary }})
+                   else
+                     (cd dist && zip -q ../out/${{ matrix.asset }} ${{ matrix.binary }})
+                   fi ;;
             *.tar.gz) (cd dist && tar czf ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
           esac
-          # The AppImage is what a player downloads: one file whose self-update replaces itself
-          # (packaging/linux/appimage.sh, launcher/src/backend.rs). The tar.gz stays the update channel.
           if [[ "${{ matrix.asset }}" == *.tar.gz ]]; then
-            ../packaging/linux/appimage.sh target/release/${{ matrix.binary }} "$HORIZON_LAUNCHER_VERSION" out
+            ../packaging/linux/appimage.sh "$BIN_DIR/${{ matrix.binary }}" "$HORIZON_LAUNCHER_VERSION" out
           fi
           ls -l out
 
