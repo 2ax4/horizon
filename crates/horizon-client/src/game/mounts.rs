@@ -54,6 +54,27 @@ impl MountState {
         self.jump_scale = 0.0;
     }
 }
+/// `EntityTypeTags.DISMOUNTS_UNDERWATER` (`Entity.dismountsUnderwater`): the mounts that throw their
+/// riders off when the rider's eyes are in water.
+pub(super) fn dismounts_underwater(species: Species) -> bool {
+    matches!(
+        species,
+        Species::Camel
+            | Species::Chicken
+            | Species::Donkey
+            | Species::HappyGhast
+            | Species::Horse
+            | Species::Llama
+            | Species::Mule
+            | Species::Pig
+            | Species::Ravager
+            | Species::Spider
+            | Species::Strider
+            | Species::TraderLlama
+            | Species::ZombieHorse
+    )
+}
+
 impl Game<'_> {
     fn mount_index(&self) -> Option<usize> {
         let id = self.riding?;
@@ -330,6 +351,8 @@ impl Game<'_> {
         // Animal.setInLove: entity event 18.
         if loved {
             self.love_cause.insert(id, self.lan_acting);
+            let kind = self.mobs[index].kind.id.clone();
+            self.native_entity_enter_love_mode(id, &kind, self.lan_acting_uuid);
             self.mob_event_particles(id, 18);
         }
         self.consume_held();
@@ -372,12 +395,31 @@ impl Game<'_> {
         }
         jump
     }
+    /// Whether the rider's eyes are in water (`Entity.updateFluidOnEyes` then `isEyeInFluid(WATER)`),
+    /// and not in a bubble column, as `LivingEntity.baseTick` asks before it lets a rider stay.
+    fn rider_eyes_in_water(&self) -> bool {
+        let Some([x, y, z]) = self.eye_position() else {
+            return false;
+        };
+        let (bx, by, bz) = (x.floor() as i32, y.floor() as i32, z.floor() as i32);
+        if &*self.res.facts().get(self.world.block(bx, by, bz)).name == "minecraft:bubble_column" {
+            return false;
+        }
+        self.fluid_height_of(bx, by, bz, Some(Fluid::Water))
+            .is_some_and(|(height, _)| f64::from(by) + f64::from(height) > y)
+    }
     /// The rider's input for this tick; returns false when not on a mount.
     pub(super) fn tick_mount_riding(&mut self, keys: Keys) -> bool {
         let Some(i) = self.mount_index() else {
             return false;
         };
         if keys.shift || !self.mobs[i].alive() {
+            self.dismount_mount();
+            return true;
+        }
+        // `LivingEntity.baseTick`: a rider whose eyes are in water gets off a mount of the
+        // `dismounts_underwater` tag (a server's player too: `leave_guest` tells their client).
+        if dismounts_underwater(self.mobs[i].species()) && self.rider_eyes_in_water() {
             self.dismount_mount();
             return true;
         }
@@ -430,6 +472,23 @@ impl Game<'_> {
         });
         true
     }
+    /// `LivingEntity.baseTick` for the mobs that ride a mount of the `dismounts_underwater` tag (a baby
+    /// zombie on a chicken): with their eyes in water they get off it.
+    pub(super) fn dismount_underwater_mob_riders(&mut self) {
+        let swimmers: Vec<u32> = self
+            .mobs
+            .iter()
+            .filter(|m| m.alive() && m.fluids.eye_in_water)
+            .filter_map(|m| {
+                let mount = m.extra.mount?;
+                let under = self.mobs.iter().find(|v| v.id == mount)?;
+                dismounts_underwater(under.species()).then_some(m.id)
+            })
+            .collect();
+        for rider in swimmers {
+            self.dismount_mob(rider);
+        }
+    }
     /// `positionRider`: the player sits on the mount after it moves.
     pub(super) fn position_rider(&mut self) {
         let Some(i) = self.mount_index() else {
@@ -479,8 +538,14 @@ impl Game<'_> {
         let rear = Vec3::new(rear[0], rear[1], rear[2])
             .rotate_y(-m.yaw * (std::f64::consts::PI / 180.0) as f32);
         at = Vec3::new(at.x + rear.x, at.y + rear.y, at.z + rear.z);
+        // The tick a rider takes its seat is a teleport (`Entity.moveTo`), which
+        // sets the old position too: the camera must not sweep from where the
+        // player stood to the seat. The ticks after it move with the mount and
+        // are interpolated as usual.
+        let first = self.posed_rider != self.riding;
+        self.posed_rider = self.riding;
         if let Some(p) = self.player.as_mut() {
-            self.previous_position = p.position;
+            self.previous_position = if first { at } else { p.position };
             p.position = at;
             p.velocity = Vec3::ZERO;
             p.fall_distance = 0.0;
@@ -549,6 +614,18 @@ impl Game<'_> {
                     m.persistent = true;
                     // AbstractHorse.tameWithName: entity event 7, spawnTamingParticles(true).
                     self.mob_event_particles(mob, 7);
+                }
+                if let Some(kind) = self
+                    .mobs
+                    .iter()
+                    .find(|m| m.id == mob)
+                    .map(|m| m.kind.id.clone())
+                {
+                    let owner = self
+                        .level
+                        .player_uuid
+                        .map(horizon_client::lan::playerdata::ints_uuid);
+                    self.native_entity_tame(mob, &kind, owner);
                 }
             }
             MobEvent::Buck { mob } => {
@@ -857,6 +934,32 @@ fn strider_dismount_location(
 mod tests {
     use super::*;
     use std::collections::HashMap;
+
+    #[test]
+    fn the_mounts_that_throw_a_swimmer_off_are_the_dismounts_underwater_tag() {
+        // data/minecraft/tags/entity_type/dismounts_underwater.json of 26.3.
+        for species in [
+            Species::Camel,
+            Species::Chicken,
+            Species::Donkey,
+            Species::HappyGhast,
+            Species::Horse,
+            Species::Llama,
+            Species::Mule,
+            Species::Pig,
+            Species::Ravager,
+            Species::Spider,
+            Species::Strider,
+            Species::TraderLlama,
+            Species::ZombieHorse,
+        ] {
+            assert!(dismounts_underwater(species), "{species:?}");
+        }
+        // Not in the tag: a skeleton horse swims with its rider, a camel husk is not the camel.
+        for species in [Species::SkeletonHorse, Species::CamelHusk, Species::Cow] {
+            assert!(!dismounts_underwater(species), "{species:?}");
+        }
+    }
 
     #[test]
     fn steering_accepts_the_correct_item_in_either_hand() {

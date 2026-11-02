@@ -15,7 +15,10 @@ The opening, then Play ([clip](docs/opening.webm)):
 
 - **Versions**: lists the published builds of horizon-rust/horizon (the current Nightly, the last
   week's, then the releases from before), installs the build for this platform into its own
-  folder, and removes it again.
+  folder, and removes it again. **Import a game build…** takes a `horizon-client` you have (one
+  built on your fork's Actions, or the zip holding it) and installs it as `imported-<date>-<sha>`:
+  a copy of the selected release or Nightly's folder, game files included, with that program as the
+  game. Imported builds are listed apart as unsigned, and no update replaces them.
 - **Play**: prepares resources as `PLAY.txt` describes (your launcher's 26.3 install, the
   26.3 server jar from that version's own json, and Java 25) and copies its sounds from your
   launcher's asset store (`horizon-prepare sounds`; a launcher install without them only
@@ -96,7 +99,7 @@ The opening, then Play ([clip](docs/opening.webm)):
   from the window or `horizon-launcher play` adds to it (`instance list` shows it too). Each
   instance plays the launcher's version, which follows updates, unless the Play page's version
   picker keeps it on another installed one (to keep an old world on the version it was made
-  with); picking the version marked "follows updates" lets it follow again.
+  with); picking the version marked "auto-update" lets it follow again.
 - **Export**: Home's Instance row has **Export…**: the selected instance (or a port) as a `.mrpack`
   (Modrinth's modpack format: resource packs the browser installed from Modrinth are listed by
   their download, the rest is in `overrides/`) or a `.zip` of the game folder's layout, with the
@@ -229,7 +232,8 @@ page `servers.json` (the list), `servers/<name>/` (the servers created there) an
 - **Updates**: Horizon ships only the Nightly (since 2026-10-28, docs/release-flow.md). The
   launcher installs the current one (the `nightly` pre-release, checksums signed for the Nightly
   channel) as `nightly-<date>-<commit>` and selects it when the player was on a Nightly, on the
-  newest release or on nothing; a version picked by hand or pinned by an instance stays. Older
+  newest release or on nothing; a version picked by hand or pinned by an instance stays, and so
+  does an imported build. Older
   Nightlies are removed once nothing plays them. Worlds are never touched: they live in the game's
   folder, not in a version's. The last week's Nightlies (`nightly-<date>`), the `vX.Y.Z`
   releases and the old Alpha pre-releases stay on the Versions page to install by hand, never as
@@ -333,6 +337,7 @@ and don't set `%ERRORLEVEL%` / `$LASTEXITCODE`. Scripts that need the exit code 
     horizon-launcher versions [--installed]       releases on GitHub, or what is installed (* = selected)
     horizon-launcher install <tag|latest>
     horizon-launcher remove <tag>
+    horizon-launcher import-build <path> [--version <tag>] --trust-unsigned   a game program you have, as its own version
     horizon-launcher prepare [--minecraft <dir>] [--version <tag>]
     horizon-launcher play [--version <tag>] [--instance <name>] [--arg <ARG>]...   start the client; --arg passes an extra argument through (repeatable)
     horizon-launcher server [--dir <dir>] [--version <tag>] [--accept-eula]

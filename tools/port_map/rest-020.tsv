@@ -39,7 +39,7 @@ PktUtils.stringFromByteArray	inline	crates/horizon-server/src/rcon.rs::read_requ
 PktUtils.intFromByteArray	inline	crates/horizon-server/src/rcon.rs::read_request	the little-endian length, request id and type; the rest of PktUtils is the GS4 query server
 PktUtils.intFromNetworkByteArray	inline	crates/horizon-server/src/query.rs::Query::answer	the token of a stat request: four big-endian bytes at 7, zero when the packet is short
 PktUtils.toHexString	skip:server		RCON and query server code; Horizon has no RCON or GS4 query port
-RconConsoleSource.createCommandSourceStack	inline	crates/horizon-server/src/rcon.rs::run_on_game	gap: minor: a command runs as the console does, through the game's `console` request; the sender shows as Server, not Rcon, and broadcast-rcon-to-ops is not read
+RconConsoleSource.createCommandSourceStack	port	crates/horizon-client/src/game/dedicated.rs::Game::rcon_line	the console at level 4 from the world respawn position with the source named Rcon (its `say`, and its feedback to the operators as [Rcon: ...]); gap: minor: the dedicated-only console commands keep their own wording
 GenericThread.start	inline	crates/horizon-server/src/rcon.rs::serve	the listener and a thread per connection; GenericThread is also the GS4 query server's helper
 GenericThread.stop	skip:server		the RCON threads end with the supervisor; GenericThread is also the GS4 query server's helper
 QueryThreadGs4.create	port	crates/horizon-server/src/query.rs::setup	query.port 1 to 65535 with vanilla's warning, server-ip (0.0.0.0 when empty)
@@ -72,7 +72,7 @@ ServerWaypointManager.remakeConnections	inline	crates/horizon-client/src/lan/way
 ServerWaypointManager.createConnection	port	crates/horizon-client/src/lan/waypoints.rs::Waypoints::create_connection	
 ServerWaypointManager.updateConnection	port	crates/horizon-client/src/lan/waypoints.rs::Waypoints::update_or_create	
 SoundEvent.create	skip:data		registry object construction; Horizon's sound_events.rs models sounds.json entries, not SoundEvent objects
-SoundEvent.getRange	missing		minor: no fixed-range sound events (fixed_range is not read anywhere); attenuation comes from the sounds.json value (Sound::attenuation_distance)
+SoundEvent.getRange	inline	crates/horizon-client/src/lan/containers.rs::Hub::broadcast_near	16*max(volume,1) is the whole formula: no 26.3 event sets a fixed range (SoundEvents never calls createFixedRangeEvent), and a player exactly on it is left out
 SoundEvents.register	skip:data		registry bootstrap of sound events and variant sets; Horizon has no registry layer
 SoundEvents.registerForHolder	skip:data		registry bootstrap of sound events and variant sets; Horizon has no registry layer
 SoundEvents.registerGoatHornSoundVariants	skip:data		registry bootstrap of sound events and variant sets; Horizon has no registry layer
