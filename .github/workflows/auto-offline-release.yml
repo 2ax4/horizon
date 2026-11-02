@@ -1,7 +1,7 @@
 name: auto-offline-release
 on:
   schedule:
-    - cron: '3-59/5 * * * *'
+    - cron: '17 * * * *'
   workflow_dispatch:
     inputs:
       retry:
@@ -14,12 +14,25 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write
 
 concurrency:
   group: auto-offline-release
   cancel-in-progress: false
 
 jobs:
+  chain:
+    name: queue the next check
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Dispatch the next run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh workflow run auto-offline-release.yml -R "$GITHUB_REPOSITORY" --ref main \
+            || echo "::warning::could not queue the next check; the hourly schedule or the next push restarts the chain"
+
   sync:
     name: upstream check
     runs-on: ubuntu-latest
@@ -40,7 +53,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_SIGNING_KEY: ${{ secrets.RELEASE_SIGNING_KEY }}
-          RETRY: ${{ inputs.retry }}
+          RETRY: ${{ inputs.retry || github.event_name == 'push' }}
         run: |
           set -euo pipefail
           git config user.name "2ax4"
@@ -68,8 +81,8 @@ jobs:
             target="launcher@${version}-offline"
             marker="offline-failed/${version}-${phash}"
             if gh release view "$target" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-              echo "already released: ${target}"
-              continue
+              echo "already released: ${target}, every older upstream version is covered by it"
+              break
             fi
             if [ "${RETRY:-}" != true ] && git ls-remote --exit-code --tags origin "refs/tags/${marker}" >/dev/null 2>&1; then
               echo "skipping ${version}: it already failed with these patches and workflows; change them, or run this workflow with retry"
@@ -115,7 +128,7 @@ jobs:
           done < /tmp/candidates.txt
           echo "alert=${alert}" >> "$GITHUB_OUTPUT"
           if [ -z "$chosen" ]; then
-            echo "::notice::the patches apply to none of the pending upstream releases and every supported version is already published. Rebase offline/patches/ onto the latest upstream to release it."
+            echo "::notice::nothing to build: the newest upstream release is already published, or every pending one is recorded as failed. If a newer upstream release stays unbuilt, rebase offline/patches/ onto it."
             echo "should_build=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -202,3 +215,13 @@ jobs:
             --title "Offline build failed: ${TAG}" \
             --body "The build of ${TAG} failed. It will not be retried until offline/patches or launcher-release.yml change, or this workflow is run with retry. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
             >/dev/null 2>&1 || true
+
+  wait:
+    name: wait for the next check
+    needs: [sync, build, alert, remember-failure]
+    if: ${{ !cancelled() }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Pause before the queued run starts
+        run: sleep 240
