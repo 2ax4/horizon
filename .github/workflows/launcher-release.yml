@@ -62,7 +62,7 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y libxkbcommon-x11-dev libwayland-dev libx11-xcb-dev libfontconfig-dev libvulkan-dev libasound2-dev
+          sudo apt-get install -y libxkbcommon-x11-dev libwayland-dev libx11-xcb-dev libfontconfig-dev libvulkan-dev libasound2-dev patchelf
 
       - name: Tests
         run: |
@@ -102,6 +102,11 @@ jobs:
             *.zip) (cd dist && 7z a ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
             *.tar.gz) (cd dist && tar czf ../out/${{ matrix.asset }} ${{ matrix.binary }}) ;;
           esac
+          # The AppImage is what a player downloads: one file whose self-update replaces itself
+          # (packaging/linux/appimage.sh, launcher/src/backend.rs). The tar.gz stays the update channel.
+          if [[ "${{ matrix.asset }}" == *.tar.gz ]]; then
+            ../packaging/linux/appimage.sh target/release/${{ matrix.binary }} "$HORIZON_LAUNCHER_VERSION" out
+          fi
           ls -l out
 
       - uses: actions/upload-artifact@v4
