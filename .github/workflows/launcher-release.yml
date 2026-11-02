@@ -206,7 +206,7 @@ jobs:
             gh release delete "$RELEASE_TAG" --yes
           fi
           gh release create "$RELEASE_TAG" \
-            --title "Horizon Launcher ${RELEASE_TAG#launcher@}" \
+            --title "Horizon launcher ${RELEASE_TAG#launcher@}" \
             --notes-file "$body_file" \
             dist/*
           rm -f "$body_file"
