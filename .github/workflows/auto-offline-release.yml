@@ -216,6 +216,24 @@ jobs:
             --body "The build of ${TAG} failed. It will not be retried until offline/patches or launcher-release.yml change, or this workflow is run with retry. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
             >/dev/null 2>&1 || true
 
+  cleanup-failed:
+    name: delete stale offline-failed markers
+    needs: [sync, build]
+    if: ${{ !cancelled() && needs.build.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Delete old offline-failed markers
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${GITHUB_REPOSITORY}/git/matching-refs/tags/offline-failed" --jq '.[].ref' \
+            | sed 's|^refs/tags/||; s|/|%2F|g' \
+            | while read -r tag; do
+                echo "Deleting $tag"
+                gh api -X DELETE "repos/${{ github.repository }}/git/refs/tags/$tag" || true
+              done
+
   wait:
     name: wait for the next check
     needs: [sync, build, alert, remember-failure]
