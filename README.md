@@ -1,3 +1,56 @@
+> [!WARNING]
+> **Unofficial fork of [horizon-rust/horizon](https://github.com/horizon-rust/horizon).**
+> Play **without a Microsoft account**: offline accounts are supported. Partner banners are removed (ad-free).
+> The launcher updates itself from **this** fork.
+> **Download: [Releases](https://github.com/2ax4/horizon-offline-auto-update/releases).**
+> Only **offline-mode servers** accept offline accounts; online-mode servers still check a real Microsoft account.
+
+[![auto-offline-release](https://github.com/2ax4/horizon-offline-auto-update/actions/workflows/auto-offline-release.yml/badge.svg)](https://github.com/2ax4/horizon-offline-auto-update/actions/workflows/auto-offline-release.yml)
+
+<p align="center">
+  <img src="docs/media/offline-accounts.png" alt="The launcher's Settings page: an offline name set, no Microsoft account" width="720">
+</p>
+
+## What changed vs. upstream
+
+- **Offline accounts:** pick a name and play, no Microsoft login.
+- **Ad-free:** partner banners removed.
+- **Self-update from this fork:** the launcher checks this repo's Releases, not upstream's.
+- **Auto-built:** CI rebuilds an offline release whenever upstream ships a new one. Patches live in [`offline/patches`](offline/patches) ([what each patch does](offline/patches/README.md)).
+- **Signed:** every release ships `SHA256SUMS` + an Ed25519 `SHA256SUMS.sig`, verifiable with [`offline/verify-release.py`](offline/verify-release.py).
+- **Skipped versions:** if the patches don't apply to an upstream release, that version is skipped and the next one is built (e.g. upstream 0.2.36).
+
+## Install (offline fork)
+
+1. Download the launcher for your OS from [Releases](https://github.com/2ax4/horizon-offline-auto-update/releases).
+2. Verify the download (see below).
+3. Run it, set an offline name in **Settings**, and play.
+
+You still need your own copy of Java Edition files for the game to prepare its resources (see [Download](#download)).
+
+## Verify your download
+
+Every release ships `SHA256SUMS` and an Ed25519 signature `SHA256SUMS.sig`, made with the fork's release key. The launcher also checks this signature itself before it applies any self-update; these steps are for checking a file you downloaded by hand.
+
+```sh
+# put SHA256SUMS, SHA256SUMS.sig and the assets you downloaded in one folder, then:
+curl -fsSLO https://raw.githubusercontent.com/2ax4/horizon-offline-auto-update/main/offline/verify-release.py
+python3 verify-release.py launcher@0.2.37-offline
+```
+
+The script needs only Python 3.8+, self-tests its own Ed25519 math before trusting it, and exits non-zero if anything fails.
+
+Checksum-only, no Python needed:
+
+```sh
+sha256sum -c SHA256SUMS --ignore-missing        # Linux
+shasum -a 256 -c SHA256SUMS --ignore-missing    # macOS
+```
+
+On Windows (PowerShell): `Get-FileHash .\horizon-launcher-windows-x64.zip -Algorithm SHA256` and compare with the line in `SHA256SUMS`.
+
+---
+
 <p align="center">
   <img src="docs/media/banner.webp" alt="The Horizon website: the game you know, rebuilt in Rust" width="100%">
 </p>
@@ -16,7 +69,7 @@
   <a href="https://playhorizon.dev"><b>Website</b></a> ·
   <a href="#download"><b>Download</b></a> ·
   <a href="https://playhorizon.dev/docs/"><b>Documentation</b></a> ·
-  <a href="https://github.com/horizon-rust/horizon/releases"><b>Release notes</b></a> ·
+  <a href="https://github.com/2ax4/horizon-offline-auto-update/releases"><b>Release notes</b></a> ·
   <a href="ROADMAP.md"><b>Roadmap</b></a> ·
   <a href="#project-status"><b>Project status</b></a> ·
   <a href="#contributing"><b>Contributing</b></a>
@@ -30,14 +83,14 @@ Minecraft: Java Edition 26.3, rewritten in Rust. Same worlds, same rules, same t
 
 ## Download
 
-Get **the Horizon launcher** from [playhorizon.dev](https://playhorizon.dev) or [the launcher releases](https://github.com/horizon-rust/horizon/releases?q=launcher-v&expanded=true) (Linux x86-64, macOS on Apple Silicon, macOS on Intel from the next Nightly, Windows x64). It installs and updates the game, prepares its files from your copy of Minecraft, and updates itself.
+Get **the Horizon launcher** from [this fork's Releases](https://github.com/2ax4/horizon-offline-auto-update/releases) (Linux x86-64, macOS on Apple Silicon, macOS on Intel from the next Nightly, Windows x64). It installs and updates the game, prepares its files from your copy of Minecraft, and updates itself.
 
-**You need** a Microsoft account that owns Java Edition ([why](docs/microsoft-account.md)) and a GPU with Vulkan or OpenGL 3.3 (Linux), Vulkan or DirectX 12 (Windows), or a Mac (Apple Silicon, or Intel from the next Nightly). An existing Minecraft install (official launcher, Prism, MultiMC...) is reused; without one, Play downloads 26.3 from Mojang for your account. Step by step: [Install and first launch](https://playhorizon.dev/docs/install).
+**You need** a GPU with Vulkan or OpenGL 3.3 (Linux), Vulkan or DirectX 12 (Windows), or a Mac (Apple Silicon, or Intel from the next Nightly). **No Microsoft account is needed in this fork** (offline accounts). An existing Minecraft install (official launcher, Prism, MultiMC...) is reused. Step by step: [Install and first launch](https://playhorizon.dev/docs/install).
 
 <table>
   <tr>
     <td width="50%"><img src="docs/media/launcher-play.webp" alt="The launcher's Home page: the selected instance ready to play, the version picker, Join a friend and the instance's tabs"></td>
-    <td width="50%"><img src="docs/media/launcher-settings.webp" alt="The launcher's Settings page: Microsoft account, offline name, updates, appearance and accent colour"></td>
+    <td width="50%"><img src="docs/media/launcher-settings.webp" alt="The launcher's Settings page: offline name, updates, appearance and accent colour"></td>
   </tr>
 </table>
 
@@ -46,7 +99,7 @@ Get **the Horizon launcher** from [playhorizon.dev](https://playhorizon.dev) or 
 - **The game:** vanilla world generation, mobs, villagers, raids, redstone, every command, the HUD and the recipe book, on vanilla saves. Worlds from 1.8 to 26.2 are upgraded. [Status](#project-status).
 - **Extras:** new menus, graphics presets, distant terrain up to 1024 chunks, controllers, zoom, minimap and more, off by default where they change the vanilla look. [Settings](https://playhorizon.dev/docs/settings).
 - **Packs:** resource packs, and data packs with functions, predicates, item modifiers and world generation.
-- **Multiplayer:** invite friends with a code, Open to LAN, join servers (online mode included). [Multiplayer](https://playhorizon.dev/docs/multiplayer).
+- **Multiplayer:** invite friends with a code, Open to LAN, join offline-mode servers. [Multiplayer](https://playhorizon.dev/docs/multiplayer).
 - **Mods:** content mods (blocks, items, data) and native Rust mods, built by the launcher with nothing to install. Java mod jars do not run. [Mods](https://playhorizon.dev/docs/mods).
 
 In the Rust client, with vanilla assets and no mods or shaders:
@@ -96,8 +149,8 @@ Needs Rust 1.90+, Python 3.10+, JDK 25, and on Linux `libasound2-dev libudev-dev
 2. **Server jar:** the 26.3 server jar (`downloads.server.url` in `versions/26.3/26.3.json`), passed once with `--server-jar` or `HORIZON_SERVER_JAR`.
 
 ```sh
-git clone https://github.com/horizon-rust/horizon.git
-cd horizon
+git clone https://github.com/2ax4/horizon-offline-auto-update.git
+cd horizon-offline-auto-update
 cargo run --release -p horizon-prepare -- --prepare --server-jar ~/Downloads/server.jar   # needs JDK 25
 cargo run --release -p horizon-prepare -- sounds   # optional: sounds from your launcher install
 cargo run --release -p horizon-client
@@ -157,4 +210,4 @@ Skins served over https show the default skin unless already cached; pack icons 
 
 ## Author
 
-Made by [Ludovic Marie](https://lu4ovic.com) ([@ludovic111](https://github.com/ludovic111)).
+Upstream by [Ludovic Marie](https://lu4ovic.com) ([@ludovic111](https://github.com/ludovic111)). Offline fork maintained by [@2ax4](https://github.com/2ax4).
