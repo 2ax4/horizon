@@ -66,6 +66,9 @@ impl Launcher {
                 .child(main.flex_1().min_w_0())
                 .child(side),
         );
+        // Sculk's banner right under the server, where it is seen without scrolling past the
+        // server's tabs (as before the glass look, under the page's actions).
+        page = page.children(self.glass_sculk(cx));
         if let Some(dir) = &open {
             page = page.child(self.glass_server_tabs(dir, &status, cx));
         }
