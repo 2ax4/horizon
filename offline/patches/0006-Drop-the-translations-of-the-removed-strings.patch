@@ -1,4 +1,4 @@
-From c3071b99f6939aaf2e3de41ef4b387bfb2e43779 Mon Sep 17 00:00:00 2001
+From 570d6855b09d3715105bc6c21b68cfd72b326ec7 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:36:01 +0000
 Subject: [PATCH 5/5] Offline build: drop the translations of the strings the
@@ -94,7 +94,7 @@ Subject: [PATCH 5/5] Offline build: drop the translations of the strings the
  86 files changed, 1118 deletions(-)
 
 diff --git a/launcher/lang/af.json b/launcher/lang/af.json
-index f8949e531..2b30087d6 100644
+index 3e37658..f692efc 100644
 --- a/launcher/lang/af.json
 +++ b/launcher/lang/af.json
 @@ -2,7 +2,6 @@
@@ -202,7 +202,7 @@ index f8949e531..2b30087d6 100644
    "Send": "Stuur",
    "Start the server to send commands": "Begin die bediener om opdragte te stuur",
 diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
-index 6e1157dd5..972a29dc6 100644
+index ad0de49..fba631c 100644
 --- a/launcher/lang/ar.json
 +++ b/launcher/lang/ar.json
 @@ -2,7 +2,6 @@
@@ -310,7 +310,7 @@ index 6e1157dd5..972a29dc6 100644
    "Send": "إرسال",
    "Start the server to send commands": "شغّل الخادم لإرسال الأوامر",
 diff --git a/launcher/lang/az.json b/launcher/lang/az.json
-index a35e97332..98239a4b7 100644
+index 3ee2010..a1405f9 100644
 --- a/launcher/lang/az.json
 +++ b/launcher/lang/az.json
 @@ -2,7 +2,6 @@
@@ -418,7 +418,7 @@ index a35e97332..98239a4b7 100644
    "Send": "Göndər",
    "Start the server to send commands": "Komandaları göndərmək üçün serveri işə salın",
 diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
-index 44bda51ae..508483a87 100644
+index 62ebf52..77cafd4 100644
 --- a/launcher/lang/ba.json
 +++ b/launcher/lang/ba.json
 @@ -2,7 +2,6 @@
@@ -526,7 +526,7 @@ index 44bda51ae..508483a87 100644
    "Send": "Ебәр",
    "Start the server to send commands": "Командалар ебәреү өсөн серверҙы эшләтеп ебәрегеҙ .",
 diff --git a/launcher/lang/be.json b/launcher/lang/be.json
-index 2bdce7421..89e2f084b 100644
+index 7838d4f..59651ec 100644
 --- a/launcher/lang/be.json
 +++ b/launcher/lang/be.json
 @@ -2,7 +2,6 @@
@@ -634,7 +634,7 @@ index 2bdce7421..89e2f084b 100644
    "Send": "Адправіць",
    "Start the server to send commands": "Запусціце сервер для адпраўкі каманд",
 diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
-index d3f3af818..17d35a789 100644
+index 18b836f..c45f1aa 100644
 --- a/launcher/lang/bg.json
 +++ b/launcher/lang/bg.json
 @@ -2,7 +2,6 @@
@@ -742,7 +742,7 @@ index d3f3af818..17d35a789 100644
    "Send": "Изпратете",
    "Start the server to send commands": "Стартирайте сървъра, за да изпращате команди",
 diff --git a/launcher/lang/br.json b/launcher/lang/br.json
-index 7fd7d98ba..64a897abc 100644
+index c15c24f..3892d7c 100644
 --- a/launcher/lang/br.json
 +++ b/launcher/lang/br.json
 @@ -2,7 +2,6 @@
@@ -850,7 +850,7 @@ index 7fd7d98ba..64a897abc 100644
    "Send": "Kas",
    "Start the server to send commands": "Lakaat ar servijer da vont en-dro evit kas urzhioù",
 diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
-index afbada6ee..479babae6 100644
+index 1e6c1f6..2cf6795 100644
 --- a/launcher/lang/bs.json
 +++ b/launcher/lang/bs.json
 @@ -2,7 +2,6 @@
@@ -958,7 +958,7 @@ index afbada6ee..479babae6 100644
    "Send": "Pošalji",
    "Start the server to send commands": "Pokrenite server za slanje komandi",
 diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
-index bf2a53d59..346ae9449 100644
+index 4744137..2a795cd 100644
 --- a/launcher/lang/ca.json
 +++ b/launcher/lang/ca.json
 @@ -2,7 +2,6 @@
@@ -1066,7 +1066,7 @@ index bf2a53d59..346ae9449 100644
    "Send": "Enviar",
    "Start the server to send commands": "Inicieu el servidor per enviar ordres",
 diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
-index 219bf21b6..deee20e1f 100644
+index 4fe6e20..5451af5 100644
 --- a/launcher/lang/cs.json
 +++ b/launcher/lang/cs.json
 @@ -2,7 +2,6 @@
@@ -1174,7 +1174,7 @@ index 219bf21b6..deee20e1f 100644
    "Send": "Odeslat",
    "Start the server to send commands": "Spusťte server pro odesílání příkazů",
 diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
-index 02df508d8..284525708 100644
+index 102c1ec..fffef2f 100644
 --- a/launcher/lang/cv.json
 +++ b/launcher/lang/cv.json
 @@ -2,7 +2,6 @@
@@ -1282,7 +1282,7 @@ index 02df508d8..284525708 100644
    "Send": "Яр",
    "Start the server to send commands": "Командӑсем ярса пама сервера пуҫла",
 diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
-index 1e7a29153..5bf4ee4a7 100644
+index 1c82e20..7f4b7a5 100644
 --- a/launcher/lang/cy.json
 +++ b/launcher/lang/cy.json
 @@ -2,7 +2,6 @@
@@ -1390,7 +1390,7 @@ index 1e7a29153..5bf4ee4a7 100644
    "Send": "Anfon",
    "Start the server to send commands": "Dechreuwch y gweinydd i anfon gorchmynion",
 diff --git a/launcher/lang/da.json b/launcher/lang/da.json
-index a4a04d804..ae55b92d4 100644
+index fbec3fd..b9b6fa6 100644
 --- a/launcher/lang/da.json
 +++ b/launcher/lang/da.json
 @@ -2,7 +2,6 @@
@@ -1498,7 +1498,7 @@ index a4a04d804..ae55b92d4 100644
    "Send": "Send",
    "Start the server to send commands": "Start serveren for at sende kommandoer",
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index faef46ca1..8bc9aa68e 100644
+index b685fa4..249bd82 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
 @@ -2,7 +2,6 @@
@@ -1606,7 +1606,7 @@ index faef46ca1..8bc9aa68e 100644
    "Send": "Senden",
    "Start the server to send commands": "Starte den Server, um Befehle zu senden",
 diff --git a/launcher/lang/el.json b/launcher/lang/el.json
-index 9f82e4ab6..a5f098776 100644
+index d46c128..ba3cdea 100644
 --- a/launcher/lang/el.json
 +++ b/launcher/lang/el.json
 @@ -2,7 +2,6 @@
@@ -1714,7 +1714,7 @@ index 9f82e4ab6..a5f098776 100644
    "Send": "Αποστολή",
    "Start the server to send commands": "Ξεκινήστε το διακομιστή για να στείλει εντολές",
 diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
-index dfdeac8ef..c58142484 100644
+index eefe087..0b2e788 100644
 --- a/launcher/lang/eo.json
 +++ b/launcher/lang/eo.json
 @@ -2,7 +2,6 @@
@@ -1822,7 +1822,7 @@ index dfdeac8ef..c58142484 100644
    "Send": "Sendu",
    "Start the server to send commands": "Komencu la servilon por sendi komandojn",
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index 13badc7ce..60df31557 100644
+index 87e69cc..d8e4cf3 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
 @@ -2,7 +2,6 @@
@@ -1930,7 +1930,7 @@ index 13badc7ce..60df31557 100644
    "Send": "Enviar",
    "Start the server to send commands": "Inicia el servidor para enviar comandos",
 diff --git a/launcher/lang/et.json b/launcher/lang/et.json
-index 91daf43fc..081153135 100644
+index 460f599..8b926fe 100644
 --- a/launcher/lang/et.json
 +++ b/launcher/lang/et.json
 @@ -2,7 +2,6 @@
@@ -2038,7 +2038,7 @@ index 91daf43fc..081153135 100644
    "Send": "Saada",
    "Start the server to send commands": "Käivitage server käskude saatmiseks",
 diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
-index 80679c84b..8919ad986 100644
+index 33983f2..65a884d 100644
 --- a/launcher/lang/eu.json
 +++ b/launcher/lang/eu.json
 @@ -2,7 +2,6 @@
@@ -2146,7 +2146,7 @@ index 80679c84b..8919ad986 100644
    "Send": "Bidali",
    "Start the server to send commands": "Hasi zerbitzaria komandoak bidaltzeko",
 diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
-index 5c3a3139d..b50b7e760 100644
+index c0093f2..37283f2 100644
 --- a/launcher/lang/fa.json
 +++ b/launcher/lang/fa.json
 @@ -2,7 +2,6 @@
@@ -2254,7 +2254,7 @@ index 5c3a3139d..b50b7e760 100644
    "Send": "ارسال کنید",
    "Start the server to send commands": "سرور را برای ارسال دستورات راه اندازی کنید",
 diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
-index 989034483..5c61b6ca7 100644
+index ffb03c6..834aec2 100644
 --- a/launcher/lang/fi.json
 +++ b/launcher/lang/fi.json
 @@ -2,7 +2,6 @@
@@ -2362,7 +2362,7 @@ index 989034483..5c61b6ca7 100644
    "Send": "Lähetä",
    "Start the server to send commands": "Käynnistä palvelin komentojen lähettämiseksi",
 diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
-index 2934b8d5a..f61c7c7a8 100644
+index 187bc54..d5a3a2d 100644
 --- a/launcher/lang/fil.json
 +++ b/launcher/lang/fil.json
 @@ -2,7 +2,6 @@
@@ -2470,7 +2470,7 @@ index 2934b8d5a..f61c7c7a8 100644
    "Send": "Ipadala",
    "Start the server to send commands": "Simulan ang server upang magpadala ng mga utos",
 diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
-index c1403e071..b2e44c0cd 100644
+index 12362a2..242b51a 100644
 --- a/launcher/lang/fo.json
 +++ b/launcher/lang/fo.json
 @@ -2,7 +2,6 @@
@@ -2578,7 +2578,7 @@ index c1403e071..b2e44c0cd 100644
    "Send": "Send",
    "Start the server to send commands": "Byrja ambætaran fyri at senda skipanir",
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 374c159c8..ac1f755b7 100644
+index 836fd98..213a4a6 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
 @@ -2,7 +2,6 @@
@@ -2686,7 +2686,7 @@ index 374c159c8..ac1f755b7 100644
    "Send": "Envoyer",
    "Start the server to send commands": "Démarrez le serveur pour envoyer des commandes",
 diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
-index 713f7444e..1de4ae921 100644
+index 780d6d9..92eafb3 100644
 --- a/launcher/lang/fur.json
 +++ b/launcher/lang/fur.json
 @@ -2,7 +2,6 @@
@@ -2794,7 +2794,7 @@ index 713f7444e..1de4ae921 100644
    "Send": "Inviâ",
    "Start the server to send commands": "Avviâ il servidôr par mandâ comants",
 diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
-index 2014c8be8..77b5ae9b5 100644
+index 6143901..3153afe 100644
 --- a/launcher/lang/fy.json
 +++ b/launcher/lang/fy.json
 @@ -2,7 +2,6 @@
@@ -2902,7 +2902,7 @@ index 2014c8be8..77b5ae9b5 100644
    "Send": "Stjoer",
    "Start the server to send commands": "Start de tsjinner om kommando's te ferstjoeren",
 diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
-index 2c2285f9d..11bda77d1 100644
+index 9c46df1..c63e2f1 100644
 --- a/launcher/lang/ga.json
 +++ b/launcher/lang/ga.json
 @@ -2,7 +2,6 @@
@@ -3010,7 +3010,7 @@ index 2c2285f9d..11bda77d1 100644
    "Send": "Seol",
    "Start the server to send commands": "Tosaigh an freastalaí chun orduithe a sheoladh",
 diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
-index 446081fac..e3fd1f7f3 100644
+index c954897..9fbff91 100644
 --- a/launcher/lang/gd.json
 +++ b/launcher/lang/gd.json
 @@ -2,7 +2,6 @@
@@ -3118,7 +3118,7 @@ index 446081fac..e3fd1f7f3 100644
    "Send": "Seol",
    "Start the server to send commands": "Tòisich am frithealaiche gus òrdughan a chuir",
 diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
-index 28523613a..963dc305c 100644
+index 61ec0ff..adbd87f 100644
 --- a/launcher/lang/gl.json
 +++ b/launcher/lang/gl.json
 @@ -2,7 +2,6 @@
@@ -3226,7 +3226,7 @@ index 28523613a..963dc305c 100644
    "Send": "Enviar",
    "Start the server to send commands": "Inicia o servidor para enviar comandos",
 diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
-index 5fab5df2d..c548e1504 100644
+index 09d290c..f84d978 100644
 --- a/launcher/lang/haw.json
 +++ b/launcher/lang/haw.json
 @@ -2,7 +2,6 @@
@@ -3334,7 +3334,7 @@ index 5fab5df2d..c548e1504 100644
    "Send": "Hoʻouna",
    "Start the server to send commands": "E hoʻomaka i ke kikowaena e hoʻouna i nā kauoha",
 diff --git a/launcher/lang/he.json b/launcher/lang/he.json
-index 005b205d0..5f447eca9 100644
+index 42fe19c..ab297c0 100644
 --- a/launcher/lang/he.json
 +++ b/launcher/lang/he.json
 @@ -2,7 +2,6 @@
@@ -3442,7 +3442,7 @@ index 005b205d0..5f447eca9 100644
    "Send": "שלח",
    "Start the server to send commands": "הפעל את השרת כדי לשלוח פקודות",
 diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
-index cd082bc92..313b02fb3 100644
+index a03f783..bd28342 100644
 --- a/launcher/lang/hi.json
 +++ b/launcher/lang/hi.json
 @@ -2,7 +2,6 @@
@@ -3550,7 +3550,7 @@ index cd082bc92..313b02fb3 100644
    "Send": "भेजें",
    "Start the server to send commands": "कमांड भेजने के लिए सर्वर शुरू करें",
 diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
-index a84cd7d91..ff93c218b 100644
+index 157888a..076ab79 100644
 --- a/launcher/lang/hr.json
 +++ b/launcher/lang/hr.json
 @@ -2,7 +2,6 @@
@@ -3658,7 +3658,7 @@ index a84cd7d91..ff93c218b 100644
    "Send": "Pošalji",
    "Start the server to send commands": "Pokreni poslužitelj za slanje naredbi",
 diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
-index feccf6b4e..90e98af21 100644
+index 4f2def1..7e26609 100644
 --- a/launcher/lang/hu.json
 +++ b/launcher/lang/hu.json
 @@ -2,7 +2,6 @@
@@ -3766,7 +3766,7 @@ index feccf6b4e..90e98af21 100644
    "Send": "Küldés",
    "Start the server to send commands": "Indítsa el a szervert a parancsok küldéséhez",
 diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
-index 32964fc5f..abb6dd035 100644
+index 181d8aa..6d8a4ad 100644
 --- a/launcher/lang/hy.json
 +++ b/launcher/lang/hy.json
 @@ -2,7 +2,6 @@
@@ -3874,7 +3874,7 @@ index 32964fc5f..abb6dd035 100644
    "Send": "Ուղարկել",
    "Start the server to send commands": "Սկսեք սերվերը հրամաններ ուղարկելու համար",
 diff --git a/launcher/lang/id.json b/launcher/lang/id.json
-index 7077d089e..737986932 100644
+index adacf9b..6c04909 100644
 --- a/launcher/lang/id.json
 +++ b/launcher/lang/id.json
 @@ -2,7 +2,6 @@
@@ -3982,7 +3982,7 @@ index 7077d089e..737986932 100644
    "Send": "Kirim",
    "Start the server to send commands": "Mulai server untuk mengirim perintah",
 diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
-index d6bf1955c..a6955c0ae 100644
+index 20e4ee7..da3d952 100644
 --- a/launcher/lang/ig.json
 +++ b/launcher/lang/ig.json
 @@ -2,7 +2,6 @@
@@ -4090,7 +4090,7 @@ index d6bf1955c..a6955c0ae 100644
    "Send": "Ziga",
    "Start the server to send commands": "Malite ihe nkesa iji zipu iwu",
 diff --git a/launcher/lang/is.json b/launcher/lang/is.json
-index 9c75c1da2..5b94b5cdb 100644
+index a60dc4a..02d322c 100644
 --- a/launcher/lang/is.json
 +++ b/launcher/lang/is.json
 @@ -2,7 +2,6 @@
@@ -4198,7 +4198,7 @@ index 9c75c1da2..5b94b5cdb 100644
    "Send": "Senda",
    "Start the server to send commands": "Ræstu netþjóninn til að senda skipanir",
 diff --git a/launcher/lang/it.json b/launcher/lang/it.json
-index 39d6d9c24..5efdd6448 100644
+index fbd0174..da52ce7 100644
 --- a/launcher/lang/it.json
 +++ b/launcher/lang/it.json
 @@ -2,7 +2,6 @@
@@ -4306,7 +4306,7 @@ index 39d6d9c24..5efdd6448 100644
    "Send": "Invia",
    "Start the server to send commands": "Avvia il server per inviare comandi",
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index ee5137b91..6555a099e 100644
+index c7b5b6d..27f207a 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
 @@ -121,7 +121,6 @@
@@ -4375,7 +4375,7 @@ index ee5137b91..6555a099e 100644
    "Send": "送信",
    "Start the server to send commands": "コマンドを送るにはサーバーを起動してください",
 diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
-index f03eab4b9..e4a8b2356 100644
+index 8c8c8aa..71123bd 100644
 --- a/launcher/lang/ka.json
 +++ b/launcher/lang/ka.json
 @@ -2,7 +2,6 @@
@@ -4483,7 +4483,7 @@ index f03eab4b9..e4a8b2356 100644
    "Send": "გაგზავნა",
    "Start the server to send commands": "გაუშვით სერვერი ბრძანებების გასაგზავნად",
 diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
-index 0ef7d372a..34828d332 100644
+index ede088d..a992a2c 100644
 --- a/launcher/lang/kk.json
 +++ b/launcher/lang/kk.json
 @@ -2,7 +2,6 @@
@@ -4591,7 +4591,7 @@ index 0ef7d372a..34828d332 100644
    "Send": "Жіберу",
    "Start the server to send commands": "Пәрмендерді жіберу үшін серверді іске қосыңыз",
 diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
-index a39577655..996c5678c 100644
+index 84ec36a..93b6dbf 100644
 --- a/launcher/lang/kn.json
 +++ b/launcher/lang/kn.json
 @@ -2,7 +2,6 @@
@@ -4699,7 +4699,7 @@ index a39577655..996c5678c 100644
    "Send": "ಕಳುಹಿಸು",
    "Start the server to send commands": "ಆಜ್ಞೆಗಳನ್ನು ಕಳುಹಿಸಲು ಸರ್ವರ್ ಅನ್ನು ಪ್ರಾರಂಭಿಸಿ",
 diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
-index 98c5d8874..5b890de74 100644
+index 16d483f..6b14772 100644
 --- a/launcher/lang/ko.json
 +++ b/launcher/lang/ko.json
 @@ -2,7 +2,6 @@
@@ -4807,7 +4807,7 @@ index 98c5d8874..5b890de74 100644
    "Send": "보내기",
    "Start the server to send commands": "명령을 보내려면 서버를 시작하세요",
 diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
-index 687379962..4cabe22ec 100644
+index c906375..9a46d9f 100644
 --- a/launcher/lang/ky.json
 +++ b/launcher/lang/ky.json
 @@ -2,7 +2,6 @@
@@ -4915,7 +4915,7 @@ index 687379962..4cabe22ec 100644
    "Send": "Жөнөтүү",
    "Start the server to send commands": "Командаларды жөнөтүү үчүн серверди иштетиңиз",
 diff --git a/launcher/lang/la.json b/launcher/lang/la.json
-index 036a47fe2..16550f02d 100644
+index 9c6435a..09dd152 100644
 --- a/launcher/lang/la.json
 +++ b/launcher/lang/la.json
 @@ -2,7 +2,6 @@
@@ -5023,7 +5023,7 @@ index 036a47fe2..16550f02d 100644
    "Send": "Mitte",
    "Start the server to send commands": "Incipit servo mittere imperium",
 diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
-index 44a788075..c81e04b04 100644
+index 6df3515..9bfb9c3 100644
 --- a/launcher/lang/lb.json
 +++ b/launcher/lang/lb.json
 @@ -2,7 +2,6 @@
@@ -5131,7 +5131,7 @@ index 44a788075..c81e04b04 100644
    "Send": "Schécken",
    "Start the server to send commands": "Start de Server fir Kommandoen ze schécken",
 diff --git a/launcher/lang/li.json b/launcher/lang/li.json
-index dbc0a0bfc..8cf5b2e32 100644
+index b45070f..ef56485 100644
 --- a/launcher/lang/li.json
 +++ b/launcher/lang/li.json
 @@ -2,7 +2,6 @@
@@ -5239,7 +5239,7 @@ index dbc0a0bfc..8cf5b2e32 100644
    "Send": "Stuur",
    "Start the server to send commands": "Start de server um opdrachte te sjikke",
 diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
-index e22468e0d..97bf0ffe4 100644
+index 8c45e47..0012fb1 100644
 --- a/launcher/lang/lmo.json
 +++ b/launcher/lang/lmo.json
 @@ -2,7 +2,6 @@
@@ -5347,7 +5347,7 @@ index e22468e0d..97bf0ffe4 100644
    "Send": "Invia",
    "Start the server to send commands": "Avvia el server per inviar cumand",
 diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
-index a20d50c0c..ef1cd5a31 100644
+index 03fedf7..d5b9ef3 100644
 --- a/launcher/lang/lo.json
 +++ b/launcher/lang/lo.json
 @@ -2,7 +2,6 @@
@@ -5455,7 +5455,7 @@ index a20d50c0c..ef1cd5a31 100644
    "Send": "ສົ່ງ",
    "Start the server to send commands": "ເລີ່ມເຊີບເວີເພື່ອສົ່ງຄໍາສັ່ງ",
 diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
-index 8b9126eb3..7b04cf48e 100644
+index adf9294..1a97ca5 100644
 --- a/launcher/lang/lt.json
 +++ b/launcher/lang/lt.json
 @@ -2,7 +2,6 @@
@@ -5563,7 +5563,7 @@ index 8b9126eb3..7b04cf48e 100644
    "Send": "Siųsti",
    "Start the server to send commands": "Paleiskite serverį komandoms siųsti",
 diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
-index 6a9e410dd..c65348d32 100644
+index d115ed3..8342a83 100644
 --- a/launcher/lang/lv.json
 +++ b/launcher/lang/lv.json
 @@ -2,7 +2,6 @@
@@ -5671,7 +5671,7 @@ index 6a9e410dd..c65348d32 100644
    "Send": "Sūtīt",
    "Start the server to send commands": "Sāciet serveri, lai nosūtītu komandas",
 diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
-index 638d3f9dc..7ce61916a 100644
+index 1e95535..19c124d 100644
 --- a/launcher/lang/mk.json
 +++ b/launcher/lang/mk.json
 @@ -2,7 +2,6 @@
@@ -5779,7 +5779,7 @@ index 638d3f9dc..7ce61916a 100644
    "Send": "Испрати",
    "Start the server to send commands": "Стартувајте го серверот да испраќа команди",
 diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
-index 69bbc2db4..1c44cfbfc 100644
+index 4cfcb89..43ce25a 100644
 --- a/launcher/lang/mn.json
 +++ b/launcher/lang/mn.json
 @@ -2,7 +2,6 @@
@@ -5887,7 +5887,7 @@ index 69bbc2db4..1c44cfbfc 100644
    "Send": "Илгээх",
    "Start the server to send commands": "Команд илгээхийн тулд серверийг эхлүүлнэ үү",
 diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
-index 98b9f275a..d323c50c9 100644
+index 5952741..b5498bf 100644
 --- a/launcher/lang/ms.json
 +++ b/launcher/lang/ms.json
 @@ -2,7 +2,6 @@
@@ -5995,7 +5995,7 @@ index 98b9f275a..d323c50c9 100644
    "Send": "Hantar",
    "Start the server to send commands": "Mulakan pelayan untuk menghantar arahan",
 diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
-index eab712fa1..f0f259b5a 100644
+index df25c24..a300d5e 100644
 --- a/launcher/lang/mt.json
 +++ b/launcher/lang/mt.json
 @@ -2,7 +2,6 @@
@@ -6103,7 +6103,7 @@ index eab712fa1..f0f259b5a 100644
    "Send": "Ibgħat",
    "Start the server to send commands": "Ibda s-server biex tibgħat kmandi",
 diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
-index 881615045..c3615e95c 100644
+index bd9871b..95d999c 100644
 --- a/launcher/lang/nl.json
 +++ b/launcher/lang/nl.json
 @@ -2,7 +2,6 @@
@@ -6211,7 +6211,7 @@ index 881615045..c3615e95c 100644
    "Send": "Verzenden",
    "Start the server to send commands": "Start de server om opdrachten te verzenden",
 diff --git a/launcher/lang/no.json b/launcher/lang/no.json
-index b6990aea8..9fcbf90f7 100644
+index c913621..e39d43a 100644
 --- a/launcher/lang/no.json
 +++ b/launcher/lang/no.json
 @@ -2,7 +2,6 @@
@@ -6319,7 +6319,7 @@ index b6990aea8..9fcbf90f7 100644
    "Send": "Send",
    "Start the server to send commands": "Start serveren for å sende kommandoer",
 diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
-index 06cd88795..ec6c16adb 100644
+index 6c74c59..bb9664d 100644
 --- a/launcher/lang/oc.json
 +++ b/launcher/lang/oc.json
 @@ -2,7 +2,6 @@
@@ -6427,7 +6427,7 @@ index 06cd88795..ec6c16adb 100644
    "Send": "Mandar",
    "Start the server to send commands": "Aviar lo servidor per mandar de comandas",
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index c165b3c3a..b614a6d5f 100644
+index 2c5a5c4..d298277 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
 @@ -2,7 +2,6 @@
@@ -6535,7 +6535,7 @@ index c165b3c3a..b614a6d5f 100644
    "Send": "Wyślij",
    "Start the server to send commands": "Uruchom serwer, aby wysyłać komendy",
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index f864c3f6d..3a82b7a7d 100644
+index 20e0d9c..04b42ec 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
 @@ -121,7 +121,6 @@
@@ -6604,7 +6604,7 @@ index f864c3f6d..3a82b7a7d 100644
    "Send": "Enviar",
    "Start the server to send commands": "Inicie o servidor para enviar comandos",
 diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
-index 5262b1199..d6fb763f9 100644
+index e41d95b..803d04e 100644
 --- a/launcher/lang/pt.json
 +++ b/launcher/lang/pt.json
 @@ -2,7 +2,6 @@
@@ -6712,7 +6712,7 @@ index 5262b1199..d6fb763f9 100644
    "Send": "Enviar",
    "Start the server to send commands": "Inicie o servidor para enviar comandos",
 diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
-index 5b731afb2..b509646ad 100644
+index 6594f8f..cd6cacf 100644
 --- a/launcher/lang/ro.json
 +++ b/launcher/lang/ro.json
 @@ -2,7 +2,6 @@
@@ -6820,7 +6820,7 @@ index 5b731afb2..b509646ad 100644
    "Send": "Trimite",
    "Start the server to send commands": "Porniți serverul pentru a trimite comenzi",
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index 37114571a..070e907fb 100644
+index 3374312..95c6dd0 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
 @@ -2,7 +2,6 @@
@@ -6928,7 +6928,7 @@ index 37114571a..070e907fb 100644
    "Send": "Отправить",
    "Start the server to send commands": "Запустите сервер, чтобы отправлять команды",
 diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
-index 6c222c4b6..ce79d458c 100644
+index e3175c1..835a9ff 100644
 --- a/launcher/lang/sah.json
 +++ b/launcher/lang/sah.json
 @@ -2,7 +2,6 @@
@@ -7036,7 +7036,7 @@ index 6c222c4b6..ce79d458c 100644
    "Send": "Ыыт",
    "Start the server to send commands": "Командалары ыытар серверы арый",
 diff --git a/launcher/lang/se.json b/launcher/lang/se.json
-index 79d610da7..1eea7e042 100644
+index 18f1a03..c51403d 100644
 --- a/launcher/lang/se.json
 +++ b/launcher/lang/se.json
 @@ -2,7 +2,6 @@
@@ -7144,7 +7144,7 @@ index 79d610da7..1eea7e042 100644
    "Send": "Sádde",
    "Start the server to send commands": "Álggat bálvaleaddji sáddet gohččumiid",
 diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
-index e2630e4c8..027d3ef86 100644
+index 2f835af..cea542d 100644
 --- a/launcher/lang/sk.json
 +++ b/launcher/lang/sk.json
 @@ -2,7 +2,6 @@
@@ -7252,7 +7252,7 @@ index e2630e4c8..027d3ef86 100644
    "Send": "Odoslať",
    "Start the server to send commands": "Spustite server na odosielanie príkazov",
 diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
-index 30f09e60e..a546bc85f 100644
+index 086a890..724514c 100644
 --- a/launcher/lang/sl.json
 +++ b/launcher/lang/sl.json
 @@ -2,7 +2,6 @@
@@ -7360,7 +7360,7 @@ index 30f09e60e..a546bc85f 100644
    "Send": "Pošlji",
    "Start the server to send commands": "Zaženite strežnik za pošiljanje ukazov",
 diff --git a/launcher/lang/so.json b/launcher/lang/so.json
-index cafa8a1a9..aa31411ac 100644
+index dc93efc..4c755e2 100644
 --- a/launcher/lang/so.json
 +++ b/launcher/lang/so.json
 @@ -2,7 +2,6 @@
@@ -7468,7 +7468,7 @@ index cafa8a1a9..aa31411ac 100644
    "Send": "Dir",
    "Start the server to send commands": "Bilow server-ka si aad u dirto amarrada",
 diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
-index c898560c6..e6563535b 100644
+index ae9e6e2..1cf4b65 100644
 --- a/launcher/lang/sq.json
 +++ b/launcher/lang/sq.json
 @@ -2,7 +2,6 @@
@@ -7576,7 +7576,7 @@ index c898560c6..e6563535b 100644
    "Send": "Dërgo",
    "Start the server to send commands": "Nisni serverin për të dërguar komanda",
 diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
-index 5b63cce3b..3508efad2 100644
+index 636563e..cb03ce9 100644
 --- a/launcher/lang/sr.json
 +++ b/launcher/lang/sr.json
 @@ -2,7 +2,6 @@
@@ -7684,7 +7684,7 @@ index 5b63cce3b..3508efad2 100644
    "Send": "Пошаљи",
    "Start the server to send commands": "Покрените сервер да шаље команде",
 diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
-index 4a3da6d00..955319ac5 100644
+index f2054ca..e3b57b4 100644
 --- a/launcher/lang/sv.json
 +++ b/launcher/lang/sv.json
 @@ -2,7 +2,6 @@
@@ -7792,7 +7792,7 @@ index 4a3da6d00..955319ac5 100644
    "Send": "Skicka",
    "Start the server to send commands": "Starta servern för att skicka kommandon",
 diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
-index 9e16955a8..0bb20eae6 100644
+index dd43852..7458c68 100644
 --- a/launcher/lang/szl.json
 +++ b/launcher/lang/szl.json
 @@ -2,7 +2,6 @@
@@ -7900,7 +7900,7 @@ index 9e16955a8..0bb20eae6 100644
    "Send": "Wysyłaj",
    "Start the server to send commands": "Uruchom serwer do wysyłanio polecyń",
 diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
-index 2f8754c42..592de827f 100644
+index 9831458..76ed330 100644
 --- a/launcher/lang/ta.json
 +++ b/launcher/lang/ta.json
 @@ -2,7 +2,6 @@
@@ -8008,7 +8008,7 @@ index 2f8754c42..592de827f 100644
    "Send": "அனுப்பு",
    "Start the server to send commands": "கட்டளைகளை அனுப்ப சேவையகத்தைத் தொடங்கவும்",
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index 8ec8aaa20..cc915fa35 100644
+index f636f0f..7326c9b 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
 @@ -2,7 +2,6 @@
@@ -8116,7 +8116,7 @@ index 8ec8aaa20..cc915fa35 100644
    "Send": "ส่ง",
    "Start the server to send commands": "เริ่มเซิร์ฟเวอร์เพื่อส่งคำสั่ง",
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index b844f8a05..3787f680a 100644
+index cf1c54a..d9458e4 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
 @@ -121,7 +121,6 @@
@@ -8185,7 +8185,7 @@ index b844f8a05..3787f680a 100644
    "Send": "Gönder",
    "Start the server to send commands": "Komut göndermek için sunucuyu başlat",
 diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
-index a46c047f0..384faad26 100644
+index f006d8e..623f4b6 100644
 --- a/launcher/lang/tt.json
 +++ b/launcher/lang/tt.json
 @@ -2,7 +2,6 @@
@@ -8293,7 +8293,7 @@ index a46c047f0..384faad26 100644
    "Send": "Sendибәр",
    "Start the server to send commands": "Командалар җибәрү өчен серверны эшләтеп җибәрү",
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index daa2c6911..b01e11b0c 100644
+index 5779687..6d51079 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
 @@ -2,7 +2,6 @@
@@ -8401,7 +8401,7 @@ index daa2c6911..b01e11b0c 100644
    "Send": "Надіслати",
    "Start the server to send commands": "Запустіть сервер, щоб надсилати команди",
 diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
-index 25e1fce0c..c505b6863 100644
+index 940eae1..c7e29b2 100644
 --- a/launcher/lang/ur.json
 +++ b/launcher/lang/ur.json
 @@ -2,7 +2,6 @@
@@ -8509,7 +8509,7 @@ index 25e1fce0c..c505b6863 100644
    "Send": "بھیجیں۔",
    "Start the server to send commands": "کمانڈ بھیجنے کے لیے سرور شروع کریں۔",
 diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
-index afda9f067..bce894c05 100644
+index b25c1d7..b0774fd 100644
 --- a/launcher/lang/uz.json
 +++ b/launcher/lang/uz.json
 @@ -2,7 +2,6 @@
@@ -8617,7 +8617,7 @@ index afda9f067..bce894c05 100644
    "Send": "Yuborish",
    "Start the server to send commands": "Buyruqlarni yuborish uchun serverni ishga tushiring",
 diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
-index 84bd52e54..c2adf9547 100644
+index fc18036..b5a122d 100644
 --- a/launcher/lang/vec.json
 +++ b/launcher/lang/vec.json
 @@ -2,7 +2,6 @@
@@ -8725,7 +8725,7 @@ index 84bd52e54..c2adf9547 100644
    "Send": "Manda",
    "Start the server to send commands": "Avvia el server per inviar comandi .",
 diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
-index b8b0efc4a..6c959f94e 100644
+index 8b1f00a..f9779b0 100644
 --- a/launcher/lang/vi.json
 +++ b/launcher/lang/vi.json
 @@ -2,7 +2,6 @@
@@ -8833,7 +8833,7 @@ index b8b0efc4a..6c959f94e 100644
    "Send": "Gửi",
    "Start the server to send commands": "Khởi động máy chủ để gửi lệnh",
 diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
-index 545e807b4..54c20b103 100644
+index e961381..7c424f0 100644
 --- a/launcher/lang/yi.json
 +++ b/launcher/lang/yi.json
 @@ -2,7 +2,6 @@
@@ -8941,7 +8941,7 @@ index 545e807b4..54c20b103 100644
    "Send": "שיקן",
    "Start the server to send commands": "אָנהייב די סערווער צו שיקן קאַמאַנדז",
 diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
-index e8bcfa159..ce22325fd 100644
+index 56866eb..3b550cc 100644
 --- a/launcher/lang/yo.json
 +++ b/launcher/lang/yo.json
 @@ -2,7 +2,6 @@
@@ -9049,7 +9049,7 @@ index e8bcfa159..ce22325fd 100644
    "Send": "Firanṣẹ",
    "Start the server to send commands": "Bẹrẹ olupin naa lati fi awọn aṣẹ ranṣẹ",
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index 7bb88bcc3..84e5318de 100644
+index feb5fd5..3aabc83 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
 @@ -2,7 +2,6 @@
@@ -9157,7 +9157,7 @@ index 7bb88bcc3..84e5318de 100644
    "Send": "发送",
    "Start the server to send commands": "启动服务器以发送命令",
 diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
-index f8b783939..c9abc593a 100644
+index 999b83c..b2dcc52 100644
 --- a/launcher/lang/zu.json
 +++ b/launcher/lang/zu.json
 @@ -2,7 +2,6 @@

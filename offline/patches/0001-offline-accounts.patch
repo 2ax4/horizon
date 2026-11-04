@@ -1,4 +1,4 @@
-From eb9c579b6c1bf2a5f88e2c61769127e50d69fc8a Mon Sep 17 00:00:00 2001
+From 86162cfb2477732a609786fd61c7838d292f16b3 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 1/5] Offline accounts: add and play with no Microsoft account
@@ -107,7 +107,7 @@ Subject: [PATCH 1/5] Offline accounts: add and play with no Microsoft account
  delete mode 100644 launcher/src/dev_options.rs
 
 diff --git a/docs/launcher-commands.md b/docs/launcher-commands.md
-index c8474c9f3..eca9b3cfa 100644
+index c8474c9..eca9b3c 100644
 --- a/docs/launcher-commands.md
 +++ b/docs/launcher-commands.md
 @@ -177,8 +177,6 @@ MCP: `account_sign_out`, needs `confirm: true`.
@@ -129,1039 +129,1039 @@ index c8474c9f3..eca9b3cfa 100644
  
  - `NAME`
 diff --git a/launcher/lang/af.json b/launcher/lang/af.json
-index 7e8fe5fab..f8949e531 100644
+index e3f4120..3e37658 100644
 --- a/launcher/lang/af.json
 +++ b/launcher/lang/af.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} van {max}",
-   "{support} in Horizon": "{support} in Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Terugbetaling deur bank",
+   "Paid": "Betaal",
+   "Order {id}": "Bestelling {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die eis het nie deurgegaan nie: die kassa se adres is nie dié van Horizon nie."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die eis het nie deurgegaan nie: die kassa se adres is nie dié van Horizon nie.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
-index 3fefc7b41..6e1157dd5 100644
+index de37db8..ad0de49 100644
 --- a/launcher/lang/ar.json
 +++ b/launcher/lang/ar.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "«حفظ التغييرات» يطبّق التبديل. لا يُحذف شيء من مجلده.",
-   "Its mods made for {loader} stay in its folder but won't load.": "تبقى إضافاته المصنوعة لـ {loader} في مجلده لكنها لن تعمل.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "تبقى إضافاته المصنوعة لـ Minecraft {from} في مجلده؛ قد لا يعمل بعضها في {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "حُفظت عوالمه بـ Minecraft {from}: يرقّيها {to} نهائيًا، ولا يستطيع فتحها إن كان أقدم."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "حُفظت عوالمه بـ Minecraft {from}: يرقّيها {to} نهائيًا، ولا يستطيع فتحها إن كان أقدم.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "تم رد المبلغ من البنك",
+   "Paid": "مدفوع",
+   "Order {id}": "الطلب {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "لم تكتمل المطالبة: عنوان صفحة الدفع ليس عنوان Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "لم تكتمل المطالبة: عنوان صفحة الدفع ليس عنوان Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/az.json b/launcher/lang/az.json
-index 4dbeff227..a35e97332 100644
+index 234505f..3ee2010 100644
 --- a/launcher/lang/az.json
 +++ b/launcher/lang/az.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} / {max}",
-   "{support} in Horizon": "Horizon-da {support}",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Bank tərəfindən geri çəkildi",
+   "Paid": "Ödənilib",
+   "Order {id}": "Sifariş {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tələb keçmədi: ödəniş səhifəsinin ünvanı Horizon-a aid deyil."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tələb keçmədi: ödəniş səhifəsinin ünvanı Horizon-a aid deyil.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
-index 8ad33671a..44bda51ae 100644
+index d944a9e..62ebf52 100644
 --- a/launcher/lang/ba.json
 +++ b/launcher/lang/ba.json
-@@ -1091,5 +1091,6 @@
-   "{count} min ago": "{count} мин элек",
-   "{count} on the official SMP": "Рәсми SMP-ла {count}",
-   "{mode} · stopped": "{mode} · туҡтатылған",
--  "{online} of {max}": "{max} эсенән {online}"
-+  "{online} of {max}": "{max} эсенән {online}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк кире алды",
+   "Paid": "Түләнде",
+   "Order {id}": "Заказ {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап үтмәне: түләү адресы Horizon-дыҡы түгел."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап үтмәне: түләү адресы Horizon-дыҡы түгел.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/be.json b/launcher/lang/be.json
-index 43457f324..2bdce7421 100644
+index 61c6165..7838d4f 100644
 --- a/launcher/lang/be.json
 +++ b/launcher/lang/be.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} з {max}",
-   "{support} in Horizon": "{support} у Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк адмяніў плацёж",
+   "Paid": "Аплачана",
+   "Order {id}": "Заказ {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заяўка не прайшла: адрас старонкі аплаты не належыць Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заяўка не прайшла: адрас старонкі аплаты не належыць Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
-index af808ff47..d3f3af818 100644
+index 8de8401..18b836f 100644
 --- a/launcher/lang/bg.json
 +++ b/launcher/lang/bg.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "„Запази промените“ го превключва. Нищо в папката му не се изтрива.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Модовете му за {loader} остават в папката му, но няма да се зареждат.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Модовете му за Minecraft {from} остават в папката му; някои може да не се заредят в {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Световете му са записани от Minecraft {from}: {to} ги надгражда завинаги и не може да ги отвори, ако е по-стар."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Световете му са записани от Minecraft {from}: {to} ги надгражда завинаги и не може да ги отвори, ако е по-стар.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Върнато от банката",
+   "Paid": "Платено",
+   "Order {id}": "Поръчка {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявката не мина: адресът на плащането не е на Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявката не мина: адресът на плащането не е на Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/br.json b/launcher/lang/br.json
-index 9fc9a7787..7fd7d98ba 100644
+index 7aa1030..c15c24f 100644
 --- a/launcher/lang/br.json
 +++ b/launcher/lang/br.json
-@@ -1091,5 +1091,6 @@
-   "{count} min ago": "{count} mun zo",
-   "{count} on the official SMP": "{count} war ar SMP ofisiel",
-   "{mode} · stopped": "{mode} · paouezet",
--  "{online} of {max}": "{online} diwar {max}"
-+  "{online} of {max}": "{online} diwar {max}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Distaolet gant ar vanka",
+   "Paid": "Paeet",
+   "Order {id}": "Gourc'hemenn {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "N'eo ket aet ar goulenn da benn: chomlec'h ar paeamant n'eo ket hini Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "N'eo ket aet ar goulenn da benn: chomlec'h ar paeamant n'eo ket hini Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
-index 1eed1f6eb..afbada6ee 100644
+index ec6d321..1e6c1f6 100644
 --- a/launcher/lang/bs.json
 +++ b/launcher/lang/bs.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} od {max}",
-   "{support} in Horizon": "{support} u Horizonu",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Banka poništila uplatu",
+   "Paid": "Plaćeno",
+   "Order {id}": "Narudžba {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
-index 25cfb3e64..bf2a53d59 100644
+index 9ff0f61..4744137 100644
 --- a/launcher/lang/ca.json
 +++ b/launcher/lang/ca.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} de {max}",
-   "{support} in Horizon": "{support} a Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Retornat pel banc",
+   "Paid": "Pagat",
+   "Order {id}": "Comanda {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamació no s'ha completat: l'adreça del pagament no és la de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamació no s'ha completat: l'adreça del pagament no és la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
-index 9dd960aea..219bf21b6 100644
+index 3c1f7e8..4fe6e20 100644
 --- a/launcher/lang/cs.json
 +++ b/launcher/lang/cs.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Uložit změny ji přepne. Z její složky se nic nesmaže.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Její módy pro {loader} zůstanou v její složce, ale nenačtou se.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Její módy pro Minecraft {from} zůstanou v její složce; některé se v {to} možná nenačtou.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Její světy uložil Minecraft {from}: {to} je natrvalo aktualizuje, a pokud je starší, nedokáže je otevřít."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Její světy uložil Minecraft {from}: {to} je natrvalo aktualizuje, a pokud je starší, nedokáže je otevřít.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Vráceno bankou",
+   "Paid": "Zaplaceno",
+   "Order {id}": "Objednávka {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok se nepodařilo uplatnit: adresa platby nepatří Horizonu."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok se nepodařilo uplatnit: adresa platby nepatří Horizonu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
-index 5a796cef8..02df508d8 100644
+index cf8702c..102c1ec 100644
 --- a/launcher/lang/cv.json
 +++ b/launcher/lang/cv.json
-@@ -1091,5 +1091,6 @@
-   "{count} min ago": "{count} мин каялла",
-   "{count} on the official SMP": "Официаллӑ SMP-ра {count}",
-   "{mode} · stopped": "{mode} · чарӑннӑ",
--  "{online} of {max}": "{max} шутран {online}"
-+  "{online} of {max}": "{max} шутран {online}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк каялла илнӗ",
+   "Paid": "Тӳленӗ",
+   "Order {id}": "Хушу {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ыйту иртмерӗ: тӳлев адресӗ Horizon адресӗ мар."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ыйту иртмерӗ: тӳлев адресӗ Horizon адресӗ мар.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
-index 2fbd33e74..1e7a29153 100644
+index f5483d6..1c82e20 100644
 --- a/launcher/lang/cy.json
 +++ b/launcher/lang/cy.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} o {max}",
-   "{support} in Horizon": "{support} yn Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Gwrthdroiwyd gan y banc",
+   "Paid": "Talwyd",
+   "Order {id}": "Archeb {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ni aeth y cais drwodd: nid cyfeiriad Horizon yw cyfeiriad y ddesg dalu."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ni aeth y cais drwodd: nid cyfeiriad Horizon yw cyfeiriad y ddesg dalu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/da.json b/launcher/lang/da.json
-index 7c60aca93..a4a04d804 100644
+index 1daad6e..fbec3fd 100644
 --- a/launcher/lang/da.json
 +++ b/launcher/lang/da.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Gem ændringer skifter den. Intet i dens mappe slettes.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Dens mods lavet til {loader} bliver i dens mappe, men indlæses ikke.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Dens mods lavet til Minecraft {from} bliver i dens mappe; nogle indlæses måske ikke i {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dens verdener blev gemt af Minecraft {from}: {to} opgraderer dem for altid og kan ikke åbne dem, hvis den er ældre."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dens verdener blev gemt af Minecraft {from}: {to} opgraderer dem for altid og kan ikke åbne dem, hvis den er ældre.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Tilbageført af banken",
+   "Paid": "Betalt",
+   "Order {id}": "Ordre {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anmodningen gik ikke igennem: checkoutets adresse er ikke Horizons."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anmodningen gik ikke igennem: checkoutets adresse er ikke Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index 148f58723..faef46ca1 100644
+index a7c146a..b685fa4 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "„Änderungen speichern“ stellt sie um. In ihrem Ordner wird nichts gelöscht.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Ihre Mods für {loader} bleiben in ihrem Ordner, laden aber nicht.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Ihre Mods für Minecraft {from} bleiben in ihrem Ordner; manche laden in {to} vielleicht nicht.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Ihre Welten wurden von Minecraft {from} gespeichert: {to} aktualisiert sie endgültig und kann sie nicht öffnen, wenn es älter ist."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Ihre Welten wurden von Minecraft {from} gespeichert: {to} aktualisiert sie endgültig und kann sie nicht öffnen, wenn es älter ist.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Rückbuchung",
+   "Paid": "Bezahlt",
+   "Order {id}": "Bestellung {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die Anforderung ist fehlgeschlagen: Die Adresse des Checkouts gehört nicht zu Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die Anforderung ist fehlgeschlagen: Die Adresse des Checkouts gehört nicht zu Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
  }
 diff --git a/launcher/lang/el.json b/launcher/lang/el.json
-index e29f18cf4..9f82e4ab6 100644
+index 28c03d2..d46c128 100644
 --- a/launcher/lang/el.json
 +++ b/launcher/lang/el.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Η Αποθήκευση αλλαγών την εφαρμόζει. Τίποτα στον φάκελό της δεν διαγράφεται.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Τα mods της για {loader} μένουν στον φάκελό της, αλλά δεν θα φορτώνονται.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Τα mods της για Minecraft {from} μένουν στον φάκελό της· κάποια ίσως δεν φορτώνουν στο {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Οι κόσμοι της αποθηκεύτηκαν από το Minecraft {from}: το {to} τους αναβαθμίζει οριστικά και δεν μπορεί να τους ανοίξει αν είναι παλαιότερο."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Οι κόσμοι της αποθηκεύτηκαν από το Minecraft {from}: το {to} τους αναβαθμίζει οριστικά και δεν μπορεί να τους ανοίξει αν είναι παλαιότερο.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Αναίρεση πληρωμής από την τράπεζα",
+   "Paid": "Πληρώθηκε",
+   "Order {id}": "Παραγγελία {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Η διεκδίκηση δεν ολοκληρώθηκε: η διεύθυνση της πληρωμής δεν ανήκει στο Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Η διεκδίκηση δεν ολοκληρώθηκε: η διεύθυνση της πληρωμής δεν ανήκει στο Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
-index 976681352..dfdeac8ef 100644
+index d18af72..eefe087 100644
 --- a/launcher/lang/eo.json
 +++ b/launcher/lang/eo.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "{count} en la oficiala SMP",
-   "{mode} · stopped": "{mode} · haltigita",
-   "{online} of {max}": "{online} el {max}",
--  "{support} in Horizon": "{support} en Horizon"
-+  "{support} in Horizon": "{support} en Horizon",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Repreno de la banko",
+   "Paid": "Pagita",
+   "Order {id}": "Mendo {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La postulo ne sukcesis: la adreso de la pago ne estas tiu de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La postulo ne sukcesis: la adreso de la pago ne estas tiu de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index 38076b64f..13badc7ce 100644
+index 8c327bb..87e69cc 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Guardar cambios la cambia. No se borra nada de su carpeta.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Sus mods hechos para {loader} se quedan en su carpeta, pero no se cargarán.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Sus mods hechos para Minecraft {from} se quedan en su carpeta; puede que algunos no carguen en {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Sus mundos se guardaron con Minecraft {from}: {to} los actualiza para siempre y no puede abrirlos si es más antiguo."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Sus mundos se guardaron con Minecraft {from}: {to} los actualiza para siempre y no puede abrirlos si es más antiguo.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Contracargo",
+   "Paid": "Pagado",
+   "Order {id}": "Pedido {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamación no se completó: la dirección del pago no es la de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamación no se completó: la dirección del pago no es la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Sin preparar. Horizon puede preparar Minecraft {version} desde tu propia instalación; inicia sesión para descargarlo de Mojang."
  }
 diff --git a/launcher/lang/et.json b/launcher/lang/et.json
-index 1094db1ed..91daf43fc 100644
+index 827b43c..460f599 100644
 --- a/launcher/lang/et.json
 +++ b/launcher/lang/et.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} / {max}",
-   "{support} in Horizon": "{support} Horizonis",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Pank tühistas makse",
+   "Paid": "Makstud",
+   "Order {id}": "Tellimus {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nõue ei läinud läbi: makselehe aadress ei kuulu Horizonile."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nõue ei läinud läbi: makselehe aadress ei kuulu Horizonile.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
-index f44ce5bf4..80679c84b 100644
+index 48f626e..33983f2 100644
 --- a/launcher/lang/eu.json
 +++ b/launcher/lang/eu.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} / {max}",
-   "{support} in Horizon": "{support} Horizon-en",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Bankuak atzera egin du",
+   "Paid": "Ordainduta",
+   "Order {id}": "Eskaera {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Eskaerak ez du aurrera egin: ordainketaren helbidea ez da Horizonena."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Eskaerak ez du aurrera egin: ordainketaren helbidea ez da Horizonena.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
-index 5814e5815..5c3a3139d 100644
+index 78bce89..c0093f2 100644
 --- a/launcher/lang/fa.json
 +++ b/launcher/lang/fa.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "«ذخیرهٔ تغییرات» آن را عوض می‌کند. چیزی از پوشه‌اش پاک نمی‌شود.",
-   "Its mods made for {loader} stay in its folder but won't load.": "مادهای ساخته‌شده برای {loader} در پوشه‌اش می‌مانند اما بارگذاری نمی‌شوند.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "مادهای ساخته‌شده برای Minecraft {from} در پوشه‌اش می‌مانند؛ شاید برخی در {to} بارگذاری نشوند.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "دنیاهایش با Minecraft {from} ذخیره شده‌اند: {to} آن‌ها را برای همیشه ارتقا می‌دهد و اگر قدیمی‌تر باشد نمی‌تواند بازشان کند."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "دنیاهایش با Minecraft {from} ذخیره شده‌اند: {to} آن‌ها را برای همیشه ارتقا می‌دهد و اگر قدیمی‌تر باشد نمی‌تواند بازشان کند.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "برگشت از بانک",
+   "Paid": "پرداخت‌شده",
+   "Order {id}": "سفارش {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "درخواست انجام نشد: نشانی صفحه پرداخت متعلق به Horizon نیست."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "درخواست انجام نشد: نشانی صفحه پرداخت متعلق به Horizon نیست.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
-index ddb2283ff..989034483 100644
+index 36e3172..ffb03c6 100644
 --- a/launcher/lang/fi.json
 +++ b/launcher/lang/fi.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Tallenna muutokset vaihtaa sen. Sen kansiosta ei poisteta mitään.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Sen {loader}-modit jäävät sen kansioon, mutta niitä ei ladata.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Sen Minecraft {from} -modit jäävät sen kansioon; osa ei ehkä lataudu versiossa {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Sen maailmat on tallennettu Minecraft {from} -versiolla: {to} päivittää ne pysyvästi eikä voi avata niitä, jos se on vanhempi."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Sen maailmat on tallennettu Minecraft {from} -versiolla: {to} päivittää ne pysyvästi eikä voi avata niitä, jos se on vanhempi.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Palautettu pankin kautta",
+   "Paid": "Maksettu",
+   "Order {id}": "Tilaus {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Lunastus ei onnistunut: kassan osoite ei ole Horizonin."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Lunastus ei onnistunut: kassan osoite ei ole Horizonin.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
-index 275ae422a..2934b8d5a 100644
+index f180795..187bc54 100644
 --- a/launcher/lang/fil.json
 +++ b/launcher/lang/fil.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} sa {max}",
-   "{support} in Horizon": "{support} sa Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Na-chargeback",
+   "Paid": "Bayad na",
+   "Order {id}": "Order {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Hindi natuloy ang claim: hindi sa Horizon ang address ng checkout."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Hindi natuloy ang claim: hindi sa Horizon ang address ng checkout.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
-index 4a2ab4a09..c1403e071 100644
+index 1a639e9..12362a2 100644
 --- a/launcher/lang/fo.json
 +++ b/launcher/lang/fo.json
-@@ -1091,5 +1091,6 @@
-   "{count} min ago": "fyri {count} min síðan",
-   "{count} on the official SMP": "{count} á almenna SMP",
-   "{mode} · stopped": "{mode} · steðgað",
--  "{online} of {max}": "{online} av {max}"
-+  "{online} of {max}": "{online} av {max}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Afturført av bankanum",
+   "Paid": "Goldið",
+   "Order {id}": "Pantan {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravið gekk ikki gjøgnum: adressan á útrokningini er ikki hjá Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravið gekk ikki gjøgnum: adressan á útrokningini er ikki hjá Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 8b916ca59..374c159c8 100644
+index a8c4d65..836fd98 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Enregistrer applique le changement. Rien n’est supprimé de son dossier.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Ses mods faits pour {loader} restent dans son dossier mais ne se chargeront pas.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Ses mods faits pour Minecraft {from} restent dans son dossier ; certains peuvent ne pas se charger en {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Ses mondes ont été enregistrés par Minecraft {from} : {to} les met à jour définitivement, et ne peut pas les ouvrir s’il est plus ancien."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Ses mondes ont été enregistrés par Minecraft {from} : {to} les met à jour définitivement, et ne peut pas les ouvrir s’il est plus ancien.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Rétrofacturé",
+   "Paid": "Payé",
+   "Order {id}": "Commande {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demande n'a pas abouti : l'adresse du paiement n'est pas celle de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demande n'a pas abouti : l'adresse du paiement n'est pas celle de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Non préparé. Horizon peut préparer Minecraft {version} depuis votre propre installation ; connectez-vous pour le télécharger depuis Mojang."
  }
 diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
-index cce9aa88e..713f7444e 100644
+index ac8ba61..780d6d9 100644
 --- a/launcher/lang/fur.json
 +++ b/launcher/lang/fur.json
-@@ -1091,5 +1091,6 @@
-   "Its mods made for {loader} stay in its folder but won't load.": "I siei mods fats par {loader} a restin te sô cartele, ma no si cjariaran.",
-   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "I siei monds a son stâts salvâts di Minecraft {from}: {to} ju inzorne par simpri, e nol pues vierzju se al è plui vieli.",
-   "Save changes switches it. Nothing in its folder is deleted.": "«Salve lis modifichis» le cambie. Nuie te sô cartele al ven eliminât.",
--  "What this change can't keep": "Ce che chest cambiament nol pues tignî"
-+  "What this change can't keep": "Ce che chest cambiament nol pues tignî",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Stornât de bancje",
+   "Paid": "Paiât",
+   "Order {id}": "Ordin {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richieste no je lade a bon fin: l'indirizz dal paiament nol è chel di Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richieste no je lade a bon fin: l'indirizz dal paiament nol è chel di Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
-index dec084f14..2014c8be8 100644
+index 13a5f8a..6143901 100644
 --- a/launcher/lang/fy.json
 +++ b/launcher/lang/fy.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} fan {max}",
-   "{support} in Horizon": "{support} yn Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Weromboekt troch de bank",
+   "Paid": "Betelle",
+   "Order {id}": "Bestelling {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "De oanspraak is net slagge: it adres fan de checkout is net dat fan Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "De oanspraak is net slagge: it adres fan de checkout is net dat fan Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
-index 3cd10aa2c..2c2285f9d 100644
+index 9f12dcc..9c46df1 100644
 --- a/launcher/lang/ga.json
 +++ b/launcher/lang/ga.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} as {max}",
-   "{support} in Horizon": "{support} in Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Aisiompaithe ag an mbanc",
+   "Paid": "Íoctha",
+   "Order {id}": "Ordú {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Níor éirigh leis an éileamh: ní é seoladh na seiceála amach seoladh Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Níor éirigh leis an éileamh: ní é seoladh na seiceála amach seoladh Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
-index 4011ddbfd..446081fac 100644
+index d4d4e32..c954897 100644
 --- a/launcher/lang/gd.json
 +++ b/launcher/lang/gd.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "{count} air an SMP oifigeil",
-   "{mode} · stopped": "{mode} · na stad",
-   "{online} of {max}": "{online} à {max}",
--  "{support} in Horizon": "{support} ann an Horizon"
-+  "{support} in Horizon": "{support} ann an Horizon",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Air a thilleadh leis a' bhanca",
+   "Paid": "Pàighte",
+   "Order {id}": "Òrdugh {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cha deach an tagradh troimhe: chan e seòladh Horizon a th' ann an seòladh a' phàighidh."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cha deach an tagradh troimhe: chan e seòladh Horizon a th' ann an seòladh a' phàighidh.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
-index 6e297ff99..28523613a 100644
+index c9b5aa5..61ec0ff 100644
 --- a/launcher/lang/gl.json
 +++ b/launcher/lang/gl.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} de {max}",
-   "{support} in Horizon": "{support} en Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Devolto polo banco",
+   "Paid": "Pagado",
+   "Order {id}": "Pedido {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "A reclamación non se completou: o enderezo do pagamento non é o de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "A reclamación non se completou: o enderezo do pagamento non é o de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
-index fc00ed8eb..5fab5df2d 100644
+index 47a5982..09d290c 100644
 --- a/launcher/lang/haw.json
 +++ b/launcher/lang/haw.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "{count} ma ka SMP kūhelu",
-   "{mode} · stopped": "{mode} · ua hoʻōki ʻia",
-   "{online} of {max}": "{online} o {max}",
--  "{support} in Horizon": "{support} ma Horizon"
-+  "{support} in Horizon": "{support} ma Horizon",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Hoʻihoʻi ʻia e ka waihona kālā",
+   "Paid": "Ua uku ʻia",
+   "Order {id}": "Kauoha {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "ʻAʻole i holomua ke koi: ʻaʻole nō Horizon ka helu wahi o ka uku."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "ʻAʻole i holomua ke koi: ʻaʻole nō Horizon ka helu wahi o ka uku.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/he.json b/launcher/lang/he.json
-index a28e74e11..005b205d0 100644
+index 1c7f917..42fe19c 100644
 --- a/launcher/lang/he.json
 +++ b/launcher/lang/he.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "„שמירת השינויים” מחליפה אותו. שום דבר בתיקייה שלו לא נמחק.",
-   "Its mods made for {loader} stay in its folder but won't load.": "המודים שלו שנבנו ל־{loader} נשארים בתיקייה שלו אבל לא ייטענו.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "המודים שלו שנבנו ל־Minecraft {from} נשארים בתיקייה שלו; חלקם אולי לא ייטענו ב־{to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "העולמות שלו נשמרו ב־Minecraft {from}: ‏{to} משדרג אותם לתמיד, ולא יכול לפתוח אותם אם הוא ישן יותר."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "העולמות שלו נשמרו ב־Minecraft {from}: ‏{to} משדרג אותם לתמיד, ולא יכול לפתוח אותם אם הוא ישן יותר.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "חויב בחזרה",
+   "Paid": "שולם",
+   "Order {id}": "הזמנה {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "הבקשה לא עברה: כתובת התשלום אינה של Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "הבקשה לא עברה: כתובת התשלום אינה של Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
-index 1e6a294a9..cd082bc92 100644
+index 86bcf02..a03f783 100644
 --- a/launcher/lang/hi.json
 +++ b/launcher/lang/hi.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "बदलाव सहेजें इसे बदल देता है। इसके फ़ोल्डर से कुछ भी नहीं हटता।",
-   "Its mods made for {loader} stay in its folder but won't load.": "{loader} के लिए बने इसके मॉड इसके फ़ोल्डर में रहते हैं, पर लोड नहीं होंगे।",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from} के लिए बने इसके मॉड इसके फ़ोल्डर में रहते हैं; कुछ {to} में शायद लोड न हों।",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "इसकी दुनिया Minecraft {from} से सहेजी गई थीं: {to} उन्हें हमेशा के लिए अपग्रेड करता है, और पुराना हो तो उन्हें खोल नहीं सकता।"
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "इसकी दुनिया Minecraft {from} से सहेजी गई थीं: {to} उन्हें हमेशा के लिए अपग्रेड करता है, और पुराना हो तो उन्हें खोल नहीं सकता।",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "चार्जबैक हुआ",
+   "Paid": "भुगतान हो गया",
+   "Order {id}": "ऑर्डर {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "दावा पूरा नहीं हो सका: चेकआउट का पता Horizon का नहीं है।"
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "दावा पूरा नहीं हो सका: चेकआउट का पता Horizon का नहीं है।",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
-index 6804a798c..a84cd7d91 100644
+index 4ec8c78..157888a 100644
 --- a/launcher/lang/hr.json
 +++ b/launcher/lang/hr.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Spremi promjene je prebacuje. Ništa se u njezinoj mapi ne briše.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Njezini modovi za {loader} ostaju u njezinoj mapi, ali se neće učitati.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Njezini modovi za Minecraft {from} ostaju u njezinoj mapi; neki se možda neće učitati u {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Njezini svjetovi spremljeni su u Minecraftu {from}: {to} ih trajno nadograđuje i ne može ih otvoriti ako je stariji."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Njezini svjetovi spremljeni su u Minecraftu {from}: {to} ih trajno nadograđuje i ne može ih otvoriti ako je stariji.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Banka poništila uplatu",
+   "Paid": "Plaćeno",
+   "Order {id}": "Narudžba {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
-index b4669ac64..feccf6b4e 100644
+index a078bce..4f2def1 100644
 --- a/launcher/lang/hu.json
 +++ b/launcher/lang/hu.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "A Változások mentése átállítja. A mappájából semmi sem törlődik.",
-   "Its mods made for {loader} stay in its folder but won't load.": "A(z) {loader}-hoz készült modjai a mappájában maradnak, de nem töltődnek be.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "A Minecraft {from}-hoz készült modjai a mappájában maradnak; némelyik talán nem töltődik be a(z) {to} alatt.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "A világait a Minecraft {from} mentette: a(z) {to} végleg frissíti őket, és ha régebbi, nem tudja megnyitni őket."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "A világait a Minecraft {from} mentette: a(z) {to} végleg frissíti őket, és ha régebbi, nem tudja megnyitni őket.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Visszaterhelve",
+   "Paid": "Kifizetve",
+   "Order {id}": "Rendelés {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Az igénylés nem sikerült: a fizetési oldal címe nem a Horizoné."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Az igénylés nem sikerült: a fizetési oldal címe nem a Horizoné.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
-index 6b5a8a5ab..32964fc5f 100644
+index 2649900..181d8aa 100644
 --- a/launcher/lang/hy.json
 +++ b/launcher/lang/hy.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online}՝ {max}-ից",
-   "{support} in Horizon": "{support} Horizon-ում",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Բանկը չեղարկել է վճարումը",
+   "Paid": "Վճարված է",
+   "Order {id}": "Պատվեր {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Հայտը չանցավ․ վճարման էջի հասցեն Horizon-ինը չէ։"
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Հայտը չանցավ․ վճարման էջի հասցեն Horizon-ինը չէ։",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/id.json b/launcher/lang/id.json
-index 698a2fe01..7077d089e 100644
+index cfc116b..adacf9b 100644
 --- a/launcher/lang/id.json
 +++ b/launcher/lang/id.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Simpan perubahan akan menggantinya. Tidak ada yang dihapus dari foldernya.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Mod-nya untuk {loader} tetap ada di foldernya, tetapi tidak akan dimuat.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Mod-nya untuk Minecraft {from} tetap ada di foldernya; beberapa mungkin tidak dimuat di {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dunianya disimpan oleh Minecraft {from}: {to} meningkatkannya secara permanen, dan tidak bisa membukanya jika versinya lebih lama."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dunianya disimpan oleh Minecraft {from}: {to} meningkatkannya secara permanen, dan tidak bisa membukanya jika versinya lebih lama.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Chargeback",
+   "Paid": "Dibayar",
+   "Order {id}": "Pesanan {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Klaim tidak berhasil: alamat checkout bukan milik Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Klaim tidak berhasil: alamat checkout bukan milik Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
-index c4e329c25..d6bf1955c 100644
+index 42d77de..20e4ee7 100644
 --- a/launcher/lang/ig.json
 +++ b/launcher/lang/ig.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "{count} na SMP ọfịshịal",
-   "{mode} · stopped": "{mode} · akwụsịla",
-   "{online} of {max}": "{online} n'ime {max}",
--  "{support} in Horizon": "{support} na Horizon"
-+  "{support} in Horizon": "{support} na Horizon",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Ụlọ akụ weghaara ya",
+   "Paid": "Akwụọla",
+   "Order {id}": "Ahịrị {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Arịrịọ ahụ agaghị nke ọma: adreesị ibe ịkwụ ụgwọ abụghị nke Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Arịrịọ ahụ agaghị nke ọma: adreesị ibe ịkwụ ụgwọ abụghị nke Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/is.json b/launcher/lang/is.json
-index a4aba5576..9c75c1da2 100644
+index 7fe413b..a60dc4a 100644
 --- a/launcher/lang/is.json
 +++ b/launcher/lang/is.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} af {max}",
-   "{support} in Horizon": "{support} í Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Greiðsla afturkölluð af banka",
+   "Paid": "Greitt",
+   "Order {id}": "Pöntun {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Beiðnin gekk ekki í gegn: heimilisfang greiðslunnar er ekki frá Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Beiðnin gekk ekki í gegn: heimilisfang greiðslunnar er ekki frá Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/it.json b/launcher/lang/it.json
-index 69ca32cfd..39d6d9c24 100644
+index 299547a..fbd0174 100644
 --- a/launcher/lang/it.json
 +++ b/launcher/lang/it.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Salva modifiche la cambia. Nella sua cartella non viene eliminato nulla.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Le sue mod per {loader} restano nella sua cartella, ma non verranno caricate.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Le sue mod per Minecraft {from} restano nella sua cartella; alcune potrebbero non caricarsi in {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "I suoi mondi sono stati salvati da Minecraft {from}: {to} li aggiorna per sempre, e non può aprirli se è più vecchio."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "I suoi mondi sono stati salvati da Minecraft {from}: {to} li aggiorna per sempre, e non può aprirli se è più vecchio.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Stornato dalla banca",
+   "Paid": "Pagato",
+   "Order {id}": "Ordine {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta non è andata a buon fine: l'indirizzo del pagamento non è quello di Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta non è andata a buon fine: l'indirizzo del pagamento non è quello di Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index 6b9323d10..ee5137b91 100644
+index 4711a5a..c7b5b6d 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "「変更を保存」で切り替わります。フォルダー内のものは何も削除されません。",
-   "Its mods made for {loader} stay in its folder but won't load.": "{loader} 用の Mod はフォルダーに残りますが、読み込まれません。",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from} 用の Mod はフォルダーに残ります。{to} では一部が読み込まれないかもしれません。",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "ワールドは Minecraft {from} で保存されています：{to} はそれらを元に戻せない形で更新し、より古いバージョンなら開けません。"
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "ワールドは Minecraft {from} で保存されています：{to} はそれらを元に戻せない形で更新し、より古いバージョンなら開けません。",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "チャージバック済み",
+   "Paid": "支払い済み",
+   "Order {id}": "注文 {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "受け取りに失敗しました。チェックアウトのアドレスが Horizon のものではありません。"
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "受け取りに失敗しました。チェックアウトのアドレスが Horizon のものではありません。",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未準備です。Horizon は自分のインストールから Minecraft {version} を準備できます。Mojang からダウンロードするにはサインインしてください。"
  }
 diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
-index a5c4eaf60..f03eab4b9 100644
+index 1c02d36..8c8c8aa 100644
 --- a/launcher/lang/ka.json
 +++ b/launcher/lang/ka.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} / {max}",
-   "{support} in Horizon": "{support} Horizon-ში",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "ბანკმა გადახდა გააუქმა",
+   "Paid": "გადახდილია",
+   "Order {id}": "შეკვეთა {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "მოთხოვნა ვერ შესრულდა: გადახდის მისამართი Horizon-ის არ არის."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "მოთხოვნა ვერ შესრულდა: გადახდის მისამართი Horizon-ის არ არის.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
-index 043e23728..0ef7d372a 100644
+index d702f9d..ede088d 100644
 --- a/launcher/lang/kk.json
 +++ b/launcher/lang/kk.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} / {max}",
-   "{support} in Horizon": "Horizon-да {support}",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк қайтарып алды",
+   "Paid": "Төленді",
+   "Order {id}": "Тапсырыс {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Сұрау өтпеді: төлем мекенжайы Horizon-ның мекенжайы емес."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Сұрау өтпеді: төлем мекенжайы Horizon-ның мекенжайы емес.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
-index 913d0230f..a39577655 100644
+index 5c8e637..84ec36a 100644
 --- a/launcher/lang/kn.json
 +++ b/launcher/lang/kn.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "ಅಧಿಕೃತ SMP ಯಲ್ಲಿ {count}",
-   "{mode} · stopped": "{mode} · ನಿಲ್ಲಿಸಲಾಗಿದೆ",
-   "{online} of {max}": "{max} ರಲ್ಲಿ {online}",
--  "{support} in Horizon": "Horizon ನಲ್ಲಿ {support}"
-+  "{support} in Horizon": "Horizon ನಲ್ಲಿ {support}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "ಬ್ಯಾಂಕ್‌ನಿಂದ ಹಿಂತಿರುಗಿಸಲಾಗಿದೆ",
+   "Paid": "ಪಾವತಿಸಲಾಗಿದೆ",
+   "Order {id}": "ಆರ್ಡರ್ {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "ಕ್ಲೈಮ್ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ: ಚೆಕ್‌ಔಟ್‌ನ ವಿಳಾಸ Horizon ನದಲ್ಲ."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "ಕ್ಲೈಮ್ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ: ಚೆಕ್‌ಔಟ್‌ನ ವಿಳಾಸ Horizon ನದಲ್ಲ.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
-index 3d1a2e96b..98c5d8874 100644
+index 0219216..16d483f 100644
 --- a/launcher/lang/ko.json
 +++ b/launcher/lang/ko.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "변경 사항 저장을 누르면 전환됩니다. 폴더의 어떤 것도 삭제되지 않습니다.",
-   "Its mods made for {loader} stay in its folder but won't load.": "{loader}용 모드는 폴더에 남지만 로드되지 않습니다.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from}용 모드는 폴더에 남습니다. 일부는 {to}에서 로드되지 않을 수 있습니다.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "월드는 Minecraft {from}에서 저장되었습니다: {to}은(는) 이를 영구적으로 업그레이드하며, 더 오래된 버전이면 열 수 없습니다."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "월드는 Minecraft {from}에서 저장되었습니다: {to}은(는) 이를 영구적으로 업그레이드하며, 더 오래된 버전이면 열 수 없습니다.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "차지백됨",
+   "Paid": "결제됨",
+   "Order {id}": "주문 {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "받기가 완료되지 않았어요. 결제 주소가 Horizon의 주소가 아니에요."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "받기가 완료되지 않았어요. 결제 주소가 Horizon의 주소가 아니에요.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
-index b3d9023c3..687379962 100644
+index 4e12ff3..c906375 100644
 --- a/launcher/lang/ky.json
 +++ b/launcher/lang/ky.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "Расмий SMP серверинде {count}",
-   "{mode} · stopped": "{mode} · токтотулган",
-   "{online} of {max}": "{max} ичинен {online}",
--  "{support} in Horizon": "Horizon ичинде {support}"
-+  "{support} in Horizon": "Horizon ичинде {support}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк кайтарып алды",
+   "Paid": "Төлөндү",
+   "Order {id}": "Буйрутма {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап өткөн жок: төлөмдүн дареги Horizon'ду эмес."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап өткөн жок: төлөмдүн дареги Horizon'ду эмес.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/la.json b/launcher/lang/la.json
-index e564db2ef..036a47fe2 100644
+index 6f27f19..9c6435a 100644
 --- a/launcher/lang/la.json
 +++ b/launcher/lang/la.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "{count} in SMP officiali",
-   "{mode} · stopped": "{mode} · sistitum",
-   "{online} of {max}": "{online} ex {max}",
--  "{support} in Horizon": "{support} in Horizon"
-+  "{support} in Horizon": "{support} in Horizon",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "A argentaria revocatum",
+   "Paid": "Solutum",
+   "Order {id}": "Mandatum {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Postulatio non successit: inscriptio solutionis non est Horizontis."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Postulatio non successit: inscriptio solutionis non est Horizontis.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
-index 690c53edc..44a788075 100644
+index 74a5c21..6df3515 100644
 --- a/launcher/lang/lb.json
 +++ b/launcher/lang/lb.json
-@@ -1091,5 +1091,6 @@
-   "{count} min ago": "virun {count} Min.",
-   "{count} on the official SMP": "{count} um offiziellen SMP",
-   "{mode} · stopped": "{mode} · gestoppt",
--  "{online} of {max}": "{online} vun {max}"
-+  "{online} of {max}": "{online} vun {max}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Vun der Bank zréckbucht",
+   "Paid": "Bezuelt",
+   "Order {id}": "Bestellung {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "D'Ufro ass net duerchgaangen: d'Adress vum Checkout ass net déi vun Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "D'Ufro ass net duerchgaangen: d'Adress vum Checkout ass net déi vun Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/li.json b/launcher/lang/li.json
-index cd30d51bc..dbc0a0bfc 100644
+index 7a5fd96..b45070f 100644
 --- a/launcher/lang/li.json
 +++ b/launcher/lang/li.json
-@@ -1091,5 +1091,6 @@
-   "Its mods made for {loader} stay in its folder but won't load.": "Z'n mods veur {loader} blieve in z'n map, mer laje neet.",
-   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Z'n werelde zien opgesjlage door Minecraft {from}: {to} werk ze veur good bij, en kin ze neet opene es 't auwer is.",
-   "Save changes switches it. Nothing in its folder is deleted.": "‘Wijziginge opsjlaon’ verandert 't. Niks in z'n map weurt gewis.",
--  "What this change can't keep": "Wat dees verandering neet kin hawwe"
-+  "What this change can't keep": "Wat dees verandering neet kin hawwe",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Trökgeboekt door de bank",
+   "Paid": "Betaald",
+   "Order {id}": "Bestèlling {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "De aanspraak is neet geslaag: 't adres van de checkout is neet dat van Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "De aanspraak is neet geslaag: 't adres van de checkout is neet dat van Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
-index 7934428c5..e22468e0d 100644
+index 4010860..8c45e47 100644
 --- a/launcher/lang/lmo.json
 +++ b/launcher/lang/lmo.json
-@@ -1091,5 +1091,6 @@
-   "Its mods made for {loader} stay in its folder but won't load.": "I sò mod fà per {loader} resten in la soa cartella, ma se cargaran minga.",
-   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "I sò mond hinn staa salvaa de Minecraft {from}: {to} i aggiorna per semper, e el po minga dervii se l'è pussee vegg.",
-   "Save changes switches it. Nothing in its folder is deleted.": "«Salva i modifich» la cambia. Nagott in la soa cartella el ven eliminaa.",
--  "What this change can't keep": "Quell che quest cambiament el po minga tegnì"
-+  "What this change can't keep": "Quell che quest cambiament el po minga tegnì",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Stornà de la banca",
+   "Paid": "Pagà",
+   "Order {id}": "Ordin {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta la gh'a minga fa: l'indirizz del pagament l'è minga quel de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta la gh'a minga fa: l'indirizz del pagament l'è minga quel de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
-index d6564e435..a20d50c0c 100644
+index 6810dad..03fedf7 100644
 --- a/launcher/lang/lo.json
 +++ b/launcher/lang/lo.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} ຈາກ {max}",
-   "{support} in Horizon": "{support} ໃນ Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "ທະນາຄານຖອນຄືນ",
+   "Paid": "ຊຳລະແລ້ວ",
+   "Order {id}": "ຄຳສັ່ງຊື້ {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "ການຮັບບໍ່ສຳເລັດ: ທີ່ຢູ່ຂອງໜ້າຊຳລະບໍ່ແມ່ນຂອງ Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "ການຮັບບໍ່ສຳເລັດ: ທີ່ຢູ່ຂອງໜ້າຊຳລະບໍ່ແມ່ນຂອງ Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
-index 1cc7f10d9..8b9126eb3 100644
+index e0e3e4a..adf9294 100644
 --- a/launcher/lang/lt.json
 +++ b/launcher/lang/lt.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "„Išsaugoti pakeitimus“ jį perjungia. Iš jo aplanko niekas neištrinama.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Jo modai, skirti {loader}, lieka jo aplanke, bet nebus įkelti.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Jo modai, skirti Minecraft {from}, lieka jo aplanke; kai kurie gali neįsikelti {to} versijoje.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jo pasauliai išsaugoti Minecraft {from}: {to} juos atnaujina visam laikui ir negali jų atidaryti, jei yra senesnė."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jo pasauliai išsaugoti Minecraft {from}: {to} juos atnaujina visam laikui ir negali jų atidaryti, jei yra senesnė.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Bankas atšaukė mokėjimą",
+   "Paid": "Apmokėta",
+   "Order {id}": "Užsakymas {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Prašymas nepavyko: atsiskaitymo adresas nepriklauso Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Prašymas nepavyko: atsiskaitymo adresas nepriklauso Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
-index 7cc329271..6a9e410dd 100644
+index c04e941..d115ed3 100644
 --- a/launcher/lang/lv.json
 +++ b/launcher/lang/lv.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} no {max}",
-   "{support} in Horizon": "{support} Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Banka atcēla maksājumu",
+   "Paid": "Samaksāts",
+   "Order {id}": "Pasūtījums {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Pieprasījums neizdevās: norēķina adrese nepieder Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Pieprasījums neizdevās: norēķina adrese nepieder Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
-index d195a822e..638d3f9dc 100644
+index d239e1b..1e95535 100644
 --- a/launcher/lang/mk.json
 +++ b/launcher/lang/mk.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} од {max}",
-   "{support} in Horizon": "{support} во Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банката го поништи плаќањето",
+   "Paid": "Платено",
+   "Order {id}": "Нарачка {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Барањето не помина: адресата на плаќањето не е на Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Барањето не помина: адресата на плаќањето не е на Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
-index 9ec0f1051..69bbc2db4 100644
+index 012c6be..4cfcb89 100644
 --- a/launcher/lang/mn.json
 +++ b/launcher/lang/mn.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{max}-с {online}",
-   "{support} in Horizon": "Horizon-д {support}",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк буцаасан",
+   "Paid": "Төлсөн",
+   "Order {id}": "Захиалга {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Хүсэлт амжилтгүй боллоо: төлбөрийн хаяг Horizon-ых биш байна."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Хүсэлт амжилтгүй боллоо: төлбөрийн хаяг Horizon-ых биш байна.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
-index e234a37bd..98b9f275a 100644
+index 1fb9855..5952741 100644
 --- a/launcher/lang/ms.json
 +++ b/launcher/lang/ms.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} daripada {max}",
-   "{support} in Horizon": "{support} dalam Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Dibatalkan oleh bank",
+   "Paid": "Dibayar",
+   "Order {id}": "Pesanan {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tuntutan tidak berjaya: alamat pembayaran bukan milik Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tuntutan tidak berjaya: alamat pembayaran bukan milik Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
-index 85e7728d5..eab712fa1 100644
+index 7e03977..df25c24 100644
 --- a/launcher/lang/mt.json
 +++ b/launcher/lang/mt.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "{count} fuq l-SMP uffiċjali",
-   "{mode} · stopped": "{mode} · waqaf",
-   "{online} of {max}": "{online} minn {max}",
--  "{support} in Horizon": "{support} f'Horizon"
-+  "{support} in Horizon": "{support} f'Horizon",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Maqlub mill-bank",
+   "Paid": "Imħallas",
+   "Order {id}": "Ordni {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "It-talba ma għaddietx: l-indirizz tal-ħlas mhuwiex ta' Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "It-talba ma għaddietx: l-indirizz tal-ħlas mhuwiex ta' Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
-index c200431ec..881615045 100644
+index 89821ce..bd9871b 100644
 --- a/launcher/lang/nl.json
 +++ b/launcher/lang/nl.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Wijzigingen opslaan zet hem om. Niets in zijn map wordt verwijderd.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Zijn mods voor {loader} blijven in zijn map, maar worden niet geladen.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Zijn mods voor Minecraft {from} blijven in zijn map; sommige laden misschien niet in {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Zijn werelden zijn opgeslagen door Minecraft {from}: {to} werkt ze voorgoed bij en kan ze niet openen als het ouder is."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Zijn werelden zijn opgeslagen door Minecraft {from}: {to} werkt ze voorgoed bij en kan ze niet openen als het ouder is.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Teruggeboekt door de bank",
+   "Paid": "Betaald",
+   "Order {id}": "Bestelling {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "De claim is niet gelukt: het adres van de checkout is niet dat van Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "De claim is niet gelukt: het adres van de checkout is niet dat van Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/no.json b/launcher/lang/no.json
-index c4d9039d7..b6990aea8 100644
+index 6fc6d30..c913621 100644
 --- a/launcher/lang/no.json
 +++ b/launcher/lang/no.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Lagre endringer bytter den. Ingenting i mappen dens slettes.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Dens mods laget for {loader} blir i mappen dens, men lastes ikke.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Dens mods laget for Minecraft {from} blir i mappen dens; noen lastes kanskje ikke i {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Verdenene dens ble lagret av Minecraft {from}: {to} oppgraderer dem for godt, og kan ikke åpne dem hvis den er eldre."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Verdenene dens ble lagret av Minecraft {from}: {to} oppgraderer dem for godt, og kan ikke åpne dem hvis den er eldre.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Tilbakeført av banken",
+   "Paid": "Betalt",
+   "Order {id}": "Bestilling {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravet gikk ikke gjennom: adressen til utsjekkingen er ikke Horizons."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravet gikk ikke gjennom: adressen til utsjekkingen er ikke Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
-index e47f1f608..06cd88795 100644
+index e4efe32..6c74c59 100644
 --- a/launcher/lang/oc.json
 +++ b/launcher/lang/oc.json
-@@ -1091,5 +1091,6 @@
-   "Its mods made for {loader} stay in its folder but won't load.": "Sos mods fargats per {loader} demòran dins son dorsièr mas se cargaràn pas.",
-   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Sos mondes foguèron enregistrats per Minecraft {from}: {to} los met a jorn per totjorn, e los pòt pas dobrir se es mai ancian.",
-   "Save changes switches it. Nothing in its folder is deleted.": "« Enregistrar las modificacions » lo càmbia. Res dins son dorsièr es pas suprimit.",
--  "What this change can't keep": "Çò que aqueste cambiament pòt pas gardar"
-+  "What this change can't keep": "Çò que aqueste cambiament pòt pas gardar",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Retrofacturat",
+   "Paid": "Pagat",
+   "Order {id}": "Comanda {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demanda a pas capitat : l'adreça del pagament es pas la de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demanda a pas capitat : l'adreça del pagament es pas la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index 1774d45b9..c165b3c3a 100644
+index 39bb5af..2c5a5c4 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Zapisz zmiany ją przełącza. Nic z jej folderu nie zostanie usunięte.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Jej mody dla {loader} zostają w jej folderze, ale nie zostaną wczytane.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Jej mody dla Minecraft {from} zostają w jej folderze; niektóre mogą nie wczytać się w {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jej światy zapisał Minecraft {from}: {to} na stałe je aktualizuje i nie otworzy ich, jeśli jest starszy."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jej światy zapisał Minecraft {from}: {to} na stałe je aktualizuje i nie otworzy ich, jeśli jest starszy.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Obciążenie zwrotne",
+   "Paid": "Opłacono",
+   "Order {id}": "Zamówienie {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Odbiór się nie powiódł: adres płatności nie należy do Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Odbiór się nie powiódł: adres płatności nie należy do Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nie przygotowano. Horizon może przygotować Minecraft {version} z Twojej własnej instalacji; zaloguj się, aby pobrać go z Mojang."
  }
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index 52d3f7570..f864c3f6d 100644
+index 9800abd..20e0d9c 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Salvar alterações faz a troca. Nada na pasta dela é apagado.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Os mods dela feitos para {loader} ficam na pasta dela, mas não serão carregados.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Os mods dela feitos para Minecraft {from} ficam na pasta dela; alguns podem não carregar no {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Os mundos dela foram salvos pelo Minecraft {from}: o {to} os atualiza para sempre e não consegue abri-los se for mais antigo."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Os mundos dela foram salvos pelo Minecraft {from}: o {to} os atualiza para sempre e não consegue abri-los se for mais antigo.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Estornado",
+   "Paid": "Pago",
+   "Order {id}": "Pedido {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "O resgate não foi concluído: o endereço do checkout não é o da Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "O resgate não foi concluído: o endereço do checkout não é o da Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Não preparado. O Horizon pode preparar o Minecraft {version} a partir da sua própria instalação; entre para baixá-lo da Mojang."
  }
 diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
-index dd520e894..5262b1199 100644
+index 50e9dcf..e41d95b 100644
 --- a/launcher/lang/pt.json
 +++ b/launcher/lang/pt.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Guardar alterações faz a troca. Nada na pasta dela é apagado.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Os mods dela feitos para {loader} ficam na pasta dela, mas não serão carregados.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Os mods dela feitos para Minecraft {from} ficam na pasta dela; alguns podem não carregar no {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Os mundos dela foram guardados pelo Minecraft {from}: o {to} atualiza-os para sempre e não os consegue abrir se for mais antigo."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Os mundos dela foram guardados pelo Minecraft {from}: o {to} atualiza-os para sempre e não os consegue abrir se for mais antigo.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Estornado pelo banco",
+   "Paid": "Pago",
+   "Order {id}": "Encomenda {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "O pedido não foi concluído: o endereço do pagamento não é o da Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "O pedido não foi concluído: o endereço do pagamento não é o da Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
-index ecf42fb36..5b731afb2 100644
+index 0ac9b21..6594f8f 100644
 --- a/launcher/lang/ro.json
 +++ b/launcher/lang/ro.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Salvează modificările o comută. Nimic din folderul ei nu se șterge.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Modurile ei făcute pentru {loader} rămân în folderul ei, dar nu se vor încărca.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Modurile ei făcute pentru Minecraft {from} rămân în folderul ei; unele s-ar putea să nu se încarce în {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Lumile ei au fost salvate de Minecraft {from}: {to} le actualizează definitiv și nu le poate deschide dacă e mai vechi."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Lumile ei au fost salvate de Minecraft {from}: {to} le actualizează definitiv și nu le poate deschide dacă e mai vechi.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Plată returnată de bancă",
+   "Paid": "Plătit",
+   "Order {id}": "Comanda {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cererea nu a reușit: adresa plății nu aparține Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cererea nu a reușit: adresa plății nu aparține Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index ba55dc246..37114571a 100644
+index 5737a20..3374312 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "«Сохранить изменения» переключит её. Из её папки ничего не удаляется.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Её моды для {loader} останутся в её папке, но не загрузятся.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Её моды для Minecraft {from} останутся в её папке; некоторые могут не загрузиться в {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Её миры сохранены в Minecraft {from}: {to} обновит их навсегда, а если он старше — не сможет открыть."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Её миры сохранены в Minecraft {from}: {to} обновит их навсегда, а если он старше — не сможет открыть.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Возврат платежа банком",
+   "Paid": "Оплачено",
+   "Order {id}": "Заказ {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не прошла: адрес страницы оплаты не принадлежит Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не прошла: адрес страницы оплаты не принадлежит Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей собственной установки; войдите, чтобы скачать его с Mojang."
  }
 diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
-index d78b7df03..6c222c4b6 100644
+index 4b5cdaf..e3175c1 100644
 --- a/launcher/lang/sah.json
 +++ b/launcher/lang/sah.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Уларытыылары харыстааһын ону уларытар. Кини папкатыгар туох да сотуллубат.",
-   "Its mods made for {loader} stay in its folder but won't load.": "{loader} оҥоһуллубут модтара папкатыгар хаалаллар, ол гынан баран тиэллибэттэр.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from} оҥоһуллубут модтара кини папкатыгар хаалаллар; сорохтор {to} тиэйбэт буолуохтарын сөп.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Аан дойдуларын Minecraft {from} быыһаабыта: {to} кинилэри үчүгэйдик тупсарар, уонна былыргы буоллаҕына арыйар кыаҕа суох."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Аан дойдуларын Minecraft {from} быыһаабыта: {to} кинилэри үчүгэйдик тупсарар, уонна былыргы буоллаҕына арыйар кыаҕа суох.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Баанка төттөрү ылбыт",
+   "Paid": "Төлөммүт",
+   "Order {id}": "Сакаас {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Көрдөбүл ааспата: төлөбүр аадырыһа Horizon буолбатах."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Көрдөбүл ааспата: төлөбүр аадырыһа Horizon буолбатах.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/se.json b/launcher/lang/se.json
-index 0139190a9..79d610da7 100644
+index 555137b..18f1a03 100644
 --- a/launcher/lang/se.json
 +++ b/launcher/lang/se.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Seaillut rievdadusaid rievdada dan. Ii mihkkege dan máppas leat sihkkojuvvon.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Dan moddat mat leat dahkkon {loader} ovddas bissot dan máppas muhto eai lasta.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Dan moddat mat leat dahkkon Minecraft {from} ovddas bissot dan máppas; muhtimat eai soaitte lasta {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dan máilmmit leat gádjon Minecraft {from} bokte: {to} ođasmahttá daid buorrin, ja ii sáhte rahpat daid jus lea boarráset."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dan máilmmit leat gádjon Minecraft {from} bokte: {to} ođasmahttá daid buorrin, ja ii sáhte rahpat daid jus lea boarráset.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Báŋku fas váldán",
+   "Paid": "Máksojuvvon",
+   "Order {id}": "Diŋga {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ohcan ii lihkostuvvan: mávsima čujuhus ii leat Horizona."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ohcan ii lihkostuvvan: mávsima čujuhus ii leat Horizona.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
-index 7c1f47d0c..e2630e4c8 100644
+index f8a20e0..2f835af 100644
 --- a/launcher/lang/sk.json
 +++ b/launcher/lang/sk.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Uložiť zmeny ju prepne. Z jej priečinka sa nič nezmaže.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Jej módy pre {loader} zostanú v jej priečinku, ale nenačítajú sa.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Jej módy pre Minecraft {from} zostanú v jej priečinku; niektoré sa v {to} možno nenačítajú.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jej svety uložil Minecraft {from}: {to} ich natrvalo aktualizuje a ak je starší, nedokáže ich otvoriť."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jej svety uložil Minecraft {from}: {to} ich natrvalo aktualizuje a ak je starší, nedokáže ich otvoriť.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Vrátené bankou",
+   "Paid": "Zaplatené",
+   "Order {id}": "Objednávka {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok sa nepodarilo uplatniť: adresa platby nepatrí Horizonu."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok sa nepodarilo uplatniť: adresa platby nepatrí Horizonu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
-index 77dacf03b..30f09e60e 100644
+index f85e809..086a890 100644
 --- a/launcher/lang/sl.json
 +++ b/launcher/lang/sl.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} od {max}",
-   "{support} in Horizon": "{support} v Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value} %"
-+  "{value}%": "{value} %",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Banka je razveljavila plačilo",
+   "Paid": "Plačano",
+   "Order {id}": "Naročilo {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahteva ni uspela: naslov plačila ni Horizonov."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahteva ni uspela: naslov plačila ni Horizonov.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/so.json b/launcher/lang/so.json
-index 9b8715800..cafa8a1a9 100644
+index 55259f3..dc93efc 100644
 --- a/launcher/lang/so.json
 +++ b/launcher/lang/so.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} ka mid ah {max}",
-   "{support} in Horizon": "{support} gudaha Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Bangiga ayaa dib u qaaday",
+   "Paid": "La bixiyay",
+   "Order {id}": "Dalab {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Codsigu ma dhicin: ciwaanka bixintu ma aha kan Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Codsigu ma dhicin: ciwaanka bixintu ma aha kan Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
-index e4811e265..c898560c6 100644
+index 0218dc0..ae9e6e2 100644
 --- a/launcher/lang/sq.json
 +++ b/launcher/lang/sq.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} nga {max}",
-   "{support} in Horizon": "{support} në Horizon",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Kthyer nga banka",
+   "Paid": "Paguar",
+   "Order {id}": "Porosia {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kërkesa nuk kaloi: adresa e pagesës nuk është e Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kërkesa nuk kaloi: adresa e pagesës nuk është e Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
-index 939e9db26..5b63cce3b 100644
+index 5bafa7a..636563e 100644
 --- a/launcher/lang/sr.json
 +++ b/launcher/lang/sr.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} од {max}",
-   "{support} in Horizon": "{support} у Horizon-у",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банка поништила уплату",
+   "Paid": "Плаћено",
+   "Order {id}": "Поруџбина {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Захтев није прошао: адреса плаћања није Horizon-ова."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Захтев није прошао: адреса плаћања није Horizon-ова.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
-index f1b4ac701..4a3da6d00 100644
+index a8be71c..f2054ca 100644
 --- a/launcher/lang/sv.json
 +++ b/launcher/lang/sv.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Spara ändringar byter den. Inget i dess mapp raderas.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Dess moddar för {loader} stannar i dess mapp men laddas inte.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Dess moddar för Minecraft {from} stannar i dess mapp; vissa kanske inte laddas i {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dess världar sparades av Minecraft {from}: {to} uppgraderar dem för gott och kan inte öppna dem om den är äldre."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dess världar sparades av Minecraft {from}: {to} uppgraderar dem för gott och kan inte öppna dem om den är äldre.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Återkrävd av banken",
+   "Paid": "Betald",
+   "Order {id}": "Order {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anspråket gick inte igenom: kassans adress är inte Horizons."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anspråket gick inte igenom: kassans adress är inte Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
-index 71d6c1f01..9e16955a8 100644
+index 87c327f..dd43852 100644
 --- a/launcher/lang/szl.json
 +++ b/launcher/lang/szl.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Zapisz zmiany przełōnczo je. Nic w jego katalogu niy ma usuniynte.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Jeji mody zrobiōne do {loader} ôstowajōm w jego folderze ale niy załadujōm sie.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Jeji mody wykōnane do Minecraft {from} ôstowajōm w jeji folderze; niykere mogōm niy załadować w {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jeji światy były uratowane bez Minecraft {from}: {to} uaktualizuje je na dobro, i niy może je ôtworzyć, jeźli je starszy."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jeji światy były uratowane bez Minecraft {from}: {to} uaktualizuje je na dobro, i niy może je ôtworzyć, jeźli je starszy.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Bank sztornowoł płatność",
+   "Paid": "Zapłacōne",
+   "Order {id}": "Zōmówiynie {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Żōdanie sie niy udało: adresa płatności niy należy do Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Żōdanie sie niy udało: adresa płatności niy należy do Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
-index 115243768..2f8754c42 100644
+index fa2aae2..9831458 100644
 --- a/launcher/lang/ta.json
 +++ b/launcher/lang/ta.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{max}-இல் {online}",
-   "{support} in Horizon": "Horizon-இல் {support}",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "வங்கியால் திரும்பப் பெறப்பட்டது",
+   "Paid": "செலுத்தப்பட்டது",
+   "Order {id}": "ஆர்டர் {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "கோரிக்கை நிறைவேறவில்லை: செக்அவுட்டின் முகவரி Horizon-உடையது அல்ல."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "கோரிக்கை நிறைவேறவில்லை: செக்அவுட்டின் முகவரி Horizon-உடையது அல்ல.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index 5db599fe8..8ec8aaa20 100644
+index 79d7309..f636f0f 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "บันทึกการเปลี่ยนแปลงจะสลับให้ ไม่มีสิ่งใดในโฟลเดอร์ถูกลบ",
-   "Its mods made for {loader} stay in its folder but won't load.": "ม็อดสำหรับ {loader} ยังอยู่ในโฟลเดอร์ แต่จะไม่ถูกโหลด",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "ม็อดสำหรับ Minecraft {from} ยังอยู่ในโฟลเดอร์ บางตัวอาจโหลดไม่ได้ใน {to}",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "โลกถูกบันทึกโดย Minecraft {from}: {to} จะอัปเกรดโลกเหล่านั้นอย่างถาวร และเปิดไม่ได้หากเป็นเวอร์ชันที่เก่ากว่า"
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "โลกถูกบันทึกโดย Minecraft {from}: {to} จะอัปเกรดโลกเหล่านั้นอย่างถาวร และเปิดไม่ได้หากเป็นเวอร์ชันที่เก่ากว่า",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "ธนาคารเรียกเงินคืน",
+   "Paid": "ชำระแล้ว",
+   "Order {id}": "คำสั่งซื้อ {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon"
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index b87481957..b844f8a05 100644
+index 2e66533..cf1c54a 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Değişiklikleri kaydet onu değiştirir. Klasöründen hiçbir şey silinmez.",
-   "Its mods made for {loader} stay in its folder but won't load.": "{loader} için yapılmış modları klasöründe kalır ama yüklenmez.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from} için yapılmış modları klasöründe kalır; bazıları {to} sürümünde yüklenmeyebilir.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dünyaları Minecraft {from} ile kaydedildi: {to} onları kalıcı olarak yükseltir, daha eskiyse açamaz."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dünyaları Minecraft {from} ile kaydedildi: {to} onları kalıcı olarak yükseltir, daha eskiyse açamaz.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Banka tarafından geri alındı",
+   "Paid": "Ödendi",
+   "Order {id}": "Sipariş {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Talep tamamlanamadı: ödeme adresi Horizon'a ait değil."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Talep tamamlanamadı: ödeme adresi Horizon'a ait değil.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Hazırlanmadı. Horizon, Minecraft {version} sürümünü kendi kurulumunuzdan hazırlayabilir; Mojang'dan indirmek için oturum açın."
  }
 diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
-index 109b645d1..a46c047f0 100644
+index 22d13aa..f006d8e 100644
 --- a/launcher/lang/tt.json
 +++ b/launcher/lang/tt.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "Рәсми SMP серверында {count}",
-   "{mode} · stopped": "{mode} · туктатылды",
-   "{online} of {max}": "{max} эченнән {online}",
--  "{support} in Horizon": "Horizon эчендә {support}"
-+  "{support} in Horizon": "Horizon эчендә {support}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк кире алды",
+   "Paid": "Түләнде",
+   "Order {id}": "Заказ {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Таләп узмады: түләү адресы Horizon'ныкы түгел."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Таләп узмады: түләү адресы Horizon'ныкы түгел.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index 5e9e8b23c..daa2c6911 100644
+index b9c8af1..5779687 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "«Зберегти зміни» перемкне її. З її теки нічого не видаляється.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Її моди для {loader} залишаться в її теці, але не завантажаться.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Її моди для Minecraft {from} залишаться в її теці; деякі можуть не завантажитися в {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Її світи збережено в Minecraft {from}: {to} оновить їх назавжди, а якщо він старіший — не зможе відкрити."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Її світи збережено в Minecraft {from}: {to} оновить їх назавжди, а якщо він старіший — не зможе відкрити.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Банк скасував платіж",
+   "Paid": "Оплачено",
+   "Order {id}": "Замовлення {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не пройшла: адреса сторінки оплати не належить Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не пройшла: адреса сторінки оплати не належить Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} із вашої власної установки; увійдіть, щоб завантажити його з Mojang."
  }
 diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
-index 4ecae7620..25e1fce0c 100644
+index a3c3202..940eae1 100644
 --- a/launcher/lang/ur.json
 +++ b/launcher/lang/ur.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "تبدیلیاں محفوظ کریں اسے بدل دیتا ہے۔ اس کے فولڈر سے کچھ حذف نہیں ہوتا۔",
-   "Its mods made for {loader} stay in its folder but won't load.": "{loader} کے لیے بنے اس کے موڈ اس کے فولڈر میں رہتے ہیں لیکن لوڈ نہیں ہوں گے۔",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from} کے لیے بنے اس کے موڈ اس کے فولڈر میں رہتے ہیں؛ کچھ شاید {to} میں لوڈ نہ ہوں۔",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "اس کی دنیائیں Minecraft {from} نے محفوظ کیں: {to} انہیں ہمیشہ کے لیے اپ گریڈ کرتا ہے، اور اگر پرانا ہو تو انہیں کھول نہیں سکتا۔"
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "اس کی دنیائیں Minecraft {from} نے محفوظ کیں: {to} انہیں ہمیشہ کے لیے اپ گریڈ کرتا ہے، اور اگر پرانا ہو تو انہیں کھول نہیں سکتا۔",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "بینک نے ادائیگی واپس لے لی",
+   "Paid": "ادا شدہ",
+   "Order {id}": "آرڈر {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "دعویٰ مکمل نہیں ہو سکا: چیک آؤٹ کا پتہ Horizon کا نہیں ہے۔"
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "دعویٰ مکمل نہیں ہو سکا: چیک آؤٹ کا پتہ Horizon کا نہیں ہے۔",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
-index 02ddac375..afda9f067 100644
+index 15fae82..b25c1d7 100644
 --- a/launcher/lang/uz.json
 +++ b/launcher/lang/uz.json
-@@ -1091,5 +1091,6 @@
-   "{online} of {max}": "{online} / {max}",
-   "{support} in Horizon": "Horizon'da {support}",
-   "{value} px": "{value} px",
--  "{value}%": "{value}%"
-+  "{value}%": "{value}%",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Bank qaytarib oldi",
+   "Paid": "To‘langan",
+   "Order {id}": "Buyurtma {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Da’vo o‘tmadi: to‘lov manzili Horizon’niki emas."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Da’vo o‘tmadi: to‘lov manzili Horizon’niki emas.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
-index 524ded9b0..84bd52e54 100644
+index 4215f12..fc18036 100644
 --- a/launcher/lang/vec.json
 +++ b/launcher/lang/vec.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Salva i canbiamenti i ło canbia. Niente neła so cartèła vien cancełà.",
-   "Its mods made for {loader} stay in its folder but won't load.": "I so mod fati par {loader} i resta neła so cartèła ma no i se cariga.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "I suoi mod fatti per Minecraft {from} restano nella sua cartella; alcuni pol no cargarse in {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "I so mondi i xe stai salvài da Minecraft {from}: {to} i li agiorna par senpre, e no i pol verxarli se i xe pì veci."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "I so mondi i xe stai salvài da Minecraft {from}: {to} i li agiorna par senpre, e no i pol verxarli se i xe pì veci.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Stornà da la banca",
+   "Paid": "Pagà",
+   "Order {id}": "Ordine {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta no la xe ndà a bon fin: l'indirizzo del pagamento no 'l xe quel de Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta no la xe ndà a bon fin: l'indirizzo del pagamento no 'l xe quel de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
-index 0be6b3d98..b8b0efc4a 100644
+index d54b797..8b1f00a 100644
 --- a/launcher/lang/vi.json
 +++ b/launcher/lang/vi.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "Lưu thay đổi sẽ chuyển nó. Không có gì trong thư mục của nó bị xóa.",
-   "Its mods made for {loader} stay in its folder but won't load.": "Các mod làm cho {loader} vẫn ở trong thư mục của nó nhưng sẽ không được tải.",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Các mod làm cho Minecraft {from} vẫn ở trong thư mục của nó; một số có thể không tải được trong {to}.",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Các thế giới của nó được lưu bởi Minecraft {from}: {to} nâng cấp chúng vĩnh viễn, và không mở được nếu là bản cũ hơn."
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Các thế giới của nó được lưu bởi Minecraft {from}: {to} nâng cấp chúng vĩnh viễn, và không mở được nếu là bản cũ hơn.",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Bị ngân hàng đảo giao dịch",
+   "Paid": "Đã thanh toán",
+   "Order {id}": "Đơn hàng {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Yêu cầu không thành công: địa chỉ trang thanh toán không phải của Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Yêu cầu không thành công: địa chỉ trang thanh toán không phải của Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
-index cafe750f8..545e807b4 100644
+index 28f9839..e961381 100644
 --- a/launcher/lang/yi.json
 +++ b/launcher/lang/yi.json
-@@ -1091,5 +1091,6 @@
-   "{count} on the official SMP": "{count} אויפֿן אָפֿיציעלן SMP",
-   "{mode} · stopped": "{mode} · אָפּגעשטעלט",
-   "{online} of {max}": "{online} פֿון {max}",
--  "{support} in Horizon": "{support} אין Horizon"
-+  "{support} in Horizon": "{support} אין Horizon",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "דער באַנק האָט צוריקגענומען",
+   "Paid": "באַצאָלט",
+   "Order {id}": "באַשטעלונג {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "די פֿאָדערונג איז נישט דורכגעגאַנגען: די אַדרעס פֿון דער צאָלונג איז נישט פֿון Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "די פֿאָדערונג איז נישט דורכגעגאַנגען: די אַדרעס פֿון דער צאָלונג איז נישט פֿון Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
-index f3fd31323..e8bcfa159 100644
+index 8d1d5d1..56866eb 100644
 --- a/launcher/lang/yo.json
 +++ b/launcher/lang/yo.json
-@@ -1091,5 +1091,6 @@
-   "{count} min ago": "iṣẹju {count} sẹyin",
-   "{count} on the official SMP": "{count} lori SMP osise",
-   "{mode} · stopped": "{mode} · ti duro",
--  "{online} of {max}": "{online} ninu {max}"
-+  "{online} of {max}": "{online} ninu {max}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Ilé ìfowópamọ́ ti gba padà",
+   "Paid": "A ti sanwó",
+   "Order {id}": "Àṣẹ ríra {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ìbéèrè náà kò yọrí: àdírẹ́sì ojú ìwé sísan owó kì í ṣe ti Horizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ìbéèrè náà kò yọrí: àdírẹ́sì ojú ìwé sísan owó kì í ṣe ti Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index 91f725107..7bb88bcc3 100644
+index 3febd0f..feb5fd5 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
-@@ -1091,5 +1091,6 @@
-   "Save changes switches it. Nothing in its folder is deleted.": "“保存更改”会切换它。其文件夹中的任何内容都不会被删除。",
-   "Its mods made for {loader} stay in its folder but won't load.": "其为 {loader} 制作的模组会留在其文件夹中，但不会加载。",
-   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "其为 Minecraft {from} 制作的模组会留在其文件夹中；部分可能无法在 {to} 中加载。",
--  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "其世界由 Minecraft {from} 保存：{to} 会永久升级它们；如果 {to} 更旧，则无法打开它们。"
-+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "其世界由 Minecraft {from} 保存：{to} 会永久升级它们；如果 {to} 更旧，则无法打开它们。",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "已拒付",
+   "Paid": "已支付",
+   "Order {id}": "订单 {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "领取未成功：结账页面的地址不是 Horizon 的。"
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "领取未成功：结账页面的地址不是 Horizon 的。",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "尚未准备。Horizon 可以从你自己的安装中准备 Minecraft {version}；登录则以从 Mojang 下载。"
  }
 diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
-index 39294834e..f8b783939 100644
+index 016dd9c..999b83c 100644
 --- a/launcher/lang/zu.json
 +++ b/launcher/lang/zu.json
-@@ -1091,5 +1091,6 @@
-   "{count} min ago": "imiz. engu-{count} edlule",
-   "{count} on the official SMP": "{count} ku-SMP esemthethweni",
-   "{mode} · stopped": "{mode} · imisiwe",
--  "{online} of {max}": "{online} kokungu-{max}"
-+  "{online} of {max}": "{online} kokungu-{max}",
+@@ -1162,5 +1162,6 @@
+   "Charged back": "Ibhange libuyisile",
+   "Paid": "Kukhokhiwe",
+   "Order {id}": "I-oda {id}",
+-  "The claim didn't go through: the checkout's address isn't Horizon's.": "Isicelo asiphumelelanga: ikheli lokukhokha akulona elikaHorizon."
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Isicelo asiphumelelanga: ikheli lokukhokha akulona elikaHorizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index 2407a2f02..c0cc481f1 100644
+index 2407a2f..c0cc481 100644
 --- a/launcher/src/account.rs
 +++ b/launcher/src/account.rs
 @@ -6,8 +6,6 @@
@@ -1302,7 +1302,7 @@ index 2407a2f02..c0cc481f1 100644
      (
          accounts.selected,
 diff --git a/launcher/src/account/tests.rs b/launcher/src/account/tests.rs
-index 6684b3e76..0a7b305b1 100644
+index 6684b3e..0a7b305 100644
 --- a/launcher/src/account/tests.rs
 +++ b/launcher/src/account/tests.rs
 @@ -682,76 +682,48 @@ fn any_owner_opens_the_gate_and_the_one_who_plays_brings_the_session() {
@@ -1433,7 +1433,7 @@ index 6684b3e76..0a7b305b1 100644
      let dir = std::env::temp_dir().join(format!("horizon-accounts-{}", std::process::id()));
      let _ = std::fs::remove_dir_all(&dir);
 diff --git a/launcher/src/cli.rs b/launcher/src/cli.rs
-index ea7241677..581c3b17a 100644
+index ea72416..581c3b1 100644
 --- a/launcher/src/cli.rs
 +++ b/launcher/src/cli.rs
 @@ -126,14 +126,16 @@ enum AccountCmd {
@@ -1513,7 +1513,7 @@ index ea7241677..581c3b17a 100644
                  Some(n) => println!("The game plays offline as {n}."),
 diff --git a/launcher/src/dev_options.rs b/launcher/src/dev_options.rs
 deleted file mode 100644
-index a2ade17d7..000000000
+index a2ade17..0000000
 --- a/launcher/src/dev_options.rs
 +++ /dev/null
 @@ -1,62 +0,0 @@
@@ -1580,17 +1580,17 @@ index a2ade17d7..000000000
 -    }
 -}
 diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
-index d3f705f03..90d0673fe 100644
+index 9d0bff6..c34cc1f 100644
 --- a/launcher/src/frame.rs
 +++ b/launcher/src/frame.rs
 @@ -400,36 +400,6 @@ impl Launcher {
              _ => {}
          }
  
--        // Sculk's card (not in the mockup, kept: a sponsor), where the old sidebar had it: above
--        // the links on every page but Servers, which shows the wide banner. Tall where the
--        // sidebar has the height for it besides its rows, compact otherwise.
--        if self.page != Page::Servers && !self.settings.partner_hidden {
+-        // Sculk's card (not in the mockup, kept: a sponsor), where the old sidebar had it: at
+-        // the sidebar's foot above the links, on every page (Servers shows the wide banner too).
+-        // Tall where the sidebar has the height for it besides its rows, compact otherwise.
+-        if !self.settings.partner_hidden {
 -            let rows = self.instances.list.len() + servers.len();
 -            let free = f32::from(window.viewport_size().height)
 -                - 2. * MARGIN
@@ -1634,10 +1634,10 @@ index d3f705f03..90d0673fe 100644
  
          crate::glass::plate(radius::PANEL)
 diff --git a/launcher/src/glass_settings.rs b/launcher/src/glass_settings.rs
-index a1f85243c..a4a71d00e 100644
+index 2295e6b..5beb147 100644
 --- a/launcher/src/glass_settings.rs
 +++ b/launcher/src/glass_settings.rs
-@@ -412,8 +412,7 @@ impl Launcher {
+@@ -443,8 +443,7 @@ impl Launcher {
                      Some(b.menu_entry.into_any_element()),
                      &t,
                  ))
@@ -1648,7 +1648,7 @@ index a1f85243c..a4a71d00e 100644
          vec![account, updates, launcher, network, game, ai, about, data]
      }
 diff --git a/launcher/src/home.rs b/launcher/src/home.rs
-index 5d48c63c8..27dbf43bc 100644
+index 5d48c63..27dbf43 100644
 --- a/launcher/src/home.rs
 +++ b/launcher/src/home.rs
 @@ -243,7 +243,7 @@ impl Launcher {
@@ -1661,7 +1661,7 @@ index 5d48c63c8..27dbf43bc 100644
              PlayPress::Play => {
                  play = play.on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index 1fe2004c5..e3905f4cd 100644
+index adabef7..5fb11dc 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
 @@ -13,7 +13,6 @@ mod console;
@@ -1672,7 +1672,7 @@ index 1fe2004c5..e3905f4cd 100644
  mod export_page;
  mod frame;
  mod game_tools;
-@@ -55,7 +54,6 @@ mod native_log_page;
+@@ -56,7 +55,6 @@ mod native_log_page;
  mod new_instance;
  mod owner_page;
  mod packs_page;
@@ -1680,7 +1680,7 @@ index 1fe2004c5..e3905f4cd 100644
  mod perf;
  mod plate;
  mod profile_heads;
-@@ -346,10 +344,6 @@ struct Launcher {
+@@ -354,10 +352,6 @@ struct Launcher {
      owner: Option<bool>,
      /// Play was refused (or Home's Sign in pressed): the owner gate's screen is open.
      owner_screen_open: bool,
@@ -1691,7 +1691,7 @@ index 1fe2004c5..e3905f4cd 100644
      /// The game is waiting for its session (a token renewal), or a Java instance for its files
      /// and Java (`start_java`), before it starts.
      starting_client: Option<String>,
-@@ -485,30 +479,6 @@ impl Launcher {
+@@ -493,30 +487,6 @@ impl Launcher {
              }
          })
          .detach();
@@ -1722,7 +1722,7 @@ index 1fe2004c5..e3905f4cd 100644
          let mut settings = Settings::load();
          i18n::set(settings.language());
          if settings.minecraft_dir.is_none() {
-@@ -638,8 +608,6 @@ impl Launcher {
+@@ -650,8 +620,6 @@ impl Launcher {
              keychain: None,
              owner: None,
              owner_screen_open: false,
@@ -1731,7 +1731,7 @@ index 1fe2004c5..e3905f4cd 100644
              starting_client: None,
              play_when_prepared: None,
              friend_code: line_edit::LineEdit::new(String::new(), 256, 32),
-@@ -1108,8 +1076,7 @@ impl Launcher {
+@@ -1121,8 +1089,7 @@ impl Launcher {
                                  continue;
                              }
                          };
@@ -1741,7 +1741,7 @@ index 1fe2004c5..e3905f4cd 100644
                              self.owner = Some(true);
                          }
                          if let Some(file) = file {
-@@ -1728,10 +1695,9 @@ impl Launcher {
+@@ -1741,10 +1708,9 @@ impl Launcher {
          self.starting_client = Some(tag.clone());
          self.play_pressed = Some(Instant::now());
          let tx = self.tx.clone();
@@ -1753,7 +1753,7 @@ index 1fe2004c5..e3905f4cd 100644
              let _ = tx.send(Msg::Session(session));
          });
      }
-@@ -2297,10 +2263,7 @@ fn segments<T: Copy + PartialEq + 'static>(
+@@ -2310,10 +2276,7 @@ fn segments<T: Copy + PartialEq + 'static>(
  #[derive(Clone, Copy, Debug, PartialEq, Eq)]
  enum PlayPress {
      Play,
@@ -1764,7 +1764,7 @@ index 1fe2004c5..e3905f4cd 100644
      Nothing,
  }
  
-@@ -2347,13 +2310,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
+@@ -2360,13 +2323,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
      Some(next)
  }
  
@@ -1781,7 +1781,7 @@ index 1fe2004c5..e3905f4cd 100644
      }
  }
  
-@@ -2361,7 +2322,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
+@@ -2374,7 +2335,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
  /// code, a pack's Play) starts it now: only when Play would play. Never while a preparation runs:
  /// the game would open on half-written files.
  fn starts_now(prepared: bool, preparing: bool, running: bool) -> bool {
@@ -1790,7 +1790,7 @@ index 1fe2004c5..e3905f4cd 100644
  }
  
  /// Whether `tag` can start being deleted now: it is installed, no install is writing it, and it
-@@ -2739,7 +2700,6 @@ impl Launcher {
+@@ -2752,7 +2713,6 @@ impl Launcher {
              },
          ));
          let items = self.instance_items(heading, cx);
@@ -1798,7 +1798,7 @@ index 1fe2004c5..e3905f4cd 100644
          let list = div()
              .flex()
              .flex_col()
-@@ -2755,8 +2715,6 @@ impl Launcher {
+@@ -2768,8 +2728,6 @@ impl Launcher {
          if !servers.is_empty() {
              list = list.child(heading(tr("SERVERS").into()));
          }
@@ -1807,7 +1807,7 @@ index 1fe2004c5..e3905f4cd 100644
          for e in servers {
              let up = self.servers.is_up(&e.dir);
              let open = self.page == Page::Servers && self.servers.open.as_ref() == Some(&e.dir);
-@@ -2864,34 +2822,6 @@ impl Launcher {
+@@ -2877,34 +2835,6 @@ impl Launcher {
              }
              _ => {}
          }
@@ -1842,7 +1842,7 @@ index 1fe2004c5..e3905f4cd 100644
          if !self.links.sponsor.is_empty() {
              foot = foot.child(link(
                  "sponsor",
-@@ -2921,11 +2851,7 @@ impl Launcher {
+@@ -2934,11 +2864,7 @@ impl Launcher {
                  .id("launcher-version")
                  .px(px(8.))
                  .pt(px(6.))
@@ -1855,7 +1855,7 @@ index 1fe2004c5..e3905f4cd 100644
          );
          // Custom title bars carry the mark and name already.
          let brand = (!titlebar::draws_brand(window)).then(|| {
-@@ -3142,10 +3068,8 @@ impl Launcher {
+@@ -3155,10 +3081,8 @@ impl Launcher {
          let left = self.download_left();
          let steps = self.preparing.then(|| self.steps(&version, left));
  
@@ -1867,7 +1867,7 @@ index 1fe2004c5..e3905f4cd 100644
              .flatten();
          // No launcher folder with Minecraft on this computer: an owner needs none.
          let no_install = self.settings.minecraft_dir.is_none();
-@@ -3160,7 +3084,7 @@ impl Launcher {
+@@ -3173,7 +3097,7 @@ impl Launcher {
                  &[("version", &version)],
              ),
              Some(false) => trf(
@@ -1876,7 +1876,7 @@ index 1fe2004c5..e3905f4cd 100644
                  &[("version", &version)],
              ),
              None => backend::resources_summary(prepared, !silent, &version),
-@@ -3219,12 +3143,25 @@ impl Launcher {
+@@ -3232,12 +3156,25 @@ impl Launcher {
                          cx.notify();
                      })),
                  ),
@@ -1908,7 +1908,7 @@ index 1fe2004c5..e3905f4cd 100644
              None => div().child(prepare),
          };
          let owner = self.owner == Some(true);
-@@ -3289,11 +3226,10 @@ impl Launcher {
+@@ -3305,11 +3242,10 @@ impl Launcher {
                  &t,
              )),
          };
@@ -1923,7 +1923,7 @@ index 1fe2004c5..e3905f4cd 100644
                  rows = rows.child(index_row(
                      5,
                      tr("Microsoft account"),
-@@ -3835,7 +3771,6 @@ impl Launcher {
+@@ -3851,7 +3787,6 @@ impl Launcher {
              )
              .child(self.collection_section(cx))
              .children(self.agents_section(cx))
@@ -1931,7 +1931,7 @@ index 1fe2004c5..e3905f4cd 100644
      }
  
      /// The warning before a native build: what the mods can do and which mods. The build starts
-@@ -5533,22 +5468,13 @@ mod tests {
+@@ -5568,22 +5503,13 @@ mod tests {
          );
      }
  
@@ -1960,7 +1960,7 @@ index 1fe2004c5..e3905f4cd 100644
  
      /// A server's Join (and every other shortcut) waits like Play: not while the version's
 diff --git a/launcher/src/mcp.rs b/launcher/src/mcp.rs
-index d910ae5b9..8e6fed028 100644
+index d910ae5..8e6fed0 100644
 --- a/launcher/src/mcp.rs
 +++ b/launcher/src/mcp.rs
 @@ -210,7 +210,6 @@ impl Session {
@@ -1972,7 +1972,7 @@ index d910ae5b9..8e6fed028 100644
                      "sign_in": sign_in,
                  }))
 diff --git a/launcher/src/owner_page.rs b/launcher/src/owner_page.rs
-index 3e0acab44..5cb33571f 100644
+index 3e0acab..5cb3357 100644
 --- a/launcher/src/owner_page.rs
 +++ b/launcher/src/owner_page.rs
 @@ -1,28 +1,14 @@
@@ -2075,7 +2075,7 @@ index 3e0acab44..5cb33571f 100644
                  shell::action("owner-later", shell::Action::Quiet, &t)
                      .child(shell::label(tr("Not now").to_string()))
 diff --git a/launcher/src/switch_page.rs b/launcher/src/switch_page.rs
-index b968f9d1e..419225692 100644
+index b968f9d..4192256 100644
 --- a/launcher/src/switch_page.rs
 +++ b/launcher/src/switch_page.rs
 @@ -24,9 +24,7 @@ impl Launcher {
@@ -2090,7 +2090,7 @@ index b968f9d1e..419225692 100644
              Ok(()) => self.accounts = accounts,
              Err(e) => self.sign_in_state = Some(SignInState::Done(Err(e))),
 diff --git a/launcher/tests/owner_gate.rs b/launcher/tests/owner_gate.rs
-index 3a7869272..8f263f93b 100644
+index 3a78692..8f263f9 100644
 --- a/launcher/tests/owner_gate.rs
 +++ b/launcher/tests/owner_gate.rs
 @@ -1,25 +1,18 @@

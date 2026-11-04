@@ -1,29 +1,20 @@
-From 9d85aa594f8ad127cb2f836d63dbbdb4288e0a42 Mon Sep 17 00:00:00 2001
+From beeca84b943037e77c78a38973836b09a9740dd8 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 3/5] Ad-free: remove the partner banners
 
 ---
- launcher/src/glass_servers.rs |  42 +---
- launcher/src/partner.rs       | 359 ----------------------------------
+ launcher/src/glass_servers.rs |  40 ----
+ launcher/src/partner.rs       | 357 ----------------------------------
  launcher/src/servers_page.rs  |  31 +--
- 3 files changed, 5 insertions(+), 427 deletions(-)
+ 3 files changed, 4 insertions(+), 424 deletions(-)
  delete mode 100644 launcher/src/partner.rs
 
 diff --git a/launcher/src/glass_servers.rs b/launcher/src/glass_servers.rs
-index bb49b5bec..46b7f3bfb 100644
+index 2f1fb53..e223cad 100644
 --- a/launcher/src/glass_servers.rs
 +++ b/launcher/src/glass_servers.rs
-@@ -69,7 +69,7 @@ impl Launcher {
-         if let Some(dir) = &open {
-             page = page.child(self.glass_server_tabs(dir, &status, cx));
-         }
--        page.children(self.glass_sculk(cx))
-+        page
-     }
- 
-     /// The open server's glass: its state, name and numbers, its buttons, then its console.
-@@ -770,46 +770,6 @@ impl Launcher {
+@@ -773,46 +773,6 @@ impl Launcher {
                  d.child(self.internet_invites(port_of(self), cx).relative())
              })
      }
@@ -72,10 +63,10 @@ index bb49b5bec..46b7f3bfb 100644
  /// The open server's port.
 diff --git a/launcher/src/partner.rs b/launcher/src/partner.rs
 deleted file mode 100644
-index e94d1838f..000000000
+index d6ac261..0000000
 --- a/launcher/src/partner.rs
 +++ /dev/null
-@@ -1,359 +0,0 @@
+@@ -1,357 +0,0 @@
 -//! Sculk, a server host that sponsors Horizon (Ludovic, 2026-10-26): its wide banner on the Servers
 -//! page, and a card made for the sidebar on the other pages, where the banner's baked-in text was too
 -//! small to read. The pictures are in the binary, never fetched; a click opens Sculk's page in the
@@ -281,10 +272,8 @@ index e94d1838f..000000000
 -        .flex_none()
 -        .w(px(width))
 -        .bg(rgb(CARD))
--        .border_1()
--        .border_color(rgba(CYAN, 0.22))
 -        .rounded(px(10.))
--        .group_hover(id, |s| s.top(px(-2.)).border_color(rgba(CYAN, 0.5)));
+-        .group_hover(id, |s| s.top(px(-2.)));
 -    let logo = |height: f32| {
 -        img(LOGO.clone())
 -            .flex_none()
@@ -436,7 +425,7 @@ index e94d1838f..000000000
 -    }
 -}
 diff --git a/launcher/src/servers_page.rs b/launcher/src/servers_page.rs
-index a3f0d0136..2a54d7128 100644
+index a3f0d01..2a54d71 100644
 --- a/launcher/src/servers_page.rs
 +++ b/launcher/src/servers_page.rs
 @@ -1317,34 +1317,11 @@ impl Launcher {
