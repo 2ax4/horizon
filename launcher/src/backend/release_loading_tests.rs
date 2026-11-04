@@ -94,6 +94,7 @@ fn a_fork_tag_newer_than_this_launcher_is_the_update() {
         name: tag.into(),
         body: String::new(),
         date: String::new(),
+        time: String::new(),
         asset: asset(),
         prerelease: false,
         nightly: None,
