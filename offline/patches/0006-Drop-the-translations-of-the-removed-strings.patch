@@ -1,7 +1,7 @@
-From f0a81082ab390a6a595a51375aa6322cc4405c9c Mon Sep 17 00:00:00 2001
+From 85643633d295430f53be747b7b0f62893c87f69a Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Mon, 2 Nov 2026 23:55:06 +0300
-Subject: [PATCH 6/6] Offline build: drop the translations of the strings the
+Subject: [PATCH 5/5] Offline build: drop the translations of the strings the
  patches removed
 
 The partner banners (Ad-free) and the sign-in notice reworded for the
@@ -24,7 +24,7 @@ Claude-Session: https://claude.ai/code/session_015USsS1epujWFNzFvcAWtD9
  10 files changed, 80 deletions(-)
 
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index ecbede7..e7a48d8 100644
+index 2175921dc..c4b6ae951 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
 @@ -129,7 +129,6 @@
@@ -43,7 +43,7 @@ index ecbede7..e7a48d8 100644
    "New instance": "Neue Instanz",
    "Loading filters": "Filter werden geladen",
    "Stopped": "Angehalten",
-@@ -191,7 +189,6 @@
+@@ -192,7 +190,6 @@
    "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon aktiviert niemals Funnel: Der Server wird nicht ins öffentliche Internet gestellt, sondern nur mit den von dir eingeladenen Personen geteilt.",
    "Minecraft folder": "Minecraft-Ordner",
    "Feral's gamemoderun: CPU and scheduler tuned while you play.": "Ferals gamemoderun: CPU und Scheduler werden während des Spielens optimiert.",
@@ -51,7 +51,7 @@ index ecbede7..e7a48d8 100644
    "Added {names}: turn it on below.": "{names} hinzugefügt: Schalte es unten ein.",
    "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.",
    "Mojang's version list isn't here yet.": "Mojangs Versionsliste ist noch nicht da.",
-@@ -263,7 +260,6 @@
+@@ -267,7 +264,6 @@
    "Make an invitation": "Einladung erstellen",
    "Version": "Version",
    "Patch notes": "Versionshinweise",
@@ -59,7 +59,7 @@ index ecbede7..e7a48d8 100644
    "Crash reports": "Crash reports",
    "Offline name · the game's own · plays": "Offline-Name · vom Spiel vergeben · spielt",
    "Slim arms": "Schmale Arme",
-@@ -314,7 +310,6 @@
+@@ -318,7 +314,6 @@
    "Local file · {file}": "Lokale Datei · {file}",
    "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "Horizons Landschaft. Wähle ein eigenes PNG-, JPEG- oder WebP-Bild aus.",
    "Not needed": "Not needed",
@@ -67,7 +67,7 @@ index ecbede7..e7a48d8 100644
    "Offline name · plays": "Offline-Name · spielt",
    "Run the game through": "Spiel starten über",
    "needed by another pack": "von einem anderen Paket benötigt",
-@@ -395,7 +390,6 @@
+@@ -399,7 +394,6 @@
    "On": "Ein",
    "{program} said: {output}": "{program} said: {output}",
    "Light": "Hell",
@@ -75,7 +75,7 @@ index ecbede7..e7a48d8 100644
    "the message in the server list": "die Nachricht in der Serverliste",
    "Check for updates": "Nach Updates suchen",
    "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "Modrinths Modpack-Format: Ressourcenpakete von Modrinth werden über ihren Download aufgeführt, der Rest ist darin enthalten.",
-@@ -447,7 +441,6 @@
+@@ -452,7 +446,6 @@
    "None yet: drop a .zip here, or find some on the Mods page.": "Noch keine: Ziehe eine .zip-Datei hierher oder finde welche auf der Mods-Seite.",
    "runs {command} after": "führt danach {command} aus",
    "downloaded": "downloaded",
@@ -83,7 +83,7 @@ index ecbede7..e7a48d8 100644
    "Updated to {version}. Restart the launcher to use it.": "Auf {version} aktualisiert. Starte den Launcher neu, um sie zu verwenden.",
    "Any MCP client": "Any MCP client",
    "{name}'s cape is kept.": "{name}s Umhang wird beibehalten.",
-@@ -612,7 +605,6 @@
+@@ -617,7 +610,6 @@
    "{name} is a Java modpack: importing it on the Modpacks page.": "{name} ist ein Java-Modpack: Es wird auf der Modpacks-Seite importiert.",
    "Alpha": "Alpha",
    "Add mods": "Mods hinzufügen",
@@ -92,7 +92,7 @@ index ecbede7..e7a48d8 100644
    "{count} lines, the game is running": "{count} Zeilen, das Spiel läuft",
    "Move to trash": "In den Papierkorb",
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index 6469ab1..9b5951e 100644
+index 635690774..2e6311413 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
 @@ -129,7 +129,6 @@
@@ -111,7 +111,7 @@ index 6469ab1..9b5951e 100644
    "New instance": "Nueva instancia",
    "Loading filters": "Cargando filtros",
    "Stopped": "Detenido",
-@@ -191,7 +189,6 @@
+@@ -192,7 +190,6 @@
    "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon nunca activa Funnel: el servidor no se expone al internet público, solo se comparte con las personas que invites.",
    "Minecraft folder": "Carpeta de Minecraft",
    "Feral's gamemoderun: CPU and scheduler tuned while you play.": "gamemoderun de Feral: CPU y planificador optimizados mientras juegas.",
@@ -119,7 +119,7 @@ index 6469ab1..9b5951e 100644
    "Added {names}: turn it on below.": "Se añadió {names}: actívalo abajo.",
    "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Portar obtiene los jars de los {count} mods que este equipo puede portar hoy (solo contenido con datos y recursos) desde los enlaces del propio paquete, Modrinth o tu carpeta, y los convierte. Los mods portados se guardan aquí, en {folder}.",
    "Mojang's version list isn't here yet.": "La lista de versiones de Mojang aún no ha llegado.",
-@@ -263,7 +260,6 @@
+@@ -267,7 +264,6 @@
    "Make an invitation": "Crear una invitación",
    "Version": "Versión",
    "Patch notes": "Notas de la versión",
@@ -127,7 +127,7 @@ index 6469ab1..9b5951e 100644
    "Crash reports": "Informes de fallos",
    "Offline name · the game's own · plays": "Nombre sin conexión · propio del juego · en uso",
    "Slim arms": "Brazos delgados",
-@@ -314,7 +310,6 @@
+@@ -318,7 +314,6 @@
    "Local file · {file}": "Archivo local · {file}",
    "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "El paisaje de Horizon. Elige tu propia imagen en PNG, JPEG o WebP.",
    "Not needed": "No necesarios",
@@ -135,7 +135,7 @@ index 6469ab1..9b5951e 100644
    "Offline name · plays": "Nombre sin conexión · jugando",
    "Run the game through": "Ejecutar el juego a través de",
    "needed by another pack": "necesario para otro paquete",
-@@ -395,7 +390,6 @@
+@@ -399,7 +394,6 @@
    "On": "Activado",
    "{program} said: {output}": "{program} respondió: {output}",
    "Light": "Claro",
@@ -143,7 +143,7 @@ index 6469ab1..9b5951e 100644
    "the message in the server list": "el mensaje en la lista de servidores",
    "Check for updates": "Buscar actualizaciones",
    "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "El formato de modpack de Modrinth: los paquetes de recursos de Modrinth se listan por su descarga y el resto se incluye dentro.",
-@@ -447,7 +441,6 @@
+@@ -452,7 +446,6 @@
    "None yet: drop a .zip here, or find some on the Mods page.": "Aún no hay ninguno: suelta aquí un archivo .zip o busca algunos en la página Mods.",
    "runs {command} after": "ejecuta después {command}",
    "downloaded": "descargados",
@@ -151,7 +151,7 @@ index 6469ab1..9b5951e 100644
    "Updated to {version}. Restart the launcher to use it.": "Actualizado a {version}. Reinicia el lanzador para usarlo.",
    "Any MCP client": "Cualquier cliente MCP",
    "{name}'s cape is kept.": "Se conserva la capa de {name}.",
-@@ -612,7 +605,6 @@
+@@ -617,7 +610,6 @@
    "{name} is a Java modpack: importing it on the Modpacks page.": "{name} es un modpack de Java: importándolo en la página Modpacks.",
    "Alpha": "Alfa",
    "Add mods": "Añadir mods",
@@ -160,7 +160,7 @@ index 6469ab1..9b5951e 100644
    "{count} lines, the game is running": "{count} líneas, el juego está en ejecución",
    "Move to trash": "Mover a la papelera",
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 43735a3..f64a28f 100644
+index 392c0b9b1..3a9060bb5 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
 @@ -129,7 +129,6 @@
@@ -179,47 +179,47 @@ index 43735a3..f64a28f 100644
    "New instance": "Nouvelle instance",
    "Loading filters": "Chargement des filtres",
    "Stopped": "Arrêté",
-@@ -191,7 +189,6 @@
+@@ -192,7 +190,6 @@
    "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon n'active jamais Funnel : le serveur n'est pas exposé sur l'Internet public, seulement partagé avec les personnes que vous invitez.",
    "Minecraft folder": "Dossier Minecraft",
    "Feral's gamemoderun: CPU and scheduler tuned while you play.": "gamemoderun de Feral : processeur et ordonnanceur ajustés pendant que vous jouez.",
 -  "15% off": "-15 %",
    "Added {names}: turn it on below.": "{names} ajouté : activez-le ci-dessous.",
-   "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.",
+   "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port récupère les jars des {count} mods que cet ordinateur peut porter aujourd'hui (contenu avec données et assets uniquement) à partir des propres liens du pack, de Modrinth ou de votre dossier, et les transfère. Les ports restent ici, dans {folder}.",
    "Mojang's version list isn't here yet.": "La liste des versions de Mojang n'est pas encore arrivée.",
-@@ -263,7 +260,6 @@
+@@ -267,7 +264,6 @@
    "Make an invitation": "Créer une invitation",
    "Version": "Version",
    "Patch notes": "Notes de version",
 -  "Your Minecraft server, {online}.": "Votre serveur Minecraft, {online}.",
-   "Crash reports": "Crash reports",
+   "Crash reports": "Rapports de plantage",
    "Offline name · the game's own · plays": "Nom hors ligne · propre au jeu · joue",
    "Slim arms": "Bras fins",
-@@ -314,7 +310,6 @@
+@@ -318,7 +314,6 @@
    "Local file · {file}": "Fichier local · {file}",
    "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "Le paysage d'Horizon. Choisissez votre propre image PNG, JPEG ou WebP.",
-   "Not needed": "Not needed",
+   "Not needed": "Non nécessaire",
 -  "This build of the launcher has no Microsoft sign-in (HORIZON_MSA_CLIENT_ID), so it can't start the game.": "Cette version du launcher n'a pas de connexion Microsoft (HORIZON_MSA_CLIENT_ID) : elle ne peut pas lancer le jeu.",
    "Offline name · plays": "Nom hors ligne · joue",
    "Run the game through": "Lancer le jeu via",
    "needed by another pack": "requis par un autre pack",
-@@ -395,7 +390,6 @@
+@@ -399,7 +394,6 @@
    "On": "Activé",
-   "{program} said: {output}": "{program} said: {output}",
+   "{program} said: {output}": "{program} a dit : {output}",
    "Light": "Clair",
 -  "Ready in under a minute": "Prêt en moins d'une minute",
    "the message in the server list": "le message dans la liste des serveurs",
    "Check for updates": "Vérifier les mises à jour",
    "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "Le format de modpack de Modrinth : les packs de ressources de Modrinth sont référencés par leur téléchargement, le reste est inclus dedans.",
-@@ -447,7 +441,6 @@
+@@ -452,7 +446,6 @@
    "None yet: drop a .zip here, or find some on the Mods page.": "Aucun pour le moment : glissez un fichier .zip ici ou trouvez-en sur la page Mods.",
    "runs {command} after": "exécute ensuite {command}",
-   "downloaded": "downloaded",
+   "downloaded": "téléchargé",
 -  "24/7 online": "en ligne 24h/24",
    "Updated to {version}. Restart the launcher to use it.": "Mis à jour vers {version}. Redémarrez le launcher pour l'utiliser.",
-   "Any MCP client": "Any MCP client",
+   "Any MCP client": "Tout client MCP",
    "{name}'s cape is kept.": "La cape de {name} est enregistrée.",
-@@ -612,7 +605,6 @@
+@@ -617,7 +610,6 @@
    "{name} is a Java modpack: importing it on the Modpacks page.": "{name} est un modpack Java : importation sur la page Modpacks.",
    "Alpha": "Alpha",
    "Add mods": "Ajouter des mods",
@@ -228,10 +228,10 @@ index 43735a3..f64a28f 100644
    "{count} lines, the game is running": "{count} lignes, le jeu est en cours d'exécution",
    "Move to trash": "Mettre à la corbeille",
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index 8eea370..9948b3a 100644
+index 18c498ac4..d1c1bfdd3 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
-@@ -116,7 +116,6 @@
+@@ -121,7 +121,6 @@
    "Dismiss": "閉じる",
    "INSTANCES": "インスタンス",
    "SERVERS": "サーバー",
@@ -239,7 +239,7 @@ index 8eea370..9948b3a 100644
    "Sponsor": "スポンサー",
    "Website": "ウェブサイト",
    "Ready": "準備完了",
-@@ -144,16 +143,9 @@
+@@ -149,16 +148,9 @@
    "{time} in total · last played {when}": "合計 {time} · 最終プレイ {when}",
    "Not played yet": "未プレイ",
    "under a minute": "1分未満",
@@ -257,7 +257,7 @@ index 8eea370..9948b3a 100644
    "Horizon needs a Microsoft account that owns Minecraft: Java Edition, like other launchers. It also plays online servers with your name and skin.": "Horizonは他のランチャーと同様に、Minecraft: Java Editionを所有するMicrosoftアカウントが必要です。これにより、あなたの名前とスキンでオンラインサーバーに接続できます。",
    "Sign in with Microsoft": "Microsoftでサインイン",
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index 4fb79a5..d3ebe6e 100644
+index 84a7df240..27f3ca8b6 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
 @@ -129,7 +129,6 @@
@@ -276,7 +276,7 @@ index 4fb79a5..d3ebe6e 100644
    "New instance": "Nowa instancja",
    "Loading filters": "Ładowanie filtrów",
    "Stopped": "Zatrzymany",
-@@ -191,7 +189,6 @@
+@@ -192,7 +190,6 @@
    "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon nigdy nie włącza funkcji Funnel: serwer nie jest wystawiany do publicznego internetu, a jedynie udostępniany zaproszonym osobom.",
    "Minecraft folder": "Folder Minecrafta",
    "Feral's gamemoderun: CPU and scheduler tuned while you play.": "gamemoderun od Feral: procesor i planista dostrojone podczas gry.",
@@ -284,7 +284,7 @@ index 4fb79a5..d3ebe6e 100644
    "Added {names}: turn it on below.": "Dodano {names}: włącz poniżej.",
    "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.",
    "Mojang's version list isn't here yet.": "Lista wersji od Mojang jeszcze nie dotarła.",
-@@ -263,7 +260,6 @@
+@@ -267,7 +264,6 @@
    "Make an invitation": "Utwórz zaproszenie",
    "Version": "Wersja",
    "Patch notes": "Informacje o aktualizacji",
@@ -292,7 +292,7 @@ index 4fb79a5..d3ebe6e 100644
    "Crash reports": "Crash reports",
    "Offline name · the game's own · plays": "Nazwa offline · własna nazwa gry · gra",
    "Slim arms": "Smukłe ramiona",
-@@ -314,7 +310,6 @@
+@@ -318,7 +314,6 @@
    "Local file · {file}": "Plik lokalny · {file}",
    "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "Krajobraz Horizon. Wybierz własny obraz PNG, JPEG lub WebP.",
    "Not needed": "Not needed",
@@ -300,7 +300,7 @@ index 4fb79a5..d3ebe6e 100644
    "Offline name · plays": "Nazwa offline · aktywna",
    "Run the game through": "Uruchom grę przez",
    "needed by another pack": "wymagane przez inną paczkę",
-@@ -395,7 +390,6 @@
+@@ -399,7 +394,6 @@
    "On": "Wł.",
    "{program} said: {output}": "{program} said: {output}",
    "Light": "Jasny",
@@ -308,7 +308,7 @@ index 4fb79a5..d3ebe6e 100644
    "the message in the server list": "wiadomość na liście serwerów",
    "Check for updates": "Sprawdź aktualizacje",
    "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "Format paczki modów Modrinth: paczki zasobów z Modrinth są wymienione przez link do pobrania, a reszta jest spakowana w środku.",
-@@ -447,7 +441,6 @@
+@@ -452,7 +446,6 @@
    "None yet: drop a .zip here, or find some on the Mods page.": "Jeszcze nic nie ma: upuść tutaj plik .zip lub znajdź paczki na stronie Mody.",
    "runs {command} after": "potem uruchamia {command}",
    "downloaded": "downloaded",
@@ -316,7 +316,7 @@ index 4fb79a5..d3ebe6e 100644
    "Updated to {version}. Restart the launcher to use it.": "Zaktualizowano do {version}. Uruchom ponownie launcher, aby użyć nowej wersji.",
    "Any MCP client": "Any MCP client",
    "{name}'s cape is kept.": "Peleryna gracza {name} została zapisana.",
-@@ -612,7 +605,6 @@
+@@ -617,7 +610,6 @@
    "{name} is a Java modpack: importing it on the Modpacks page.": "{name} to paczka modów Java: importowanie na stronie Paczki modów.",
    "Alpha": "Alfa",
    "Add mods": "Dodaj mody",
@@ -325,10 +325,10 @@ index 4fb79a5..d3ebe6e 100644
    "{count} lines, the game is running": "{count} wierszy, gra jest uruchomiona",
    "Move to trash": "Przenieś do kosza",
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index f786c5f..abb3ab1 100644
+index 57198dd56..ce661f09d 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
-@@ -116,7 +116,6 @@
+@@ -121,7 +121,6 @@
    "Dismiss": "Dispensar",
    "INSTANCES": "INSTÂNCIAS",
    "SERVERS": "SERVIDORES",
@@ -336,7 +336,7 @@ index f786c5f..abb3ab1 100644
    "Sponsor": "Patrocinar",
    "Website": "Site",
    "Ready": "Pronto",
-@@ -144,16 +143,9 @@
+@@ -149,16 +148,9 @@
    "{time} in total · last played {when}": "{time} no total · jogado pela última vez {when}",
    "Not played yet": "Ainda não jogado",
    "under a minute": "menos de um minuto",
@@ -354,7 +354,7 @@ index f786c5f..abb3ab1 100644
    "Horizon needs a Microsoft account that owns Minecraft: Java Edition, like other launchers. It also plays online servers with your name and skin.": "Assim como outros launchers, o Horizon precisa de uma conta Microsoft que possua Minecraft: Java Edition. Ela também permite jogar em servidores online usando seu nome e sua skin.",
    "Sign in with Microsoft": "Entrar com a Microsoft",
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index 7470b26..8a1cfed 100644
+index aa47f1086..a8d6e9c6c 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
 @@ -129,7 +129,6 @@
@@ -373,7 +373,7 @@ index 7470b26..8a1cfed 100644
    "New instance": "Новая сборка",
    "Loading filters": "Загрузка фильтров",
    "Stopped": "Остановлен",
-@@ -191,7 +189,6 @@
+@@ -192,7 +190,6 @@
    "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon никогда не включает Funnel: сервер не выставляется в публичный интернет, а доступен только приглашённым вами людям.",
    "Minecraft folder": "Папка Minecraft",
    "Feral's gamemoderun: CPU and scheduler tuned while you play.": "gamemoderun от Feral: оптимизация процессора и планировщика во время игры.",
@@ -381,7 +381,7 @@ index 7470b26..8a1cfed 100644
    "Added {names}: turn it on below.": "Добавлено {names}: включите ниже.",
    "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.",
    "Mojang's version list isn't here yet.": "Список версий Mojang ещё не получен.",
-@@ -263,7 +260,6 @@
+@@ -267,7 +264,6 @@
    "Make an invitation": "Создать приглашение",
    "Version": "Версия",
    "Patch notes": "Список изменений",
@@ -389,7 +389,7 @@ index 7470b26..8a1cfed 100644
    "Crash reports": "Crash reports",
    "Offline name · the game's own · plays": "Офлайн-имя · собственное имя игры · играет",
    "Slim arms": "Тонкие руки",
-@@ -314,7 +310,6 @@
+@@ -318,7 +314,6 @@
    "Local file · {file}": "Локальный файл · {file}",
    "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "Пейзаж Horizon. Выберите свою картинку PNG, JPEG или WebP.",
    "Not needed": "Not needed",
@@ -397,7 +397,7 @@ index 7470b26..8a1cfed 100644
    "Offline name · plays": "Офлайн-имя · играет",
    "Run the game through": "Запускать игру через",
    "needed by another pack": "требуется для другого пакета",
-@@ -395,7 +390,6 @@
+@@ -399,7 +394,6 @@
    "On": "Вкл.",
    "{program} said: {output}": "{program} said: {output}",
    "Light": "Светлое",
@@ -405,7 +405,7 @@ index 7470b26..8a1cfed 100644
    "the message in the server list": "сообщение в списке серверов",
    "Check for updates": "Проверить обновления",
    "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "Формат модпака Modrinth: наборы ресурсов из Modrinth указываются ссылками на скачивание, а остальное упаковывается внутрь.",
-@@ -447,7 +441,6 @@
+@@ -452,7 +446,6 @@
    "None yet: drop a .zip here, or find some on the Mods page.": "Пока пусто: перетащите сюда .zip или найдите наборы на странице «Моды».",
    "runs {command} after": "затем выполняет {command}",
    "downloaded": "downloaded",
@@ -413,7 +413,7 @@ index 7470b26..8a1cfed 100644
    "Updated to {version}. Restart the launcher to use it.": "Обновлено до {version}. Перезапустите лаунчер, чтобы применить.",
    "Any MCP client": "Any MCP client",
    "{name}'s cape is kept.": "Плащ {name} сохранён.",
-@@ -612,7 +605,6 @@
+@@ -617,7 +610,6 @@
    "{name} is a Java modpack: importing it on the Modpacks page.": "{name} — модпак Java: импортируем на странице «Модпаки».",
    "Alpha": "Альфа",
    "Add mods": "Добавить моды",
@@ -422,10 +422,10 @@ index 7470b26..8a1cfed 100644
    "{count} lines, the game is running": "{count} строк, игра запущена",
    "Move to trash": "В корзину",
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index 82ae0e8..3a83069 100644
+index e48a40d43..02fa65866 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
-@@ -116,7 +116,6 @@
+@@ -121,7 +121,6 @@
    "Dismiss": "Kapat",
    "INSTANCES": "ÖRNEKLER",
    "SERVERS": "SUNUCULAR",
@@ -433,7 +433,7 @@ index 82ae0e8..3a83069 100644
    "Sponsor": "Destek Ol",
    "Website": "İnternet Sitesi",
    "Ready": "Hazır",
-@@ -144,16 +143,9 @@
+@@ -149,16 +148,9 @@
    "{time} in total · last played {when}": "toplam {time} · son oynanma: {when}",
    "Not played yet": "Henüz oynanmadı",
    "under a minute": "bir dakikadan az",
@@ -451,7 +451,7 @@ index 82ae0e8..3a83069 100644
    "Horizon needs a Microsoft account that owns Minecraft: Java Edition, like other launchers. It also plays online servers with your name and skin.": "Horizon, diğer başlatıcılar gibi Minecraft: Java Edition'a sahip bir Microsoft hesabına ihtiyaç duyar. Ayrıca çevrimiçi sunucularda adınız ve dış görünümünüzle oynamanızı sağlar.",
    "Sign in with Microsoft": "Microsoft ile oturum aç",
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index 6d871f2..a190e54 100644
+index 19f6adac2..bf4ee2ddf 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
 @@ -129,7 +129,6 @@
@@ -470,7 +470,7 @@ index 6d871f2..a190e54 100644
    "New instance": "Нова збірка",
    "Loading filters": "Завантаження фільтрів",
    "Stopped": "Зупинено",
-@@ -191,7 +189,6 @@
+@@ -192,7 +190,6 @@
    "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon ніколи не вмикає Funnel: сервер не виставляється в публічний інтернет, а доступний лише запрошеним вами людям.",
    "Minecraft folder": "Тека Minecraft",
    "Feral's gamemoderun: CPU and scheduler tuned while you play.": "gamemoderun від Feral: оптимізація процесора та планувальника під час гри.",
@@ -478,7 +478,7 @@ index 6d871f2..a190e54 100644
    "Added {names}: turn it on below.": "Додано {names}: увімкніть нижче.",
    "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.",
    "Mojang's version list isn't here yet.": "Список версій Mojang ще не отримано.",
-@@ -263,7 +260,6 @@
+@@ -267,7 +264,6 @@
    "Make an invitation": "Створити запрошення",
    "Version": "Версія",
    "Patch notes": "Список змін",
@@ -486,7 +486,7 @@ index 6d871f2..a190e54 100644
    "Crash reports": "Crash reports",
    "Offline name · the game's own · plays": "Офлайн-ім'я · власне ім'я гри · грає",
    "Slim arms": "Тонкі руки",
-@@ -314,7 +310,6 @@
+@@ -318,7 +314,6 @@
    "Local file · {file}": "Локальний файл · {file}",
    "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "Краєвид Horizon. Виберіть власне зображення PNG, JPEG або WebP.",
    "Not needed": "Not needed",
@@ -494,7 +494,7 @@ index 6d871f2..a190e54 100644
    "Offline name · plays": "Офлайн-ім’я · грає",
    "Run the game through": "Запускати гру через",
    "needed by another pack": "потрібно для іншого пакета",
-@@ -395,7 +390,6 @@
+@@ -399,7 +394,6 @@
    "On": "Увімк.",
    "{program} said: {output}": "{program} said: {output}",
    "Light": "Світла",
@@ -502,7 +502,7 @@ index 6d871f2..a190e54 100644
    "the message in the server list": "повідомлення у списку серверів",
    "Check for updates": "Перевірити оновлення",
    "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "Формат модпака Modrinth: набори ресурсів із Modrinth вказуються посиланнями на завантаження, а решта пакується всередину.",
-@@ -447,7 +441,6 @@
+@@ -452,7 +446,6 @@
    "None yet: drop a .zip here, or find some on the Mods page.": "Поки порожньо: перетягніть сюди .zip або знайдіть набори на сторінці «Моди».",
    "runs {command} after": "потім виконує {command}",
    "downloaded": "downloaded",
@@ -510,7 +510,7 @@ index 6d871f2..a190e54 100644
    "Updated to {version}. Restart the launcher to use it.": "Оновлено до {version}. Перезапустіть лаунчер, щоб її використати.",
    "Any MCP client": "Any MCP client",
    "{name}'s cape is kept.": "Плащ {name} збережено.",
-@@ -612,7 +605,6 @@
+@@ -617,7 +610,6 @@
    "{name} is a Java modpack: importing it on the Modpacks page.": "{name} — модпак Java: імпортуємо на сторінці «Модпаки».",
    "Alpha": "Альфа",
    "Add mods": "Додати моди",
@@ -519,7 +519,7 @@ index 6d871f2..a190e54 100644
    "{count} lines, the game is running": "{count} рядків, гру запущено",
    "Move to trash": "У кошик",
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index 2ef04f8..c33c3b2 100644
+index d9b2b4033..4f9f1f867 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
 @@ -129,7 +129,6 @@
@@ -531,61 +531,61 @@ index 2ef04f8..c33c3b2 100644
    "Open logs folder": "打开日志文件夹",
    "Support the work below": "在下方赞助我们的工作",
 @@ -183,7 +182,6 @@
-   "GameMode": "GameMode",
+   "GameMode": "游戏模式 (GameMode)",
    "While you play, the game sends an anonymous \"I'm playing\" ping once a minute, so the launcher can show how many people play Horizon right now. It holds: a random number made when the game starts and forgotten when it closes, the Horizon version, your OS (Linux, macOS or Windows), and whether you have a world open to LAN or friends. It doesn't hold: your account, your install ID, world or server names, or anything you do in the game, and the server doesn't keep your IP address. It is sent whatever the switches say.": "游玩时，游戏每分钟会发送一次匿名的“正在游玩” Ping，以便启动器显示当前有多少人在玩 Horizon。它包含：游戏启动时生成并在关闭时遗忘的随机数、Horizon 版本、您的操作系统（Linux、macOS 或 Windows）以及是否向局域网或好友开放了世界。它不包含：您的账户、安装 ID、世界或服务器名称，或您在游戏中的任何操作，且服务器不会保留您的 IP 地址。无论开关设置如何，它都会发送。",
    "When you report it on Discord, attach the crash report file (or paste it with Copy report) and say what you were doing.": "在 Discord 上报告时，请附上崩溃报告文件（或用“复制报告”粘贴），并说明你当时在做什么。",
 -  "Get my server": "获取我的服务器",
    "New instance": "新建实例",
    "Loading filters": "正在加载筛选条件",
    "Stopped": "已停止",
-@@ -191,7 +189,6 @@
+@@ -192,7 +190,6 @@
    "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon 绝不会开启 Funnel：服务器不会暴露在公共互联网上，仅与受邀好友共享。",
    "Minecraft folder": "Minecraft 文件夹",
    "Feral's gamemoderun: CPU and scheduler tuned while you play.": "Feral 的 gamemoderun：在游戏时优化 CPU 和调度器。",
 -  "15% off": "八五折",
    "Added {names}: turn it on below.": "已添加 {names}：请在下方启用。",
-   "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.",
+   "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "Port 功能会从整合包自带的链接、Modrinth 或您的文件夹中，获取这台电脑今天能够移植的 {count} 个模组的 jar 文件（仅限包含数据和资源的内容）并将其迁移过来。移植文件将保留在此处的 {folder} 中。",
    "Mojang's version list isn't here yet.": "尚未获取到 Mojang 的版本列表。",
-@@ -263,7 +260,6 @@
+@@ -267,7 +264,6 @@
    "Make an invitation": "生成邀请",
    "Version": "版本",
    "Patch notes": "更新日志",
 -  "Your Minecraft server, {online}.": "你的{online} Minecraft 服务器。",
-   "Crash reports": "Crash reports",
+   "Crash reports": "崩溃报告",
    "Offline name · the game's own · plays": "离线名称 · 游戏自带 · 当前使用",
    "Slim arms": "纤细手臂",
-@@ -314,7 +310,6 @@
+@@ -318,7 +314,6 @@
    "Local file · {file}": "本地文件 · {file}",
    "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "Horizon 的风景图。可以选择你自己的 PNG、JPEG 或 WebP 图片。",
-   "Not needed": "Not needed",
+   "Not needed": "不需要",
 -  "This build of the launcher has no Microsoft sign-in (HORIZON_MSA_CLIENT_ID), so it can't start the game.": "此版本启动器未配置 Microsoft 登录（HORIZON_MSA_CLIENT_ID），因此无法启动游戏。",
    "Offline name · plays": "离线名称 · 当前使用",
    "Run the game through": "通过以下程序运行游戏",
    "needed by another pack": "其他包所需依赖",
-@@ -395,7 +390,6 @@
+@@ -399,7 +394,6 @@
    "On": "开启",
-   "{program} said: {output}": "{program} said: {output}",
+   "{program} said: {output}": "{program} 返回：{output}",
    "Light": "浅色",
 -  "Ready in under a minute": "不到一分钟即可就绪",
    "the message in the server list": "服务器列表中的消息",
    "Check for updates": "检查更新",
    "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "Modrinth 的整合包格式：来自 Modrinth 的资源包通过下载链接列出，其余内容直接包含在包内。",
-@@ -447,7 +441,6 @@
+@@ -452,7 +446,6 @@
    "None yet: drop a .zip here, or find some on the Mods page.": "还没有内容：将 .zip 拖放到这里，或在“模组”页面查找。",
    "runs {command} after": "退出后运行 {command}",
-   "downloaded": "downloaded",
+   "downloaded": "已下载",
 -  "24/7 online": "全天候在线",
    "Updated to {version}. Restart the launcher to use it.": "已更新到 {version}。重启启动器即可使用。",
-   "Any MCP client": "Any MCP client",
+   "Any MCP client": "任意 MCP 客户端",
    "{name}'s cape is kept.": "{name} 的披风已保存。",
-@@ -612,7 +605,6 @@
+@@ -617,7 +610,6 @@
    "{name} is a Java modpack: importing it on the Modpacks page.": "{name} 是 Java 整合包：正在“整合包”页面中导入。",
-   "Alpha": "Alpha",
+   "Alpha": "内测版",
    "Add mods": "添加模组",
 -  "PARTNER": "合作伙伴",
    "Upload this log to mclo.gs, a paste service for Minecraft logs? Anyone with the link can read it, until it is deleted or unread for 90 days. Your home folder, user name and account names are taken out first.": "要将此日志上传到 Minecraft 日志分享服务 mclo.gs 吗？任何拥有链接的人都可以阅读它，直到被删除或连续 90 天无人访问。你的主目录、系统用户名和账户名称会先被移除。",
    "{count} lines, the game is running": "{count} 行，游戏正在运行",
    "Move to trash": "移到回收站",
 -- 
-2.43.0
+2.47.3
 

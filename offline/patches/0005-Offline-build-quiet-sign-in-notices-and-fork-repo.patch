@@ -1,7 +1,7 @@
-From 8bdd15558b5468928ed738be1c5116408664e273 Mon Sep 17 00:00:00 2001
+From 5ad43c8d37c120f691c84f51ab8d68bd2ee2d844 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Mon, 2 Nov 2026 17:03:23 +0000
-Subject: [PATCH 5/5] Offline build: quiet sign-in notices and fork repo
+Subject: [PATCH 4/5] Offline build: quiet sign-in notices and fork repo
 
 The no-client-id warning ("...so it can't start the game") read as if
 the game cannot start at all: the constant now says sign-in is simply
@@ -15,7 +15,7 @@ repository directly instead of the pre-rename address.
  3 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index 6ab90e5..c5d3e77 100644
+index 6ab90e5ab..c5d3e7731 100644
 --- a/launcher/src/account.rs
 +++ b/launcher/src/account.rs
 @@ -21,7 +21,7 @@ use std::time::{Duration, SystemTime, UNIX_EPOCH};
@@ -28,7 +28,7 @@ index 6ab90e5..c5d3e77 100644
  pub const NEEDS_OWNER: &str =
      "Sign in with a Microsoft account that owns Minecraft: Java Edition to play";
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 5591ba1..e080f1c 100644
+index aad69dc7b..67c6848ee 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
 @@ -10,7 +10,7 @@ use std::sync::mpsc::Sender;
@@ -41,7 +41,7 @@ index 5591ba1..e080f1c 100644
  /// The players' page on connecting an AI agent (the website's docs/agents.md).
  pub const AGENT_DOCS_URL: &str = "https://playhorizon.dev/docs/agents";
 diff --git a/launcher/src/owner_page.rs b/launcher/src/owner_page.rs
-index 64823c7..d886a14 100644
+index 3afe8b043..5cb33571f 100644
 --- a/launcher/src/owner_page.rs
 +++ b/launcher/src/owner_page.rs
 @@ -30,7 +30,7 @@ impl Launcher {
@@ -53,7 +53,7 @@ index 64823c7..d886a14 100644
              Some(SignInState::Starting) => Shown::Starting("Asking Microsoft…"),
              Some(SignInState::Working(phase)) => Shown::Starting(phase.label()),
              Some(SignInState::Code(code)) => Shown::Code(&code.verification_uri, &code.user_code),
-@@ -149,7 +149,7 @@ impl Launcher {
+@@ -152,7 +152,7 @@ impl Launcher {
                  )
              }
              Shown::Starting(_) => None,

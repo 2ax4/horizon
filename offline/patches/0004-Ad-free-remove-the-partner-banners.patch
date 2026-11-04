@@ -1,24 +1,26 @@
-From b8d30710749dcd5609c0b9f66298f124b9141847 Mon Sep 17 00:00:00 2001
+From 67ec7e758eb64879da645c0f8780bb594b5b2169 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Mon, 2 Nov 2026 17:03:23 +0000
-Subject: [PATCH 4/5] Ad-free: remove the partner banners
+Subject: [PATCH 3/5] Ad-free: remove the partner banners
 
 The sidebar's card, the Servers page's banner, the seen-timer and the
 settings they needed are gone together with the partner module. The
 offline build carries no ads.
 ---
- launcher/src/backend.rs      |   7 -
- launcher/src/main.rs         |  56 ------
- launcher/src/partner.rs      | 340 -----------------------------------
- launcher/src/servers_page.rs |  31 +---
- 4 files changed, 4 insertions(+), 430 deletions(-)
+ launcher/src/backend.rs       |   7 -
+ launcher/src/frame.rs         |  30 ---
+ launcher/src/glass_servers.rs |  42 +---
+ launcher/src/main.rs          |  56 ------
+ launcher/src/partner.rs       | 359 ----------------------------------
+ launcher/src/servers_page.rs  |  31 +--
+ 6 files changed, 5 insertions(+), 520 deletions(-)
  delete mode 100644 launcher/src/partner.rs
 
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 3c32229..5591ba1 100644
+index 17e51e393..aad69dc7b 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
-@@ -3321,13 +3321,6 @@ pub struct Settings {
+@@ -3362,13 +3362,6 @@ pub struct Settings {
      /// one now (the owner gate's screen).
      #[serde(default)]
      pub owner_notice_seen: bool,
@@ -32,11 +34,112 @@ index 3c32229..5591ba1 100644
      /// What the window does while the game runs. Stays by default.
      #[serde(default)]
      pub while_playing: WhilePlaying,
+diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
+index d3f705f03..f03fa82a9 100644
+--- a/launcher/src/frame.rs
++++ b/launcher/src/frame.rs
+@@ -400,36 +400,6 @@ impl Launcher {
+             _ => {}
+         }
+ 
+-        // Sculk's card (not in the mockup, kept: a sponsor), where the old sidebar had it: above
+-        // the links on every page but Servers, which shows the wide banner. Tall where the
+-        // sidebar has the height for it besides its rows, compact otherwise.
+-        if self.page != Page::Servers && !self.settings.partner_hidden {
+-            let rows = self.instances.list.len() + servers.len();
+-            let free = f32::from(window.viewport_size().height)
+-                - 2. * MARGIN
+-                - 52.
+-                - 56. * rows as f32
+-                - 190.;
+-            let mut side = div().relative().mt(px(12.)).child(partner::card(
+-                "partner-side",
+-                SIDEBAR - 20.,
+-                free < partner::TALL_HEIGHT,
+-                &t,
+-            ));
+-            if self.settings.partner_seen_secs >= partner::SEEN_BEFORE_HIDE {
+-                side = side.child(
+-                    partner::hide_button("partner-hide", &t).on_click(cx.listener(
+-                        |this, _: &ClickEvent, _, cx| {
+-                            this.settings.partner_hidden = true;
+-                            this.save_settings();
+-                            cx.notify();
+-                        },
+-                    )),
+-                );
+-            }
+-            foot = foot.child(side);
+-        }
+-
+         if !self.links.discord.is_empty() {
+             let url = self.links.discord.clone();
+             foot = foot.child(keyboard(
+diff --git a/launcher/src/glass_servers.rs b/launcher/src/glass_servers.rs
+index bb49b5bec..46b7f3bfb 100644
+--- a/launcher/src/glass_servers.rs
++++ b/launcher/src/glass_servers.rs
+@@ -69,7 +69,7 @@ impl Launcher {
+         if let Some(dir) = &open {
+             page = page.child(self.glass_server_tabs(dir, &status, cx));
+         }
+-        page.children(self.glass_sculk(cx))
++        page
+     }
+ 
+     /// The open server's glass: its state, name and numbers, its buttons, then its console.
+@@ -770,46 +770,6 @@ impl Launcher {
+                 d.child(self.internet_invites(port_of(self), cx).relative())
+             })
+     }
+-
+-    /// Sculk's banner (sponsor, not in the mockup) on a glass card: "Partner" as the cards' small
+-    /// headings, Hide once it has been on screen a while, the banner Sculk made.
+-    fn glass_sculk(&mut self, cx: &mut Context<Self>) -> Option<Div> {
+-        if self.settings.partner_hidden {
+-            return None;
+-        }
+-        let t = self.theme;
+-        let width = 600.;
+-        let mut head = div()
+-            .relative()
+-            .flex()
+-            .items_center()
+-            .justify_between()
+-            .child(ui::card_heading(tr("Partner")));
+-        if self.settings.partner_seen_secs >= partner::SEEN_BEFORE_HIDE {
+-            head = head.child(
+-                button("partner-servers-hide", "Hide", Kind::Ghost, &t)
+-                    .h(px(28.))
+-                    .px(px(10.))
+-                    .text_size(px(13.))
+-                    .on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
+-                        this.settings.partner_hidden = true;
+-                        this.save_settings();
+-                        cx.notify();
+-                    })),
+-            );
+-        }
+-        Some(
+-            glass::plate(radius::PANEL)
+-                .mt(px(10.))
+-                .flex()
+-                .flex_col()
+-                .gap(px(12.))
+-                .w(px(width + 40.))
+-                .p(px(20.))
+-                .child(head)
+-                .child(partner::banner_image("partner-servers", width, &t).relative()),
+-        )
+-    }
+ }
+ 
+ /// The open server's port.
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index 2c0374b..5a78d9c 100644
+index 699aa6b7d..f326e200a 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
-@@ -36,7 +36,6 @@ mod multiplayer_page;
+@@ -54,7 +54,6 @@ mod native_log_page;
  mod new_instance;
  mod owner_page;
  mod packs_page;
@@ -44,7 +147,7 @@ index 2c0374b..5a78d9c 100644
  mod perf;
  mod plate;
  mod profile_heads;
-@@ -389,30 +388,6 @@ impl Launcher {
+@@ -480,30 +479,6 @@ impl Launcher {
              }
          })
          .detach();
@@ -62,7 +165,7 @@ index 2c0374b..5a78d9c 100644
 -                s.partner_seen_secs += 10;
 -                if s.partner_seen_secs % 60 == 0 || s.partner_seen_secs >= partner::SEEN_BEFORE_HIDE
 -                {
--                    s.save();
+-                    this.save_settings();
 -                    cx.notify();
 -                }
 -                true
@@ -75,7 +178,7 @@ index 2c0374b..5a78d9c 100644
          let mut settings = Settings::load();
          i18n::set(settings.language());
          if settings.minecraft_dir.is_none() {
-@@ -2421,7 +2396,6 @@ impl Launcher {
+@@ -2715,7 +2690,6 @@ impl Launcher {
              },
          ));
          let items = self.instance_items(heading, cx);
@@ -83,7 +186,7 @@ index 2c0374b..5a78d9c 100644
          let list = div()
              .flex()
              .flex_col()
-@@ -2437,8 +2411,6 @@ impl Launcher {
+@@ -2731,8 +2705,6 @@ impl Launcher {
          if !servers.is_empty() {
              list = list.child(heading(tr("SERVERS").into()));
          }
@@ -92,7 +195,7 @@ index 2c0374b..5a78d9c 100644
          for e in servers {
              let up = self.servers.is_up(&e.dir);
              let open = self.page == Page::Servers && self.servers.open.as_ref() == Some(&e.dir);
-@@ -2546,34 +2518,6 @@ impl Launcher {
+@@ -2840,34 +2812,6 @@ impl Launcher {
              }
              _ => {}
          }
@@ -116,7 +219,7 @@ index 2c0374b..5a78d9c 100644
 -                let hide = partner::hide_button("partner-hide", &t).on_click(cx.listener(
 -                    |this, _: &ClickEvent, _, cx| {
 -                        this.settings.partner_hidden = true;
--                        this.settings.save();
+-                        this.save_settings();
 -                        cx.notify();
 -                    },
 -                ));
@@ -129,10 +232,10 @@ index 2c0374b..5a78d9c 100644
                  "sponsor",
 diff --git a/launcher/src/partner.rs b/launcher/src/partner.rs
 deleted file mode 100644
-index 6692f38..0000000
+index e94d1838f..000000000
 --- a/launcher/src/partner.rs
 +++ /dev/null
-@@ -1,340 +0,0 @@
+@@ -1,359 +0,0 @@
 -//! Sculk, a server host that sponsors Horizon (Ludovic, 2026-10-26): its wide banner on the Servers
 -//! page, and a card made for the sidebar on the other pages, where the banner's baked-in text was too
 -//! small to read. The pictures are in the binary, never fetched; a click opens Sculk's page in the
@@ -209,6 +312,25 @@ index 6692f38..0000000
 -        )
 -        .on_click(|_: &ClickEvent, _, cx| cx.open_url(URL));
 -    crate::keyboard(el, &t)
+-}
+-
+-/// The banner alone, `width` logical pixels wide, for a card that says "Partner" itself (the
+-/// glass Servers page). Hovering lifts it a little.
+-pub fn banner_image(id: &'static str, width: f32, t: &Theme) -> Stateful<Div> {
+-    let el = div()
+-        .id(id)
+-        .group(id)
+-        .w(px(width))
+-        .cursor_pointer()
+-        .child(
+-            div().relative().group_hover(id, |s| s.top(px(-2.))).child(
+-                img(BANNER.clone())
+-                    .w(px(width))
+-                    .h(px(width * HEIGHT / WIDTH)),
+-            ),
+-        )
+-        .on_click(|_: &ClickEvent, _, cx| cx.open_url(URL));
+-    crate::keyboard(el, t)
 -}
 -
 -/// Sculk's characters (Steve, Alex and the wolf) cropped from its banner at 2x the card's width.
@@ -474,10 +596,10 @@ index 6692f38..0000000
 -    }
 -}
 diff --git a/launcher/src/servers_page.rs b/launcher/src/servers_page.rs
-index 92e83a4..d73f2da 100644
+index a3f0d0136..2a54d7128 100644
 --- a/launcher/src/servers_page.rs
 +++ b/launcher/src/servers_page.rs
-@@ -1169,34 +1169,11 @@ impl Launcher {
+@@ -1317,34 +1317,11 @@ impl Launcher {
          {
              page = page.child(self.problem_notice(p, cx));
          }
@@ -497,7 +619,7 @@ index 92e83a4..d73f2da 100644
 -                    super::partner::hide_button("partner-servers-hide", &t).on_click(cx.listener(
 -                        |this, _: &ClickEvent, _, cx| {
 -                            this.settings.partner_hidden = true;
--                            this.settings.save();
+-                            this.save_settings();
 -                            cx.notify();
 -                        },
 -                    )),
@@ -515,7 +637,7 @@ index 92e83a4..d73f2da 100644
          }
          let mut list = div().flex().flex_col().border_t_1().border_color(t.rule);
          for (i, e) in self.servers.list.clone().into_iter().enumerate() {
-@@ -1242,7 +1219,7 @@ impl Launcher {
+@@ -1390,7 +1367,7 @@ impl Launcher {
                  &t,
              ));
          }
