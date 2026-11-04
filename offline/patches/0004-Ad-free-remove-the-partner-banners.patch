@@ -1,20 +1,30 @@
-From beeca84b943037e77c78a38973836b09a9740dd8 Mon Sep 17 00:00:00 2001
+From bfe5bfe48b43d50d386c7302618556f1d47b9a56 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 3/5] Ad-free: remove the partner banners
 
 ---
- launcher/src/glass_servers.rs |  40 ----
+ launcher/src/glass_servers.rs |  43 ----
  launcher/src/partner.rs       | 357 ----------------------------------
  launcher/src/servers_page.rs  |  31 +--
- 3 files changed, 4 insertions(+), 424 deletions(-)
+ 3 files changed, 4 insertions(+), 427 deletions(-)
  delete mode 100644 launcher/src/partner.rs
 
 diff --git a/launcher/src/glass_servers.rs b/launcher/src/glass_servers.rs
-index 2f1fb53..e223cad 100644
+index 2f1fb53ce..46b7f3bfb 100644
 --- a/launcher/src/glass_servers.rs
 +++ b/launcher/src/glass_servers.rs
-@@ -773,46 +773,6 @@ impl Launcher {
+@@ -66,9 +66,6 @@ impl Launcher {
+                 .child(main.flex_1().min_w_0())
+                 .child(side),
+         );
+-        // Sculk's banner right under the server, where it is seen without scrolling past the
+-        // server's tabs (as before the glass look, under the page's actions).
+-        page = page.children(self.glass_sculk(cx));
+         if let Some(dir) = &open {
+             page = page.child(self.glass_server_tabs(dir, &status, cx));
+         }
+@@ -773,46 +770,6 @@ impl Launcher {
                  d.child(self.internet_invites(port_of(self), cx).relative())
              })
      }
@@ -63,7 +73,7 @@ index 2f1fb53..e223cad 100644
  /// The open server's port.
 diff --git a/launcher/src/partner.rs b/launcher/src/partner.rs
 deleted file mode 100644
-index d6ac261..0000000
+index d6ac26123..000000000
 --- a/launcher/src/partner.rs
 +++ /dev/null
 @@ -1,357 +0,0 @@
@@ -425,10 +435,10 @@ index d6ac261..0000000
 -    }
 -}
 diff --git a/launcher/src/servers_page.rs b/launcher/src/servers_page.rs
-index a3f0d01..2a54d71 100644
+index 03a90720d..79d588e68 100644
 --- a/launcher/src/servers_page.rs
 +++ b/launcher/src/servers_page.rs
-@@ -1317,34 +1317,11 @@ impl Launcher {
+@@ -1358,34 +1358,11 @@ impl Launcher {
          {
              page = page.child(self.problem_notice(p, cx));
          }
@@ -466,7 +476,7 @@ index a3f0d01..2a54d71 100644
          }
          let mut list = div().flex().flex_col().border_t_1().border_color(t.rule);
          for (i, e) in self.servers.list.clone().into_iter().enumerate() {
-@@ -1390,7 +1367,7 @@ impl Launcher {
+@@ -1431,7 +1408,7 @@ impl Launcher {
                  &t,
              ));
          }

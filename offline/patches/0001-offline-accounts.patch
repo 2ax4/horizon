@@ -1,96 +1,96 @@
-From 86162cfb2477732a609786fd61c7838d292f16b3 Mon Sep 17 00:00:00 2001
+From 9bf6c7a7821044c0cb6f80344ff7e792fdc0b860 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 1/5] Offline accounts: add and play with no Microsoft account
 
 ---
  docs/launcher-commands.md      |   4 -
- launcher/lang/af.json          |   3 +-
- launcher/lang/ar.json          |   3 +-
- launcher/lang/az.json          |   3 +-
- launcher/lang/ba.json          |   3 +-
- launcher/lang/be.json          |   3 +-
- launcher/lang/bg.json          |   3 +-
- launcher/lang/br.json          |   3 +-
- launcher/lang/bs.json          |   3 +-
- launcher/lang/ca.json          |   3 +-
- launcher/lang/cs.json          |   3 +-
- launcher/lang/cv.json          |   3 +-
- launcher/lang/cy.json          |   3 +-
- launcher/lang/da.json          |   3 +-
- launcher/lang/de.json          |   3 +-
- launcher/lang/el.json          |   3 +-
- launcher/lang/eo.json          |   3 +-
- launcher/lang/es.json          |   3 +-
- launcher/lang/et.json          |   3 +-
- launcher/lang/eu.json          |   3 +-
- launcher/lang/fa.json          |   3 +-
- launcher/lang/fi.json          |   3 +-
- launcher/lang/fil.json         |   3 +-
- launcher/lang/fo.json          |   3 +-
- launcher/lang/fr.json          |   3 +-
- launcher/lang/fur.json         |   3 +-
- launcher/lang/fy.json          |   3 +-
- launcher/lang/ga.json          |   3 +-
- launcher/lang/gd.json          |   3 +-
- launcher/lang/gl.json          |   3 +-
- launcher/lang/haw.json         |   3 +-
- launcher/lang/he.json          |   3 +-
- launcher/lang/hi.json          |   3 +-
- launcher/lang/hr.json          |   3 +-
- launcher/lang/hu.json          |   3 +-
- launcher/lang/hy.json          |   3 +-
- launcher/lang/id.json          |   3 +-
- launcher/lang/ig.json          |   3 +-
- launcher/lang/is.json          |   3 +-
- launcher/lang/it.json          |   3 +-
- launcher/lang/ja.json          |   3 +-
- launcher/lang/ka.json          |   3 +-
- launcher/lang/kk.json          |   3 +-
- launcher/lang/kn.json          |   3 +-
- launcher/lang/ko.json          |   3 +-
- launcher/lang/ky.json          |   3 +-
- launcher/lang/la.json          |   3 +-
- launcher/lang/lb.json          |   3 +-
- launcher/lang/li.json          |   3 +-
- launcher/lang/lmo.json         |   3 +-
- launcher/lang/lo.json          |   3 +-
- launcher/lang/lt.json          |   3 +-
- launcher/lang/lv.json          |   3 +-
- launcher/lang/mk.json          |   3 +-
- launcher/lang/mn.json          |   3 +-
- launcher/lang/ms.json          |   3 +-
- launcher/lang/mt.json          |   3 +-
- launcher/lang/nl.json          |   3 +-
- launcher/lang/no.json          |   3 +-
- launcher/lang/oc.json          |   3 +-
- launcher/lang/pl.json          |   3 +-
- launcher/lang/pt-br.json       |   3 +-
- launcher/lang/pt.json          |   3 +-
- launcher/lang/ro.json          |   3 +-
- launcher/lang/ru.json          |   3 +-
- launcher/lang/sah.json         |   3 +-
- launcher/lang/se.json          |   3 +-
- launcher/lang/sk.json          |   3 +-
- launcher/lang/sl.json          |   3 +-
- launcher/lang/so.json          |   3 +-
- launcher/lang/sq.json          |   3 +-
- launcher/lang/sr.json          |   3 +-
- launcher/lang/sv.json          |   3 +-
- launcher/lang/szl.json         |   3 +-
- launcher/lang/ta.json          |   3 +-
- launcher/lang/th.json          |   3 +-
- launcher/lang/tr.json          |   3 +-
- launcher/lang/tt.json          |   3 +-
- launcher/lang/uk.json          |   3 +-
- launcher/lang/ur.json          |   3 +-
- launcher/lang/uz.json          |   3 +-
- launcher/lang/vec.json         |   3 +-
- launcher/lang/vi.json          |   3 +-
- launcher/lang/yi.json          |   3 +-
- launcher/lang/yo.json          |   3 +-
- launcher/lang/zh.json          |   3 +-
- launcher/lang/zu.json          |   3 +-
+ launcher/lang/af.json          |   4 +-
+ launcher/lang/ar.json          |   4 +-
+ launcher/lang/az.json          |   4 +-
+ launcher/lang/ba.json          |   4 +-
+ launcher/lang/be.json          |   4 +-
+ launcher/lang/bg.json          |   4 +-
+ launcher/lang/br.json          |   4 +-
+ launcher/lang/bs.json          |   4 +-
+ launcher/lang/ca.json          |   4 +-
+ launcher/lang/cs.json          |   4 +-
+ launcher/lang/cv.json          |   4 +-
+ launcher/lang/cy.json          |   4 +-
+ launcher/lang/da.json          |   4 +-
+ launcher/lang/de.json          |   4 +-
+ launcher/lang/el.json          |   4 +-
+ launcher/lang/eo.json          |   4 +-
+ launcher/lang/es.json          |   4 +-
+ launcher/lang/et.json          |   4 +-
+ launcher/lang/eu.json          |   4 +-
+ launcher/lang/fa.json          |   4 +-
+ launcher/lang/fi.json          |   4 +-
+ launcher/lang/fil.json         |   4 +-
+ launcher/lang/fo.json          |   4 +-
+ launcher/lang/fr.json          |   4 +-
+ launcher/lang/fur.json         |   4 +-
+ launcher/lang/fy.json          |   4 +-
+ launcher/lang/ga.json          |   4 +-
+ launcher/lang/gd.json          |   4 +-
+ launcher/lang/gl.json          |   4 +-
+ launcher/lang/haw.json         |   4 +-
+ launcher/lang/he.json          |   4 +-
+ launcher/lang/hi.json          |   4 +-
+ launcher/lang/hr.json          |   4 +-
+ launcher/lang/hu.json          |   4 +-
+ launcher/lang/hy.json          |   4 +-
+ launcher/lang/id.json          |   4 +-
+ launcher/lang/ig.json          |   4 +-
+ launcher/lang/is.json          |   4 +-
+ launcher/lang/it.json          |   4 +-
+ launcher/lang/ja.json          |   4 +-
+ launcher/lang/ka.json          |   4 +-
+ launcher/lang/kk.json          |   4 +-
+ launcher/lang/kn.json          |   4 +-
+ launcher/lang/ko.json          |   4 +-
+ launcher/lang/ky.json          |   4 +-
+ launcher/lang/la.json          |   4 +-
+ launcher/lang/lb.json          |   4 +-
+ launcher/lang/li.json          |   4 +-
+ launcher/lang/lmo.json         |   4 +-
+ launcher/lang/lo.json          |   4 +-
+ launcher/lang/lt.json          |   4 +-
+ launcher/lang/lv.json          |   4 +-
+ launcher/lang/mk.json          |   4 +-
+ launcher/lang/mn.json          |   4 +-
+ launcher/lang/ms.json          |   4 +-
+ launcher/lang/mt.json          |   4 +-
+ launcher/lang/nl.json          |   4 +-
+ launcher/lang/no.json          |   4 +-
+ launcher/lang/oc.json          |   4 +-
+ launcher/lang/pl.json          |   4 +-
+ launcher/lang/pt-br.json       |   4 +-
+ launcher/lang/pt.json          |   4 +-
+ launcher/lang/ro.json          |   4 +-
+ launcher/lang/ru.json          |   4 +-
+ launcher/lang/sah.json         |   4 +-
+ launcher/lang/se.json          |   4 +-
+ launcher/lang/sk.json          |   4 +-
+ launcher/lang/sl.json          |   4 +-
+ launcher/lang/so.json          |   4 +-
+ launcher/lang/sq.json          |   4 +-
+ launcher/lang/sr.json          |   4 +-
+ launcher/lang/sv.json          |   4 +-
+ launcher/lang/szl.json         |   4 +-
+ launcher/lang/ta.json          |   4 +-
+ launcher/lang/th.json          |   4 +-
+ launcher/lang/tr.json          |   4 +-
+ launcher/lang/tt.json          |   4 +-
+ launcher/lang/uk.json          |   4 +-
+ launcher/lang/ur.json          |   4 +-
+ launcher/lang/uz.json          |   4 +-
+ launcher/lang/vec.json         |   4 +-
+ launcher/lang/vi.json          |   4 +-
+ launcher/lang/yi.json          |   4 +-
+ launcher/lang/yo.json          |   4 +-
+ launcher/lang/zh.json          |   4 +-
+ launcher/lang/zu.json          |   4 +-
  launcher/src/account.rs        |  62 ++------------
  launcher/src/account/tests.rs  |  83 ++++++-------------
  launcher/src/cli.rs            |  32 +++++---
@@ -103,14 +103,14 @@ Subject: [PATCH 1/5] Offline accounts: add and play with no Microsoft account
  launcher/src/owner_page.rs     |  51 +++++++-----
  launcher/src/switch_page.rs    |   4 +-
  launcher/tests/owner_gate.rs   |  53 ++++++++----
- 99 files changed, 330 insertions(+), 467 deletions(-)
+ 99 files changed, 416 insertions(+), 467 deletions(-)
  delete mode 100644 launcher/src/dev_options.rs
 
 diff --git a/docs/launcher-commands.md b/docs/launcher-commands.md
-index c8474c9..eca9b3c 100644
+index fc12184e8..b1dee7984 100644
 --- a/docs/launcher-commands.md
 +++ b/docs/launcher-commands.md
-@@ -177,8 +177,6 @@ MCP: `account_sign_out`, needs `confirm: true`.
+@@ -188,8 +188,6 @@ MCP: `account_sign_out`, needs `confirm: true`.
  
  ## `horizon-launcher account select`
  
@@ -119,7 +119,7 @@ index c8474c9..eca9b3c 100644
      horizon-launcher account select <WHO>
  
  - `WHO`
-@@ -187,8 +185,6 @@ MCP: `account_select`.
+@@ -198,8 +196,6 @@ MCP: `account_select`.
  
  ## `horizon-launcher account offline`
  
@@ -129,1039 +129,1125 @@ index c8474c9..eca9b3c 100644
  
  - `NAME`
 diff --git a/launcher/lang/af.json b/launcher/lang/af.json
-index e3f4120..3e37658 100644
+index f376d8bf4..c38225008 100644
 --- a/launcher/lang/af.json
 +++ b/launcher/lang/af.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Terugbetaling deur bank",
-   "Paid": "Betaal",
-   "Order {id}": "Bestelling {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die eis het nie deurgegaan nie: die kassa se adres is nie dié van Horizon nie."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Maak die winkel oop",
+-  "You don't own any cosmetics yet.": "Jy besit nog geen skoonheidsmiddels nie."
++  "You don't own any cosmetics yet.": "Jy besit nog geen skoonheidsmiddels nie.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die eis het nie deurgegaan nie: die kassa se adres is nie dié van Horizon nie.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
-index de37db8..ad0de49 100644
+index e2487181a..fcabbb8cc 100644
 --- a/launcher/lang/ar.json
 +++ b/launcher/lang/ar.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "تم رد المبلغ من البنك",
-   "Paid": "مدفوع",
-   "Order {id}": "الطلب {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "لم تكتمل المطالبة: عنوان صفحة الدفع ليس عنوان Horizon."
+@@ -1117,5 +1117,7 @@
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "يُغلق المشغل أثناء نسخ بياناتك والتحقق منها، ثم يُفتح مجددًا. يُحتفظ بالمجلدات القديمة وتظل تشغل مساحة على القرص حتى تتحقق من نجاح النقل وتحذفها بنفسك.",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "فتح المتجر",
+-  "You don't own any cosmetics yet.": "لا تملك أي مظاهر بعد."
++  "You don't own any cosmetics yet.": "لا تملك أي مظاهر بعد.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "لم تكتمل المطالبة: عنوان صفحة الدفع ليس عنوان Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/az.json b/launcher/lang/az.json
-index 234505f..3ee2010 100644
+index 1a80c4a97..4da2f7d79 100644
 --- a/launcher/lang/az.json
 +++ b/launcher/lang/az.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Bank tərəfindən geri çəkildi",
-   "Paid": "Ödənilib",
-   "Order {id}": "Sifariş {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tələb keçmədi: ödəniş səhifəsinin ünvanı Horizon-a aid deyil."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Mağazanı aç",
+-  "You don't own any cosmetics yet.": "Hələ heç bir kosmetikanız yoxdur."
++  "You don't own any cosmetics yet.": "Hələ heç bir kosmetikanız yoxdur.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tələb keçmədi: ödəniş səhifəsinin ünvanı Horizon-a aid deyil.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
-index d944a9e..62ebf52 100644
+index f0104abca..fc65ae1d0 100644
 --- a/launcher/lang/ba.json
 +++ b/launcher/lang/ba.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк кире алды",
-   "Paid": "Түләнде",
-   "Order {id}": "Заказ {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап үтмәне: түләү адресы Horizon-дыҡы түгел."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Магазинды асыу",
+-  "You don't own any cosmetics yet.": "Һеҙҙә әлегә бер косметика ла юҡ."
++  "You don't own any cosmetics yet.": "Һеҙҙә әлегә бер косметика ла юҡ.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап үтмәне: түләү адресы Horizon-дыҡы түгел.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/be.json b/launcher/lang/be.json
-index 61c6165..7838d4f 100644
+index f7f7a854a..ec6ef224a 100644
 --- a/launcher/lang/be.json
 +++ b/launcher/lang/be.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк адмяніў плацёж",
-   "Paid": "Аплачана",
-   "Order {id}": "Заказ {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заяўка не прайшла: адрас старонкі аплаты не належыць Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Адкрыць краму",
+-  "You don't own any cosmetics yet.": "У вас пакуль няма касметыкі."
++  "You don't own any cosmetics yet.": "У вас пакуль няма касметыкі.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заяўка не прайшла: адрас старонкі аплаты не належыць Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
-index 8de8401..18b836f 100644
+index 0428f5f1b..1b43eefb7 100644
 --- a/launcher/lang/bg.json
 +++ b/launcher/lang/bg.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Върнато от банката",
-   "Paid": "Платено",
-   "Order {id}": "Поръчка {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявката не мина: адресът на плащането не е на Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Отворете магазина",
+-  "You don't own any cosmetics yet.": "Все още нямате козметика."
++  "You don't own any cosmetics yet.": "Все още нямате козметика.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявката не мина: адресът на плащането не е на Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/br.json b/launcher/lang/br.json
-index 7aa1030..c15c24f 100644
+index 15ed8f64e..c19a6010d 100644
 --- a/launcher/lang/br.json
 +++ b/launcher/lang/br.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Distaolet gant ar vanka",
-   "Paid": "Paeet",
-   "Order {id}": "Gourc'hemenn {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "N'eo ket aet ar goulenn da benn: chomlec'h ar paeamant n'eo ket hini Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Digeriñ ar stal",
+-  "You don't own any cosmetics yet.": "N'ho peus kosmetik ebet c'hoazh."
++  "You don't own any cosmetics yet.": "N'ho peus kosmetik ebet c'hoazh.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "N'eo ket aet ar goulenn da benn: chomlec'h ar paeamant n'eo ket hini Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
-index ec6d321..1e6c1f6 100644
+index a139bdd42..0f5487ba0 100644
 --- a/launcher/lang/bs.json
 +++ b/launcher/lang/bs.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Banka poništila uplatu",
-   "Paid": "Plaćeno",
-   "Order {id}": "Narudžba {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Otvori prodavnicu",
+-  "You don't own any cosmetics yet.": "Još nemate nijednu kozmetiku."
++  "You don't own any cosmetics yet.": "Još nemate nijednu kozmetiku.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
-index 9ff0f61..4744137 100644
+index 8fce22491..ed53ba543 100644
 --- a/launcher/lang/ca.json
 +++ b/launcher/lang/ca.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Retornat pel banc",
-   "Paid": "Pagat",
-   "Order {id}": "Comanda {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamació no s'ha completat: l'adreça del pagament no és la de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Obre la botiga",
+-  "You don't own any cosmetics yet.": "Encara no tens cap cosmètic."
++  "You don't own any cosmetics yet.": "Encara no tens cap cosmètic.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamació no s'ha completat: l'adreça del pagament no és la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
-index 3c1f7e8..4fe6e20 100644
+index 059c278e8..07a38794f 100644
 --- a/launcher/lang/cs.json
 +++ b/launcher/lang/cs.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Vráceno bankou",
-   "Paid": "Zaplaceno",
-   "Order {id}": "Objednávka {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok se nepodařilo uplatnit: adresa platby nepatří Horizonu."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Otevřít obchod",
+-  "You don't own any cosmetics yet.": "Zatím nevlastníte žádnou kosmetiku."
++  "You don't own any cosmetics yet.": "Zatím nevlastníte žádnou kosmetiku.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok se nepodařilo uplatnit: adresa platby nepatří Horizonu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
-index cf8702c..102c1ec 100644
+index 198f26247..ec79febd0 100644
 --- a/launcher/lang/cv.json
 +++ b/launcher/lang/cv.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк каялла илнӗ",
-   "Paid": "Тӳленӗ",
-   "Order {id}": "Хушу {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ыйту иртмерӗ: тӳлев адресӗ Horizon адресӗ мар."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Лавккана уҫ",
+-  "You don't own any cosmetics yet.": "Сирӗн хальлӗхе пӗр косметика та ҫук."
++  "You don't own any cosmetics yet.": "Сирӗн хальлӗхе пӗр косметика та ҫук.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ыйту иртмерӗ: тӳлев адресӗ Horizon адресӗ мар.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
-index f5483d6..1c82e20 100644
+index 0e3772efa..f76441841 100644
 --- a/launcher/lang/cy.json
 +++ b/launcher/lang/cy.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Gwrthdroiwyd gan y banc",
-   "Paid": "Talwyd",
-   "Order {id}": "Archeb {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ni aeth y cais drwodd: nid cyfeiriad Horizon yw cyfeiriad y ddesg dalu."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Agor y siop",
+-  "You don't own any cosmetics yet.": "Does gennych chi ddim colur eto."
++  "You don't own any cosmetics yet.": "Does gennych chi ddim colur eto.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ni aeth y cais drwodd: nid cyfeiriad Horizon yw cyfeiriad y ddesg dalu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/da.json b/launcher/lang/da.json
-index 1daad6e..fbec3fd 100644
+index 0d2f363c8..498c2be8c 100644
 --- a/launcher/lang/da.json
 +++ b/launcher/lang/da.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Tilbageført af banken",
-   "Paid": "Betalt",
-   "Order {id}": "Ordre {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anmodningen gik ikke igennem: checkoutets adresse er ikke Horizons."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Åbn butikken",
+-  "You don't own any cosmetics yet.": "Du ejer ingen kosmetik endnu."
++  "You don't own any cosmetics yet.": "Du ejer ingen kosmetik endnu.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anmodningen gik ikke igennem: checkoutets adresse er ikke Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index a7c146a..b685fa4 100644
+index e363ef7c3..b22dea08a 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Rückbuchung",
-   "Paid": "Bezahlt",
-   "Order {id}": "Bestellung {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die Anforderung ist fehlgeschlagen: Die Adresse des Checkouts gehört nicht zu Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Verschieben und neu starten",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Shop öffnen",
+-  "You don't own any cosmetics yet.": "Du besitzt noch keine Kosmetik."
++  "You don't own any cosmetics yet.": "Du besitzt noch keine Kosmetik.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die Anforderung ist fehlgeschlagen: Die Adresse des Checkouts gehört nicht zu Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
  }
 diff --git a/launcher/lang/el.json b/launcher/lang/el.json
-index 28c03d2..d46c128 100644
+index 171a1d030..be06afc6d 100644
 --- a/launcher/lang/el.json
 +++ b/launcher/lang/el.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Αναίρεση πληρωμής από την τράπεζα",
-   "Paid": "Πληρώθηκε",
-   "Order {id}": "Παραγγελία {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Η διεκδίκηση δεν ολοκληρώθηκε: η διεύθυνση της πληρωμής δεν ανήκει στο Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Άνοιγμα καταστήματος",
+-  "You don't own any cosmetics yet.": "Δεν έχετε ακόμα καλλυντικά."
++  "You don't own any cosmetics yet.": "Δεν έχετε ακόμα καλλυντικά.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Η διεκδίκηση δεν ολοκληρώθηκε: η διεύθυνση της πληρωμής δεν ανήκει στο Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
-index d18af72..eefe087 100644
+index 9a8408e36..6ea84e1b4 100644
 --- a/launcher/lang/eo.json
 +++ b/launcher/lang/eo.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Repreno de la banko",
-   "Paid": "Pagita",
-   "Order {id}": "Mendo {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La postulo ne sukcesis: la adreso de la pago ne estas tiu de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Malfermi la vendejon",
+-  "You don't own any cosmetics yet.": "Vi ankoraŭ ne posedas kosmetikaĵojn."
++  "You don't own any cosmetics yet.": "Vi ankoraŭ ne posedas kosmetikaĵojn.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La postulo ne sukcesis: la adreso de la pago ne estas tiu de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index 8c327bb..87e69cc 100644
+index f6dfed132..2360080ab 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Contracargo",
-   "Paid": "Pagado",
-   "Order {id}": "Pedido {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamación no se completó: la dirección del pago no es la de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Mover y reiniciar",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Abrir la tienda",
+-  "You don't own any cosmetics yet.": "Aún no tienes ningún cosmético."
++  "You don't own any cosmetics yet.": "Aún no tienes ningún cosmético.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamación no se completó: la dirección del pago no es la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Sin preparar. Horizon puede preparar Minecraft {version} desde tu propia instalación; inicia sesión para descargarlo de Mojang."
  }
 diff --git a/launcher/lang/et.json b/launcher/lang/et.json
-index 827b43c..460f599 100644
+index c29dde4d6..933ea45d4 100644
 --- a/launcher/lang/et.json
 +++ b/launcher/lang/et.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Pank tühistas makse",
-   "Paid": "Makstud",
-   "Order {id}": "Tellimus {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nõue ei läinud läbi: makselehe aadress ei kuulu Horizonile."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Ava pood",
+-  "You don't own any cosmetics yet.": "Sul pole veel ühtegi kosmeetikaeset."
++  "You don't own any cosmetics yet.": "Sul pole veel ühtegi kosmeetikaeset.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nõue ei läinud läbi: makselehe aadress ei kuulu Horizonile.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
-index 48f626e..33983f2 100644
+index 19f0f7bfe..90521320d 100644
 --- a/launcher/lang/eu.json
 +++ b/launcher/lang/eu.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Bankuak atzera egin du",
-   "Paid": "Ordainduta",
-   "Order {id}": "Eskaera {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Eskaerak ez du aurrera egin: ordainketaren helbidea ez da Horizonena."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Ireki denda",
+-  "You don't own any cosmetics yet.": "Oraindik ez duzu kosmetikorik."
++  "You don't own any cosmetics yet.": "Oraindik ez duzu kosmetikorik.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Eskaerak ez du aurrera egin: ordainketaren helbidea ez da Horizonena.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
-index 78bce89..c0093f2 100644
+index b3f678589..8981b98ed 100644
 --- a/launcher/lang/fa.json
 +++ b/launcher/lang/fa.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "برگشت از بانک",
-   "Paid": "پرداخت‌شده",
-   "Order {id}": "سفارش {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "درخواست انجام نشد: نشانی صفحه پرداخت متعلق به Horizon نیست."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "باز کردن فروشگاه",
+-  "You don't own any cosmetics yet.": "هنوز هیچ آیتم تزئینی ندارید."
++  "You don't own any cosmetics yet.": "هنوز هیچ آیتم تزئینی ندارید.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "درخواست انجام نشد: نشانی صفحه پرداخت متعلق به Horizon نیست.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
-index 36e3172..ffb03c6 100644
+index caf52d8a0..6db4b12f7 100644
 --- a/launcher/lang/fi.json
 +++ b/launcher/lang/fi.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Palautettu pankin kautta",
-   "Paid": "Maksettu",
-   "Order {id}": "Tilaus {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Lunastus ei onnistunut: kassan osoite ei ole Horizonin."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Avaa kauppa",
+-  "You don't own any cosmetics yet.": "Sinulla ei ole vielä kosmetiikkaa."
++  "You don't own any cosmetics yet.": "Sinulla ei ole vielä kosmetiikkaa.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Lunastus ei onnistunut: kassan osoite ei ole Horizonin.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
-index f180795..187bc54 100644
+index bc48bc7ad..1141c745b 100644
 --- a/launcher/lang/fil.json
 +++ b/launcher/lang/fil.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Na-chargeback",
-   "Paid": "Bayad na",
-   "Order {id}": "Order {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Hindi natuloy ang claim: hindi sa Horizon ang address ng checkout."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Buksan ang shop",
+-  "You don't own any cosmetics yet.": "Wala ka pang pampaganda."
++  "You don't own any cosmetics yet.": "Wala ka pang pampaganda.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Hindi natuloy ang claim: hindi sa Horizon ang address ng checkout.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
-index 1a639e9..12362a2 100644
+index 0e6aa5847..6cd571f0e 100644
 --- a/launcher/lang/fo.json
 +++ b/launcher/lang/fo.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Afturført av bankanum",
-   "Paid": "Goldið",
-   "Order {id}": "Pantan {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravið gekk ikki gjøgnum: adressan á útrokningini er ikki hjá Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Opna handilin",
+-  "You don't own any cosmetics yet.": "Tú eigur enn einki kosmetikk."
++  "You don't own any cosmetics yet.": "Tú eigur enn einki kosmetikk.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravið gekk ikki gjøgnum: adressan á útrokningini er ikki hjá Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index a8c4d65..836fd98 100644
+index 9b9138c6c..81b25bce5 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Rétrofacturé",
-   "Paid": "Payé",
-   "Order {id}": "Commande {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demande n'a pas abouti : l'adresse du paiement n'est pas celle de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Déplacer et redémarrer",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Ouvrir la boutique",
+-  "You don't own any cosmetics yet.": "Vous ne possédez encore aucun cosmétique."
++  "You don't own any cosmetics yet.": "Vous ne possédez encore aucun cosmétique.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demande n'a pas abouti : l'adresse du paiement n'est pas celle de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Non préparé. Horizon peut préparer Minecraft {version} depuis votre propre installation ; connectez-vous pour le télécharger depuis Mojang."
  }
 diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
-index ac8ba61..780d6d9 100644
+index be8ca9683..c55f57904 100644
 --- a/launcher/lang/fur.json
 +++ b/launcher/lang/fur.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Stornât de bancje",
-   "Paid": "Paiât",
-   "Order {id}": "Ordin {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richieste no je lade a bon fin: l'indirizz dal paiament nol è chel di Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Vierç la buteghe",
+-  "You don't own any cosmetics yet.": "No tu âs ancjemò nissun cosmetic."
++  "You don't own any cosmetics yet.": "No tu âs ancjemò nissun cosmetic.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richieste no je lade a bon fin: l'indirizz dal paiament nol è chel di Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
-index 13a5f8a..6143901 100644
+index d270f649b..3b2b9901b 100644
 --- a/launcher/lang/fy.json
 +++ b/launcher/lang/fy.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Weromboekt troch de bank",
-   "Paid": "Betelle",
-   "Order {id}": "Bestelling {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "De oanspraak is net slagge: it adres fan de checkout is net dat fan Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Iepenje de winkel",
+-  "You don't own any cosmetics yet.": "Jo hawwe noch gjin kosmetika."
++  "You don't own any cosmetics yet.": "Jo hawwe noch gjin kosmetika.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "De oanspraak is net slagge: it adres fan de checkout is net dat fan Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
-index 9f12dcc..9c46df1 100644
+index 1a3044a90..c7b94bc18 100644
 --- a/launcher/lang/ga.json
 +++ b/launcher/lang/ga.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Aisiompaithe ag an mbanc",
-   "Paid": "Íoctha",
-   "Order {id}": "Ordú {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Níor éirigh leis an éileamh: ní é seoladh na seiceála amach seoladh Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Oscail an siopa",
+-  "You don't own any cosmetics yet.": "Níl aon chosmaid agat go fóill."
++  "You don't own any cosmetics yet.": "Níl aon chosmaid agat go fóill.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Níor éirigh leis an éileamh: ní é seoladh na seiceála amach seoladh Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
-index d4d4e32..c954897 100644
+index 78606cedd..c0b15cc41 100644
 --- a/launcher/lang/gd.json
 +++ b/launcher/lang/gd.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Air a thilleadh leis a' bhanca",
-   "Paid": "Pàighte",
-   "Order {id}": "Òrdugh {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cha deach an tagradh troimhe: chan e seòladh Horizon a th' ann an seòladh a' phàighidh."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Fosgail am bùth",
+-  "You don't own any cosmetics yet.": "Chan eil cungaidh-maise sam bith agad fhathast."
++  "You don't own any cosmetics yet.": "Chan eil cungaidh-maise sam bith agad fhathast.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cha deach an tagradh troimhe: chan e seòladh Horizon a th' ann an seòladh a' phàighidh.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
-index c9b5aa5..61ec0ff 100644
+index 866a6ac48..b51ae2b70 100644
 --- a/launcher/lang/gl.json
 +++ b/launcher/lang/gl.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Devolto polo banco",
-   "Paid": "Pagado",
-   "Order {id}": "Pedido {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "A reclamación non se completou: o enderezo do pagamento non é o de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Abrir a tenda",
+-  "You don't own any cosmetics yet.": "Aínda non tes ningún cosmético."
++  "You don't own any cosmetics yet.": "Aínda non tes ningún cosmético.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "A reclamación non se completou: o enderezo do pagamento non é o de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
-index 47a5982..09d290c 100644
+index b94486c3c..7dff72035 100644
 --- a/launcher/lang/haw.json
 +++ b/launcher/lang/haw.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Hoʻihoʻi ʻia e ka waihona kālā",
-   "Paid": "Ua uku ʻia",
-   "Order {id}": "Kauoha {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "ʻAʻole i holomua ke koi: ʻaʻole nō Horizon ka helu wahi o ka uku."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "E wehe i ka hale kūʻai",
+-  "You don't own any cosmetics yet.": "ʻAʻohe āu mea hoʻonaninani i kēia manawa."
++  "You don't own any cosmetics yet.": "ʻAʻohe āu mea hoʻonaninani i kēia manawa.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "ʻAʻole i holomua ke koi: ʻaʻole nō Horizon ka helu wahi o ka uku.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/he.json b/launcher/lang/he.json
-index 1c7f917..42fe19c 100644
+index 886f4f8f6..e1857939c 100644
 --- a/launcher/lang/he.json
 +++ b/launcher/lang/he.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "חויב בחזרה",
-   "Paid": "שולם",
-   "Order {id}": "הזמנה {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "הבקשה לא עברה: כתובת התשלום אינה של Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "פתיחת החנות",
+-  "You don't own any cosmetics yet.": "עדיין אין לך קוסמטיקה."
++  "You don't own any cosmetics yet.": "עדיין אין לך קוסמטיקה.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "הבקשה לא עברה: כתובת התשלום אינה של Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
-index 86bcf02..a03f783 100644
+index 01125d6dc..2e51ca818 100644
 --- a/launcher/lang/hi.json
 +++ b/launcher/lang/hi.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "चार्जबैक हुआ",
-   "Paid": "भुगतान हो गया",
-   "Order {id}": "ऑर्डर {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "दावा पूरा नहीं हो सका: चेकआउट का पता Horizon का नहीं है।"
+@@ -1117,5 +1117,7 @@
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "आपका डेटा कॉपी और सत्यापित किए जाने के दौरान लॉन्चर बंद रहता है, फिर दोबारा खुलता है। पुराने फ़ोल्डर सुरक्षित रखे जाते हैं और तब तक डिस्क पर जगह घेरते रहते हैं, जब तक आप स्थानांतरण सफल होने की पुष्टि करके उन्हें खुद नहीं हटा देते।",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "दुकान खोलें",
+-  "You don't own any cosmetics yet.": "आपके पास अभी कोई कॉस्मेटिक्स नहीं है।"
++  "You don't own any cosmetics yet.": "आपके पास अभी कोई कॉस्मेटिक्स नहीं है।",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "दावा पूरा नहीं हो सका: चेकआउट का पता Horizon का नहीं है।",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
-index 4ec8c78..157888a 100644
+index b42257546..0c6c88238 100644
 --- a/launcher/lang/hr.json
 +++ b/launcher/lang/hr.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Banka poništila uplatu",
-   "Paid": "Plaćeno",
-   "Order {id}": "Narudžba {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova."
+@@ -1117,5 +1117,7 @@
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "Pokretač se zatvara dok se podaci kopiraju i provjeravaju, a zatim se ponovno otvara. Stare mape ostaju sačuvane i zauzimaju prostor na disku dok ne provjerite je li premještanje uspjelo i sami ih izbrišete.",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Otvori trgovinu",
+-  "You don't own any cosmetics yet.": "Još nemaš nijednu kozmetiku."
++  "You don't own any cosmetics yet.": "Još nemaš nijednu kozmetiku.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
-index a078bce..4f2def1 100644
+index 78575a339..90f549546 100644
 --- a/launcher/lang/hu.json
 +++ b/launcher/lang/hu.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Visszaterhelve",
-   "Paid": "Kifizetve",
-   "Order {id}": "Rendelés {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Az igénylés nem sikerült: a fizetési oldal címe nem a Horizoné."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Bolt megnyitása",
+-  "You don't own any cosmetics yet.": "Még nincs kozmetikumod."
++  "You don't own any cosmetics yet.": "Még nincs kozmetikumod.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Az igénylés nem sikerült: a fizetési oldal címe nem a Horizoné.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
-index 2649900..181d8aa 100644
+index ed00b3dc5..788e05b25 100644
 --- a/launcher/lang/hy.json
 +++ b/launcher/lang/hy.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Բանկը չեղարկել է վճարումը",
-   "Paid": "Վճարված է",
-   "Order {id}": "Պատվեր {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Հայտը չանցավ․ վճարման էջի հասցեն Horizon-ինը չէ։"
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Բացել խանութը",
+-  "You don't own any cosmetics yet.": "Դուք դեռ կոսմետիկա չունեք։"
++  "You don't own any cosmetics yet.": "Դուք դեռ կոսմետիկա չունեք։",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Հայտը չանցավ․ վճարման էջի հասցեն Horizon-ինը չէ։",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/id.json b/launcher/lang/id.json
-index cfc116b..adacf9b 100644
+index d6bd0df31..02beb5a83 100644
 --- a/launcher/lang/id.json
 +++ b/launcher/lang/id.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Chargeback",
-   "Paid": "Dibayar",
-   "Order {id}": "Pesanan {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Klaim tidak berhasil: alamat checkout bukan milik Horizon."
+@@ -1117,5 +1117,7 @@
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "Peluncur ditutup selama data Anda disalin dan diverifikasi, lalu dibuka kembali. Folder lama tetap disimpan dan menggunakan ruang disk hingga Anda memastikan pemindahan berhasil dan menghapusnya sendiri.",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Buka toko",
+-  "You don't own any cosmetics yet.": "Kamu belum punya kosmetik."
++  "You don't own any cosmetics yet.": "Kamu belum punya kosmetik.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Klaim tidak berhasil: alamat checkout bukan milik Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
-index 42d77de..20e4ee7 100644
+index df854ff03..5da98ac55 100644
 --- a/launcher/lang/ig.json
 +++ b/launcher/lang/ig.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Ụlọ akụ weghaara ya",
-   "Paid": "Akwụọla",
-   "Order {id}": "Ahịrị {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Arịrịọ ahụ agaghị nke ọma: adreesị ibe ịkwụ ụgwọ abụghị nke Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Mepee ụlọ ahịa",
+-  "You don't own any cosmetics yet.": "Ị nweghị ihe ịchọ mma ọ bụla ugbu a."
++  "You don't own any cosmetics yet.": "Ị nweghị ihe ịchọ mma ọ bụla ugbu a.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Arịrịọ ahụ agaghị nke ọma: adreesị ibe ịkwụ ụgwọ abụghị nke Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/is.json b/launcher/lang/is.json
-index 7fe413b..a60dc4a 100644
+index 637c55df0..f621b2688 100644
 --- a/launcher/lang/is.json
 +++ b/launcher/lang/is.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Greiðsla afturkölluð af banka",
-   "Paid": "Greitt",
-   "Order {id}": "Pöntun {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Beiðnin gekk ekki í gegn: heimilisfang greiðslunnar er ekki frá Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Opna verslunina",
+-  "You don't own any cosmetics yet.": "Þú átt engar snyrtivörur ennþá."
++  "You don't own any cosmetics yet.": "Þú átt engar snyrtivörur ennþá.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Beiðnin gekk ekki í gegn: heimilisfang greiðslunnar er ekki frá Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/it.json b/launcher/lang/it.json
-index 299547a..fbd0174 100644
+index b02205623..54cf8dbe4 100644
 --- a/launcher/lang/it.json
 +++ b/launcher/lang/it.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Stornato dalla banca",
-   "Paid": "Pagato",
-   "Order {id}": "Ordine {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta non è andata a buon fine: l'indirizzo del pagamento non è quello di Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Apri il negozio",
+-  "You don't own any cosmetics yet.": "Non possiedi ancora nessun cosmetico."
++  "You don't own any cosmetics yet.": "Non possiedi ancora nessun cosmetico.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta non è andata a buon fine: l'indirizzo del pagamento non è quello di Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index 4711a5a..c7b5b6d 100644
+index 92612d497..403f2ced7 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "チャージバック済み",
-   "Paid": "支払い済み",
-   "Order {id}": "注文 {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "受け取りに失敗しました。チェックアウトのアドレスが Horizon のものではありません。"
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "移動して再起動",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "ショップを開く",
+-  "You don't own any cosmetics yet.": "コスメをまだ持っていません。"
++  "You don't own any cosmetics yet.": "コスメをまだ持っていません。",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "受け取りに失敗しました。チェックアウトのアドレスが Horizon のものではありません。",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未準備です。Horizon は自分のインストールから Minecraft {version} を準備できます。Mojang からダウンロードするにはサインインしてください。"
  }
 diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
-index 1c02d36..8c8c8aa 100644
+index ebc5cd768..21ab1ae73 100644
 --- a/launcher/lang/ka.json
 +++ b/launcher/lang/ka.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "ბანკმა გადახდა გააუქმა",
-   "Paid": "გადახდილია",
-   "Order {id}": "შეკვეთა {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "მოთხოვნა ვერ შესრულდა: გადახდის მისამართი Horizon-ის არ არის."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "მაღაზიის გახსნა",
+-  "You don't own any cosmetics yet.": "ჯერ არ გაქვთ კოსმეტიკა."
++  "You don't own any cosmetics yet.": "ჯერ არ გაქვთ კოსმეტიკა.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "მოთხოვნა ვერ შესრულდა: გადახდის მისამართი Horizon-ის არ არის.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
-index d702f9d..ede088d 100644
+index 241ed471f..5287fb65a 100644
 --- a/launcher/lang/kk.json
 +++ b/launcher/lang/kk.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк қайтарып алды",
-   "Paid": "Төленді",
-   "Order {id}": "Тапсырыс {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Сұрау өтпеді: төлем мекенжайы Horizon-ның мекенжайы емес."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Дүкенді ашу",
+-  "You don't own any cosmetics yet.": "Сізде әлі косметика жоқ."
++  "You don't own any cosmetics yet.": "Сізде әлі косметика жоқ.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Сұрау өтпеді: төлем мекенжайы Horizon-ның мекенжайы емес.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
-index 5c8e637..84ec36a 100644
+index 864d8586f..a1c1ec5a1 100644
 --- a/launcher/lang/kn.json
 +++ b/launcher/lang/kn.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "ಬ್ಯಾಂಕ್‌ನಿಂದ ಹಿಂತಿರುಗಿಸಲಾಗಿದೆ",
-   "Paid": "ಪಾವತಿಸಲಾಗಿದೆ",
-   "Order {id}": "ಆರ್ಡರ್ {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "ಕ್ಲೈಮ್ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ: ಚೆಕ್‌ಔಟ್‌ನ ವಿಳಾಸ Horizon ನದಲ್ಲ."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "ಅಂಗಡಿಯನ್ನು ತೆರೆಯಿರಿ",
+-  "You don't own any cosmetics yet.": "ನಿಮ್ಮ ಬಳಿ ಇನ್ನೂ ಯಾವುದೇ ಸೌಂದರ್ಯವರ್ಧಕಗಳಿಲ್ಲ."
++  "You don't own any cosmetics yet.": "ನಿಮ್ಮ ಬಳಿ ಇನ್ನೂ ಯಾವುದೇ ಸೌಂದರ್ಯವರ್ಧಕಗಳಿಲ್ಲ.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "ಕ್ಲೈಮ್ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ: ಚೆಕ್‌ಔಟ್‌ನ ವಿಳಾಸ Horizon ನದಲ್ಲ.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
-index 0219216..16d483f 100644
+index a3cfc63cf..ec5d146c4 100644
 --- a/launcher/lang/ko.json
 +++ b/launcher/lang/ko.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "차지백됨",
-   "Paid": "결제됨",
-   "Order {id}": "주문 {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "받기가 완료되지 않았어요. 결제 주소가 Horizon의 주소가 아니에요."
+@@ -1117,5 +1117,7 @@
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "데이터를 복사하고 검증하는 동안 런처가 종료되며, 완료되면 다시 열립니다. 기존 폴더는 그대로 보관되며, 이동이 정상적으로 완료되었는지 확인한 후 직접 삭제할 때까지 디스크 공간을 계속 차지합니다.",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "상점 열기",
+-  "You don't own any cosmetics yet.": "아직 코스메틱이 없습니다."
++  "You don't own any cosmetics yet.": "아직 코스메틱이 없습니다.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "받기가 완료되지 않았어요. 결제 주소가 Horizon의 주소가 아니에요.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
-index 4e12ff3..c906375 100644
+index 4dd9a1182..742d7c42e 100644
 --- a/launcher/lang/ky.json
 +++ b/launcher/lang/ky.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк кайтарып алды",
-   "Paid": "Төлөндү",
-   "Order {id}": "Буйрутма {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап өткөн жок: төлөмдүн дареги Horizon'ду эмес."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Дүкөндү ачуу",
+-  "You don't own any cosmetics yet.": "Сизде азырынча косметика жок."
++  "You don't own any cosmetics yet.": "Сизде азырынча косметика жок.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап өткөн жок: төлөмдүн дареги Horizon'ду эмес.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/la.json b/launcher/lang/la.json
-index 6f27f19..9c6435a 100644
+index d08d41c99..a1b60a118 100644
 --- a/launcher/lang/la.json
 +++ b/launcher/lang/la.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "A argentaria revocatum",
-   "Paid": "Solutum",
-   "Order {id}": "Mandatum {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Postulatio non successit: inscriptio solutionis non est Horizontis."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Tabernam aperi",
+-  "You don't own any cosmetics yet.": "Nondum ullos fucos habes."
++  "You don't own any cosmetics yet.": "Nondum ullos fucos habes.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Postulatio non successit: inscriptio solutionis non est Horizontis.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
-index 74a5c21..6df3515 100644
+index 89cceec6e..ace128547 100644
 --- a/launcher/lang/lb.json
 +++ b/launcher/lang/lb.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Vun der Bank zréckbucht",
-   "Paid": "Bezuelt",
-   "Order {id}": "Bestellung {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "D'Ufro ass net duerchgaangen: d'Adress vum Checkout ass net déi vun Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "De Buttek opmaachen",
+-  "You don't own any cosmetics yet.": "Dir hutt nach keng Kosmetik."
++  "You don't own any cosmetics yet.": "Dir hutt nach keng Kosmetik.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "D'Ufro ass net duerchgaangen: d'Adress vum Checkout ass net déi vun Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/li.json b/launcher/lang/li.json
-index 7a5fd96..b45070f 100644
+index 356fa628d..2f86bec0b 100644
 --- a/launcher/lang/li.json
 +++ b/launcher/lang/li.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Trökgeboekt door de bank",
-   "Paid": "Betaald",
-   "Order {id}": "Bestèlling {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "De aanspraak is neet geslaag: 't adres van de checkout is neet dat van Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Mook de winkel open",
+-  "You don't own any cosmetics yet.": "Geer höbt nog gein cosmetica."
++  "You don't own any cosmetics yet.": "Geer höbt nog gein cosmetica.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "De aanspraak is neet geslaag: 't adres van de checkout is neet dat van Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
-index 4010860..8c45e47 100644
+index 6207c1d7a..afb0f9adc 100644
 --- a/launcher/lang/lmo.json
 +++ b/launcher/lang/lmo.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Stornà de la banca",
-   "Paid": "Pagà",
-   "Order {id}": "Ordin {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta la gh'a minga fa: l'indirizz del pagament l'è minga quel de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Avèrt el negozi",
+-  "You don't own any cosmetics yet.": "Te gh'è ancamò nissun cosmetich."
++  "You don't own any cosmetics yet.": "Te gh'è ancamò nissun cosmetich.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta la gh'a minga fa: l'indirizz del pagament l'è minga quel de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
-index 6810dad..03fedf7 100644
+index f1f420b12..8231d430a 100644
 --- a/launcher/lang/lo.json
 +++ b/launcher/lang/lo.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "ທະນາຄານຖອນຄືນ",
-   "Paid": "ຊຳລະແລ້ວ",
-   "Order {id}": "ຄຳສັ່ງຊື້ {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "ການຮັບບໍ່ສຳເລັດ: ທີ່ຢູ່ຂອງໜ້າຊຳລະບໍ່ແມ່ນຂອງ Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "ເປີດຮ້ານ",
+-  "You don't own any cosmetics yet.": "ເຈົ້າຍັງບໍ່ມີເຄື່ອງສໍາອາງເທື່ອ."
++  "You don't own any cosmetics yet.": "ເຈົ້າຍັງບໍ່ມີເຄື່ອງສໍາອາງເທື່ອ.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "ການຮັບບໍ່ສຳເລັດ: ທີ່ຢູ່ຂອງໜ້າຊຳລະບໍ່ແມ່ນຂອງ Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
-index e0e3e4a..adf9294 100644
+index c2d6344c8..6c7b87443 100644
 --- a/launcher/lang/lt.json
 +++ b/launcher/lang/lt.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Bankas atšaukė mokėjimą",
-   "Paid": "Apmokėta",
-   "Order {id}": "Užsakymas {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Prašymas nepavyko: atsiskaitymo adresas nepriklauso Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Atidaryti parduotuvę",
+-  "You don't own any cosmetics yet.": "Dar neturite kosmetikos."
++  "You don't own any cosmetics yet.": "Dar neturite kosmetikos.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Prašymas nepavyko: atsiskaitymo adresas nepriklauso Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
-index c04e941..d115ed3 100644
+index 9477aaa81..f6cbf9931 100644
 --- a/launcher/lang/lv.json
 +++ b/launcher/lang/lv.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Banka atcēla maksājumu",
-   "Paid": "Samaksāts",
-   "Order {id}": "Pasūtījums {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Pieprasījums neizdevās: norēķina adrese nepieder Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Atvērt veikalu",
+-  "You don't own any cosmetics yet.": "Tev vēl nav kosmētikas."
++  "You don't own any cosmetics yet.": "Tev vēl nav kosmētikas.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Pieprasījums neizdevās: norēķina adrese nepieder Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
-index d239e1b..1e95535 100644
+index a9ee4494c..4a2d3d12c 100644
 --- a/launcher/lang/mk.json
 +++ b/launcher/lang/mk.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банката го поништи плаќањето",
-   "Paid": "Платено",
-   "Order {id}": "Нарачка {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Барањето не помина: адресата на плаќањето не е на Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Отвори ја продавницата",
+-  "You don't own any cosmetics yet.": "Сè уште немате козметика."
++  "You don't own any cosmetics yet.": "Сè уште немате козметика.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Барањето не помина: адресата на плаќањето не е на Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
-index 012c6be..4cfcb89 100644
+index 33487432e..bd2a20d83 100644
 --- a/launcher/lang/mn.json
 +++ b/launcher/lang/mn.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк буцаасан",
-   "Paid": "Төлсөн",
-   "Order {id}": "Захиалга {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Хүсэлт амжилтгүй боллоо: төлбөрийн хаяг Horizon-ых биш байна."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Дэлгүүр нээх",
+-  "You don't own any cosmetics yet.": "Танд одоогоор гоо сайхны бүтээгдэхүүн алга."
++  "You don't own any cosmetics yet.": "Танд одоогоор гоо сайхны бүтээгдэхүүн алга.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Хүсэлт амжилтгүй боллоо: төлбөрийн хаяг Horizon-ых биш байна.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
-index 1fb9855..5952741 100644
+index f09b2cf3c..3fe4ee0dc 100644
 --- a/launcher/lang/ms.json
 +++ b/launcher/lang/ms.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Dibatalkan oleh bank",
-   "Paid": "Dibayar",
-   "Order {id}": "Pesanan {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tuntutan tidak berjaya: alamat pembayaran bukan milik Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Buka kedai",
+-  "You don't own any cosmetics yet.": "Anda belum memiliki sebarang kosmetik."
++  "You don't own any cosmetics yet.": "Anda belum memiliki sebarang kosmetik.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tuntutan tidak berjaya: alamat pembayaran bukan milik Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
-index 7e03977..df25c24 100644
+index be82d33a0..5668b8218 100644
 --- a/launcher/lang/mt.json
 +++ b/launcher/lang/mt.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Maqlub mill-bank",
-   "Paid": "Imħallas",
-   "Order {id}": "Ordni {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "It-talba ma għaddietx: l-indirizz tal-ħlas mhuwiex ta' Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Iftaħ il-ħanut",
+-  "You don't own any cosmetics yet.": "Għad m'għandekx kożmetiċi."
++  "You don't own any cosmetics yet.": "Għad m'għandekx kożmetiċi.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "It-talba ma għaddietx: l-indirizz tal-ħlas mhuwiex ta' Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
-index 89821ce..bd9871b 100644
+index 145e02a3c..b268bd454 100644
 --- a/launcher/lang/nl.json
 +++ b/launcher/lang/nl.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Teruggeboekt door de bank",
-   "Paid": "Betaald",
-   "Order {id}": "Bestelling {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "De claim is niet gelukt: het adres van de checkout is niet dat van Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Open de winkel",
+-  "You don't own any cosmetics yet.": "Je hebt nog geen cosmetica."
++  "You don't own any cosmetics yet.": "Je hebt nog geen cosmetica.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "De claim is niet gelukt: het adres van de checkout is niet dat van Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/no.json b/launcher/lang/no.json
-index 6fc6d30..c913621 100644
+index 2522e98c0..a15d2f011 100644
 --- a/launcher/lang/no.json
 +++ b/launcher/lang/no.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Tilbakeført av banken",
-   "Paid": "Betalt",
-   "Order {id}": "Bestilling {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravet gikk ikke gjennom: adressen til utsjekkingen er ikke Horizons."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Åpne butikken",
+-  "You don't own any cosmetics yet.": "Du eier ingen kosmetikk ennå."
++  "You don't own any cosmetics yet.": "Du eier ingen kosmetikk ennå.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravet gikk ikke gjennom: adressen til utsjekkingen er ikke Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
-index e4efe32..6c74c59 100644
+index b495cd4b0..196829410 100644
 --- a/launcher/lang/oc.json
 +++ b/launcher/lang/oc.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Retrofacturat",
-   "Paid": "Pagat",
-   "Order {id}": "Comanda {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demanda a pas capitat : l'adreça del pagament es pas la de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Dobrir la botiga",
+-  "You don't own any cosmetics yet.": "Avètz pas encara cap de cosmetic."
++  "You don't own any cosmetics yet.": "Avètz pas encara cap de cosmetic.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demanda a pas capitat : l'adreça del pagament es pas la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index 39bb5af..2c5a5c4 100644
+index 4958adf55..7db4ba49a 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Obciążenie zwrotne",
-   "Paid": "Opłacono",
-   "Order {id}": "Zamówienie {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Odbiór się nie powiódł: adres płatności nie należy do Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Przenieś i uruchom ponownie",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Otwórz sklep",
+-  "You don't own any cosmetics yet.": "Nie masz jeszcze żadnych kosmetyków."
++  "You don't own any cosmetics yet.": "Nie masz jeszcze żadnych kosmetyków.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Odbiór się nie powiódł: adres płatności nie należy do Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nie przygotowano. Horizon może przygotować Minecraft {version} z Twojej własnej instalacji; zaloguj się, aby pobrać go z Mojang."
  }
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index 9800abd..20e0d9c 100644
+index 26002bd91..2acfe05c7 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Estornado",
-   "Paid": "Pago",
-   "Order {id}": "Pedido {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "O resgate não foi concluído: o endereço do checkout não é o da Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Mover e reiniciar",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Abrir a loja",
+-  "You don't own any cosmetics yet.": "Você ainda não tem nenhum cosmético."
++  "You don't own any cosmetics yet.": "Você ainda não tem nenhum cosmético.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "O resgate não foi concluído: o endereço do checkout não é o da Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Não preparado. O Horizon pode preparar o Minecraft {version} a partir da sua própria instalação; entre para baixá-lo da Mojang."
  }
 diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
-index 50e9dcf..e41d95b 100644
+index a659f6add..5e8c7ff94 100644
 --- a/launcher/lang/pt.json
 +++ b/launcher/lang/pt.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Estornado pelo banco",
-   "Paid": "Pago",
-   "Order {id}": "Encomenda {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "O pedido não foi concluído: o endereço do pagamento não é o da Horizon."
+@@ -1117,5 +1117,7 @@
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "O launcher fecha enquanto os teus dados são copiados e verificados, e volta a abrir no fim. As pastas antigas são mantidas e continuam a ocupar espaço no disco até confirmares que a transferência foi bem-sucedida e as apagares manualmente.",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Abrir a loja",
+-  "You don't own any cosmetics yet.": "Ainda não tens nenhum cosmético."
++  "You don't own any cosmetics yet.": "Ainda não tens nenhum cosmético.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "O pedido não foi concluído: o endereço do pagamento não é o da Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
-index 0ac9b21..6594f8f 100644
+index a5efba749..17f5e11bc 100644
 --- a/launcher/lang/ro.json
 +++ b/launcher/lang/ro.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Plată returnată de bancă",
-   "Paid": "Plătit",
-   "Order {id}": "Comanda {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cererea nu a reușit: adresa plății nu aparține Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Deschide magazinul",
+-  "You don't own any cosmetics yet.": "Încă nu ai produse cosmetice."
++  "You don't own any cosmetics yet.": "Încă nu ai produse cosmetice.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cererea nu a reușit: adresa plății nu aparține Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index 5737a20..3374312 100644
+index 64c5ce5fe..284bdd22a 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Возврат платежа банком",
-   "Paid": "Оплачено",
-   "Order {id}": "Заказ {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не прошла: адрес страницы оплаты не принадлежит Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Перенести и перезапустить",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Открыть магазин",
+-  "You don't own any cosmetics yet.": "У вас пока нет косметики."
++  "You don't own any cosmetics yet.": "У вас пока нет косметики.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не прошла: адрес страницы оплаты не принадлежит Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей собственной установки; войдите, чтобы скачать его с Mojang."
  }
 diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
-index 4b5cdaf..e3175c1 100644
+index 5532cea4a..07a050775 100644
 --- a/launcher/lang/sah.json
 +++ b/launcher/lang/sah.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Баанка төттөрү ылбыт",
-   "Paid": "Төлөммүт",
-   "Order {id}": "Сакаас {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Көрдөбүл ааспата: төлөбүр аадырыһа Horizon буолбатах."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Маҕаһыыны аһыы",
+-  "You don't own any cosmetics yet.": "Эйиэхэ билигин косметика суох."
++  "You don't own any cosmetics yet.": "Эйиэхэ билигин косметика суох.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Көрдөбүл ааспата: төлөбүр аадырыһа Horizon буолбатах.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/se.json b/launcher/lang/se.json
-index 555137b..18f1a03 100644
+index 1c4b9bbb5..f611fdcbb 100644
 --- a/launcher/lang/se.json
 +++ b/launcher/lang/se.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Báŋku fas váldán",
-   "Paid": "Máksojuvvon",
-   "Order {id}": "Diŋga {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ohcan ii lihkostuvvan: mávsima čujuhus ii leat Horizona."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Rabas gávpi",
+-  "You don't own any cosmetics yet.": "Dus ii leat vuos makkárge kosmetihkka."
++  "You don't own any cosmetics yet.": "Dus ii leat vuos makkárge kosmetihkka.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ohcan ii lihkostuvvan: mávsima čujuhus ii leat Horizona.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
-index f8a20e0..2f835af 100644
+index 68de5b80e..c6c14f0a4 100644
 --- a/launcher/lang/sk.json
 +++ b/launcher/lang/sk.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Vrátené bankou",
-   "Paid": "Zaplatené",
-   "Order {id}": "Objednávka {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok sa nepodarilo uplatniť: adresa platby nepatrí Horizonu."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Otvoriť obchod",
+-  "You don't own any cosmetics yet.": "Zatiaľ nemáte žiadnu kozmetiku."
++  "You don't own any cosmetics yet.": "Zatiaľ nemáte žiadnu kozmetiku.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok sa nepodarilo uplatniť: adresa platby nepatrí Horizonu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
-index f85e809..086a890 100644
+index eeb343f24..2b54c9b2c 100644
 --- a/launcher/lang/sl.json
 +++ b/launcher/lang/sl.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Banka je razveljavila plačilo",
-   "Paid": "Plačano",
-   "Order {id}": "Naročilo {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahteva ni uspela: naslov plačila ni Horizonov."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Odpri trgovino",
+-  "You don't own any cosmetics yet.": "Še nimate nobene kozmetike."
++  "You don't own any cosmetics yet.": "Še nimate nobene kozmetike.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahteva ni uspela: naslov plačila ni Horizonov.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/so.json b/launcher/lang/so.json
-index 55259f3..dc93efc 100644
+index f2c96618f..2d757b66d 100644
 --- a/launcher/lang/so.json
 +++ b/launcher/lang/so.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Bangiga ayaa dib u qaaday",
-   "Paid": "La bixiyay",
-   "Order {id}": "Dalab {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Codsigu ma dhicin: ciwaanka bixintu ma aha kan Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Fur dukaanka",
+-  "You don't own any cosmetics yet.": "Weli ma haysatid waxyaalo la isku qurxiyo."
++  "You don't own any cosmetics yet.": "Weli ma haysatid waxyaalo la isku qurxiyo.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Codsigu ma dhicin: ciwaanka bixintu ma aha kan Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
-index 0218dc0..ae9e6e2 100644
+index b166c1b6b..e184e96fc 100644
 --- a/launcher/lang/sq.json
 +++ b/launcher/lang/sq.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Kthyer nga banka",
-   "Paid": "Paguar",
-   "Order {id}": "Porosia {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kërkesa nuk kaloi: adresa e pagesës nuk është e Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Hap dyqanin",
+-  "You don't own any cosmetics yet.": "Ende nuk ke asnjë kozmetikë."
++  "You don't own any cosmetics yet.": "Ende nuk ke asnjë kozmetikë.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kërkesa nuk kaloi: adresa e pagesës nuk është e Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
-index 5bafa7a..636563e 100644
+index c534f85c4..f9cd08aa5 100644
 --- a/launcher/lang/sr.json
 +++ b/launcher/lang/sr.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банка поништила уплату",
-   "Paid": "Плаћено",
-   "Order {id}": "Поруџбина {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Захтев није прошао: адреса плаћања није Horizon-ова."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Отвори продавницу",
+-  "You don't own any cosmetics yet.": "Још увек немате козметику."
++  "You don't own any cosmetics yet.": "Још увек немате козметику.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Захтев није прошао: адреса плаћања није Horizon-ова.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
-index a8be71c..f2054ca 100644
+index ecf72a181..1bf0a15b9 100644
 --- a/launcher/lang/sv.json
 +++ b/launcher/lang/sv.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Återkrävd av banken",
-   "Paid": "Betald",
-   "Order {id}": "Order {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anspråket gick inte igenom: kassans adress är inte Horizons."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Öppna butiken",
+-  "You don't own any cosmetics yet.": "Du äger ingen kosmetika än."
++  "You don't own any cosmetics yet.": "Du äger ingen kosmetika än.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anspråket gick inte igenom: kassans adress är inte Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
-index 87c327f..dd43852 100644
+index d29c84149..fb0e02511 100644
 --- a/launcher/lang/szl.json
 +++ b/launcher/lang/szl.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Bank sztornowoł płatność",
-   "Paid": "Zapłacōne",
-   "Order {id}": "Zōmówiynie {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Żōdanie sie niy udało: adresa płatności niy należy do Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Ôtworz sklep",
+-  "You don't own any cosmetics yet.": "Jeszcze niy mosz żodnych kosmetyków."
++  "You don't own any cosmetics yet.": "Jeszcze niy mosz żodnych kosmetyków.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Żōdanie sie niy udało: adresa płatności niy należy do Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
-index fa2aae2..9831458 100644
+index 14a655048..70deca4c6 100644
 --- a/launcher/lang/ta.json
 +++ b/launcher/lang/ta.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "வங்கியால் திரும்பப் பெறப்பட்டது",
-   "Paid": "செலுத்தப்பட்டது",
-   "Order {id}": "ஆர்டர் {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "கோரிக்கை நிறைவேறவில்லை: செக்அவுட்டின் முகவரி Horizon-உடையது அல்ல."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "கடையைத் திற",
+-  "You don't own any cosmetics yet.": "உங்களிடம் இன்னும் அழகுசாதனப் பொருட்கள் எதுவும் இல்லை."
++  "You don't own any cosmetics yet.": "உங்களிடம் இன்னும் அழகுசாதனப் பொருட்கள் எதுவும் இல்லை.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "கோரிக்கை நிறைவேறவில்லை: செக்அவுட்டின் முகவரி Horizon-உடையது அல்ல.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index 79d7309..f636f0f 100644
+index 39c9705ce..1a718a71a 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "ธนาคารเรียกเงินคืน",
-   "Paid": "ชำระแล้ว",
-   "Order {id}": "คำสั่งซื้อ {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon"
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "เปิดร้านค้า",
+-  "You don't own any cosmetics yet.": "คุณยังไม่มีเครื่องสำอาง"
++  "You don't own any cosmetics yet.": "คุณยังไม่มีเครื่องสำอาง",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index 2e66533..cf1c54a 100644
+index b613d67d8..b8f8d69c6 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Banka tarafından geri alındı",
-   "Paid": "Ödendi",
-   "Order {id}": "Sipariş {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Talep tamamlanamadı: ödeme adresi Horizon'a ait değil."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Taşı ve yeniden başlat",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Mağazayı aç",
+-  "You don't own any cosmetics yet.": "Henüz hiç kozmetiğin yok."
++  "You don't own any cosmetics yet.": "Henüz hiç kozmetiğin yok.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Talep tamamlanamadı: ödeme adresi Horizon'a ait değil.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Hazırlanmadı. Horizon, Minecraft {version} sürümünü kendi kurulumunuzdan hazırlayabilir; Mojang'dan indirmek için oturum açın."
  }
 diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
-index 22d13aa..f006d8e 100644
+index ff03fd4a7..339fc98ef 100644
 --- a/launcher/lang/tt.json
 +++ b/launcher/lang/tt.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк кире алды",
-   "Paid": "Түләнде",
-   "Order {id}": "Заказ {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Таләп узмады: түләү адресы Horizon'ныкы түгел."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Кибетне ачу",
+-  "You don't own any cosmetics yet.": "Сездә әле косметика юк."
++  "You don't own any cosmetics yet.": "Сездә әле косметика юк.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Таләп узмады: түләү адресы Horizon'ныкы түгел.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index b9c8af1..5779687 100644
+index 481343caa..26b2be5b0 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Банк скасував платіж",
-   "Paid": "Оплачено",
-   "Order {id}": "Замовлення {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не пройшла: адреса сторінки оплати не належить Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "Перенести й перезапустити",
+   "Could not open the data folder: {error}": "Could not open the data folder: {error}",
+   "Open the shop": "Відкрити крамницю",
+-  "You don't own any cosmetics yet.": "У вас поки немає косметики."
++  "You don't own any cosmetics yet.": "У вас поки немає косметики.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не пройшла: адреса сторінки оплати не належить Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} із вашої власної установки; увійдіть, щоб завантажити його з Mojang."
  }
 diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
-index a3c3202..940eae1 100644
+index 6ff62cacb..5a7666683 100644
 --- a/launcher/lang/ur.json
 +++ b/launcher/lang/ur.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "بینک نے ادائیگی واپس لے لی",
-   "Paid": "ادا شدہ",
-   "Order {id}": "آرڈر {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "دعویٰ مکمل نہیں ہو سکا: چیک آؤٹ کا پتہ Horizon کا نہیں ہے۔"
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "دکان کھولیں",
+-  "You don't own any cosmetics yet.": "آپ کے پاس ابھی تک کوئی کاسمیٹکس نہیں ہے۔"
++  "You don't own any cosmetics yet.": "آپ کے پاس ابھی تک کوئی کاسمیٹکس نہیں ہے۔",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "دعویٰ مکمل نہیں ہو سکا: چیک آؤٹ کا پتہ Horizon کا نہیں ہے۔",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
-index 15fae82..b25c1d7 100644
+index ee3f6291f..8b500ae72 100644
 --- a/launcher/lang/uz.json
 +++ b/launcher/lang/uz.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Bank qaytarib oldi",
-   "Paid": "To‘langan",
-   "Order {id}": "Buyurtma {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Da’vo o‘tmadi: to‘lov manzili Horizon’niki emas."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Do‘konni ochish",
+-  "You don't own any cosmetics yet.": "Sizda hali kosmetika yo'q."
++  "You don't own any cosmetics yet.": "Sizda hali kosmetika yo'q.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Da’vo o‘tmadi: to‘lov manzili Horizon’niki emas.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
-index 4215f12..fc18036 100644
+index 9cd934e4e..9fc0039a6 100644
 --- a/launcher/lang/vec.json
 +++ b/launcher/lang/vec.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Stornà da la banca",
-   "Paid": "Pagà",
-   "Order {id}": "Ordine {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta no la xe ndà a bon fin: l'indirizzo del pagamento no 'l xe quel de Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Verxi el negozio",
+-  "You don't own any cosmetics yet.": "Te ghè ancora nissun cosmetico."
++  "You don't own any cosmetics yet.": "Te ghè ancora nissun cosmetico.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta no la xe ndà a bon fin: l'indirizzo del pagamento no 'l xe quel de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
-index d54b797..8b1f00a 100644
+index 7730a898d..2c89aed0a 100644
 --- a/launcher/lang/vi.json
 +++ b/launcher/lang/vi.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Bị ngân hàng đảo giao dịch",
-   "Paid": "Đã thanh toán",
-   "Order {id}": "Đơn hàng {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Yêu cầu không thành công: địa chỉ trang thanh toán không phải của Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Mở cửa hàng",
+-  "You don't own any cosmetics yet.": "Bạn chưa có mỹ phẩm nào."
++  "You don't own any cosmetics yet.": "Bạn chưa có mỹ phẩm nào.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Yêu cầu không thành công: địa chỉ trang thanh toán không phải của Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
-index 28f9839..e961381 100644
+index 6376f3709..4d059e164 100644
 --- a/launcher/lang/yi.json
 +++ b/launcher/lang/yi.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "דער באַנק האָט צוריקגענומען",
-   "Paid": "באַצאָלט",
-   "Order {id}": "באַשטעלונג {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "די פֿאָדערונג איז נישט דורכגעגאַנגען: די אַדרעס פֿון דער צאָלונג איז נישט פֿון Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "עפֿן דעם קראָם",
+-  "You don't own any cosmetics yet.": "דו האסט נאָך קיין קאָסמעטיקס נישט."
++  "You don't own any cosmetics yet.": "דו האסט נאָך קיין קאָסמעטיקס נישט.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "די פֿאָדערונג איז נישט דורכגעגאַנגען: די אַדרעס פֿון דער צאָלונג איז נישט פֿון Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
-index 8d1d5d1..56866eb 100644
+index d0f46356a..c5d195f0b 100644
 --- a/launcher/lang/yo.json
 +++ b/launcher/lang/yo.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Ilé ìfowópamọ́ ti gba padà",
-   "Paid": "A ti sanwó",
-   "Order {id}": "Àṣẹ ríra {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ìbéèrè náà kò yọrí: àdírẹ́sì ojú ìwé sísan owó kì í ṣe ti Horizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Ṣí ṣọ́ọ̀bù",
+-  "You don't own any cosmetics yet.": "O ò tíì ní ohun ikunra kankan."
++  "You don't own any cosmetics yet.": "O ò tíì ní ohun ikunra kankan.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ìbéèrè náà kò yọrí: àdírẹ́sì ojú ìwé sísan owó kì í ṣe ti Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index 3febd0f..feb5fd5 100644
+index cd0c17632..f1cb2a186 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "已拒付",
-   "Paid": "已支付",
-   "Order {id}": "订单 {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "领取未成功：结账页面的地址不是 Horizon 的。"
+@@ -1117,5 +1117,7 @@
+   "Move and restart": "迁移并重启",
+   "Could not open the data folder: {error}": "无法打开数据文件夹：{error}",
+   "Open the shop": "打开商店",
+-  "You don't own any cosmetics yet.": "你还没有任何装饰。"
++  "You don't own any cosmetics yet.": "你还没有任何装饰。",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "领取未成功：结账页面的地址不是 Horizon 的。",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "尚未准备。Horizon 可以从你自己的安装中准备 Minecraft {version}；登录则以从 Mojang 下载。"
  }
 diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
-index 016dd9c..999b83c 100644
+index 7a409e1de..e40dd71f6 100644
 --- a/launcher/lang/zu.json
 +++ b/launcher/lang/zu.json
-@@ -1162,5 +1162,6 @@
-   "Charged back": "Ibhange libuyisile",
-   "Paid": "Kukhokhiwe",
-   "Order {id}": "I-oda {id}",
--  "The claim didn't go through: the checkout's address isn't Horizon's.": "Isicelo asiphumelelanga: ikheli lokukhokha akulona elikaHorizon."
+@@ -1117,5 +1117,7 @@
+   "Move…": "Move…",
+   "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.": "The launcher closes while your data is copied and verified, then reopens. Old folders are kept and still use disk space until you verify the move and remove them yourself.",
+   "Open the shop": "Vula isitolo",
+-  "You don't own any cosmetics yet.": "Awunazo izimonyo okwamanje."
++  "You don't own any cosmetics yet.": "Awunazo izimonyo okwamanje.",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Isicelo asiphumelelanga: ikheli lokukhokha akulona elikaHorizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index 2407a2f..c0cc481 100644
+index 2407a2f02..c0cc481f1 100644
 --- a/launcher/src/account.rs
 +++ b/launcher/src/account.rs
 @@ -6,8 +6,6 @@
@@ -1302,7 +1388,7 @@ index 2407a2f..c0cc481 100644
      (
          accounts.selected,
 diff --git a/launcher/src/account/tests.rs b/launcher/src/account/tests.rs
-index 6684b3e..0a7b305 100644
+index 6684b3e76..0a7b305b1 100644
 --- a/launcher/src/account/tests.rs
 +++ b/launcher/src/account/tests.rs
 @@ -682,76 +682,48 @@ fn any_owner_opens_the_gate_and_the_one_who_plays_brings_the_session() {
@@ -1433,7 +1519,7 @@ index 6684b3e..0a7b305 100644
      let dir = std::env::temp_dir().join(format!("horizon-accounts-{}", std::process::id()));
      let _ = std::fs::remove_dir_all(&dir);
 diff --git a/launcher/src/cli.rs b/launcher/src/cli.rs
-index ea72416..581c3b1 100644
+index b1084c2af..44516a13b 100644
 --- a/launcher/src/cli.rs
 +++ b/launcher/src/cli.rs
 @@ -126,14 +126,16 @@ enum AccountCmd {
@@ -1460,7 +1546,7 @@ index ea72416..581c3b1 100644
      /// Show or set an offline name's skin and cape: a 64x64 (or 64x32) skin PNG, a 64x32 cape
      /// PNG, the model. Kept by the launcher and given to the game when that name plays
      Skin {
-@@ -1463,7 +1465,7 @@ fn execute(command: Cmd, as_json: bool) -> Result<(), String> {
+@@ -1504,7 +1506,7 @@ fn execute(command: Cmd, as_json: bool) -> Result<(), String> {
                  None => None,
              };
              if let Some(who) = &who {
@@ -1469,7 +1555,7 @@ index ea72416..581c3b1 100644
              }
              let mut cmd =
                  backend::client_as(&instance.resolve_version(version.as_deref())?, who.as_ref())?;
-@@ -1874,8 +1876,9 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -1914,8 +1916,9 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                  }));
              } else if accounts.accounts.is_empty() && accounts.offline.is_empty() {
                  println!(
@@ -1481,7 +1567,7 @@ index ea72416..581c3b1 100644
                  );
              } else {
                  for a in &accounts.accounts {
-@@ -1897,7 +1900,10 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -1937,7 +1940,10 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                      );
                  }
                  if !accounts.has_owner(account::store()) {
@@ -1493,7 +1579,7 @@ index ea72416..581c3b1 100644
                  }
              }
          }
-@@ -1988,7 +1994,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -2028,7 +2034,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                  ),
                  (None, None) => return Err(find(&accounts, &who).unwrap_err()),
              };
@@ -1502,7 +1588,7 @@ index ea72416..581c3b1 100644
              accounts.save()?;
              println!("The game plays as {name}.");
          }
-@@ -1997,7 +2003,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
+@@ -2037,7 +2043,7 @@ fn account_command(action: AccountCmd, as_json: bool) -> Result<(), String> {
                  Some(n) => account::Player::Offline(n),
                  None => account::Player::GameName,
              };
@@ -1513,7 +1599,7 @@ index ea72416..581c3b1 100644
                  Some(n) => println!("The game plays offline as {n}."),
 diff --git a/launcher/src/dev_options.rs b/launcher/src/dev_options.rs
 deleted file mode 100644
-index a2ade17..0000000
+index a2ade17d7..000000000
 --- a/launcher/src/dev_options.rs
 +++ /dev/null
 @@ -1,62 +0,0 @@
@@ -1580,10 +1666,10 @@ index a2ade17..0000000
 -    }
 -}
 diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
-index 9d0bff6..c34cc1f 100644
+index 9cc84af18..4d7ff6956 100644
 --- a/launcher/src/frame.rs
 +++ b/launcher/src/frame.rs
-@@ -400,36 +400,6 @@ impl Launcher {
+@@ -415,36 +415,6 @@ impl Launcher {
              _ => {}
          }
  
@@ -1620,7 +1706,7 @@ index 9d0bff6..c34cc1f 100644
          if !self.links.discord.is_empty() {
              let url = self.links.discord.clone();
              foot = foot.child(keyboard(
-@@ -507,11 +477,7 @@ impl Launcher {
+@@ -522,11 +492,7 @@ impl Launcher {
                  .id("launcher-version")
                  .px(px(8.))
                  .pt(px(8.))
@@ -1634,10 +1720,10 @@ index 9d0bff6..c34cc1f 100644
  
          crate::glass::plate(radius::PANEL)
 diff --git a/launcher/src/glass_settings.rs b/launcher/src/glass_settings.rs
-index 2295e6b..5beb147 100644
+index 01c4c7477..49d7e652c 100644
 --- a/launcher/src/glass_settings.rs
 +++ b/launcher/src/glass_settings.rs
-@@ -443,8 +443,7 @@ impl Launcher {
+@@ -444,8 +444,7 @@ impl Launcher {
                      Some(b.menu_entry.into_any_element()),
                      &t,
                  ))
@@ -1648,7 +1734,7 @@ index 2295e6b..5beb147 100644
          vec![account, updates, launcher, network, game, ai, about, data]
      }
 diff --git a/launcher/src/home.rs b/launcher/src/home.rs
-index 5d48c63..27dbf43 100644
+index 5d48c63c8..27dbf43bc 100644
 --- a/launcher/src/home.rs
 +++ b/launcher/src/home.rs
 @@ -243,7 +243,7 @@ impl Launcher {
@@ -1661,7 +1747,7 @@ index 5d48c63..27dbf43 100644
              PlayPress::Play => {
                  play = play.on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index adabef7..5fb11dc 100644
+index 62a582bc5..6e178a7af 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
 @@ -13,7 +13,6 @@ mod console;
@@ -1672,7 +1758,7 @@ index adabef7..5fb11dc 100644
  mod export_page;
  mod frame;
  mod game_tools;
-@@ -56,7 +55,6 @@ mod native_log_page;
+@@ -57,7 +56,6 @@ mod native_log_page;
  mod new_instance;
  mod owner_page;
  mod packs_page;
@@ -1680,7 +1766,7 @@ index adabef7..5fb11dc 100644
  mod perf;
  mod plate;
  mod profile_heads;
-@@ -354,10 +352,6 @@ struct Launcher {
+@@ -368,10 +366,6 @@ struct Launcher {
      owner: Option<bool>,
      /// Play was refused (or Home's Sign in pressed): the owner gate's screen is open.
      owner_screen_open: bool,
@@ -1691,7 +1777,7 @@ index adabef7..5fb11dc 100644
      /// The game is waiting for its session (a token renewal), or a Java instance for its files
      /// and Java (`start_java`), before it starts.
      starting_client: Option<String>,
-@@ -493,30 +487,6 @@ impl Launcher {
+@@ -507,30 +501,6 @@ impl Launcher {
              }
          })
          .detach();
@@ -1722,7 +1808,7 @@ index adabef7..5fb11dc 100644
          let mut settings = Settings::load();
          i18n::set(settings.language());
          if settings.minecraft_dir.is_none() {
-@@ -650,8 +620,6 @@ impl Launcher {
+@@ -668,8 +638,6 @@ impl Launcher {
              keychain: None,
              owner: None,
              owner_screen_open: false,
@@ -1731,7 +1817,7 @@ index adabef7..5fb11dc 100644
              starting_client: None,
              play_when_prepared: None,
              friend_code: line_edit::LineEdit::new(String::new(), 256, 32),
-@@ -1121,8 +1089,7 @@ impl Launcher {
+@@ -1151,8 +1119,7 @@ impl Launcher {
                                  continue;
                              }
                          };
@@ -1741,7 +1827,7 @@ index adabef7..5fb11dc 100644
                              self.owner = Some(true);
                          }
                          if let Some(file) = file {
-@@ -1741,10 +1708,9 @@ impl Launcher {
+@@ -1781,10 +1748,9 @@ impl Launcher {
          self.starting_client = Some(tag.clone());
          self.play_pressed = Some(Instant::now());
          let tx = self.tx.clone();
@@ -1753,7 +1839,7 @@ index adabef7..5fb11dc 100644
              let _ = tx.send(Msg::Session(session));
          });
      }
-@@ -2310,10 +2276,7 @@ fn segments<T: Copy + PartialEq + 'static>(
+@@ -2350,10 +2316,7 @@ fn segments<T: Copy + PartialEq + 'static>(
  #[derive(Clone, Copy, Debug, PartialEq, Eq)]
  enum PlayPress {
      Play,
@@ -1764,7 +1850,7 @@ index adabef7..5fb11dc 100644
      Nothing,
  }
  
-@@ -2360,13 +2323,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
+@@ -2400,13 +2363,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
      Some(next)
  }
  
@@ -1781,7 +1867,7 @@ index adabef7..5fb11dc 100644
      }
  }
  
-@@ -2374,7 +2335,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
+@@ -2414,7 +2375,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
  /// code, a pack's Play) starts it now: only when Play would play. Never while a preparation runs:
  /// the game would open on half-written files.
  fn starts_now(prepared: bool, preparing: bool, running: bool) -> bool {
@@ -1790,7 +1876,7 @@ index adabef7..5fb11dc 100644
  }
  
  /// Whether `tag` can start being deleted now: it is installed, no install is writing it, and it
-@@ -2752,7 +2713,6 @@ impl Launcher {
+@@ -2801,7 +2762,6 @@ impl Launcher {
              },
          ));
          let items = self.instance_items(heading, cx);
@@ -1798,7 +1884,7 @@ index adabef7..5fb11dc 100644
          let list = div()
              .flex()
              .flex_col()
-@@ -2768,8 +2728,6 @@ impl Launcher {
+@@ -2817,8 +2777,6 @@ impl Launcher {
          if !servers.is_empty() {
              list = list.child(heading(tr("SERVERS").into()));
          }
@@ -1807,7 +1893,7 @@ index adabef7..5fb11dc 100644
          for e in servers {
              let up = self.servers.is_up(&e.dir);
              let open = self.page == Page::Servers && self.servers.open.as_ref() == Some(&e.dir);
-@@ -2877,34 +2835,6 @@ impl Launcher {
+@@ -2926,34 +2884,6 @@ impl Launcher {
              }
              _ => {}
          }
@@ -1842,7 +1928,7 @@ index adabef7..5fb11dc 100644
          if !self.links.sponsor.is_empty() {
              foot = foot.child(link(
                  "sponsor",
-@@ -2934,11 +2864,7 @@ impl Launcher {
+@@ -2983,11 +2913,7 @@ impl Launcher {
                  .id("launcher-version")
                  .px(px(8.))
                  .pt(px(6.))
@@ -1855,7 +1941,7 @@ index adabef7..5fb11dc 100644
          );
          // Custom title bars carry the mark and name already.
          let brand = (!titlebar::draws_brand(window)).then(|| {
-@@ -3155,10 +3081,8 @@ impl Launcher {
+@@ -3204,10 +3130,8 @@ impl Launcher {
          let left = self.download_left();
          let steps = self.preparing.then(|| self.steps(&version, left));
  
@@ -1867,7 +1953,7 @@ index adabef7..5fb11dc 100644
              .flatten();
          // No launcher folder with Minecraft on this computer: an owner needs none.
          let no_install = self.settings.minecraft_dir.is_none();
-@@ -3173,7 +3097,7 @@ impl Launcher {
+@@ -3222,7 +3146,7 @@ impl Launcher {
                  &[("version", &version)],
              ),
              Some(false) => trf(
@@ -1876,7 +1962,7 @@ index adabef7..5fb11dc 100644
                  &[("version", &version)],
              ),
              None => backend::resources_summary(prepared, !silent, &version),
-@@ -3232,12 +3156,25 @@ impl Launcher {
+@@ -3281,12 +3205,25 @@ impl Launcher {
                          cx.notify();
                      })),
                  ),
@@ -1908,7 +1994,7 @@ index adabef7..5fb11dc 100644
              None => div().child(prepare),
          };
          let owner = self.owner == Some(true);
-@@ -3305,11 +3242,10 @@ impl Launcher {
+@@ -3354,11 +3291,10 @@ impl Launcher {
                  &t,
              )),
          };
@@ -1923,7 +2009,7 @@ index adabef7..5fb11dc 100644
                  rows = rows.child(index_row(
                      5,
                      tr("Microsoft account"),
-@@ -3851,7 +3787,6 @@ impl Launcher {
+@@ -3894,7 +3830,6 @@ impl Launcher {
              )
              .child(self.collection_section(cx))
              .children(self.agents_section(cx))
@@ -1931,7 +2017,7 @@ index adabef7..5fb11dc 100644
      }
  
      /// The warning before a native build: what the mods can do and which mods. The build starts
-@@ -5568,22 +5503,13 @@ mod tests {
+@@ -5667,22 +5602,13 @@ mod tests {
          );
      }
  
@@ -1960,7 +2046,7 @@ index adabef7..5fb11dc 100644
  
      /// A server's Join (and every other shortcut) waits like Play: not while the version's
 diff --git a/launcher/src/mcp.rs b/launcher/src/mcp.rs
-index d910ae5..8e6fed0 100644
+index d910ae5b9..8e6fed028 100644
 --- a/launcher/src/mcp.rs
 +++ b/launcher/src/mcp.rs
 @@ -210,7 +210,6 @@ impl Session {
@@ -1972,7 +2058,7 @@ index d910ae5..8e6fed0 100644
                      "sign_in": sign_in,
                  }))
 diff --git a/launcher/src/owner_page.rs b/launcher/src/owner_page.rs
-index 3e0acab..5cb3357 100644
+index 3e0acab44..5cb33571f 100644
 --- a/launcher/src/owner_page.rs
 +++ b/launcher/src/owner_page.rs
 @@ -1,28 +1,14 @@
@@ -2075,7 +2161,7 @@ index 3e0acab..5cb3357 100644
                  shell::action("owner-later", shell::Action::Quiet, &t)
                      .child(shell::label(tr("Not now").to_string()))
 diff --git a/launcher/src/switch_page.rs b/launcher/src/switch_page.rs
-index b968f9d..4192256 100644
+index b968f9d1e..419225692 100644
 --- a/launcher/src/switch_page.rs
 +++ b/launcher/src/switch_page.rs
 @@ -24,9 +24,7 @@ impl Launcher {
@@ -2090,7 +2176,7 @@ index b968f9d..4192256 100644
              Ok(()) => self.accounts = accounts,
              Err(e) => self.sign_in_state = Some(SignInState::Done(Err(e))),
 diff --git a/launcher/tests/owner_gate.rs b/launcher/tests/owner_gate.rs
-index 3a78692..8f263f9 100644
+index 3a7869272..8f263f93b 100644
 --- a/launcher/tests/owner_gate.rs
 +++ b/launcher/tests/owner_gate.rs
 @@ -1,25 +1,18 @@

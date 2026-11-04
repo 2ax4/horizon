@@ -1,4 +1,4 @@
-From 2de6f9c630bb0732c3dd83ddf05f762fafdc7b39 Mon Sep 17 00:00:00 2001
+From 4e6155be9110243585ee3c8fdb8925a2d26e1afd Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 4/5] Offline build: quiet sign-in notices and fork repo
@@ -8,7 +8,7 @@ Subject: [PATCH 4/5] Offline build: quiet sign-in notices and fork repo
  1 file changed, 33 insertions(+), 26 deletions(-)
 
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 8827c17..b99c14c 100644
+index ebd3f93e5..1a64c34eb 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
 @@ -10,6 +10,7 @@ use std::sync::mpsc::Sender;
@@ -19,7 +19,7 @@ index 8827c17..b99c14c 100644
  pub const README_URL: &str = "https://github.com/horizon-rust/horizon/blob/main/launcher/README.md";
  /// The players' page on connecting an AI agent (the website's docs/agents.md).
  pub const AGENT_DOCS_URL: &str = "https://playhorizon.dev/docs/agents";
-@@ -715,7 +716,16 @@ pub(crate) fn fetch_small(url: &str) -> Result<Option<Vec<u8>>, String> {
+@@ -770,7 +771,16 @@ pub(crate) fn fetch_small(url: &str) -> Result<Option<Vec<u8>>, String> {
  
  /// The SHA-256 the release's signed checksums give for `asset`, or why it must not be installed.
  fn signed_digest(tag: &str, asset: &str) -> Result<String, String> {
@@ -36,15 +36,15 @@ index 8827c17..b99c14c 100644
          tag,
          asset,
          &horizon_release_sign::trusted_keys(),
-@@ -782,6 +792,7 @@ pub fn install(release: &Release, progress: impl Fn(f32)) -> Result<(), String>
+@@ -838,6 +848,7 @@ pub fn install(release: &Release, progress: impl Fn(f32)) -> Result<(), String>
      let sha256 = match &release.nightly {
          // Signed for the Nightly channel, served under its own GitHub tag.
          Some(published) => crate::signed::nightly_digest(
 +            REPO,
              published,
-             ASSET.unwrap_or_default(),
+             asset,
              &horizon_release_sign::trusted_keys(),
-@@ -1495,8 +1506,6 @@ fn download_for_owner(
+@@ -1568,8 +1579,6 @@ fn download_for_owner(
      log: &dyn Fn(String),
  ) -> Result<(), String> {
      let mut accounts = account::Accounts::load();
@@ -53,7 +53,7 @@ index 8827c17..b99c14c 100644
      let pass = account::launch(
          &account::Endpoints::live(),
          account::client_id().as_deref(),
-@@ -2458,9 +2467,6 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
+@@ -2551,9 +2560,6 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
      }
  }
  
@@ -63,7 +63,7 @@ index 8827c17..b99c14c 100644
  pub fn client(tag: &str) -> Result<Command, String> {
      client_as(tag, None)
  }
-@@ -2468,7 +2474,7 @@ pub fn client(tag: &str) -> Result<Command, String> {
+@@ -2561,7 +2567,7 @@ pub fn client(tag: &str) -> Result<Command, String> {
  /// [`client`], playing as `who` for this launch only (`play --account`).
  pub fn client_as(tag: &str, who: Option<&account::Player>) -> Result<Command, String> {
      let session = match who {
@@ -72,7 +72,7 @@ index 8827c17..b99c14c 100644
          Some(who) => account::session_for_game_as(&game_home(), who),
      }
      .map_err(|refused| format!("{refused} Sign in with `horizon-launcher account sign-in`."))?;
-@@ -2639,13 +2645,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
+@@ -2732,13 +2738,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
  pub fn releases_and_updates(
      on_releases: impl FnOnce(Result<Vec<Release>, String>),
  ) -> Result<Updates, String> {
@@ -99,7 +99,7 @@ index 8827c17..b99c14c 100644
      on_releases: impl FnOnce(Result<Vec<Release>, String>),
  ) -> Result<Updates, String> {
      let list = match load() {
-@@ -2656,11 +2674,12 @@ fn releases_and_updates_with(
+@@ -2749,11 +2767,12 @@ fn releases_and_updates_with(
          }
      };
      let releases = game_releases(&list);
@@ -114,7 +114,7 @@ index 8827c17..b99c14c 100644
      })
  }
  
-@@ -2958,7 +2977,7 @@ pub fn self_update(release: &Release, progress: impl Fn(f32)) -> Result<(), Stri
+@@ -3051,7 +3070,7 @@ pub fn self_update(release: &Release, progress: impl Fn(f32)) -> Result<(), Stri
          progress(1.0);
          return Ok(());
      }
@@ -123,7 +123,7 @@ index 8827c17..b99c14c 100644
      let work = data_dir().join(".launcher-update");
      let _ = fs::remove_dir_all(&work);
      fs::create_dir_all(&work).map_err(|e| e.to_string())?;
-@@ -3348,13 +3367,6 @@ pub struct Settings {
+@@ -3441,13 +3460,6 @@ pub struct Settings {
      /// one now (the owner gate's screen).
      #[serde(default)]
      pub owner_notice_seen: bool,
@@ -137,7 +137,7 @@ index 8827c17..b99c14c 100644
      /// What the window does while the game runs. Stays by default.
      #[serde(default)]
      pub while_playing: WhilePlaying,
-@@ -3391,12 +3403,6 @@ pub struct Settings {
+@@ -3492,12 +3504,6 @@ pub struct Settings {
      /// An older file's switch for the release profile, read when `native_profile` is unset.
      #[serde(default, skip_serializing_if = "std::ops::Not::not")]
      pub native_release: bool,
@@ -150,7 +150,7 @@ index 8827c17..b99c14c 100644
  }
  
  impl Settings {
-@@ -3632,8 +3638,6 @@ mod tests {
+@@ -3737,8 +3743,6 @@ mod tests {
      }
  
      /// The launcher downloads Mojang's game files (client jar, libraries, assets) only for an
@@ -159,7 +159,7 @@ index 8827c17..b99c14c 100644
      #[test]
      fn mojang_downloads_only_for_an_owner() {
          let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
-@@ -3728,7 +3732,10 @@ mod tests {
+@@ -3833,7 +3837,10 @@ mod tests {
          };
          assert!(body("download_for").contains("mojang::download("));
          assert!(body("download_for_owner").contains("account::launch("));

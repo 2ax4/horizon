@@ -1,4 +1,4 @@
-From 1408ab86634fbf6e6931f568dded99e2612abc44 Mon Sep 17 00:00:00 2001
+From 4077d157882fef0c2ecce02b8d75f9a54c688609 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 2/5] Offline updates follow the fork's releases
@@ -10,7 +10,7 @@ Subject: [PATCH 2/5] Offline updates follow the fork's releases
  3 files changed, 157 insertions(+), 38 deletions(-)
 
 diff --git a/crates/horizon-release-sign/release-keys.txt b/crates/horizon-release-sign/release-keys.txt
-index c39be44..c510154 100644
+index c39be4435..c51015423 100644
 --- a/crates/horizon-release-sign/release-keys.txt
 +++ b/crates/horizon-release-sign/release-keys.txt
 @@ -3,3 +3,4 @@
@@ -19,7 +19,7 @@ index c39be44..c510154 100644
  MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
 +DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
 diff --git a/launcher/src/backend/release_loading_tests.rs b/launcher/src/backend/release_loading_tests.rs
-index d7f839b..d64487c 100644
+index d7f839bde..d64487c02 100644
 --- a/launcher/src/backend/release_loading_tests.rs
 +++ b/launcher/src/backend/release_loading_tests.rs
 @@ -42,33 +42,74 @@ fn baseline(load: impl Fn() -> Result<serde_json::Value, String>) -> (Vec<Releas
@@ -202,7 +202,7 @@ index d7f839b..d64487c 100644
              "{label}: before={} after={} ratio={:.3}x requests={}->{}",
              before.0,
 diff --git a/launcher/src/signed.rs b/launcher/src/signed.rs
-index 9f2b439..2c003e3 100644
+index 9f2b439ca..2c003e362 100644
 --- a/launcher/src/signed.rs
 +++ b/launcher/src/signed.rs
 @@ -4,18 +4,18 @@
