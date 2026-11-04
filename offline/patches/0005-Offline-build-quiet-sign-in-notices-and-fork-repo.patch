@@ -1,4 +1,4 @@
-From 289bf3604545cb1421c0004953768471cac51c2d Mon Sep 17 00:00:00 2001
+From e400281cf8c3bc91f2e98efd2b5130e408ededa6 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 4/5] Offline build: quiet sign-in notices and fork repo

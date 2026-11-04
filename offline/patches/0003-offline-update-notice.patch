@@ -1,13 +1,13 @@
-From 4720c80b18787f46dfe98038992129894a0dcdeb Mon Sep 17 00:00:00 2001
+From d1ef82bd5a19a1128b555c19552e84a8f9fab148 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 2/5] Offline updates follow the fork's releases
 
 ---
  crates/horizon-release-sign/release-keys.txt  |   1 +
- launcher/src/backend/release_loading_tests.rs |  89 +++++++++++----
+ launcher/src/backend/release_loading_tests.rs |  90 +++++++++++----
  launcher/src/signed.rs                        | 104 +++++++++++++++---
- 3 files changed, 156 insertions(+), 38 deletions(-)
+ 3 files changed, 157 insertions(+), 38 deletions(-)
 
 diff --git a/crates/horizon-release-sign/release-keys.txt b/crates/horizon-release-sign/release-keys.txt
 index c39be4435..c51015423 100644
@@ -19,10 +19,10 @@ index c39be4435..c51015423 100644
  MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
 +DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
 diff --git a/launcher/src/backend/release_loading_tests.rs b/launcher/src/backend/release_loading_tests.rs
-index d7f839bde..ec6dd6bcf 100644
+index d7f839bde..d64487c02 100644
 --- a/launcher/src/backend/release_loading_tests.rs
 +++ b/launcher/src/backend/release_loading_tests.rs
-@@ -42,33 +42,73 @@ fn baseline(load: impl Fn() -> Result<serde_json::Value, String>) -> (Vec<Releas
+@@ -42,33 +42,74 @@ fn baseline(load: impl Fn() -> Result<serde_json::Value, String>) -> (Vec<Releas
      (releases, updates)
  }
  
@@ -84,6 +84,7 @@ index d7f839bde..ec6dd6bcf 100644
 +        name: tag.into(),
 +        body: String::new(),
 +        date: String::new(),
++        time: String::new(),
 +        asset: asset(),
 +        prerelease: false,
 +        nightly: None,
@@ -108,7 +109,7 @@ index d7f839bde..ec6dd6bcf 100644
      );
  }
  
-@@ -84,6 +124,7 @@ fn errors_reach_releases_and_updates_without_fallback() {
+@@ -84,6 +125,7 @@ fn errors_reach_releases_and_updates_without_fallback() {
              || Err(error.into()),
              || panic!("no installed scan after failure"),
              |_| panic!("no fallback after failure"),
@@ -116,7 +117,7 @@ index d7f839bde..ec6dd6bcf 100644
              |r| published = Some(r),
          );
          assert_eq!(published.unwrap().unwrap_err(), error);
-@@ -92,7 +133,7 @@ fn errors_reach_releases_and_updates_without_fallback() {
+@@ -92,7 +134,7 @@ fn errors_reach_releases_and_updates_without_fallback() {
  }
  
  #[test]
@@ -125,7 +126,7 @@ index d7f839bde..ec6dd6bcf 100644
      let events = RefCell::new(Vec::new());
      let result = releases_and_updates_with(
          || Ok(serde_json::json!([{"tag_name": "v2026.10.14", "assets": []}])),
-@@ -102,10 +143,10 @@ fn publish_games_before_older_launcher_fallback() {
+@@ -102,10 +144,10 @@ fn publish_games_before_older_launcher_fallback() {
                  assert_eq!(events.borrow().first(), Some(&"releases"));
                  events.borrow_mut().push("fallback");
                  if url.contains("matching-refs") {
@@ -138,7 +139,7 @@ index d7f839bde..ec6dd6bcf 100644
                              "name": LAUNCHER_ASSET.unwrap_or("unsupported"),
                              "browser_download_url": "u", "size": 1
                          }]}),
-@@ -113,6 +154,7 @@ fn publish_games_before_older_launcher_fallback() {
+@@ -113,6 +155,7 @@ fn publish_games_before_older_launcher_fallback() {
                  }
              })
          },
@@ -146,7 +147,7 @@ index d7f839bde..ec6dd6bcf 100644
          |r| {
              assert_eq!(r.unwrap()[0].tag, "v2026.10.14");
              events.borrow_mut().push("releases");
-@@ -124,17 +166,19 @@ fn publish_games_before_older_launcher_fallback() {
+@@ -124,17 +167,19 @@ fn publish_games_before_older_launcher_fallback() {
  }
  
  #[test]
@@ -168,7 +169,7 @@ index d7f839bde..ec6dd6bcf 100644
              |r| published = Some(r.unwrap()),
          )
          .unwrap();
-@@ -157,7 +201,7 @@ fn benchmark_shared_startup_response() {
+@@ -157,7 +202,7 @@ fn benchmark_shared_startup_response() {
          serde_json::from_str(black_box(&text)).map_err(|e| e.to_string())
      };
      let old = || baseline(|| load(Duration::ZERO));
@@ -177,7 +178,7 @@ index d7f839bde..ec6dd6bcf 100644
      assert_eq!(
          serde_json::to_value(old()).unwrap(),
          serde_json::to_value(new()).unwrap()
-@@ -187,7 +231,12 @@ fn benchmark_shared_startup_response() {
+@@ -187,7 +232,12 @@ fn benchmark_shared_startup_response() {
      let threaded_new = || {
          std::thread::scope(|scope| {
              scope
@@ -191,7 +192,7 @@ index d7f839bde..ec6dd6bcf 100644
                  .join()
                  .unwrap()
          })
-@@ -227,7 +276,7 @@ fn benchmark_shared_startup_response() {
+@@ -227,7 +277,7 @@ fn benchmark_shared_startup_response() {
              measure(threaded_new, &requests),
          ),
      ] {

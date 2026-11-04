@@ -1,4 +1,4 @@
-From e190872be5ef186a0e4256b29cc44ff94518940c Mon Sep 17 00:00:00 2001
+From c3071b99f6939aaf2e3de41ef4b387bfb2e43779 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:36:01 +0000
 Subject: [PATCH 5/5] Offline build: drop the translations of the strings the
