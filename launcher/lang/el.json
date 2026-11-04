@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Μη προετοιμασμένοι. Παίξτε κατεβάζει το Minecraft {version} από τη Mojang για τον λογαριασμό σας και το προετοιμάζει.",
   "Join a friend": "Γίνετε μέλος ενός φίλου",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Δεν βρέθηκε. Επιλέξτε τον φάκελο όπου ο εκκινητής σας διατηρεί το Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (προσεχώς)",
   "Copy report": "Αντιγραφή αναφοράς",
   "Reading the mods…": "Διαβάζοντας τα mods…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Δεν ήταν δυνατή η φόρτωση των σημειώσεων ενημέρωσης κώδικα. {error}",
   "Couldn't load releases. {error}": "Δεν ήταν δυνατή η φόρτωση των κυκλοφοριών. {error}",
   "Launcher updated to {version}": "Το πρόγραμμα εκκίνησης ενημερώθηκε σε {version}",
+  "Launcher {version}": "Εκτοξευτής {version}",
   "Launcher {version}  {percent}%": "Εκτοξευτής {version} {percent}%",
   "Manage versions": "Διαχείριση εκδόσεων",
   "No build for this platform": "Καμία κατασκευή για αυτήν την πλατφόρμα",
@@ -958,7 +958,6 @@
   "On this network": "Σε αυτό το δίκτυο",
   "Open the logs": "Ανοίξτε τα αρχεία καταγραφής",
   "Over the internet": "Μέσω Διαδικτύου",
-  "Partner": "Συνεργάτης",
   "Prepare the game files": "Ετοιμάστε τα αρχεία του παιχνιδιού",
   "Send": "Αποστολή",
   "Start the server to send commands": "Ξεκινήστε το διακομιστή για να στείλει εντολές",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Η Αποθήκευση αλλαγών την εφαρμόζει. Τίποτα στον φάκελό της δεν διαγράφεται.",
   "Its mods made for {loader} stay in its folder but won't load.": "Τα mods της για {loader} μένουν στον φάκελό της, αλλά δεν θα φορτώνονται.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Τα mods της για Minecraft {from} μένουν στον φάκελό της· κάποια ίσως δεν φορτώνουν στο {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Οι κόσμοι της αποθηκεύτηκαν από το Minecraft {from}: το {to} τους αναβαθμίζει οριστικά και δεν μπορεί να τους ανοίξει αν είναι παλαιότερο."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Οι κόσμοι της αποθηκεύτηκαν από το Minecraft {from}: το {to} τους αναβαθμίζει οριστικά και δεν μπορεί να τους ανοίξει αν είναι παλαιότερο.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

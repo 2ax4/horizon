@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не е подготвен. Play изтегля Minecraft {version} от Mojang за вашия акаунт и го подготвя.",
   "Join a friend": "Присъединете се към приятел",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Не е намерено. Изберете папката, в която вашият стартер съхранява Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (очаквайте скоро)",
   "Copy report": "Копиране на отчет",
   "Reading the mods…": "Четене на модовете...",
@@ -610,7 +609,7 @@
   "{name} is a Java modpack: importing it on the Modpacks page.": "{name} е Java modpack: импортирайте го на страницата Modpacks.",
   "Alpha": "Алфа",
   "Add mods": "Добавете модове",
-  "Upload this log to mclo.gs, a paste service for Minecraft logs? Anyone with the link can read it, until it is deleted or unread for 90 days. Your home folder, user name and account names are taken out first.": "Да се ​​качи ли този дневник в mclo.gs, услуга за поставяне на дневници на Minecraft? Всеки с връзката може да я прочете, докато не бъде изтрита или непрочетена за 90 дни. Вашата домашна папка, потребителско име и имена на акаунти се изваждат първо.",
+  "Upload this log to mclo.gs, a paste service for Minecraft logs? Anyone with the link can read it, until it is deleted or unread for 90 days. Your home folder, user name and account names are taken out first.": "Да се качи ли този дневник в mclo.gs, услуга за поставяне на дневници на Minecraft? Всеки с връзката може да я прочете, докато не бъде изтрита или непрочетена за 90 дни. Вашата домашна папка, потребителско име и имена на акаунти се изваждат първо.",
   "{count} lines, the game is running": "{count} реда, играта върви",
   "Move to trash": "Преместване в кошчето",
   "from GitHub: {source}": "от GitHub: {source}",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Бележките за корекции не можаха да се заредят. {error}",
   "Couldn't load releases. {error}": "Изданията не можаха да се заредят. {error}",
   "Launcher updated to {version}": "Стартовият панел е актуализиран до {version}",
+  "Launcher {version}": "Стартер {version}",
   "Launcher {version}  {percent}%": "Стартер {version} {percent}%",
   "Manage versions": "Управление на версиите",
   "No build for this platform": "Няма компилация за тази платформа",
@@ -958,7 +958,6 @@
   "On this network": "В тази мрежа",
   "Open the logs": "Отворете трупите",
   "Over the internet": "През интернет",
-  "Partner": "Партньор",
   "Prepare the game files": "Подгответе файловете на играта",
   "Send": "Изпратете",
   "Start the server to send commands": "Стартирайте сървъра, за да изпращате команди",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "„Запази промените“ го превключва. Нищо в папката му не се изтрива.",
   "Its mods made for {loader} stay in its folder but won't load.": "Модовете му за {loader} остават в папката му, но няма да се зареждат.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Модовете му за Minecraft {from} остават в папката му; някои може да не се заредят в {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Световете му са записани от Minecraft {from}: {to} ги надгражда завинаги и не може да ги отвори, ако е по-стар."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Световете му са записани от Minecraft {from}: {to} ги надгражда завинаги и не може да ги отвори, ако е по-стар.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

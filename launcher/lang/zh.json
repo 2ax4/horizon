@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "未准备。点击“开始游戏”后，Horizon 会为你的账户从 Mojang 下载 Minecraft {version} 并完成准备。",
   "Join a friend": "加入好友",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "未找到。请选择你的启动器存放 Minecraft 的文件夹。",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "尚未准备。Horizon 可以从你自己的安装中准备 Minecraft {version}；登录则以从 Mojang 下载。",
   "CurseForge (coming soon)": "CurseForge（即将推出）",
   "Copy report": "复制报告",
   "Reading the mods…": "正在读取模组…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "无法加载更新说明。{error}",
   "Couldn't load releases. {error}": "无法加载版本列表。{error}",
   "Launcher updated to {version}": "启动器已更新至 {version}",
+  "Launcher {version}": "启动器 {version}",
   "Launcher {version}  {percent}%": "启动器 {version}  {percent}%",
   "Manage versions": "管理版本",
   "No build for this platform": "此平台无可用构建",
@@ -958,7 +958,6 @@
   "On this network": "在此网络上",
   "Open the logs": "打开日志",
   "Over the internet": "通过互联网",
-  "Partner": "合作伙伴",
   "Prepare the game files": "准备游戏文件",
   "Send": "发送",
   "Start the server to send commands": "启动服务器以发送命令",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "“保存更改”会切换它。其文件夹中的任何内容都不会被删除。",
   "Its mods made for {loader} stay in its folder but won't load.": "其为 {loader} 制作的模组会留在其文件夹中，但不会加载。",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "其为 Minecraft {from} 制作的模组会留在其文件夹中；部分可能无法在 {to} 中加载。",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "其世界由 Minecraft {from} 保存：{to} 会永久升级它们；如果 {to} 更旧，则无法打开它们。"
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "其世界由 Minecraft {from} 保存：{to} 会永久升级它们；如果 {to} 更旧，则无法打开它们。",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "尚未准备。Horizon 可以从你自己的安装中准备 Minecraft {version}；登录则以从 Mojang 下载。"
 }

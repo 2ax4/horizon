@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не підготовлено. «Грати» завантажить Minecraft {version} від Mojang для вашого облікового запису й підготує його.",
   "Join a friend": "Приєднатися до друга",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Не знайдено. Виберіть теку, де ваш лаунчер зберігає Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} із вашої власної установки; увійдіть, щоб завантажити його з Mojang.",
   "CurseForge (coming soon)": "CurseForge (незабаром)",
   "Copy report": "Копіювати звіт",
   "Reading the mods…": "Читання модів…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
   "Couldn't load releases. {error}": "Couldn't load releases. {error}",
   "Launcher updated to {version}": "Launcher updated to {version}",
+  "Launcher {version}": "Launcher {version}",
   "Launcher {version}  {percent}%": "Launcher {version}  {percent}%",
   "Manage versions": "Керування версіями",
   "No build for this platform": "No build for this platform",
@@ -958,7 +958,6 @@
   "On this network": "У цій мережі",
   "Open the logs": "Відкрити журнали",
   "Over the internet": "Через інтернет",
-  "Partner": "Партнер",
   "Prepare the game files": "Підготувати файли гри",
   "Send": "Надіслати",
   "Start the server to send commands": "Запустіть сервер, щоб надсилати команди",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "«Зберегти зміни» перемкне її. З її теки нічого не видаляється.",
   "Its mods made for {loader} stay in its folder but won't load.": "Її моди для {loader} залишаться в її теці, але не завантажаться.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Її моди для Minecraft {from} залишаться в її теці; деякі можуть не завантажитися в {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Її світи збережено в Minecraft {from}: {to} оновить їх назавжди, а якщо він старіший — не зможе відкрити."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Її світи збережено в Minecraft {from}: {to} оновить їх назавжди, а якщо він старіший — не зможе відкрити.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} із вашої власної установки; увійдіть, щоб завантажити його з Mojang."
 }

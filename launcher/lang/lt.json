@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Neparengtas. Play atsisiunčia Minecraft {version} iš Mojang jūsų paskyrai ir parengia.",
   "Join a friend": "Prisijunk prie draugo",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Nerasta. Pasirinkite aplanką, kuriame jūsų paleidimo priemonė saugo „Minecraft“.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (netrukus)",
   "Copy report": "Kopijuoti ataskaitą",
   "Reading the mods…": "Skaitant modifikacijas…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Nepavyko įkelti pataisų užrašų. {error}",
   "Couldn't load releases. {error}": "Nepavyko įkelti leidimų. {error}",
   "Launcher updated to {version}": "Paleidimo priemonė atnaujinta į {version}",
+  "Launcher {version}": "Paleidimo priemonė {version}",
   "Launcher {version}  {percent}%": "Paleidimo priemonė {version} {percent}%",
   "Manage versions": "Tvarkyti versijas",
   "No build for this platform": "Nėra šios platformos kūrimo",
@@ -958,7 +958,6 @@
   "On this network": "Šiame tinkle",
   "Open the logs": "Atidarykite žurnalus",
   "Over the internet": "Per internetą",
-  "Partner": "Partneris",
   "Prepare the game files": "Paruoškite žaidimo failus",
   "Send": "Siųsti",
   "Start the server to send commands": "Paleiskite serverį komandoms siųsti",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "„Išsaugoti pakeitimus“ jį perjungia. Iš jo aplanko niekas neištrinama.",
   "Its mods made for {loader} stay in its folder but won't load.": "Jo modai, skirti {loader}, lieka jo aplanke, bet nebus įkelti.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Jo modai, skirti Minecraft {from}, lieka jo aplanke; kai kurie gali neįsikelti {to} versijoje.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jo pasauliai išsaugoti Minecraft {from}: {to} juos atnaujina visam laikui ir negali jų atidaryti, jei yra senesnė."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Jo pasauliai išsaugoti Minecraft {from}: {to} juos atnaujina visam laikui ir negali jų atidaryti, jei yra senesnė.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

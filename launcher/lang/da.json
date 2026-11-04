@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Ikke forberedt. Spil downloader Minecraft {version} fra Mojang til din konto og forbereder den.",
   "Join a friend": "Slut dig til en ven",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Ikke fundet. Vælg den mappe, hvor din launcher opbevarer Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (kommer snart)",
   "Copy report": "Kopiér rapport",
   "Reading the mods…": "Læser mods...",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Patch-noter kunne ikke indlæses. {error}",
   "Couldn't load releases. {error}": "Kunne ikke indlæse udgivelser. {error}",
   "Launcher updated to {version}": "Launcher opdateret til {version}",
+  "Launcher {version}": "Launcher {version}",
   "Launcher {version}  {percent}%": "Launcher {version} {percent}%",
   "Manage versions": "Administrer versioner",
   "No build for this platform": "Ingen build til denne platform",
@@ -958,7 +958,6 @@
   "On this network": "På dette netværk",
   "Open the logs": "Åbn logfilerne",
   "Over the internet": "Over internettet",
-  "Partner": "Partner",
   "Prepare the game files": "Forbered spilfilerne",
   "Send": "Send",
   "Start the server to send commands": "Start serveren for at sende kommandoer",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Gem ændringer skifter den. Intet i dens mappe slettes.",
   "Its mods made for {loader} stay in its folder but won't load.": "Dens mods lavet til {loader} bliver i dens mappe, men indlæses ikke.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Dens mods lavet til Minecraft {from} bliver i dens mappe; nogle indlæses måske ikke i {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dens verdener blev gemt af Minecraft {from}: {to} opgraderer dem for altid og kan ikke åbne dem, hvis den er ældre."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dens verdener blev gemt af Minecraft {from}: {to} opgraderer dem for altid og kan ikke åbne dem, hvis den er ældre.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

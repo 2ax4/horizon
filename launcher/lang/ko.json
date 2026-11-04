@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "준비되지 않았습니다. '플레이'를 누르면 계정에 맞는 Minecraft {version}을(를) Mojang에서 다운로드하고 준비합니다.",
   "Join a friend": "친구 참가",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "찾을 수 없습니다. 런처가 Minecraft를 저장하는 폴더를 선택하세요.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (출시 예정)",
   "Copy report": "보고서 복사",
   "Reading the mods…": "모드 읽는 중...",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "패치 노트를 불러올 수 없습니다. {error}",
   "Couldn't load releases. {error}": "릴리스를 불러올 수 없습니다. {error}",
   "Launcher updated to {version}": "런처가 {version}(으)로 업데이트되었습니다.",
+  "Launcher {version}": "런처 {version}",
   "Launcher {version}  {percent}%": "런처 {version}  {percent}%",
   "Manage versions": "버전 관리",
   "No build for this platform": "이 플랫폼용 빌드가 없습니다.",
@@ -958,7 +958,6 @@
   "On this network": "이 네트워크에서",
   "Open the logs": "로그 열기",
   "Over the internet": "인터넷으로",
-  "Partner": "파트너",
   "Prepare the game files": "게임 파일 준비",
   "Send": "보내기",
   "Start the server to send commands": "명령을 보내려면 서버를 시작하세요",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "변경 사항 저장을 누르면 전환됩니다. 폴더의 어떤 것도 삭제되지 않습니다.",
   "Its mods made for {loader} stay in its folder but won't load.": "{loader}용 모드는 폴더에 남지만 로드되지 않습니다.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from}용 모드는 폴더에 남습니다. 일부는 {to}에서 로드되지 않을 수 있습니다.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "월드는 Minecraft {from}에서 저장되었습니다: {to}은(는) 이를 영구적으로 업그레이드하며, 더 오래된 버전이면 열 수 없습니다."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "월드는 Minecraft {from}에서 저장되었습니다: {to}은(는) 이를 영구적으로 업그레이드하며, 더 오래된 버전이면 열 수 없습니다.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

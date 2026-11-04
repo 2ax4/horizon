@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Není připraven. Play stáhne Minecraft {version} z Mojang pro váš účet a připraví jej.",
   "Join a friend": "Přidejte se ke kamarádovi",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Nenalezeno. Vyberte složku, kde váš launcher uchovává Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (již brzy)",
   "Copy report": "Zkopírujte zprávu",
   "Reading the mods…": "Čtení modů…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Poznámky k opravě se nepodařilo načíst. {error}",
   "Couldn't load releases. {error}": "Vydání se nepodařilo načíst. {error}",
   "Launcher updated to {version}": "Spouštěč aktualizován na {version}",
+  "Launcher {version}": "Spouštěč {version}",
   "Launcher {version}  {percent}%": "Spouštěč {version} {percent}%",
   "Manage versions": "Spravovat verze",
   "No build for this platform": "Žádné sestavení pro tuto platformu",
@@ -958,7 +958,6 @@
   "On this network": "Na této síti",
   "Open the logs": "Otevřete protokoly",
   "Over the internet": "Přes internet",
-  "Partner": "Partner",
   "Prepare the game files": "Připravte soubory hry",
   "Send": "Odeslat",
   "Start the server to send commands": "Spusťte server pro odesílání příkazů",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Uložit změny ji přepne. Z její složky se nic nesmaže.",
   "Its mods made for {loader} stay in its folder but won't load.": "Její módy pro {loader} zůstanou v její složce, ale nenačtou se.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Její módy pro Minecraft {from} zůstanou v její složce; některé se v {to} možná nenačtou.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Její světy uložil Minecraft {from}: {to} je natrvalo aktualizuje, a pokud je starší, nedokáže je otevřít."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Její světy uložil Minecraft {from}: {to} je natrvalo aktualizuje, a pokud je starší, nedokáže je otevřít.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

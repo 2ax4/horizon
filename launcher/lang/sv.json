@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Inte förberedd. Spela nedladdningar Minecraft {version} från Mojang för ditt konto och förbereder det.",
   "Join a friend": "Gå med en vän",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Hittade inte. Välj mappen där din launcher förvarar Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (kommer snart)",
   "Copy report": "Kopiera rapporten",
   "Reading the mods…": "Läser mods...",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Det gick inte att ladda patch-anteckningar. {error}",
   "Couldn't load releases. {error}": "Det gick inte att läsa in versioner. {error}",
   "Launcher updated to {version}": "Launcher uppdaterad till {version}",
+  "Launcher {version}": "Launcher {version}",
   "Launcher {version}  {percent}%": "Launcher {version} {percent}%",
   "Manage versions": "Hantera versioner",
   "No build for this platform": "Ingen konstruktion för den här plattformen",
@@ -958,7 +958,6 @@
   "On this network": "På detta nätverk",
   "Open the logs": "Öppna loggarna",
   "Over the internet": "Över internet",
-  "Partner": "Partner",
   "Prepare the game files": "Förbered spelfilerna",
   "Send": "Skicka",
   "Start the server to send commands": "Starta servern för att skicka kommandon",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Spara ändringar byter den. Inget i dess mapp raderas.",
   "Its mods made for {loader} stay in its folder but won't load.": "Dess moddar för {loader} stannar i dess mapp men laddas inte.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Dess moddar för Minecraft {from} stannar i dess mapp; vissa kanske inte laddas i {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dess världar sparades av Minecraft {from}: {to} uppgraderar dem för gott och kan inte öppna dem om den är äldre."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Dess världar sparades av Minecraft {from}: {to} uppgraderar dem för gott och kan inte öppna dem om den är äldre.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

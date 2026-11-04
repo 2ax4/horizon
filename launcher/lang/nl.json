@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Niet voorbereid. Speel downloads Minecraft {version} van Mojang voor uw account en bereidt deze voor.",
   "Join a friend": "Sluit je aan bij een vriend",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Niet gevonden. Kies de map waarin uw opstartprogramma Minecraft bewaart.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (binnenkort beschikbaar)",
   "Copy report": "Kopieer rapport",
   "Reading the mods…": "De mods lezen...",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Kan patchopmerkingen niet laden. {error}",
   "Couldn't load releases. {error}": "Kan releases niet laden. {error}",
   "Launcher updated to {version}": "Launcher bijgewerkt naar {version}",
+  "Launcher {version}": "Lanceerprogramma {version}",
   "Launcher {version}  {percent}%": "Launcher {version} {percent}%",
   "Manage versions": "Beheer versies",
   "No build for this platform": "Geen build voor dit platform",
@@ -958,7 +958,6 @@
   "On this network": "Op dit netwerk",
   "Open the logs": "Open de logboeken",
   "Over the internet": "Via internet",
-  "Partner": "Partner",
   "Prepare the game files": "Bereid de spelbestanden voor",
   "Send": "Verzenden",
   "Start the server to send commands": "Start de server om opdrachten te verzenden",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Wijzigingen opslaan zet hem om. Niets in zijn map wordt verwijderd.",
   "Its mods made for {loader} stay in its folder but won't load.": "Zijn mods voor {loader} blijven in zijn map, maar worden niet geladen.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Zijn mods voor Minecraft {from} blijven in zijn map; sommige laden misschien niet in {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Zijn werelden zijn opgeslagen door Minecraft {from}: {to} werkt ze voorgoed bij en kan ze niet openen als het ouder is."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Zijn werelden zijn opgeslagen door Minecraft {from}: {to} werkt ze voorgoed bij en kan ze niet openen als het ouder is.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

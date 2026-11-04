@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Ei valmisteltu. Pelaa latauksia Minecraft {version} Mojangista tilillesi ja valmistelee sen.",
   "Join a friend": "Liity ystäväsi joukkoon",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Ei löytynyt. Valitse kansio, jossa käynnistysohjelmasi säilyttää Minecraftin.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (tulossa pian)",
   "Copy report": "Kopioi raportti",
   "Reading the mods…": "Modioiden lukeminen…",
@@ -474,7 +473,7 @@
   "Save choices": "Tallenna valinnat",
   "Relevance": "Relevanssi",
   "account checks": "tilitarkastukset",
-  "Settings, packs and Horizon mods go in; logs, screenshots, backups and your account never do. Worlds go without their per-player files.": "Asetukset, paketit ja Horizon-modit menevät sisään; lokit, kuvakaappaukset, varmuuskopiot ja tilisi eivät koskaan tee. Maailmat menevät ilman pelaajakohtaisia ​​tiedostoja.",
+  "Settings, packs and Horizon mods go in; logs, screenshots, backups and your account never do. Worlds go without their per-player files.": "Asetukset, paketit ja Horizon-modit menevät sisään; lokit, kuvakaappaukset, varmuuskopiot ja tilisi eivät koskaan tee. Maailmat menevät ilman pelaajakohtaisia tiedostoja.",
   "Block and item icons come from your prepared game files: prepare a version to see them.": "Lohkojen ja esineiden kuvakkeet tulevat valmiista pelitiedostoistasi: valmistele versio nähdäksesi ne.",
   "Packs": "Pakkaukset",
   "Unsigned": "Allekirjoittamaton",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Korjausmuistiinpanoja ei voitu ladata. {error}",
   "Couldn't load releases. {error}": "Julkaisuja ei voitu ladata. {error}",
   "Launcher updated to {version}": "Käynnistysohjelma päivitetty {version}",
+  "Launcher {version}": "Käynnistysohjelma {version}",
   "Launcher {version}  {percent}%": "Käynnistysohjelma {version} {percent}%",
   "Manage versions": "Hallitse versioita",
   "No build for this platform": "Ei rakennetta tälle alustalle",
@@ -958,7 +958,6 @@
   "On this network": "Tässä verkossa",
   "Open the logs": "Avaa lokit",
   "Over the internet": "Internetin kautta",
-  "Partner": "Kumppani",
   "Prepare the game files": "Valmistele pelitiedostot",
   "Send": "Lähetä",
   "Start the server to send commands": "Käynnistä palvelin komentojen lähettämiseksi",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Tallenna muutokset vaihtaa sen. Sen kansiosta ei poisteta mitään.",
   "Its mods made for {loader} stay in its folder but won't load.": "Sen {loader}-modit jäävät sen kansioon, mutta niitä ei ladata.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Sen Minecraft {from} -modit jäävät sen kansioon; osa ei ehkä lataudu versiossa {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Sen maailmat on tallennettu Minecraft {from} -versiolla: {to} päivittää ne pysyvästi eikä voi avata niitä, jos se on vanhempi."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Sen maailmat on tallennettu Minecraft {from} -versiolla: {to} päivittää ne pysyvästi eikä voi avata niitä, jos se on vanhempi.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

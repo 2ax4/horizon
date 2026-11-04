@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Не подготовлено. «Играть» скачает Minecraft {version} у Mojang для вашего аккаунта и подготовит его.",
   "Join a friend": "Присоединиться к другу",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Не найдено. Выберите папку, где ваш лаунчер хранит Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей собственной установки; войдите, чтобы скачать его с Mojang.",
   "CurseForge (coming soon)": "CurseForge (скоро)",
   "Copy report": "Скопировать отчёт",
   "Reading the mods…": "Чтение модов…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Не удалось загрузить список изменений. {error}",
   "Couldn't load releases. {error}": "Не удалось загрузить сборки. {error}",
   "Launcher updated to {version}": "Лаунчер обновлён до {version}",
+  "Launcher {version}": "Лаунчер {version}",
   "Launcher {version}  {percent}%": "Лаунчер {version}  {percent}%",
   "Manage versions": "Управление версиями",
   "No build for this platform": "Нет сборки для этой платформы",
@@ -958,7 +958,6 @@
   "On this network": "В этой сети",
   "Open the logs": "Открыть журналы",
   "Over the internet": "Через интернет",
-  "Partner": "Партнёр",
   "Prepare the game files": "Подготовить файлы игры",
   "Send": "Отправить",
   "Start the server to send commands": "Запустите сервер, чтобы отправлять команды",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "«Сохранить изменения» переключит её. Из её папки ничего не удаляется.",
   "Its mods made for {loader} stay in its folder but won't load.": "Её моды для {loader} останутся в её папке, но не загрузятся.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Её моды для Minecraft {from} останутся в её папке; некоторые могут не загрузиться в {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Её миры сохранены в Minecraft {from}: {to} обновит их навсегда, а если он старше — не сможет открыть."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Её миры сохранены в Minecraft {from}: {to} обновит их навсегда, а если он старше — не сможет открыть.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей собственной установки; войдите, чтобы скачать его с Mojang."
 }

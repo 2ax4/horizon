@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nu este pregătit. Joacă descarcă Minecraft {version} de la Mojang pentru contul tău și îl pregătește.",
   "Join a friend": "Alătură-te unui prieten",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Nu a fost găsit. Alege folderul în care lansatorul tău păstrează Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (în curând)",
   "Copy report": "Copiați raportul",
   "Reading the mods…": "Citind modurile...",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Nu s-au putut încărca note de corecție. {error}",
   "Couldn't load releases. {error}": "Nu s-au putut încărca versiunile. {error}",
   "Launcher updated to {version}": "Lansatorul a fost actualizat la {version}",
+  "Launcher {version}": "Lansatorul {version}",
   "Launcher {version}  {percent}%": "Lansatorul {version} {percent}%",
   "Manage versions": "Gestionați versiunile",
   "No build for this platform": "Nicio versiune pentru această platformă",
@@ -958,7 +958,6 @@
   "On this network": "Pe această rețea",
   "Open the logs": "Deschideți jurnalele",
   "Over the internet": "Pe internet",
-  "Partner": "Partener",
   "Prepare the game files": "Pregătiți fișierele jocului",
   "Send": "Trimite",
   "Start the server to send commands": "Porniți serverul pentru a trimite comenzi",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Salvează modificările o comută. Nimic din folderul ei nu se șterge.",
   "Its mods made for {loader} stay in its folder but won't load.": "Modurile ei făcute pentru {loader} rămân în folderul ei, dar nu se vor încărca.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Modurile ei făcute pentru Minecraft {from} rămân în folderul ei; unele s-ar putea să nu se încarce în {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Lumile ei au fost salvate de Minecraft {from}: {to} le actualizează definitiv și nu le poate deschide dacă e mai vechi."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Lumile ei au fost salvate de Minecraft {from}: {to} le actualizează definitiv și nu le poate deschide dacă e mai vechi.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

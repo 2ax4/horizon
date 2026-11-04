@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Chưa chuẩn bị. Chơi tải xuống Minecraft {version} từ Mojang cho tài khoản của bạn và chuẩn bị nó.",
   "Join a friend": "Tham gia cùng một người bạn",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Không tìm thấy. Chọn thư mục nơi trình khởi chạy của bạn chứa Minecraft.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (sắp ra mắt)",
   "Copy report": "Sao chép báo cáo",
   "Reading the mods…": "Đang đọc mod…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Không thể tải ghi chú vá. {error}",
   "Couldn't load releases. {error}": "Không thể tải bản phát hành. {error}",
   "Launcher updated to {version}": "Trình khởi chạy được cập nhật thành {version}",
+  "Launcher {version}": "Trình khởi chạy {version}",
   "Launcher {version}  {percent}%": "Trình khởi chạy {version} {percent}%",
   "Manage versions": "Quản lý phiên bản",
   "No build for this platform": "Không có bản dựng cho nền tảng này",
@@ -958,7 +958,6 @@
   "On this network": "Trên mạng này",
   "Open the logs": "Mở nhật ký",
   "Over the internet": "Qua mạng",
-  "Partner": "Đối tác",
   "Prepare the game files": "Chuẩn bị file game",
   "Send": "Gửi",
   "Start the server to send commands": "Khởi động máy chủ để gửi lệnh",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "Lưu thay đổi sẽ chuyển nó. Không có gì trong thư mục của nó bị xóa.",
   "Its mods made for {loader} stay in its folder but won't load.": "Các mod làm cho {loader} vẫn ở trong thư mục của nó nhưng sẽ không được tải.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Các mod làm cho Minecraft {from} vẫn ở trong thư mục của nó; một số có thể không tải được trong {to}.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Các thế giới của nó được lưu bởi Minecraft {from}: {to} nâng cấp chúng vĩnh viễn, và không mở được nếu là bản cũ hơn."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Các thế giới của nó được lưu bởi Minecraft {from}: {to} nâng cấp chúng vĩnh viễn, và không mở được nếu là bản cũ hơn.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

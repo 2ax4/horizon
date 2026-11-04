@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nincs felkészülve. Play letöltések Minecraft {version} a Mojangtól a fiókodhoz, és előkészíti azt.",
   "Join a friend": "Csatlakozz egy baráthoz",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Nem található. Válassza ki azt a mappát, ahol az indító a Minecraftot tárolja.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (hamarosan)",
   "Copy report": "Jelentés másolása",
   "Reading the mods…": "A modok olvasása…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Nem sikerült betölteni a javítójegyzeteket. {error}",
   "Couldn't load releases. {error}": "Nem sikerült betölteni a kiadásokat. {error}",
   "Launcher updated to {version}": "Az indító frissítve erre: {version}",
+  "Launcher {version}": "Indító {version}",
   "Launcher {version}  {percent}%": "Indító {version} {percent}%",
   "Manage versions": "Verziók kezelése",
   "No build for this platform": "Nincs build ehhez a platformhoz",
@@ -958,7 +958,6 @@
   "On this network": "Ezen a hálózaton",
   "Open the logs": "Nyissa meg a naplókat",
   "Over the internet": "Az interneten keresztül",
-  "Partner": "Partner",
   "Prepare the game files": "Készítse elő a játék fájljait",
   "Send": "Küldés",
   "Start the server to send commands": "Indítsa el a szervert a parancsok küldéséhez",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "A Változások mentése átállítja. A mappájából semmi sem törlődik.",
   "Its mods made for {loader} stay in its folder but won't load.": "A(z) {loader}-hoz készült modjai a mappájában maradnak, de nem töltődnek be.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "A Minecraft {from}-hoz készült modjai a mappájában maradnak; némelyik talán nem töltődik be a(z) {to} alatt.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "A világait a Minecraft {from} mentette: a(z) {to} végleg frissíti őket, és ha régebbi, nem tudja megnyitni őket."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "A világait a Minecraft {from} mentette: a(z) {to} végleg frissíti őket, és ha régebbi, nem tudja megnyitni őket.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

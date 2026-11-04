@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "تیار نہیں۔ آپ کے اکاؤنٹ کے لیے Mojang سے Minecraft {version} ڈاؤن لوڈز کھیلیں اور اسے تیار کریں۔",
   "Join a friend": "ایک دوست کے ساتھ شامل ہوں۔",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "نہیں ملا۔ وہ فولڈر منتخب کریں جہاں آپ کا لانچر Minecraft رکھتا ہے۔",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.",
   "CurseForge (coming soon)": "CurseForge (جلد آرہا ہے)",
   "Copy report": "رپورٹ کاپی کریں۔",
   "Reading the mods…": "موڈز پڑھ رہے ہیں…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "پیچ نوٹس لوڈ نہیں ہو سکے۔ {error}",
   "Couldn't load releases. {error}": "ریلیزز کو لوڈ نہیں کیا جا سکا۔ {error}",
   "Launcher updated to {version}": "لانچر کو {version} پر اپ ڈیٹ کیا گیا",
+  "Launcher {version}": "لانچر {version}",
   "Launcher {version}  {percent}%": "لانچر {version} {percent}%",
   "Manage versions": "ورژن کا نظم کریں۔",
   "No build for this platform": "اس پلیٹ فارم کے لیے کوئی تعمیر نہیں۔",
@@ -958,7 +958,6 @@
   "On this network": "اس نیٹ ورک پر",
   "Open the logs": "نوشتہ جات کھولیں۔",
   "Over the internet": "انٹرنیٹ پر",
-  "Partner": "ساتھی",
   "Prepare the game files": "گیم کی فائلیں تیار کریں۔",
   "Send": "بھیجیں۔",
   "Start the server to send commands": "کمانڈ بھیجنے کے لیے سرور شروع کریں۔",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "تبدیلیاں محفوظ کریں اسے بدل دیتا ہے۔ اس کے فولڈر سے کچھ حذف نہیں ہوتا۔",
   "Its mods made for {loader} stay in its folder but won't load.": "{loader} کے لیے بنے اس کے موڈ اس کے فولڈر میں رہتے ہیں لیکن لوڈ نہیں ہوں گے۔",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Minecraft {from} کے لیے بنے اس کے موڈ اس کے فولڈر میں رہتے ہیں؛ کچھ شاید {to} میں لوڈ نہ ہوں۔",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "اس کی دنیائیں Minecraft {from} نے محفوظ کیں: {to} انہیں ہمیشہ کے لیے اپ گریڈ کرتا ہے، اور اگر پرانا ہو تو انہیں کھول نہیں سکتا۔"
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "اس کی دنیائیں Minecraft {from} نے محفوظ کیں: {to} انہیں ہمیشہ کے لیے اپ گریڈ کرتا ہے، اور اگر پرانا ہو تو انہیں کھول نہیں سکتا۔",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
 }

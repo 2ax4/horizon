@@ -357,7 +357,6 @@
   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "Nicht vorbereitet. „Spielen“ lädt Minecraft {version} von Mojang für dein Konto herunter und bereitet es vor.",
   "Join a friend": "Einem Freund beitreten",
   "Not found. Choose the folder where your launcher keeps Minecraft.": "Nicht gefunden. Wähle den Ordner aus, in dem dein Launcher Minecraft speichert.",
-  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen.",
   "CurseForge (coming soon)": "CurseForge (demnächst)",
   "Copy report": "Bericht kopieren",
   "Reading the mods…": "Mods werden gelesen…",
@@ -625,6 +624,7 @@
   "Couldn't load patch notes. {error}": "Couldn't load patch notes. {error}",
   "Couldn't load releases. {error}": "Couldn't load releases. {error}",
   "Launcher updated to {version}": "Launcher updated to {version}",
+  "Launcher {version}": "Launcher {version}",
   "Launcher {version}  {percent}%": "Launcher {version}  {percent}%",
   "Manage versions": "Versionen verwalten",
   "No build for this platform": "No build for this platform",
@@ -958,7 +958,6 @@
   "On this network": "In diesem Netzwerk",
   "Open the logs": "Protokolle öffnen",
   "Over the internet": "Über das Internet",
-  "Partner": "Partner",
   "Prepare the game files": "Spieldateien vorbereiten",
   "Send": "Senden",
   "Start the server to send commands": "Starte den Server, um Befehle zu senden",
@@ -1079,5 +1078,6 @@
   "Save changes switches it. Nothing in its folder is deleted.": "„Änderungen speichern“ stellt sie um. In ihrem Ordner wird nichts gelöscht.",
   "Its mods made for {loader} stay in its folder but won't load.": "Ihre Mods für {loader} bleiben in ihrem Ordner, laden aber nicht.",
   "Its mods made for Minecraft {from} stay in its folder; some may not load in {to}.": "Ihre Mods für Minecraft {from} bleiben in ihrem Ordner; manche laden in {to} vielleicht nicht.",
-  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Ihre Welten wurden von Minecraft {from} gespeichert: {to} aktualisiert sie endgültig und kann sie nicht öffnen, wenn es älter ist."
+  "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Ihre Welten wurden von Minecraft {from} gespeichert: {to} aktualisiert sie endgültig und kann sie nicht öffnen, wenn es älter ist.",
+  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
 }
