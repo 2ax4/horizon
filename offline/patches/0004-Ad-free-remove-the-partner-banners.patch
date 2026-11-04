@@ -1,80 +1,15 @@
-From 67ec7e758eb64879da645c0f8780bb594b5b2169 Mon Sep 17 00:00:00 2001
+From 17fff2bd1d8f4d39cd9057ae74b0b2a1bafed041 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
-Date: Mon, 2 Nov 2026 17:03:23 +0000
+Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 3/5] Ad-free: remove the partner banners
 
-The sidebar's card, the Servers page's banner, the seen-timer and the
-settings they needed are gone together with the partner module. The
-offline build carries no ads.
 ---
- launcher/src/backend.rs       |   7 -
- launcher/src/frame.rs         |  30 ---
  launcher/src/glass_servers.rs |  42 +---
- launcher/src/main.rs          |  56 ------
  launcher/src/partner.rs       | 359 ----------------------------------
  launcher/src/servers_page.rs  |  31 +--
- 6 files changed, 5 insertions(+), 520 deletions(-)
+ 3 files changed, 5 insertions(+), 427 deletions(-)
  delete mode 100644 launcher/src/partner.rs
 
-diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 17e51e393..aad69dc7b 100644
---- a/launcher/src/backend.rs
-+++ b/launcher/src/backend.rs
-@@ -3362,13 +3362,6 @@ pub struct Settings {
-     /// one now (the owner gate's screen).
-     #[serde(default)]
-     pub owner_notice_seen: bool,
--    /// Seconds a partner banner (the sidebar's card or the Servers page's banner) has been on
--    /// screen, over every start, up to `partner::SEEN_BEFORE_HIDE`: only then can the player hide it.
--    #[serde(default)]
--    pub partner_seen_secs: u64,
--    /// The player hid a partner banner: the sidebar's card and the Servers page's banner are both gone for good.
--    #[serde(default)]
--    pub partner_hidden: bool,
-     /// What the window does while the game runs. Stays by default.
-     #[serde(default)]
-     pub while_playing: WhilePlaying,
-diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
-index d3f705f03..f03fa82a9 100644
---- a/launcher/src/frame.rs
-+++ b/launcher/src/frame.rs
-@@ -400,36 +400,6 @@ impl Launcher {
-             _ => {}
-         }
- 
--        // Sculk's card (not in the mockup, kept: a sponsor), where the old sidebar had it: above
--        // the links on every page but Servers, which shows the wide banner. Tall where the
--        // sidebar has the height for it besides its rows, compact otherwise.
--        if self.page != Page::Servers && !self.settings.partner_hidden {
--            let rows = self.instances.list.len() + servers.len();
--            let free = f32::from(window.viewport_size().height)
--                - 2. * MARGIN
--                - 52.
--                - 56. * rows as f32
--                - 190.;
--            let mut side = div().relative().mt(px(12.)).child(partner::card(
--                "partner-side",
--                SIDEBAR - 20.,
--                free < partner::TALL_HEIGHT,
--                &t,
--            ));
--            if self.settings.partner_seen_secs >= partner::SEEN_BEFORE_HIDE {
--                side = side.child(
--                    partner::hide_button("partner-hide", &t).on_click(cx.listener(
--                        |this, _: &ClickEvent, _, cx| {
--                            this.settings.partner_hidden = true;
--                            this.save_settings();
--                            cx.notify();
--                        },
--                    )),
--                );
--            }
--            foot = foot.child(side);
--        }
--
-         if !self.links.discord.is_empty() {
-             let url = self.links.discord.clone();
-             foot = foot.child(keyboard(
 diff --git a/launcher/src/glass_servers.rs b/launcher/src/glass_servers.rs
 index bb49b5bec..46b7f3bfb 100644
 --- a/launcher/src/glass_servers.rs
@@ -135,101 +70,6 @@ index bb49b5bec..46b7f3bfb 100644
  }
  
  /// The open server's port.
-diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index 699aa6b7d..f326e200a 100644
---- a/launcher/src/main.rs
-+++ b/launcher/src/main.rs
-@@ -54,7 +54,6 @@ mod native_log_page;
- mod new_instance;
- mod owner_page;
- mod packs_page;
--mod partner;
- mod perf;
- mod plate;
- mod profile_heads;
-@@ -480,30 +479,6 @@ impl Launcher {
-             }
-         })
-         .detach();
--        // Counts the time a partner banner is on screen, until it may be hidden.
--        cx.spawn(async move |this, cx| loop {
--            cx.background_executor()
--                .timer(Duration::from_secs(10))
--                .await;
--            let counting = this.update(cx, |this, cx| {
--                let s = &mut this.settings;
--                if s.partner_hidden || s.partner_seen_secs >= partner::SEEN_BEFORE_HIDE {
--                    return false;
--                }
--                // On screen on every page: the card in the sidebar, the banner on Servers.
--                s.partner_seen_secs += 10;
--                if s.partner_seen_secs % 60 == 0 || s.partner_seen_secs >= partner::SEEN_BEFORE_HIDE
--                {
--                    this.save_settings();
--                    cx.notify();
--                }
--                true
--            });
--            if !matches!(counting, Ok(true)) {
--                break;
--            }
--        })
--        .detach();
-         let mut settings = Settings::load();
-         i18n::set(settings.language());
-         if settings.minecraft_dir.is_none() {
-@@ -2715,7 +2690,6 @@ impl Launcher {
-             },
-         ));
-         let items = self.instance_items(heading, cx);
--        let mut rows = items.len();
-         let list = div()
-             .flex()
-             .flex_col()
-@@ -2731,8 +2705,6 @@ impl Launcher {
-         if !servers.is_empty() {
-             list = list.child(heading(tr("SERVERS").into()));
-         }
--        rows += servers.len();
--        let headings = 1 + usize::from(!servers.is_empty());
-         for e in servers {
-             let up = self.servers.is_up(&e.dir);
-             let open = self.page == Page::Servers && self.servers.open.as_ref() == Some(&e.dir);
-@@ -2840,34 +2812,6 @@ impl Launcher {
-             }
-             _ => {}
-         }
--        // Sculk's card above the links: seen without scrolling, on every page but Servers, which shows
--        // its wide banner. Tall where the sidebar has the height for it besides the wordmark, its rows
--        // (52 high each, under headings of 40) and the links, compact otherwise. After a while on
--        // screen a "Hide" beside its label puts it away for good.
--        if self.page != Page::Servers && !self.settings.partner_hidden {
--            let free = f32::from(window.viewport_size().height)
--                - theme::TOPBAR
--                - 40. * headings as f32
--                - 52. * rows as f32
--                - 110.;
--            let mut side = div().relative().mb(px(8.)).child(partner::card(
--                "partner-side",
--                theme::SIDEBAR - 20.,
--                free < partner::TALL_HEIGHT,
--                &t,
--            ));
--            if self.settings.partner_seen_secs >= partner::SEEN_BEFORE_HIDE {
--                let hide = partner::hide_button("partner-hide", &t).on_click(cx.listener(
--                    |this, _: &ClickEvent, _, cx| {
--                        this.settings.partner_hidden = true;
--                        this.save_settings();
--                        cx.notify();
--                    },
--                ));
--                side = side.child(hide);
--            }
--            foot = foot.child(side);
--        }
-         if !self.links.sponsor.is_empty() {
-             foot = foot.child(link(
-                 "sponsor",
 diff --git a/launcher/src/partner.rs b/launcher/src/partner.rs
 deleted file mode 100644
 index e94d1838f..000000000

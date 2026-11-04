@@ -1,16 +1,13 @@
-From c4bf4199c7f641609360d466e326924e21478942 Mon Sep 17 00:00:00 2001
+From 4720c80b18787f46dfe98038992129894a0dcdeb Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
-Date: Fri, 30 Oct 2026 20:15:00 +0000
+Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 2/5] Offline updates follow the fork's releases
 
 ---
  crates/horizon-release-sign/release-keys.txt  |   1 +
- docs/launcher-commands.md                     |   2 +
- launcher/src/account.rs                       |   2 +-
- launcher/src/backend.rs                       |  32 +++++-
  launcher/src/backend/release_loading_tests.rs |  89 +++++++++++----
  launcher/src/signed.rs                        | 104 +++++++++++++++---
- 6 files changed, 187 insertions(+), 43 deletions(-)
+ 3 files changed, 156 insertions(+), 38 deletions(-)
 
 diff --git a/crates/horizon-release-sign/release-keys.txt b/crates/horizon-release-sign/release-keys.txt
 index c39be4435..c51015423 100644
@@ -21,120 +18,6 @@ index c39be4435..c51015423 100644
  # Changing this file needs Ludovic's review (.github/CODEOWNERS).
  MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
 +DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
-diff --git a/docs/launcher-commands.md b/docs/launcher-commands.md
-index 430d6ac13..eca9b3cfa 100644
---- a/docs/launcher-commands.md
-+++ b/docs/launcher-commands.md
-@@ -137,6 +137,8 @@ MCP: `account_list`.
- 
- ## `horizon-launcher account sign-in`
- 
-+Sign in with a Microsoft account in your browser (device code). Play needs one that owns Minecraft: Java Edition.
-+
-     horizon-launcher account sign-in
- 
- - `--for`: Sign this account (name or UUID) in again: another Microsoft account is refused and who plays stays the same
-diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index e8c32bbd8..6ab90e5ab 100644
---- a/launcher/src/account.rs
-+++ b/launcher/src/account.rs
-@@ -2020,7 +2020,7 @@ fn launch_as(
-         accounts.offline.clone(),
-     );
-     let pass = accounts
--        .play_as(store, who.clone())
-+        .play_as(who.clone())
-         .and_then(|()| launch(ep, client_id, store, accounts).map_err(|e| e.to_string()));
-     (
-         accounts.selected,
-diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 2f0e7f833..17e51e393 100644
---- a/launcher/src/backend.rs
-+++ b/launcher/src/backend.rs
-@@ -10,6 +10,7 @@ use std::sync::mpsc::Sender;
- use std::sync::{Arc, Mutex};
- 
- pub const REPO: &str = "horizon-rust/horizon";
-+pub const LAUNCHER_REPO: &str = "2ax4/horizon";
- pub const README_URL: &str = "https://github.com/horizon-rust/horizon/blob/main/launcher/README.md";
- /// The players' page on connecting an AI agent (the website's docs/agents.md).
- pub const AGENT_DOCS_URL: &str = "https://playhorizon.dev/docs/agents";
-@@ -715,7 +716,16 @@ pub(crate) fn fetch_small(url: &str) -> Result<Option<Vec<u8>>, String> {
- 
- /// The SHA-256 the release's signed checksums give for `asset`, or why it must not be installed.
- fn signed_digest(tag: &str, asset: &str) -> Result<String, String> {
-+    digest_on(REPO, tag, asset)
-+}
-+
-+fn launcher_digest(tag: &str, asset: &str) -> Result<String, String> {
-+    digest_on(LAUNCHER_REPO, tag, asset)
-+}
-+
-+fn digest_on(repo: &str, tag: &str, asset: &str) -> Result<String, String> {
-     crate::signed::digest(
-+        repo,
-         tag,
-         asset,
-         &horizon_release_sign::trusted_keys(),
-@@ -782,6 +792,7 @@ pub fn install(release: &Release, progress: impl Fn(f32)) -> Result<(), String>
-     let sha256 = match &release.nightly {
-         // Signed for the Nightly channel, served under its own GitHub tag.
-         Some(published) => crate::signed::nightly_digest(
-+            REPO,
-             published,
-             ASSET.unwrap_or_default(),
-             &horizon_release_sign::trusted_keys(),
-@@ -2629,13 +2640,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
- pub fn releases_and_updates(
-     on_releases: impl FnOnce(Result<Vec<Release>, String>),
- ) -> Result<Updates, String> {
--    releases_and_updates_with(release_list, installed, launcher_releases_in, on_releases)
-+    releases_and_updates_with(
-+        release_list,
-+        installed,
-+        launcher_releases_in,
-+        launcher_release_list,
-+        on_releases,
-+    )
-+}
-+
-+fn launcher_release_list() -> Result<serde_json::Value, String> {
-+    let url = format!("https://api.github.com/repos/{LAUNCHER_REPO}/releases?per_page=100");
-+    get(&url)?.into_json().map_err(|e| e.to_string())
- }
- 
- fn releases_and_updates_with(
-     load: impl FnOnce() -> Result<serde_json::Value, String>,
-     installed: impl FnOnce() -> Vec<String>,
-     launchers: impl FnOnce(&serde_json::Value) -> Vec<Release>,
-+    fork_load: impl FnOnce() -> Result<serde_json::Value, String>,
-     on_releases: impl FnOnce(Result<Vec<Release>, String>),
- ) -> Result<Updates, String> {
-     let list = match load() {
-@@ -2646,11 +2669,12 @@ fn releases_and_updates_with(
-         }
-     };
-     let releases = game_releases(&list);
-+    on_releases(Ok(releases.clone()));
-     let horizon = horizon_update(&installable_updates(&releases), &installed());
--    on_releases(Ok(releases));
-+    let fork = fork_load().unwrap_or(serde_json::Value::Null);
-     Ok(Updates {
-         horizon,
--        launcher: launcher_update(&launchers(&list)),
-+        launcher: launcher_update(&launchers(&fork)),
-     })
- }
- 
-@@ -2948,7 +2972,7 @@ pub fn self_update(release: &Release, progress: impl Fn(f32)) -> Result<(), Stri
-         progress(1.0);
-         return Ok(());
-     }
--    let sha256 = signed_digest(&release.tag, launcher_asset().unwrap_or_default())?;
-+    let sha256 = launcher_digest(&release.tag, LAUNCHER_ASSET.unwrap_or_default())?;
-     let work = data_dir().join(".launcher-update");
-     let _ = fs::remove_dir_all(&work);
-     fs::create_dir_all(&work).map_err(|e| e.to_string())?;
 diff --git a/launcher/src/backend/release_loading_tests.rs b/launcher/src/backend/release_loading_tests.rs
 index d7f839bde..ec6dd6bcf 100644
 --- a/launcher/src/backend/release_loading_tests.rs

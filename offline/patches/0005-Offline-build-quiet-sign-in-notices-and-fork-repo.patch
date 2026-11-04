@@ -1,67 +1,176 @@
-From 5ad43c8d37c120f691c84f51ab8d68bd2ee2d844 Mon Sep 17 00:00:00 2001
+From 289bf3604545cb1421c0004953768471cac51c2d Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
-Date: Mon, 2 Nov 2026 17:03:23 +0000
+Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 4/5] Offline build: quiet sign-in notices and fork repo
 
-The no-client-id warning ("...so it can't start the game") read as if
-the game cannot start at all: the constant now says sign-in is simply
-not available, the sign-in dialog shows no error box without a client
-id (Play offline stays), and the update check names the fork's
-repository directly instead of the pre-rename address.
 ---
- launcher/src/account.rs    | 2 +-
- launcher/src/backend.rs    | 2 +-
- launcher/src/owner_page.rs | 4 ++--
- 3 files changed, 4 insertions(+), 4 deletions(-)
+ launcher/src/backend.rs | 59 +++++++++++++++++++++++------------------
+ 1 file changed, 33 insertions(+), 26 deletions(-)
 
-diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index 6ab90e5ab..c5d3e7731 100644
---- a/launcher/src/account.rs
-+++ b/launcher/src/account.rs
-@@ -21,7 +21,7 @@ use std::time::{Duration, SystemTime, UNIX_EPOCH};
- /// The keychain service name every secret is stored under.
- pub const SERVICE: &str = "dev.playhorizon.launcher";
- const SCOPE: &str = "XboxLive.signin offline_access";
--pub const NOT_CONFIGURED: &str = "This build of the launcher has no Microsoft sign-in (HORIZON_MSA_CLIENT_ID), so it can't start the game.";
-+pub const NOT_CONFIGURED: &str = "Microsoft sign-in is not available in this build.";
- /// What every Play says while no account in the launcher owns the game.
- pub const NEEDS_OWNER: &str =
-     "Sign in with a Microsoft account that owns Minecraft: Java Edition to play";
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index aad69dc7b..67c6848ee 100644
+index 6393b3ccc..0cb3abb04 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
-@@ -10,7 +10,7 @@ use std::sync::mpsc::Sender;
+@@ -10,6 +10,7 @@ use std::sync::mpsc::Sender;
  use std::sync::{Arc, Mutex};
  
  pub const REPO: &str = "horizon-rust/horizon";
--pub const LAUNCHER_REPO: &str = "2ax4/horizon";
 +pub const LAUNCHER_REPO: &str = "2ax4/horizon-offline-auto-update";
  pub const README_URL: &str = "https://github.com/horizon-rust/horizon/blob/main/launcher/README.md";
  /// The players' page on connecting an AI agent (the website's docs/agents.md).
  pub const AGENT_DOCS_URL: &str = "https://playhorizon.dev/docs/agents";
-diff --git a/launcher/src/owner_page.rs b/launcher/src/owner_page.rs
-index 3afe8b043..5cb33571f 100644
---- a/launcher/src/owner_page.rs
-+++ b/launcher/src/owner_page.rs
-@@ -30,7 +30,7 @@ impl Launcher {
-         // The screenshot preview shows a code without asking Microsoft for one.
-         let state = match &self.sign_in_state {
-             _ if sign_in_preview() => Shown::Code("https://www.microsoft.com/link", "K7Q-4MXR"),
--            _ if !configured => Shown::Error(tr(account::NOT_CONFIGURED)),
-+            _ if !configured => Shown::Idle,
-             Some(SignInState::Starting) => Shown::Starting("Asking Microsoft…"),
-             Some(SignInState::Working(phase)) => Shown::Starting(phase.label()),
-             Some(SignInState::Code(code)) => Shown::Code(&code.verification_uri, &code.user_code),
-@@ -152,7 +152,7 @@ impl Launcher {
-                 )
-             }
-             Shown::Starting(_) => None,
--            Shown::Error(_) if !configured => None,
-+            _ if !configured => None,
-             _ => Some(
-                 microsoft::sign_in_button("owner-sign-in", &t).on_click(cx.listener(
-                     |this, _: &ClickEvent, _, cx| {
+@@ -715,7 +716,16 @@ pub(crate) fn fetch_small(url: &str) -> Result<Option<Vec<u8>>, String> {
+ 
+ /// The SHA-256 the release's signed checksums give for `asset`, or why it must not be installed.
+ fn signed_digest(tag: &str, asset: &str) -> Result<String, String> {
++    digest_on(REPO, tag, asset)
++}
++
++fn launcher_digest(tag: &str, asset: &str) -> Result<String, String> {
++    digest_on(LAUNCHER_REPO, tag, asset)
++}
++
++fn digest_on(repo: &str, tag: &str, asset: &str) -> Result<String, String> {
+     crate::signed::digest(
++        repo,
+         tag,
+         asset,
+         &horizon_release_sign::trusted_keys(),
+@@ -782,6 +792,7 @@ pub fn install(release: &Release, progress: impl Fn(f32)) -> Result<(), String>
+     let sha256 = match &release.nightly {
+         // Signed for the Nightly channel, served under its own GitHub tag.
+         Some(published) => crate::signed::nightly_digest(
++            REPO,
+             published,
+             ASSET.unwrap_or_default(),
+             &horizon_release_sign::trusted_keys(),
+@@ -1495,8 +1506,6 @@ fn download_for_owner(
+     log: &dyn Fn(String),
+ ) -> Result<(), String> {
+     let mut accounts = account::Accounts::load();
+-    // The strict gate, never `launch_for_game`: the developer option that lets offline names
+-    // play without an owner must not download the game for them.
+     let pass = account::launch(
+         &account::Endpoints::live(),
+         account::client_id().as_deref(),
+@@ -2458,9 +2467,6 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
+     }
+ }
+ 
+-/// The client's command, once the owner gate lets it start and its resources are prepared. Past
+-/// the gate, a sign-in that can't be renewed (no network, expired) still lets the game start,
+-/// offline.
+ pub fn client(tag: &str) -> Result<Command, String> {
+     client_as(tag, None)
+ }
+@@ -2468,7 +2474,7 @@ pub fn client(tag: &str) -> Result<Command, String> {
+ /// [`client`], playing as `who` for this launch only (`play --account`).
+ pub fn client_as(tag: &str, who: Option<&account::Player>) -> Result<Command, String> {
+     let session = match who {
+-        None => account::session_for_game(&game_home(), false).map_err(|e| e.to_string()),
++        None => account::session_for_game(&game_home()).map_err(|e| e.to_string()),
+         Some(who) => account::session_for_game_as(&game_home(), who),
+     }
+     .map_err(|refused| format!("{refused} Sign in with `horizon-launcher account sign-in`."))?;
+@@ -2639,13 +2645,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
+ pub fn releases_and_updates(
+     on_releases: impl FnOnce(Result<Vec<Release>, String>),
+ ) -> Result<Updates, String> {
+-    releases_and_updates_with(release_list, installed, launcher_releases_in, on_releases)
++    releases_and_updates_with(
++        release_list,
++        installed,
++        launcher_releases_in,
++        launcher_release_list,
++        on_releases,
++    )
++}
++
++fn launcher_release_list() -> Result<serde_json::Value, String> {
++    let url = format!("https://api.github.com/repos/{LAUNCHER_REPO}/releases?per_page=100");
++    get(&url)?.into_json().map_err(|e| e.to_string())
+ }
+ 
+ fn releases_and_updates_with(
+     load: impl FnOnce() -> Result<serde_json::Value, String>,
+     installed: impl FnOnce() -> Vec<String>,
+     launchers: impl FnOnce(&serde_json::Value) -> Vec<Release>,
++    fork_load: impl FnOnce() -> Result<serde_json::Value, String>,
+     on_releases: impl FnOnce(Result<Vec<Release>, String>),
+ ) -> Result<Updates, String> {
+     let list = match load() {
+@@ -2656,11 +2674,12 @@ fn releases_and_updates_with(
+         }
+     };
+     let releases = game_releases(&list);
++    on_releases(Ok(releases.clone()));
+     let horizon = horizon_update(&installable_updates(&releases), &installed());
+-    on_releases(Ok(releases));
++    let fork = fork_load().unwrap_or(serde_json::Value::Null);
+     Ok(Updates {
+         horizon,
+-        launcher: launcher_update(&launchers(&list)),
++        launcher: launcher_update(&launchers(&fork)),
+     })
+ }
+ 
+@@ -2958,7 +2977,7 @@ pub fn self_update(release: &Release, progress: impl Fn(f32)) -> Result<(), Stri
+         progress(1.0);
+         return Ok(());
+     }
+-    let sha256 = signed_digest(&release.tag, launcher_asset().unwrap_or_default())?;
++    let sha256 = launcher_digest(&release.tag, LAUNCHER_ASSET.unwrap_or_default())?;
+     let work = data_dir().join(".launcher-update");
+     let _ = fs::remove_dir_all(&work);
+     fs::create_dir_all(&work).map_err(|e| e.to_string())?;
+@@ -3348,13 +3367,6 @@ pub struct Settings {
+     /// one now (the owner gate's screen).
+     #[serde(default)]
+     pub owner_notice_seen: bool,
+-    /// Seconds a partner banner (the sidebar's card or the Servers page's banner) has been on
+-    /// screen, over every start, up to `partner::SEEN_BEFORE_HIDE`: only then can the player hide it.
+-    #[serde(default)]
+-    pub partner_seen_secs: u64,
+-    /// The player hid a partner banner: the sidebar's card and the Servers page's banner are both gone for good.
+-    #[serde(default)]
+-    pub partner_hidden: bool,
+     /// What the window does while the game runs. Stays by default.
+     #[serde(default)]
+     pub while_playing: WhilePlaying,
+@@ -3387,12 +3399,6 @@ pub struct Settings {
+     /// An older file's switch for the release profile, read when `native_profile` is unset.
+     #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+     pub native_release: bool,
+-    /// Developer options (hidden: seven clicks on the sidebar's launcher version reveal them):
+-    /// offline names play without an account that owns the game, in the window only
+-    /// (`account::Accounts::play_as_with`, `account::launch_for_game`). Never a download: the game still
+-    /// comes from the player's own install. Off by default, and absent from the file while off.
+-    #[serde(default, skip_serializing_if = "std::ops::Not::not")]
+-    pub dev_offline: bool,
+ }
+ 
+ impl Settings {
+@@ -3628,8 +3634,6 @@ mod tests {
+     }
+ 
+     /// The launcher downloads Mojang's game files (client jar, libraries, assets) only for an
+-    /// account the services said owns the game: never without one, and never past the gate by
+-    /// the developer option (`Settings::dev_offline`), whose pass has no owner.
+     #[test]
+     fn mojang_downloads_only_for_an_owner() {
+         let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
+@@ -3724,7 +3728,10 @@ mod tests {
+         };
+         assert!(body("download_for").contains("mojang::download("));
+         assert!(body("download_for_owner").contains("account::launch("));
+-        assert!(!body("download_for_owner").contains("launch_for_game("));
++        assert!(
++            !body("download_for_owner").contains("session_for_game("),
++            "downloads never go through the play path"
++        );
+         // `download_for` is defined once and called once, by `download_for_owner`.
+         assert_eq!(backend.matches("download_for(").count(), 2);
+         assert!(body("download_for_owner").contains("download_for("));
 -- 
 2.47.3
 
