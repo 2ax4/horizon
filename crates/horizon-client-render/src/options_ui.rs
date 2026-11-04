@@ -272,13 +272,16 @@ impl Opt {
             Opt::PadAdaptiveTriggers => "horizon.options.adaptive_triggers",
             Opt::PadLightbar => "horizon.options.lightbar",
             Opt::PadLookSensitivity => "horizon.options.look_sensitivity",
+            Opt::PadPointerSpeed => "horizon.options.pointer_speed",
+            Opt::PadScrollSpeed => "horizon.options.scroll_speed",
+            Opt::PadRepeatDelay => "horizon.options.repeat_delay",
+            Opt::PadRepeatInterval => "horizon.options.repeat_interval",
             Opt::PadInvertX => "horizon.options.invert_x",
             Opt::PadInvertY => "horizon.options.invert_y",
             Opt::PadToggleSneak => "horizon.options.sneak_button",
             Opt::PadMoveDeadzone => "horizon.options.move_deadzone",
             Opt::PadLookDeadzone => "horizon.options.look_deadzone",
             Opt::PadGlyphs => "horizon.options.button_glyphs",
-            Opt::PadMenuNav => "horizon.options.menu_navigation",
             Opt::PadKeyboard => "horizon.options.on_screen_keyboard",
             Opt::ModelPart(i) => [
                 "options.modelPart.cape",
@@ -352,6 +355,10 @@ impl Opt {
             Opt::ChatHeightUnfocused => Kind::Slider(s.chat_height_unfocused),
             Opt::ChatLineSpacing => Kind::Slider(s.chat_line_spacing),
             Opt::PadLookSensitivity => Kind::Slider(s.controller.look_sensitivity),
+            Opt::PadPointerSpeed => unit(s.controller.pointer_speed, 0.25, 3.0),
+            Opt::PadScrollSpeed => unit(s.controller.scroll_speed, 1.0, 36.0),
+            Opt::PadRepeatDelay => unit(s.controller.repeat_delay, 0.1, 1.0),
+            Opt::PadRepeatInterval => unit(s.controller.repeat_interval, 0.03, 0.3),
             Opt::PadMoveDeadzone => unit(s.controller.move_deadzone, 0.0, 0.5),
             Opt::PadLookDeadzone => unit(s.controller.look_deadzone, 0.0, 0.5),
             Opt::SprintWindow => unit(s.sprint_window as f32, 0.0, 10.0),
@@ -610,6 +617,23 @@ impl Opt {
                 ),
             ),
             Opt::PadLookSensitivity => percent(c, 2.0 * s.controller.look_sensitivity),
+            Opt::PadPointerSpeed => percent(c, s.controller.pointer_speed),
+            Opt::PadScrollSpeed => percent(c, s.controller.scroll_speed / 12.0),
+            Opt::PadRepeatDelay | Opt::PadRepeatInterval => generic(
+                c,
+                Text::tr(
+                    "horizon.options.milliseconds",
+                    &[&format!(
+                        "{:.0}",
+                        1000.0
+                            * if self == Opt::PadRepeatDelay {
+                                s.controller.repeat_delay
+                            } else {
+                                s.controller.repeat_interval
+                            }
+                    )],
+                ),
+            ),
             Opt::PadMoveDeadzone | Opt::PadLookDeadzone => {
                 let v = if self == Opt::PadMoveDeadzone {
                     s.controller.move_deadzone
@@ -796,10 +820,6 @@ impl Opt {
                 GlyphStyle::PlayStation => "horizon.options.glyphs.playstation",
                 GlyphStyle::Nintendo => "horizon.options.glyphs.nintendo",
             }),
-            Opt::PadMenuNav => tr(match s.controller.menu_nav {
-                gamepad::MenuNav::Focus => "horizon.options.menu_focus",
-                gamepad::MenuNav::Pointer => "horizon.options.menu_pointer",
-            }),
             Opt::PadKeyboard => tr(match s.controller.keyboard {
                 gamepad::TextKeyboard::Auto => "horizon.options.keyboard.auto",
                 gamepad::TextKeyboard::Horizon => "horizon.options.keyboard.horizon",
@@ -871,6 +891,10 @@ impl Opt {
             Opt::ChatHeightUnfocused => s.chat_height_unfocused = v,
             Opt::ChatLineSpacing => s.chat_line_spacing = v,
             Opt::PadLookSensitivity => s.controller.look_sensitivity = v,
+            Opt::PadPointerSpeed => s.controller.pointer_speed = step(25.0, 300.0) / 100.0,
+            Opt::PadScrollSpeed => s.controller.scroll_speed = step(1.0, 36.0),
+            Opt::PadRepeatDelay => s.controller.repeat_delay = step(100.0, 1000.0) / 1000.0,
+            Opt::PadRepeatInterval => s.controller.repeat_interval = step(30.0, 300.0) / 1000.0,
             Opt::PadMoveDeadzone => s.controller.move_deadzone = step(0.0, 50.0) / 100.0,
             Opt::PadLookDeadzone => s.controller.look_deadzone = step(0.0, 50.0) / 100.0,
             Opt::SprintWindow => s.sprint_window = step(0.0, 10.0) as i32,
@@ -1094,12 +1118,6 @@ impl Opt {
                     .unwrap_or(0) as u8;
                 s.controller.glyphs = GlyphStyle::ALL[usize::from(next(i, 4))];
             }
-            Opt::PadMenuNav => {
-                s.controller.menu_nav = match s.controller.menu_nav {
-                    gamepad::MenuNav::Focus => gamepad::MenuNav::Pointer,
-                    gamepad::MenuNav::Pointer => gamepad::MenuNav::Focus,
-                }
-            }
             Opt::PadKeyboard => {
                 let all = gamepad::TextKeyboard::ALL;
                 let i = all
@@ -1255,6 +1273,8 @@ pub enum Page {
     Controller,
     PadBinds,
     Extras,
+    /// PvP & HUD (`pvp`): the extras a PvP player sets, on their own page.
+    Pvp,
     /// CreditsAndAttributionScreen.
     Credits,
     /// Horizon Settings: every page Horizon adds, as a mod's settings
@@ -1718,6 +1738,7 @@ fn horizon_page_tooltip(page: Page) -> Option<&'static str> {
         Page::GraphicsAdvanced => "horizon.pages.graphics_advanced.tooltip",
         Page::Controller => "horizon.pages.controller.tooltip",
         Page::Extras => "horizon.pages.extras.tooltip",
+        Page::Pvp => "horizon.pages.pvp.tooltip",
         Page::Agent => "horizon.pages.agent.tooltip",
         Page::SplitProfiles => "horizon.pages.split_profiles.tooltip",
         Page::ShaderPacks => "horizon.pages.shader_packs.tooltip",
@@ -2080,6 +2101,13 @@ fn pairs(opts: &[Opt]) -> Vec<Row> {
         .collect()
 }
 impl OptionsUi {
+    /// No widget keeps the highlight a click gave it; a focus the keyboard
+    /// moved stays.
+    pub fn clear_click_focus(&mut self) {
+        if !self.focus_from_keyboard {
+            self.focus = None;
+        }
+    }
     /// A switch of `horizon-extras.txt` as the Extras page draws it: "Caption: On".
     fn extra_button(&self, s: &Settings, item: crate::extras::Item) -> Widget {
         let label = Text::option_name_value(
@@ -2317,6 +2345,7 @@ impl OptionsUi {
             Page::Controller => "horizon.pages.controller",
             Page::PadBinds => "horizon.pages.controller_binds",
             Page::Extras => "horizon.pages.extras",
+            Page::Pvp => "horizon.pages.pvp",
             Page::Credits => "credits_and_attribution.screen.title",
             Page::Horizon => "horizon.pages.settings",
             Page::Agent => "horizon.pages.agent",
@@ -2413,7 +2442,7 @@ impl OptionsUi {
     fn list_rows(&self, s: &Settings) -> Vec<Row> {
         match self.page() {
             Page::SplitSetup => Vec::new(),
-            Page::Extras => {
+            Page::Extras | Page::Pvp => {
                 // Each section's switches two to a row, as vanilla's
                 // OptionsList.addSmall lays out an options screen.
                 let extra = |item: crate::extras::Item| {
@@ -2450,7 +2479,14 @@ impl OptionsUi {
                     );
                     section.clear();
                 };
-                for row in crate::extras::rows() {
+                let page_rows = match self.page() {
+                    Page::Pvp => crate::pvp::rows()
+                        .into_iter()
+                        .map(|r| r.map(crate::extras::Item::Pvp))
+                        .collect(),
+                    _ => crate::extras::rows(),
+                };
+                for row in page_rows {
                     match row {
                         Err(header) => {
                             flush(&mut rows, &mut section);
@@ -2492,7 +2528,7 @@ impl OptionsUi {
                                 Page::SplitSetup
                             },
                         ),
-                        None,
+                        Some(open("horizon.pages.open.pvp", Page::Pvp)),
                     ),
                     // No AI hides the AI Agent page and everything AI.
                     Row::Buttons(
@@ -2738,8 +2774,11 @@ impl OptionsUi {
                     Opt::PadMoveDeadzone,
                     Opt::PadLookDeadzone,
                     Opt::PadGlyphs,
-                    Opt::PadMenuNav,
                     Opt::PadKeyboard,
+                    Opt::PadPointerSpeed,
+                    Opt::PadScrollSpeed,
+                    Opt::PadRepeatDelay,
+                    Opt::PadRepeatInterval,
                 ]));
                 rows
             }
@@ -7556,6 +7595,7 @@ mod tests {
                 Page::Extras,
                 Page::Mods,
                 Page::SplitSetup,
+                Page::Pvp,
                 Page::Agent,
             ]
         );
@@ -8295,20 +8335,22 @@ mod tests {
                 .unwrap();
             let (ex, ey) = (extra_btn.x + 1.0, extra_btn.y + 1.0);
             use horizon_cosmetics::prefs::Others;
-            assert_eq!(s.extras.cosmetics_others, Others::Shown);
+            // Not chosen, nothing owned: shows Hidden.
+            assert_eq!(s.extras.cosmetics_others, None);
+            assert_eq!(s.extras.effective_others(), Others::Hidden);
 
-            // Forward
+            // Forward (wraps to Shown), now a choice
             ui.click(&mut s, &atlas, ex, ey, size, [854, 480], false, false);
-            assert_eq!(s.extras.cosmetics_others, Others::NameTags);
+            assert_eq!(s.extras.cosmetics_others, Some(Others::Shown));
 
             // Backward with shift
             ui.shift = true;
             ui.click(&mut s, &atlas, ex, ey, size, [854, 480], false, false);
-            assert_eq!(s.extras.cosmetics_others, Others::Shown);
+            assert_eq!(s.extras.cosmetics_others, Some(Others::Hidden));
 
-            // Wrap-around backward with shift
+            // Backward again
             ui.click(&mut s, &atlas, ex, ey, size, [854, 480], false, false);
-            assert_eq!(s.extras.cosmetics_others, Others::Hidden);
+            assert_eq!(s.extras.cosmetics_others, Some(Others::NameTags));
             ui.shift = false;
         }
     }
