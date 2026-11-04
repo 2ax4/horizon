@@ -153,12 +153,14 @@ The opening, then Play ([clip](docs/opening.webm)):
   [NAME]`, `account select <name>` (an account or an offline name), `account forget-offline
   <name>`.
 - **Accent and Home background**: on top of Dark, Light or System, Settings > Launcher picks an
-  accent (Horizon's violet, blue, teal, green, amber, red or pink) and a picture of the player's
-  own behind Home (PNG, JPEG or WebP, cropped to fill; **Landscape** brings Horizon's back). An
-  accent turns the violet tokens to its hue, then darkens or lightens them just enough to keep
-  white on the Play button at 4.5:1 and the accent at 3:1 on every background (a test holds every
-  accent in both looks to it). The picture is copied into the data folder.
-  `horizon-launcher settings accent NAME`, `settings background PATH|default`.
+  accent (Horizon's violet, blue, teal, green, amber, red or pink, any hue, or any colour typed as
+  hex in the dark look) and a picture of the player's own behind Home (PNG, JPEG or WebP, cropped
+  to fill; **Landscape** brings Horizon's back). The dark look wears the colour as is, as the
+  mockup does; in the light look an accent turns the violet tokens to its hue, then darkens or
+  lightens them just enough to keep white on the Play button at 4.5:1 and the accent at 3:1 on
+  every background (a test holds every accent in both looks to it). The picture is copied into the
+  data folder. `horizon-launcher settings accent NAME|#rrggbb|DEGREES`,
+  `settings background PATH|default`.
 - **Language**: English, French, Russian, German, Simplified Chinese, Spanish, Ukrainian and Polish.
   The window follows the system's language unless the player picks one in Settings > Launcher
   (each named in itself); a string a table lacks shows in English. The tables are
@@ -311,6 +313,16 @@ labelled `feature`) with `horizon-launcher-linux-x86_64.tar.gz`,
 `horizon-launcher-linux-x86_64.AppImage`, `horizon-launcher-macos-arm64.zip`,
 `horizon-launcher-macos-x64.zip` (Intel Macs) and `horizon-launcher-windows-x64.zip`, never marked latest. The version is built in from the tag
 (`HORIZON_LAUNCHER_VERSION`); `Cargo.toml`'s version is only what local builds report.
+
+Windows also publishes `horizon-launcher-setup.exe`: the launcher's own binary under another name, which opens
+a per-user setup instead of the window (no administrator). It copies itself to
+`%LOCALAPPDATA%\Programs\Horizon Launcher\horizon-launcher.exe`, makes the Start menu shortcut (and the
+desktop one if asked) and an entry in *Apps & features*, then starts the copy. `horizon-launcher-setup.exe
+setup --quiet [--dir <folder>] [--desktop-shortcut]` does the same without a window, and
+`horizon-launcher.exe uninstall` (or `... uninstall --quiet [--remove-data]`) takes it all away again: the
+shortcuts, the registry entries and the install folder. The game's folders are never touched, and the
+launcher's data folder only with `--remove-data`. An installed launcher keeps updating itself, so the
+uninstaller at that path is always the newest one.
 
 ## Command line
 

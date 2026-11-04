@@ -33,7 +33,7 @@ impl Launcher {
     }
 
     /// Everyone the player can play as, with how each signs in.
-    fn players(&self) -> Vec<(Player, String, &'static str)> {
+    pub(super) fn players(&self) -> Vec<(Player, String, &'static str)> {
         let mut out: Vec<_> = self
             .accounts
             .accounts
@@ -159,6 +159,18 @@ impl Launcher {
         }
     }
 
+    /// Forgets an offline name and its skin.
+    pub(super) fn forget_offline(&mut self, name: &str) {
+        let mut accounts = Accounts::load();
+        if accounts
+            .remove_offline(name, &horizon_launcher::skins::dir())
+            .is_ok()
+            && accounts.save().is_ok()
+        {
+            self.accounts = accounts;
+        }
+    }
+
     /// Enter in the offline name field.
     pub(super) fn offline_name_enter(&mut self) {
         self.add_offline_name();
@@ -197,14 +209,7 @@ impl Launcher {
             actions = actions.child(
                 button(format!("offline-forget-{i}"), "Forget", Kind::Ghost, &t).on_click(
                     cx.listener(move |this, _: &ClickEvent, _, cx| {
-                        let mut accounts = Accounts::load();
-                        if accounts
-                            .remove_offline(&forget, &horizon_launcher::skins::dir())
-                            .is_ok()
-                            && accounts.save().is_ok()
-                        {
-                            this.accounts = accounts;
-                        }
+                        this.forget_offline(&forget);
                         cx.notify();
                     }),
                 ),

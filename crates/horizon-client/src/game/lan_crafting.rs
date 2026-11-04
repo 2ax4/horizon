@@ -25,7 +25,7 @@ pub(super) struct GuestCrafting {
     /// The open furnace's or brewing stand's window and menu (`AbstractFurnaceMenu`,
     /// `BrewingStandMenu`); its slots live in the block entity and the hub's
     /// container menu keeps the client in sync.
-    machine: Option<(i32, Box<Menu>)>,
+    pub(super) machine: Option<(i32, Box<Menu>)>,
 }
 
 /// ServerboundContainerClickPacket's input.
@@ -85,6 +85,14 @@ fn place_back(menu: &mut Menu, env: &Env, stacks: Vec<ItemStack>) {
 }
 
 impl Game<'_> {
+    /// `LocalPlayer.doLimitedCrafting`: whether limited crafting is active.
+    pub fn limited_crafting(&self) -> bool {
+        self.remote.as_ref().map_or_else(
+            || self.ui.rules.bool("limited_crafting"),
+            |r| r.do_limited_crafting,
+        )
+    }
+
     pub(super) fn menu_env(&self) -> Env<'_> {
         Env {
             items: self.items(),
@@ -96,6 +104,8 @@ impl Game<'_> {
             names: &self.pack.names,
             trade: None,
             maps: None,
+            limited_crafting: self.limited_crafting(),
+            known_recipes: Some(&self.level.recipe_book),
         }
     }
 
@@ -119,6 +129,8 @@ impl Game<'_> {
         });
         let env = Env {
             maps: maps.as_ref().map(|m| m as &dyn horizon_client::menu::Maps),
+            limited_crafting: host.hub.limited_crafting,
+            known_recipes: Some(&host.hub.guests[gi].recipe_book),
             ..self.menu_env()
         };
         load_player(menu, &host.hub.guests[gi]);
@@ -126,7 +138,13 @@ impl Game<'_> {
         if let Some(maps) = maps {
             self.register_made_maps(maps);
         }
-        let dropped = std::mem::take(&mut menu.dropped);
+        // A taken anvil result waits for AnvilCraftEvent.Pre: what the click
+        // dropped waits with it (lan_station_op throws it or refuses the take).
+        let dropped = if menu.anvil_craft.is_some() {
+            Vec::new()
+        } else {
+            std::mem::take(&mut menu.dropped)
+        };
         let equipped = std::mem::take(&mut menu.equipped);
         let brewed = std::mem::take(&mut menu.brewed);
         let crafted = std::mem::take(&mut menu.crafted);

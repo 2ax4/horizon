@@ -129,6 +129,25 @@ impl Game<'_> {
             let _ = flight.reply.send(summary.to_string());
         }
     }
+    /// The game's settings a render capture records beside the renderer's own state.
+    fn render_capture_settings(&self) -> horizon_client::gfx::capture::Settings {
+        let s = &self.settings;
+        horizon_client::gfx::capture::Settings {
+            graphics_api: format!("{:?}", s.horizon.api),
+            translucent_batching: s.horizon.translucent_batching,
+            texture_filtering: s.file.int("textureFiltering"),
+            anisotropy_bit: s.file.int("maxAnisotropyBit"),
+            mipmap_levels: s.mipmap_levels.max(0) as u32,
+            resolution_scale: s.horizon.resolution_scale as f32 / 100.0,
+            fxaa: s.horizon.fxaa,
+            taa: s.horizon.taa,
+            upscale: s.horizon.upscaling.ratio(),
+            render_distance: self.streaming.radius,
+            lod_distance: self.far_terrain_choice().0,
+            resources: self.options.resources.clone(),
+            atlas: horizon_client::gfx::capture::AtlasCheck::of(&self.pack.render),
+        }
+    }
     /// The frame summary, with Horizon's own passes' median GPU times while they are timed.
     fn summary_with_passes(&self) -> Value {
         let mut summary = self.frame_stats.summary();
@@ -231,6 +250,14 @@ impl Game<'_> {
         }
         if self.sign_edit.is_some() {
             self.sign_input(None, Some(text));
+            return Ok(());
+        }
+        // The title's screens: the world name, the seed, a server's address.
+        // A screen opened over the title (Options, say) keeps its own text.
+        if title_owns_text(&self.screen, self.title.is_some())
+            && let Some(title) = &mut self.title
+        {
+            title.type_text(text);
             return Ok(());
         }
         match self.screen {
@@ -388,6 +415,53 @@ impl Game<'_> {
                 }
                 Ok(Some(json!({ "ok": true, "gpu_passes": self.gpu_passes })))
             }
+            "render-capture" => match words.get(1).copied() {
+                None => {
+                    let r = self.renderer.as_ref().ok_or("no renderer")?;
+                    Ok(Some(
+                        json!({ "ok": true, "keeping": r.keeps_capture_copies() }),
+                    ))
+                }
+                Some("on") => {
+                    let r = self.renderer.as_mut().ok_or("no renderer")?;
+                    if !r.keeps_capture_copies() {
+                        r.keep_capture_copies(true);
+                        // The copies start empty: every section and far tile is meshed
+                        // again, as after a relayout.
+                        self.clear_lod();
+                        self.all_sections_changed();
+                    }
+                    Ok(Some(json!({ "ok": true, "keeping": true })))
+                }
+                Some("off") => {
+                    let r = self.renderer.as_mut().ok_or("no renderer")?;
+                    r.keep_capture_copies(false);
+                    Ok(Some(json!({ "ok": true, "keeping": false })))
+                }
+                Some(_) => {
+                    if self.pending_render_capture.is_some() {
+                        return Err("a render capture is already pending".into());
+                    }
+                    // The rest of the line: a path may hold spaces.
+                    let dir = line
+                        .trim_start()
+                        .strip_prefix("render-capture")
+                        .unwrap_or("");
+                    let settings = self.render_capture_settings();
+                    let r = self.renderer.as_mut().ok_or("no renderer")?;
+                    if !r.keeps_capture_copies() {
+                        return Err("no mesh copies kept: run render-capture on (or start with \
+                            HORIZON_RENDER_CAPTURE=1) and let the terrain settle first"
+                            .into());
+                    }
+                    r.capture = Some(horizon_client::gfx::capture::Request {
+                        dir: dir.trim().into(),
+                        settings,
+                    });
+                    self.pending_render_capture = Some(reply.clone());
+                    Ok(None)
+                }
+            },
             "section-sides" => {
                 let r = self.renderer.as_mut().ok_or("no renderer")?;
                 match words.get(1).copied() {
@@ -397,6 +471,16 @@ impl Game<'_> {
                     Some(other) => return Err(format!("unknown section sides mode {other}").into()),
                 }
                 Ok(Some(json!({ "ok": true, "sides": r.section_sides() })))
+            }
+            "gpu-culling" => {
+                let r = self.renderer.as_mut().ok_or("no renderer")?;
+                match words.get(1).copied() {
+                    None => {}
+                    Some("on") => r.set_gpu_culling(true)?,
+                    Some("off") => r.set_gpu_culling(false)?,
+                    Some(other) => return Err(format!("unknown GPU culling mode {other}").into()),
+                }
+                Ok(Some(json!({ "ok": true, "gpu_culling": r.gpu_culling() })))
             }
             "sculk" => Ok(Some(self.sculk_command(&words)?)),
             "hello" => Ok(Some(hello())),
@@ -569,7 +653,7 @@ impl Game<'_> {
                     }
                 };
                 match arg(2)? {
-                    "down" => self.control_key_down(key)?,
+                    "down" => self.control_key_down(key, physical)?,
                     "up" => {
                         self.keys.remove(&key);
                         self.physical_keys.remove(&key);
@@ -577,10 +661,10 @@ impl Game<'_> {
                     // The system's auto-repeat while the key is held.
                     "repeat" => {
                         self.physical_keys.insert(physical);
-                        self.mapped_key(key, true, true)?;
+                        self.mapped_key(key, true, true, key)?;
                     }
                     "tap" => {
-                        self.control_key_down(key)?;
+                        self.control_key_down(key, physical)?;
                         self.keys.remove(&key);
                         self.physical_keys.remove(&physical);
                         self.debug_key(physical, horizon_client::debug_keys::KeyAction::Release);
@@ -1068,7 +1152,7 @@ impl Game<'_> {
         Ok(())
     }
 
-    fn control_key_down(&mut self, key: KeyCode) -> Result<()> {
+    fn control_key_down(&mut self, key: KeyCode, raw: KeyCode) -> Result<()> {
         self.physical_keys.insert(key);
         // The window's shortcuts come before any screen, here too.
         if self.screenshot_shortcut(key, false) {
@@ -1090,7 +1174,7 @@ impl Game<'_> {
             return Ok(());
         }
         if self.keys.insert(key) {
-            self.key_pressed(key)?;
+            self.key_pressed(key, raw)?;
         }
         Ok(())
     }
@@ -1217,6 +1301,8 @@ impl Game<'_> {
                 "section_draws": r.section_draws,
                 "section_draw_calls": r.section_draw_calls,
                 "culled_sections": r.culled_sections(),
+                "gpu_culling": r.gpu_culling(),
+                "gpu_frame": r.gpu_frame(),
                 "uploaded_bytes": r.uploaded_bytes,
                 "resident_sections": r.resident_sections(),
                 "arena_bytes": arena_bytes,
@@ -1236,7 +1322,7 @@ impl Game<'_> {
             "distance": self.settings.horizon.lod_distance,
             "effective_distance": self.lod_distance(),
             "terrain_distance": self.terrain_distance(),
-            "source": if self.lod.is_none() { "none" } else if self.integrated.is_some() { "integrated" } else if self.server_far_terrain().is_some() { "server" } else { "local" },
+            "source": if self.lod.is_none() { "none" } else if self.integrated.is_some() { "integrated" } else if self.server_far_terrain().is_some() { "server" } else if self.remote.is_some() { "server-terrain" } else { "local" },
             "source_attempted": self.lod_source_attempted,
             "active_tiles": self.lod.as_ref().map_or(0, |lod| lod.stats().0),
             "cached_tiles": self.lod.as_ref().map_or(0, |lod| lod.stats().1),
@@ -1459,9 +1545,23 @@ fn key_code(name: &str) -> Option<KeyCode> {
     })
 }
 
+/// The title's own screens (not one opened over it, as Options is) take the
+/// text: the world name, the seed, a server's address.
+pub(super) fn title_owns_text(screen: &Screen, title_up: bool) -> bool {
+    title_up && *screen == Screen::Playing
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn the_title_takes_text_only_on_its_own_screens() {
+        assert!(title_owns_text(&Screen::Playing, true));
+        assert!(!title_owns_text(&Screen::Playing, false));
+        assert!(!title_owns_text(&Screen::Options, true));
+        assert!(!title_owns_text(&Screen::Chat, true));
+    }
 
     #[test]
     fn hello_names_the_protocol_the_release_and_the_command_groups() {
