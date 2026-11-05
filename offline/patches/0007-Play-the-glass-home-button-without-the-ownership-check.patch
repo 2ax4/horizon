@@ -1,7 +1,7 @@
-From 83a4e2b7a0000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From d480ef935ff10fd9fee8bfaeeffcc960a3952669 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 22:45:00 +0000
-Subject: [PATCH] Play the glass home button without the ownership check
+Subject: [PATCH 5/7] Play the glass home button without the ownership check
 
 The offline accounts patch reduced play_press to (prepared, busy), but the
 glass home's play group still passed self.owner (Option<bool>) to it, so
@@ -13,10 +13,10 @@ what kept every offline release assetless since 0.2.38.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/launcher/src/glass_home.rs b/launcher/src/glass_home.rs
-index 6e018f2fe..83a4e2b7a 100644
+index b46889678..1351d6b07 100644
 --- a/launcher/src/glass_home.rs
 +++ b/launcher/src/glass_home.rs
-@@ -376,7 +376,7 @@ impl Launcher {
+@@ -387,7 +387,7 @@ impl Launcher {
                      Some(_) => (tr("Update"), "download-04"),
                      None => (tr("Play"), "play"),
                  };
@@ -25,3 +25,6 @@ index 6e018f2fe..83a4e2b7a 100644
                  let main = body(label.into(), icon).id("play").cursor_pointer();
                  let main = match (&update, press) {
                      (Some(_), _) => main.on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
+-- 
+2.47.3
+

@@ -1,13 +1,14 @@
-From 4077d157882fef0c2ecce02b8d75f9a54c688609 Mon Sep 17 00:00:00 2001
+From 0ff5fddedd3c8c6d31cac1da69f1631f011ab0d8 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
-Subject: [PATCH 2/5] Offline updates follow the fork's releases
+Subject: [PATCH 2/7] Offline updates follow the fork's releases
 
 ---
  crates/horizon-release-sign/release-keys.txt  |   1 +
+ launcher/src/backend.rs                       |   2 +-
  launcher/src/backend/release_loading_tests.rs |  90 +++++++++++----
  launcher/src/signed.rs                        | 104 +++++++++++++++---
- 3 files changed, 157 insertions(+), 38 deletions(-)
+ 4 files changed, 158 insertions(+), 39 deletions(-)
 
 diff --git a/crates/horizon-release-sign/release-keys.txt b/crates/horizon-release-sign/release-keys.txt
 index c39be4435..c51015423 100644
@@ -18,6 +19,19 @@ index c39be4435..c51015423 100644
  # Changing this file needs Ludovic's review (.github/CODEOWNERS).
  MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
 +DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
+diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
+index d5bdb66cb..0ca07f370 100644
+--- a/launcher/src/backend.rs
++++ b/launcher/src/backend.rs
+@@ -3717,7 +3717,7 @@ pub fn stage_update(release: &Release, progress: impl Fn(f32)) -> Result<Option<
+     {
+         return Ok(None);
+     }
+-    let sha256 = signed_digest(&release.tag, launcher_asset().unwrap_or_default())?;
++    let sha256 = launcher_digest(&release.tag, launcher_asset().unwrap_or_default())?;
+     let work = update_work_dir();
+     remove_abandoned_stages(&work, std::time::SystemTime::now(), process_alive);
+     let stage = new_stage_folder(&work)?;
 diff --git a/launcher/src/backend/release_loading_tests.rs b/launcher/src/backend/release_loading_tests.rs
 index d7f839bde..d64487c02 100644
 --- a/launcher/src/backend/release_loading_tests.rs

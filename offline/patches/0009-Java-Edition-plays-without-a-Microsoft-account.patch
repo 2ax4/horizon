@@ -1,7 +1,7 @@
-From d782630cef9d17b228a76bb072b3a9293b96a525 Mon Sep 17 00:00:00 2001
+From f8fc5fb4e9fdc9210e38aea39237f1a548e9e095 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Thu, 5 Nov 2026 00:22:25 +0000
-Subject: [PATCH 2/2] Java Edition plays without a Microsoft account
+Subject: [PATCH 7/7] Java Edition plays without a Microsoft account
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -18,16 +18,1220 @@ is one. The download-for-an-owner-only test now asks for the offline
 downloads too, and a new test pins the offline player's name, UUID and
 empty token.
 ---
+ launcher/lang/af.json         |   4 +-
+ launcher/lang/ar.json         |   4 +-
+ launcher/lang/az.json         |   4 +-
+ launcher/lang/ba.json         |   4 +-
+ launcher/lang/be.json         |   4 +-
+ launcher/lang/bg.json         |   4 +-
+ launcher/lang/br.json         |   4 +-
+ launcher/lang/bs.json         |   4 +-
+ launcher/lang/ca.json         |   4 +-
+ launcher/lang/cs.json         |   4 +-
+ launcher/lang/cv.json         |   4 +-
+ launcher/lang/cy.json         |   4 +-
+ launcher/lang/da.json         |   4 +-
+ launcher/lang/de.json         |   4 +-
+ launcher/lang/el.json         |   4 +-
+ launcher/lang/eo.json         |   4 +-
+ launcher/lang/es.json         |   4 +-
+ launcher/lang/et.json         |   4 +-
+ launcher/lang/eu.json         |   4 +-
+ launcher/lang/fa.json         |   4 +-
+ launcher/lang/fi.json         |   4 +-
+ launcher/lang/fil.json        |   4 +-
+ launcher/lang/fo.json         |   4 +-
+ launcher/lang/fr.json         |   4 +-
+ launcher/lang/fur.json        |   4 +-
+ launcher/lang/fy.json         |   4 +-
+ launcher/lang/ga.json         |   4 +-
+ launcher/lang/gd.json         |   4 +-
+ launcher/lang/gl.json         |   4 +-
+ launcher/lang/haw.json        |   4 +-
+ launcher/lang/he.json         |   4 +-
+ launcher/lang/hi.json         |   4 +-
+ launcher/lang/hr.json         |   4 +-
+ launcher/lang/hu.json         |   4 +-
+ launcher/lang/hy.json         |   4 +-
+ launcher/lang/id.json         |   4 +-
+ launcher/lang/ig.json         |   4 +-
+ launcher/lang/is.json         |   4 +-
+ launcher/lang/it.json         |   4 +-
+ launcher/lang/ja.json         |   4 +-
+ launcher/lang/ka.json         |   4 +-
+ launcher/lang/kk.json         |   4 +-
+ launcher/lang/kn.json         |   4 +-
+ launcher/lang/ko.json         |   4 +-
+ launcher/lang/ky.json         |   4 +-
+ launcher/lang/la.json         |   4 +-
+ launcher/lang/lb.json         |   4 +-
+ launcher/lang/li.json         |   4 +-
+ launcher/lang/lmo.json        |   4 +-
+ launcher/lang/lo.json         |   4 +-
+ launcher/lang/lt.json         |   4 +-
+ launcher/lang/lv.json         |   4 +-
+ launcher/lang/mk.json         |   4 +-
+ launcher/lang/mn.json         |   4 +-
+ launcher/lang/ms.json         |   4 +-
+ launcher/lang/mt.json         |   4 +-
+ launcher/lang/nl.json         |   4 +-
+ launcher/lang/no.json         |   4 +-
+ launcher/lang/oc.json         |   4 +-
+ launcher/lang/pl.json         |   4 +-
+ launcher/lang/pt-br.json      |   4 +-
+ launcher/lang/pt.json         |   4 +-
+ launcher/lang/ro.json         |   4 +-
+ launcher/lang/ru.json         |   4 +-
+ launcher/lang/sah.json        |   4 +-
+ launcher/lang/se.json         |   4 +-
+ launcher/lang/sk.json         |   4 +-
+ launcher/lang/sl.json         |   4 +-
+ launcher/lang/so.json         |   4 +-
+ launcher/lang/sq.json         |   4 +-
+ launcher/lang/sr.json         |   4 +-
+ launcher/lang/sv.json         |   4 +-
+ launcher/lang/szl.json        |   4 +-
+ launcher/lang/ta.json         |   4 +-
+ launcher/lang/th.json         |   4 +-
+ launcher/lang/tr.json         |   4 +-
+ launcher/lang/tt.json         |   4 +-
+ launcher/lang/uk.json         |   4 +-
+ launcher/lang/ur.json         |   4 +-
+ launcher/lang/uz.json         |   4 +-
+ launcher/lang/vec.json        |   4 +-
+ launcher/lang/vi.json         |   4 +-
+ launcher/lang/yi.json         |   4 +-
+ launcher/lang/yo.json         |   4 +-
+ launcher/lang/zh.json         |   4 +-
+ launcher/lang/zu.json         |   4 +-
  launcher/src/account.rs       |  38 +++++++++++-
  launcher/src/account/tests.rs |  24 ++++++++
  launcher/src/backend.rs       | 106 ++++++++++++++--------------------
- 3 files changed, 104 insertions(+), 64 deletions(-)
+ 89 files changed, 362 insertions(+), 150 deletions(-)
 
+diff --git a/launcher/lang/af.json b/launcher/lang/af.json
+index 4f237f7a1..59e773606 100644
+--- a/launcher/lang/af.json
++++ b/launcher/lang/af.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Die Stigtersstel is joune."
++  "The Founder Set is yours.": "Die Stigtersstel is joune.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die eis het nie deurgegaan nie: die kassa se adres is nie dié van Horizon nie.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
+index 81841829e..24cb86241 100644
+--- a/launcher/lang/ar.json
++++ b/launcher/lang/ar.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "طقم المؤسسين أصبح لك."
++  "The Founder Set is yours.": "طقم المؤسسين أصبح لك.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "لم تكتمل المطالبة: عنوان صفحة الدفع ليس عنوان Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/az.json b/launcher/lang/az.json
+index c3c901757..f77a454b0 100644
+--- a/launcher/lang/az.json
++++ b/launcher/lang/az.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Təsisçi dəsti artıq sizindir."
++  "The Founder Set is yours.": "Təsisçi dəsti artıq sizindir.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tələb keçmədi: ödəniş səhifəsinin ünvanı Horizon-a aid deyil.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
+index 0d481c357..31c504cdd 100644
+--- a/launcher/lang/ba.json
++++ b/launcher/lang/ba.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Нигеҙ һалыусылар йыйылмаһы — һеҙҙеке."
++  "The Founder Set is yours.": "Нигеҙ һалыусылар йыйылмаһы — һеҙҙеке.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап үтмәне: түләү адресы Horizon-дыҡы түгел.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/be.json b/launcher/lang/be.json
+index ebfbbd480..32e4729b1 100644
+--- a/launcher/lang/be.json
++++ b/launcher/lang/be.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Набор заснавальнікаў цяпер ваш."
++  "The Founder Set is yours.": "Набор заснавальнікаў цяпер ваш.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заяўка не прайшла: адрас старонкі аплаты не належыць Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
+index 980c5105f..d95af4651 100644
+--- a/launcher/lang/bg.json
++++ b/launcher/lang/bg.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Основателският комплект е ваш."
++  "The Founder Set is yours.": "Основателският комплект е ваш.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявката не мина: адресът на плащането не е на Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/br.json b/launcher/lang/br.json
+index 4d3cb670e..35455bccc 100644
+--- a/launcher/lang/br.json
++++ b/launcher/lang/br.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Lakaet ar grouerien a zo deoc'h."
++  "The Founder Set is yours.": "Lakaet ar grouerien a zo deoc'h.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "N'eo ket aet ar goulenn da benn: chomlec'h ar paeamant n'eo ket hini Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
+index 568748e47..f99590d88 100644
+--- a/launcher/lang/bs.json
++++ b/launcher/lang/bs.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Osnivački set je vaš."
++  "The Founder Set is yours.": "Osnivački set je vaš.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
+index 13fd1a4b9..971b7875d 100644
+--- a/launcher/lang/ca.json
++++ b/launcher/lang/ca.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "El Conjunt del fundador és teu."
++  "The Founder Set is yours.": "El Conjunt del fundador és teu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamació no s'ha completat: l'adreça del pagament no és la de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
+index cbecaedbc..f5e32843d 100644
+--- a/launcher/lang/cs.json
++++ b/launcher/lang/cs.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Zakladatelský set je váš."
++  "The Founder Set is yours.": "Zakladatelský set je váš.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok se nepodařilo uplatnit: adresa platby nepatří Horizonu.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
+index 80156c561..769a53755 100644
+--- a/launcher/lang/cv.json
++++ b/launcher/lang/cv.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Учредительсен пуххи — сирӗн."
++  "The Founder Set is yours.": "Учредительсен пуххи — сирӗн.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ыйту иртмерӗ: тӳлев адресӗ Horizon адресӗ мар.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
+index 191f885f6..41acbb7a6 100644
+--- a/launcher/lang/cy.json
++++ b/launcher/lang/cy.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Mae'r Set sylfaenydd yn eiddo i chi."
++  "The Founder Set is yours.": "Mae'r Set sylfaenydd yn eiddo i chi.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ni aeth y cais drwodd: nid cyfeiriad Horizon yw cyfeiriad y ddesg dalu.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/da.json b/launcher/lang/da.json
+index e152159fa..88c5bafda 100644
+--- a/launcher/lang/da.json
++++ b/launcher/lang/da.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Stifter sæt er dit."
++  "The Founder Set is yours.": "Stifter sæt er dit.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anmodningen gik ikke igennem: checkoutets adresse er ikke Horizons.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/de.json b/launcher/lang/de.json
+index d2b4309b9..baee9d0c5 100644
+--- a/launcher/lang/de.json
++++ b/launcher/lang/de.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Das Gründer-Set gehört dir."
++  "The Founder Set is yours.": "Das Gründer-Set gehört dir.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die Anforderung ist fehlgeschlagen: Die Adresse des Checkouts gehört nicht zu Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
+ }
+diff --git a/launcher/lang/el.json b/launcher/lang/el.json
+index 70e8eca7e..cbf743f1f 100644
+--- a/launcher/lang/el.json
++++ b/launcher/lang/el.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Το Ιδρυτικό σύνολο είναι δικό σου."
++  "The Founder Set is yours.": "Το Ιδρυτικό σύνολο είναι δικό σου.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Η διεκδίκηση δεν ολοκληρώθηκε: η διεύθυνση της πληρωμής δεν ανήκει στο Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
+index 78fa787b8..40a0064f4 100644
+--- a/launcher/lang/eo.json
++++ b/launcher/lang/eo.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "La Fondinto-aro estas via."
++  "The Founder Set is yours.": "La Fondinto-aro estas via.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La postulo ne sukcesis: la adreso de la pago ne estas tiu de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/es.json b/launcher/lang/es.json
+index 0b921e142..faf9e3f0d 100644
+--- a/launcher/lang/es.json
++++ b/launcher/lang/es.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "El Set fundador es tuyo."
++  "The Founder Set is yours.": "El Set fundador es tuyo.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamación no se completó: la dirección del pago no es la de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Sin preparar. Horizon puede preparar Minecraft {version} desde tu propia instalación; inicia sesión para descargarlo de Mojang."
+ }
+diff --git a/launcher/lang/et.json b/launcher/lang/et.json
+index 45e6337ee..d052c5a34 100644
+--- a/launcher/lang/et.json
++++ b/launcher/lang/et.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Asutaja komplekt on sinu."
++  "The Founder Set is yours.": "Asutaja komplekt on sinu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nõue ei läinud läbi: makselehe aadress ei kuulu Horizonile.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
+index 3ffe0d12d..9cca74557 100644
+--- a/launcher/lang/eu.json
++++ b/launcher/lang/eu.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Sortzaile multzoa zurea da."
++  "The Founder Set is yours.": "Sortzaile multzoa zurea da.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Eskaerak ez du aurrera egin: ordainketaren helbidea ez da Horizonena.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
+index 992050ace..ec2333a2a 100644
+--- a/launcher/lang/fa.json
++++ b/launcher/lang/fa.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "مجموعه موسس مال شماست."
++  "The Founder Set is yours.": "مجموعه موسس مال شماست.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "درخواست انجام نشد: نشانی صفحه پرداخت متعلق به Horizon نیست.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
+index 980f251cd..7427fb510 100644
+--- a/launcher/lang/fi.json
++++ b/launcher/lang/fi.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Perustaja-setti on sinun."
++  "The Founder Set is yours.": "Perustaja-setti on sinun.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Lunastus ei onnistunut: kassan osoite ei ole Horizonin.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
+index 78ed26dc2..7a9558876 100644
+--- a/launcher/lang/fil.json
++++ b/launcher/lang/fil.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Sa iyo na ang Set ng founder."
++  "The Founder Set is yours.": "Sa iyo na ang Set ng founder.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Hindi natuloy ang claim: hindi sa Horizon ang address ng checkout.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
+index 8f7d6fd89..506643e74 100644
+--- a/launcher/lang/fo.json
++++ b/launcher/lang/fo.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Stovnara settið er títt."
++  "The Founder Set is yours.": "Stovnara settið er títt.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravið gekk ikki gjøgnum: adressan á útrokningini er ikki hjá Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
+index f3d8b600f..7fa3953a4 100644
+--- a/launcher/lang/fr.json
++++ b/launcher/lang/fr.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Le Set fondateur est à vous."
++  "The Founder Set is yours.": "Le Set fondateur est à vous.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demande n'a pas abouti : l'adresse du paiement n'est pas celle de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Non préparé. Horizon peut préparer Minecraft {version} depuis votre propre installation ; connectez-vous pour le télécharger depuis Mojang."
+ }
+diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
+index de3914237..70eb2393c 100644
+--- a/launcher/lang/fur.json
++++ b/launcher/lang/fur.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "L'Insiemi di fondadôrs al è to."
++  "The Founder Set is yours.": "L'Insiemi di fondadôrs al è to.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richieste no je lade a bon fin: l'indirizz dal paiament nol è chel di Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
+index 01d038fea..7f617da63 100644
+--- a/launcher/lang/fy.json
++++ b/launcher/lang/fy.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "De Oprjochter set is fan dy."
++  "The Founder Set is yours.": "De Oprjochter set is fan dy.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "De oanspraak is net slagge: it adres fan de checkout is net dat fan Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
+index e107e89d9..f19e7b8a9 100644
+--- a/launcher/lang/ga.json
++++ b/launcher/lang/ga.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Is leatsa an tSraith bunaitheoir."
++  "The Founder Set is yours.": "Is leatsa an tSraith bunaitheoir.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Níor éirigh leis an éileamh: ní é seoladh na seiceála amach seoladh Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
+index 8379a57ae..e661507bb 100644
+--- a/launcher/lang/gd.json
++++ b/launcher/lang/gd.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "'S ann leatsa a tha an Seata stèidheadair."
++  "The Founder Set is yours.": "'S ann leatsa a tha an Seata stèidheadair.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cha deach an tagradh troimhe: chan e seòladh Horizon a th' ann an seòladh a' phàighidh.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
+index c909b8240..40637343e 100644
+--- a/launcher/lang/gl.json
++++ b/launcher/lang/gl.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "O Set fundador é teu."
++  "The Founder Set is yours.": "O Set fundador é teu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "A reclamación non se completou: o enderezo do pagamento non é o de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
+index bf7fde335..d8055947d 100644
+--- a/launcher/lang/haw.json
++++ b/launcher/lang/haw.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Nou ka Hoʻonohonoho hoʻokumu."
++  "The Founder Set is yours.": "Nou ka Hoʻonohonoho hoʻokumu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "ʻAʻole i holomua ke koi: ʻaʻole nō Horizon ka helu wahi o ka uku.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/he.json b/launcher/lang/he.json
+index 33d7f40ed..7bd3c369b 100644
+--- a/launcher/lang/he.json
++++ b/launcher/lang/he.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "סט המייסד שלכם."
++  "The Founder Set is yours.": "סט המייסד שלכם.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "הבקשה לא עברה: כתובת התשלום אינה של Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
+index 8b6f2daee..ce831b72c 100644
+--- a/launcher/lang/hi.json
++++ b/launcher/lang/hi.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "फ़ाउंडर सेट अब आपका है।"
++  "The Founder Set is yours.": "फ़ाउंडर सेट अब आपका है।",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "दावा पूरा नहीं हो सका: चेकआउट का पता Horizon का नहीं है।",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
+index c6952d122..6c3f5dc06 100644
+--- a/launcher/lang/hr.json
++++ b/launcher/lang/hr.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Osnivački set je vaš."
++  "The Founder Set is yours.": "Osnivački set je vaš.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
+index 39431ba2d..4c5f16f81 100644
+--- a/launcher/lang/hu.json
++++ b/launcher/lang/hu.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Az Alapító készlet a tiéd."
++  "The Founder Set is yours.": "Az Alapító készlet a tiéd.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Az igénylés nem sikerült: a fizetési oldal címe nem a Horizoné.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
+index 857d18361..4a004404d 100644
+--- a/launcher/lang/hy.json
++++ b/launcher/lang/hy.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Հիմնադիր հավաքածուն ձերն է։"
++  "The Founder Set is yours.": "Հիմնադիր հավաքածուն ձերն է։",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Հայտը չանցավ․ վճարման էջի հասցեն Horizon-ինը չէ։",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/id.json b/launcher/lang/id.json
+index 4e914f0a7..27a51f8ee 100644
+--- a/launcher/lang/id.json
++++ b/launcher/lang/id.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Set pendiri kini milikmu."
++  "The Founder Set is yours.": "Set pendiri kini milikmu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Klaim tidak berhasil: alamat checkout bukan milik Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
+index b340e03bd..9385d94a1 100644
+--- a/launcher/lang/ig.json
++++ b/launcher/lang/ig.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Ntọala ntọala bụ nke gị."
++  "The Founder Set is yours.": "Ntọala ntọala bụ nke gị.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Arịrịọ ahụ agaghị nke ọma: adreesị ibe ịkwụ ụgwọ abụghị nke Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/is.json b/launcher/lang/is.json
+index 45524f6d8..a08c2df14 100644
+--- a/launcher/lang/is.json
++++ b/launcher/lang/is.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Stofnandi settið er þitt."
++  "The Founder Set is yours.": "Stofnandi settið er þitt.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Beiðnin gekk ekki í gegn: heimilisfang greiðslunnar er ekki frá Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/it.json b/launcher/lang/it.json
+index f46f3823b..89c1dea3a 100644
+--- a/launcher/lang/it.json
++++ b/launcher/lang/it.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "L'Insieme del fondatore è tuo."
++  "The Founder Set is yours.": "L'Insieme del fondatore è tuo.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta non è andata a buon fine: l'indirizzo del pagamento non è quello di Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
+index d370a3e92..9c4e3177a 100644
+--- a/launcher/lang/ja.json
++++ b/launcher/lang/ja.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "ファウンダーセットはあなたのものです。"
++  "The Founder Set is yours.": "ファウンダーセットはあなたのものです。",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "受け取りに失敗しました。チェックアウトのアドレスが Horizon のものではありません。",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未準備です。Horizon は自分のインストールから Minecraft {version} を準備できます。Mojang からダウンロードするにはサインインしてください。"
+ }
+diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
+index 67782b7e9..37bfe1c6e 100644
+--- a/launcher/lang/ka.json
++++ b/launcher/lang/ka.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "დამფუძნებელი ნაკრები შენია."
++  "The Founder Set is yours.": "დამფუძნებელი ნაკრები შენია.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "მოთხოვნა ვერ შესრულდა: გადახდის მისამართი Horizon-ის არ არის.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
+index 1393199dd..d0a6e14cc 100644
+--- a/launcher/lang/kk.json
++++ b/launcher/lang/kk.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Құрылтайшы жиынтығы енді сіздікі."
++  "The Founder Set is yours.": "Құрылтайшы жиынтығы енді сіздікі.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Сұрау өтпеді: төлем мекенжайы Horizon-ның мекенжайы емес.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
+index 9533ee1ea..5648897f8 100644
+--- a/launcher/lang/kn.json
++++ b/launcher/lang/kn.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "ಸ್ಥಾಪಕ ಸೆಟ್ ಈಗ ನಿಮ್ಮದು."
++  "The Founder Set is yours.": "ಸ್ಥಾಪಕ ಸೆಟ್ ಈಗ ನಿಮ್ಮದು.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "ಕ್ಲೈಮ್ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ: ಚೆಕ್‌ಔಟ್‌ನ ವಿಳಾಸ Horizon ನದಲ್ಲ.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
+index 82acb3d81..bd2ae9ad3 100644
+--- a/launcher/lang/ko.json
++++ b/launcher/lang/ko.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "창립자 세트를 받았습니다."
++  "The Founder Set is yours.": "창립자 세트를 받았습니다.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "받기가 완료되지 않았어요. 결제 주소가 Horizon의 주소가 아니에요.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
+index b8653e87b..026413aac 100644
+--- a/launcher/lang/ky.json
++++ b/launcher/lang/ky.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Негиздөөчү топтому эми сиздики."
++  "The Founder Set is yours.": "Негиздөөчү топтому эми сиздики.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап өткөн жок: төлөмдүн дареги Horizon'ду эмес.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/la.json b/launcher/lang/la.json
+index 1d2a545d4..942bd4bc6 100644
+--- a/launcher/lang/la.json
++++ b/launcher/lang/la.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Conditor set tuum est."
++  "The Founder Set is yours.": "Conditor set tuum est.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Postulatio non successit: inscriptio solutionis non est Horizontis.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
+index 061a73383..2dae0c4ba 100644
+--- a/launcher/lang/lb.json
++++ b/launcher/lang/lb.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "De Grënner Set gehéiert Iech."
++  "The Founder Set is yours.": "De Grënner Set gehéiert Iech.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "D'Ufro ass net duerchgaangen: d'Adress vum Checkout ass net déi vun Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/li.json b/launcher/lang/li.json
+index 2011e14a8..8f9603520 100644
+--- a/launcher/lang/li.json
++++ b/launcher/lang/li.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "De Oprichter set is van dich."
++  "The Founder Set is yours.": "De Oprichter set is van dich.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "De aanspraak is neet geslaag: 't adres van de checkout is neet dat van Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
+index c0a598414..10a58093f 100644
+--- a/launcher/lang/lmo.json
++++ b/launcher/lang/lmo.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "El Set fondatur l'è tò."
++  "The Founder Set is yours.": "El Set fondatur l'è tò.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta la gh'a minga fa: l'indirizz del pagament l'è minga quel de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
+index bbd815e5d..f6e190be9 100644
+--- a/launcher/lang/lo.json
++++ b/launcher/lang/lo.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "ຊຸດຜູ້ກໍ່ຕັ້ງເປັນຂອງທ່ານແລ້ວ."
++  "The Founder Set is yours.": "ຊຸດຜູ້ກໍ່ຕັ້ງເປັນຂອງທ່ານແລ້ວ.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "ການຮັບບໍ່ສຳເລັດ: ທີ່ຢູ່ຂອງໜ້າຊຳລະບໍ່ແມ່ນຂອງ Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
+index 51d7d38ec..6af756428 100644
+--- a/launcher/lang/lt.json
++++ b/launcher/lang/lt.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Steigėjų rinkinys jūsų."
++  "The Founder Set is yours.": "Steigėjų rinkinys jūsų.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Prašymas nepavyko: atsiskaitymo adresas nepriklauso Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
+index 816cd3945..a70cb8384 100644
+--- a/launcher/lang/lv.json
++++ b/launcher/lang/lv.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Dibinātāja komplekts ir jūsu."
++  "The Founder Set is yours.": "Dibinātāja komplekts ir jūsu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Pieprasījums neizdevās: norēķina adrese nepieder Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
+index 53bde93c0..9d559070c 100644
+--- a/launcher/lang/mk.json
++++ b/launcher/lang/mk.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Основачкиот сет е ваш."
++  "The Founder Set is yours.": "Основачкиот сет е ваш.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Барањето не помина: адресата на плаќањето не е на Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
+index 9b7519620..848b6552f 100644
+--- a/launcher/lang/mn.json
++++ b/launcher/lang/mn.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Үүсгэн байгуулагчийн багц таных боллоо."
++  "The Founder Set is yours.": "Үүсгэн байгуулагчийн багц таных боллоо.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Хүсэлт амжилтгүй боллоо: төлбөрийн хаяг Horizon-ых биш байна.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
+index 39128a208..5ad092ef2 100644
+--- a/launcher/lang/ms.json
++++ b/launcher/lang/ms.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Set pengasas kini milik anda."
++  "The Founder Set is yours.": "Set pengasas kini milik anda.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tuntutan tidak berjaya: alamat pembayaran bukan milik Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
+index d0ddc3e24..717bee4c5 100644
+--- a/launcher/lang/mt.json
++++ b/launcher/lang/mt.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Is-Sett tal-fundatur huwa tiegħek."
++  "The Founder Set is yours.": "Is-Sett tal-fundatur huwa tiegħek.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "It-talba ma għaddietx: l-indirizz tal-ħlas mhuwiex ta' Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
+index b916b5754..b38987479 100644
+--- a/launcher/lang/nl.json
++++ b/launcher/lang/nl.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "De Oprichtersset is van jou."
++  "The Founder Set is yours.": "De Oprichtersset is van jou.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "De claim is niet gelukt: het adres van de checkout is niet dat van Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/no.json b/launcher/lang/no.json
+index 22d790b6b..05b0b6aee 100644
+--- a/launcher/lang/no.json
++++ b/launcher/lang/no.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Grunnleggersettet er ditt."
++  "The Founder Set is yours.": "Grunnleggersettet er ditt.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravet gikk ikke gjennom: adressen til utsjekkingen er ikke Horizons.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
+index 1c81f2930..c6568d08a 100644
+--- a/launcher/lang/oc.json
++++ b/launcher/lang/oc.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "L'Ensemble de fondators es vòstre."
++  "The Founder Set is yours.": "L'Ensemble de fondators es vòstre.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demanda a pas capitat : l'adreça del pagament es pas la de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
+index d9c056fdf..51fc9cdd6 100644
+--- a/launcher/lang/pl.json
++++ b/launcher/lang/pl.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Zestaw założyciela jest Twój."
++  "The Founder Set is yours.": "Zestaw założyciela jest Twój.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Odbiór się nie powiódł: adres płatności nie należy do Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nie przygotowano. Horizon może przygotować Minecraft {version} z Twojej własnej instalacji; zaloguj się, aby pobrać go z Mojang."
+ }
+diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
+index 2d76ba6e7..ccd697812 100644
+--- a/launcher/lang/pt-br.json
++++ b/launcher/lang/pt-br.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "O Conjunto fundador é seu."
++  "The Founder Set is yours.": "O Conjunto fundador é seu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "O resgate não foi concluído: o endereço do checkout não é o da Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Não preparado. O Horizon pode preparar o Minecraft {version} a partir da sua própria instalação; entre para baixá-lo da Mojang."
+ }
+diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
+index d970c7d99..a03121a75 100644
+--- a/launcher/lang/pt.json
++++ b/launcher/lang/pt.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "O Conjunto de fundador é seu."
++  "The Founder Set is yours.": "O Conjunto de fundador é seu.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "O pedido não foi concluído: o endereço do pagamento não é o da Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
+index 2197cee5b..47e9c8ed7 100644
+--- a/launcher/lang/ro.json
++++ b/launcher/lang/ro.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Setul fondator este al tău."
++  "The Founder Set is yours.": "Setul fondator este al tău.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cererea nu a reușit: adresa plății nu aparține Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
+index 4d055ddf4..67e77d7cc 100644
+--- a/launcher/lang/ru.json
++++ b/launcher/lang/ru.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Набор основателя теперь ваш."
++  "The Founder Set is yours.": "Набор основателя теперь ваш.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не прошла: адрес страницы оплаты не принадлежит Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей собственной установки; войдите, чтобы скачать его с Mojang."
+ }
+diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
+index 153d3b909..9931d6354 100644
+--- a/launcher/lang/sah.json
++++ b/launcher/lang/sah.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Төрүттээччи набора — эйиэнэ."
++  "The Founder Set is yours.": "Төрүттээччи набора — эйиэнэ.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Көрдөбүл ааспата: төлөбүр аадырыһа Horizon буолбатах.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/se.json b/launcher/lang/se.json
+index a3601408e..ee6c900b6 100644
+--- a/launcher/lang/se.json
++++ b/launcher/lang/se.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Ásaheaddji searvi lea du."
++  "The Founder Set is yours.": "Ásaheaddji searvi lea du.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ohcan ii lihkostuvvan: mávsima čujuhus ii leat Horizona.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
+index a185262fc..9889a0412 100644
+--- a/launcher/lang/sk.json
++++ b/launcher/lang/sk.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Zakladateľská súprava je vaša."
++  "The Founder Set is yours.": "Zakladateľská súprava je vaša.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok sa nepodarilo uplatniť: adresa platby nepatrí Horizonu.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
+index 19495a372..1a8600d71 100644
+--- a/launcher/lang/sl.json
++++ b/launcher/lang/sl.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Ustanoviteljski set je vaš."
++  "The Founder Set is yours.": "Ustanoviteljski set je vaš.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahteva ni uspela: naslov plačila ni Horizonov.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/so.json b/launcher/lang/so.json
+index 9578b9622..b905f3d5e 100644
+--- a/launcher/lang/so.json
++++ b/launcher/lang/so.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Aasaasaha dhigay waa kaaga."
++  "The Founder Set is yours.": "Aasaasaha dhigay waa kaaga.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Codsigu ma dhicin: ciwaanka bixintu ma aha kan Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
+index e0b92ec9a..c08b3e67c 100644
+--- a/launcher/lang/sq.json
++++ b/launcher/lang/sq.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Seti themelues është yti."
++  "The Founder Set is yours.": "Seti themelues është yti.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kërkesa nuk kaloi: adresa e pagesës nuk është e Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
+index 8fa6ebf47..c594e34de 100644
+--- a/launcher/lang/sr.json
++++ b/launcher/lang/sr.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Оснивачки сет је ваш."
++  "The Founder Set is yours.": "Оснивачки сет је ваш.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Захтев није прошао: адреса плаћања није Horizon-ова.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
+index 3ce0bb3b6..2b2429e8b 100644
+--- a/launcher/lang/sv.json
++++ b/launcher/lang/sv.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Grundaruppsättningen är din."
++  "The Founder Set is yours.": "Grundaruppsättningen är din.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anspråket gick inte igenom: kassans adress är inte Horizons.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
+index 5ca6bc33e..9bd956266 100644
+--- a/launcher/lang/szl.json
++++ b/launcher/lang/szl.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Zestow założycieli je twōj."
++  "The Founder Set is yours.": "Zestow założycieli je twōj.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Żōdanie sie niy udało: adresa płatności niy należy do Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
+index 5da8cda58..15a54d8e1 100644
+--- a/launcher/lang/ta.json
++++ b/launcher/lang/ta.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "நிறுவனர் தொகுப்பு இப்போது உங்களுடையது."
++  "The Founder Set is yours.": "நிறுவனர் தொகுப்பு இப்போது உங்களுடையது.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "கோரிக்கை நிறைவேறவில்லை: செக்அவுட்டின் முகவரி Horizon-உடையது அல்ல.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/th.json b/launcher/lang/th.json
+index 08384942d..063840879 100644
+--- a/launcher/lang/th.json
++++ b/launcher/lang/th.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "ชุดผู้ก่อตั้งเป็นของคุณแล้ว"
++  "The Founder Set is yours.": "ชุดผู้ก่อตั้งเป็นของคุณแล้ว",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
+index a335285ac..1116e15ba 100644
+--- a/launcher/lang/tr.json
++++ b/launcher/lang/tr.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Kurucu seti artık senin."
++  "The Founder Set is yours.": "Kurucu seti artık senin.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Talep tamamlanamadı: ödeme adresi Horizon'a ait değil.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Hazırlanmadı. Horizon, Minecraft {version} sürümünü kendi kurulumunuzdan hazırlayabilir; Mojang'dan indirmek için oturum açın."
+ }
+diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
+index 914407b3f..75f75e096 100644
+--- a/launcher/lang/tt.json
++++ b/launcher/lang/tt.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Нигез салучы җыелмасы — сезнеке."
++  "The Founder Set is yours.": "Нигез салучы җыелмасы — сезнеке.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Таләп узмады: түләү адресы Horizon'ныкы түгел.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
+index f99a6e6c2..bc2cc42a8 100644
+--- a/launcher/lang/uk.json
++++ b/launcher/lang/uk.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Набір засновника тепер ваш."
++  "The Founder Set is yours.": "Набір засновника тепер ваш.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не пройшла: адреса сторінки оплати не належить Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} із вашої власної установки; увійдіть, щоб завантажити його з Mojang."
+ }
+diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
+index 695489436..9d63e79f5 100644
+--- a/launcher/lang/ur.json
++++ b/launcher/lang/ur.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "بانی سیٹ اب آپ کا ہے۔"
++  "The Founder Set is yours.": "بانی سیٹ اب آپ کا ہے۔",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "دعویٰ مکمل نہیں ہو سکا: چیک آؤٹ کا پتہ Horizon کا نہیں ہے۔",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
+index 5d65b0ac2..a18ce577d 100644
+--- a/launcher/lang/uz.json
++++ b/launcher/lang/uz.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Ta'sischilar to'plami endi sizniki."
++  "The Founder Set is yours.": "Ta'sischilar to'plami endi sizniki.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Da’vo o‘tmadi: to‘lov manzili Horizon’niki emas.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
+index 94ea73609..1f8dfbd33 100644
+--- a/launcher/lang/vec.json
++++ b/launcher/lang/vec.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "El Set fondador el xe tuo."
++  "The Founder Set is yours.": "El Set fondador el xe tuo.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta no la xe ndà a bon fin: l'indirizzo del pagamento no 'l xe quel de Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
+index e66b39ea3..117e621df 100644
+--- a/launcher/lang/vi.json
++++ b/launcher/lang/vi.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Bộ sáng lập giờ là của bạn."
++  "The Founder Set is yours.": "Bộ sáng lập giờ là của bạn.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Yêu cầu không thành công: địa chỉ trang thanh toán không phải của Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
+index 660868eed..d93b50b0f 100644
+--- a/launcher/lang/yi.json
++++ b/launcher/lang/yi.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "דער גרינדער שטעלן איז דײַנער."
++  "The Founder Set is yours.": "דער גרינדער שטעלן איז דײַנער.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "די פֿאָדערונג איז נישט דורכגעגאַנגען: די אַדרעס פֿון דער צאָלונג איז נישט פֿון Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
+index 8909cafe9..bbdc5ef36 100644
+--- a/launcher/lang/yo.json
++++ b/launcher/lang/yo.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Oludasile ṣeto jẹ́ tìrẹ."
++  "The Founder Set is yours.": "Oludasile ṣeto jẹ́ tìrẹ.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ìbéèrè náà kò yọrí: àdírẹ́sì ojú ìwé sísan owó kì í ṣe ti Horizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
+diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
+index ae39e3c74..ec2ba66ab 100644
+--- a/launcher/lang/zh.json
++++ b/launcher/lang/zh.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "创始者套装已归你所有。"
++  "The Founder Set is yours.": "创始者套装已归你所有。",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "领取未成功：结账页面的地址不是 Horizon 的。",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "尚未准备。Horizon 可以从你自己的安装中准备 Minecraft {version}；登录则以从 Mojang 下载。"
+ }
+diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
+index 23f89de6b..b92af2f7f 100644
+--- a/launcher/lang/zu.json
++++ b/launcher/lang/zu.json
+@@ -1133,5 +1133,7 @@
+   "There is already an instance called {name}. Choose another name.": "There is already an instance called {name}. Choose another name.",
+   "Open Settings and sign in under Account.": "Open Settings and sign in under Account.",
+   "Sign in with `horizon-launcher account sign-in`.": "Sign in with `horizon-launcher account sign-in`.",
+-  "The Founder Set is yours.": "Umsunguli usethiwe ungowakho."
++  "The Founder Set is yours.": "Umsunguli usethiwe ungowakho.",
++  "The claim didn't go through: the checkout's address isn't Horizon's.": "Isicelo asiphumelelanga: ikheli lokukhokha akulona elikaHorizon.",
++  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
+ }
 diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index c0cc481f1..e8e3b5a84 100644
+index 4c6185849..b22e6ac6d 100644
 --- a/launcher/src/account.rs
 +++ b/launcher/src/account.rs
-@@ -2284,7 +2284,8 @@ fn account_sessions_until(
+@@ -2296,7 +2296,8 @@ fn account_sessions_until(
  }
  
  /// Who plays the real Minecraft: Java Edition (a Java instance), past the owner gate itself
@@ -37,7 +1241,7 @@ index c0cc481f1..e8e3b5a84 100644
  /// from the services, an account that owned it plays with its last token. Mojang's game takes the
  /// token on its command line, as Mojang's launcher gives it; that command is never logged.
  pub fn java_player() -> Result<crate::java_launch::Player, String> {
-@@ -2307,6 +2308,12 @@ fn java_player_with(
+@@ -2319,6 +2320,12 @@ fn java_player_with(
      store: &dyn SecretStore,
      accounts: &mut Accounts,
  ) -> Result<crate::java_launch::Player, String> {
@@ -50,7 +1254,7 @@ index c0cc481f1..e8e3b5a84 100644
      let pass = launch(ep, client_id, store, accounts).map_err(|e| e.to_string())?;
      let kept = || {
          let order = accounts.selected().into_iter().chain(&accounts.accounts);
-@@ -2327,5 +2334,34 @@ fn java_player_with(
+@@ -2339,5 +2346,34 @@ fn java_player_with(
      })
  }
  
@@ -86,10 +1290,10 @@ index c0cc481f1..e8e3b5a84 100644
  #[cfg(test)]
  mod tests;
 diff --git a/launcher/src/account/tests.rs b/launcher/src/account/tests.rs
-index 0a7b305b1..b1d951be4 100644
+index 1d27ac299..9cbbdd198 100644
 --- a/launcher/src/account/tests.rs
 +++ b/launcher/src/account/tests.rs
-@@ -1210,6 +1210,30 @@ fn the_java_edition_plays_as_an_owner_even_offline() {
+@@ -1214,6 +1214,30 @@ fn the_java_edition_plays_as_an_owner_even_offline() {
      );
  }
  
@@ -121,10 +1325,10 @@ index 0a7b305b1..b1d951be4 100644
  fn secrets_file(name: &str) -> PathBuf {
      let dir = std::env::temp_dir().join(format!("horizon-secrets-{name}-{}", std::process::id()));
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 1a64c34eb..888182fd0 100644
+index be259d664..785d21990 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
-@@ -1569,9 +1569,9 @@ fn preparer_binary(dir: &Path) -> Option<PathBuf> {
+@@ -1967,9 +1967,9 @@ fn preparer_binary(dir: &Path) -> Option<PathBuf> {
      binary.is_file().then_some(binary)
  }
  
@@ -137,7 +1341,7 @@ index 1a64c34eb..888182fd0 100644
  fn download_for_owner(
      pins: &sources::Pins,
      dir: &Path,
-@@ -1588,12 +1588,12 @@ fn download_for_owner(
+@@ -1986,12 +1986,12 @@ fn download_for_owner(
      if let Err(e) = accounts.save() {
          log(format!("Horizon: the accounts are not saved: {e}"));
      }
@@ -153,7 +1357,7 @@ index 1a64c34eb..888182fd0 100644
  pub fn download_version_for_owner(
      id: &str,
      manifest_sha1: &str,
-@@ -1614,9 +1614,10 @@ pub fn download_version_for_owner(
+@@ -2012,9 +2012,10 @@ pub fn download_version_for_owner(
      Ok(dir)
  }
  
@@ -167,7 +1371,7 @@ index 1a64c34eb..888182fd0 100644
  /// instance's folder. The caller wraps it (`launch::wrap`) and never logs it: it holds the token.
  /// A Java instance's game, ready to start; `server` (`host[:port]`) is joined once it has.
  pub fn java_game(
-@@ -1709,50 +1710,42 @@ pub fn java_game(
+@@ -2107,50 +2108,42 @@ pub fn java_game(
      )
  }
  
@@ -237,7 +1441,7 @@ index 1a64c34eb..888182fd0 100644
  }
  
  /// The Java home for this version: a runtime for precompiled exporters, a JDK for older
-@@ -3742,9 +3735,11 @@ mod tests {
+@@ -4496,9 +4489,11 @@ mod tests {
          fs::remove_dir_all(&dir).unwrap();
      }
  
@@ -251,7 +1455,7 @@ index 1a64c34eb..888182fd0 100644
          let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
          let _ = fs::remove_dir_all(&dir);
          let pins = sources::Pins::read(&serde_json::json!({ "minecraft": {
-@@ -3760,17 +3755,15 @@ mod tests {
+@@ -4514,17 +4509,15 @@ mod tests {
          };
          let log = |_: String| {};
          let no_owner = || Ok(account::Launch::default());
@@ -277,7 +1481,7 @@ index 1a64c34eb..888182fd0 100644
          let owner = account::Account {
              uuid: "069a79f444e94726a5befca90e38aaf5".into(),
              name: "Notch".into(),
-@@ -3785,22 +3778,9 @@ mod tests {
+@@ -4539,22 +4532,9 @@ mod tests {
              owner: Some((owner, secrets)),
              ..Default::default()
          });
