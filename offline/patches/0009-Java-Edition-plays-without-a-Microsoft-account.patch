@@ -1,0 +1,307 @@
+From d782630cef9d17b228a76bb072b3a9293b96a525 Mon Sep 17 00:00:00 2001
+From: 2ax4 <2ax4@users.noreply.github.com>
+Date: Thu, 5 Nov 2026 00:22:25 +0000
+Subject: [PATCH 2/2] Java Edition plays without a Microsoft account
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+An offline name (a kept one, or the name the game made up) now plays a
+Java instance too: java_player returns the offline player past the owner
+gate — the name, vanilla's OfflinePlayer UUID for it, and no token — so
+Play no longer opens the Sign in to play screen.
+
+Mojang's game files are public, so the version download no longer stops
+at the owner gate either: an owner's name still leads the log, an offline
+player gets a plain line, and the error keeps naming the owner when there
+is one. The download-for-an-owner-only test now asks for the offline
+downloads too, and a new test pins the offline player's name, UUID and
+empty token.
+---
+ launcher/src/account.rs       |  38 +++++++++++-
+ launcher/src/account/tests.rs |  24 ++++++++
+ launcher/src/backend.rs       | 106 ++++++++++++++--------------------
+ 3 files changed, 104 insertions(+), 64 deletions(-)
+
+diff --git a/launcher/src/account.rs b/launcher/src/account.rs
+index c0cc481f1..e8e3b5a84 100644
+--- a/launcher/src/account.rs
++++ b/launcher/src/account.rs
+@@ -2284,7 +2284,8 @@ fn account_sessions_until(
+ }
+ 
+ /// Who plays the real Minecraft: Java Edition (a Java instance), past the owner gate itself
+-/// ([`launch`]): the selected account when it owns the game, else one that does. With no answer
++/// ([`launch`]): the selected account when it owns the game, else one that does. An offline name
++/// plays without an account and without the gate: the game starts offline. With no answer
+ /// from the services, an account that owned it plays with its last token. Mojang's game takes the
+ /// token on its command line, as Mojang's launcher gives it; that command is never logged.
+ pub fn java_player() -> Result<crate::java_launch::Player, String> {
+@@ -2307,6 +2308,12 @@ fn java_player_with(
+     store: &dyn SecretStore,
+     accounts: &mut Accounts,
+ ) -> Result<crate::java_launch::Player, String> {
++    // An offline name plays (a kept one, or the name the game made up): no owner gate and no
++    // Microsoft session. The game starts offline: its own worlds, LAN, and the servers that
++    // take offline names.
++    if accounts.selected.is_none() {
++        return Ok(offline_java_player(accounts));
++    }
+     let pass = launch(ep, client_id, store, accounts).map_err(|e| e.to_string())?;
+     let kept = || {
+         let order = accounts.selected().into_iter().chain(&accounts.accounts);
+@@ -2327,5 +2334,34 @@ fn java_player_with(
+     })
+ }
+ 
++/// Java Edition's player for an offline name: the name, vanilla's UUID for it
++/// (`OfflinePlayer:` + the name, as a server would make it) and no Microsoft token or xuid.
++fn offline_java_player(accounts: &Accounts) -> crate::java_launch::Player {
++    // The name the game made up, once it has run (`horizon-player.txt`'s `name:` line, as
++    // horizon-client writes it).
++    let made_up = || {
++        std::fs::read_to_string(crate::backend::game_home().join("horizon-player.txt"))
++            .ok()?
++            .lines()
++            .find_map(|line| line.trim().strip_prefix("name:"))
++            .map(str::trim)
++            .filter(|n| !n.is_empty())
++            .map(str::to_owned)
++    };
++    let name = accounts
++        .offline_selected
++        .clone()
++        .or_else(made_up)
++        .unwrap_or_else(|| "Player".into());
++    crate::java_launch::Player {
++        uuid: horizon_protocol::crypto::uuid_string(horizon_protocol::crypto::offline_uuid(
++            &name,
++        )),
++        name,
++        token: "0".into(),
++        xuid: String::new(),
++    }
++}
++
+ #[cfg(test)]
+ mod tests;
+diff --git a/launcher/src/account/tests.rs b/launcher/src/account/tests.rs
+index 0a7b305b1..b1d951be4 100644
+--- a/launcher/src/account/tests.rs
++++ b/launcher/src/account/tests.rs
+@@ -1210,6 +1210,30 @@ fn the_java_edition_plays_as_an_owner_even_offline() {
+     );
+ }
+ 
++#[test]
++fn the_java_edition_plays_offline_without_an_account() {
++    // An offline name: no owner gate and no network is touched, the game starts offline with
++    // vanilla's UUID for the name and no Microsoft token.
++    let mut accounts = Accounts::default();
++    accounts
++        .play_as(Player::Offline("Builder_1".into()))
++        .unwrap();
++    let player = java_player_with(
++        &offline(),
++        Some("test-client"),
++        &MemoryStore::default(),
++        &mut accounts,
++    )
++    .unwrap();
++    assert_eq!(player.name, "Builder_1");
++    assert_eq!(
++        player.uuid,
++        horizon_protocol::crypto::uuid_string(horizon_protocol::crypto::offline_uuid("Builder_1"))
++    );
++    assert_eq!(player.token, "0");
++    assert_eq!(player.xuid, "");
++}
++
+ /// A secrets file of the test's own, gone first.
+ fn secrets_file(name: &str) -> PathBuf {
+     let dir = std::env::temp_dir().join(format!("horizon-secrets-{name}-{}", std::process::id()));
+diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
+index 1a64c34eb..888182fd0 100644
+--- a/launcher/src/backend.rs
++++ b/launcher/src/backend.rs
+@@ -1569,9 +1569,9 @@ fn preparer_binary(dir: &Path) -> Option<PathBuf> {
+     binary.is_file().then_some(binary)
+ }
+ 
+-/// Downloads the pinned version from Mojang into `dir` when an account in the launcher owns
+-/// Minecraft (asked again now), else says what signing in would do, as the last line of the
+-/// not-found error.
++/// Downloads the pinned version from Mojang into `dir` for whoever plays: an account that owns
++/// Minecraft (asked again now) or an offline player with no account — the game files are
++/// public, only online play needs an account.
+ fn download_for_owner(
+     pins: &sources::Pins,
+     dir: &Path,
+@@ -1588,12 +1588,12 @@ fn download_for_owner(
+     if let Err(e) = accounts.save() {
+         log(format!("Horizon: the accounts are not saved: {e}"));
+     }
+-    download_for(pins, dir, pass, !accounts.accounts.is_empty(), fetch, log)
++    download_for(pins, dir, pass, fetch, log)
+ }
+ 
+ /// Downloads Minecraft `id` (any version on Mojang's list, its version file's sha1 from it) into
+-/// Horizon's own game folder, in the official launcher's layout, for an account that owns the
+-/// game (asked again now). Returns that folder.
++/// Horizon's own game folder, in the official launcher's layout, for whoever plays: an account
++/// that owns the game (asked again now), or offline with none. Returns that folder.
+ pub fn download_version_for_owner(
+     id: &str,
+     manifest_sha1: &str,
+@@ -1614,9 +1614,10 @@ pub fn download_version_for_owner(
+     Ok(dir)
+ }
+ 
+-/// The command that starts a Java instance's Minecraft, for an account that owns the game: its
+-/// version downloaded from Mojang the first time (then it starts offline too), the Java it needs
+-/// (the instance's own, else one found here, else Mojang's, downloaded), and the game in the
++/// The command that starts a Java instance's Minecraft, for whoever plays (an account that
++/// owns the game, or an offline name): its version downloaded from Mojang the first time (then
++/// it starts offline too), the Java it needs (the instance's own, else one found here, else
++/// Mojang's, downloaded), and the game in the
+ /// instance's folder. The caller wraps it (`launch::wrap`) and never logs it: it holds the token.
+ /// A Java instance's game, ready to start; `server` (`host[:port]`) is joined once it has.
+ pub fn java_game(
+@@ -1709,50 +1710,42 @@ pub fn java_game(
+     )
+ }
+ 
+-/// What [`download_for_owner`] does with the owner gate's answer: Mojang's files only for its
+-/// `owner`, an account the services said owns the game just now.
++/// What [`download_for_owner`] does with the owner gate's answer: Mojang's public files
++/// download for whoever plays — the `owner` the services named just now, or an offline player
++/// with no account at all.
+ fn download_for(
+     pins: &sources::Pins,
+     dir: &Path,
+     pass: Result<account::Launch, account::NoOwner>,
+-    signed_in: bool,
+     fetch: sources::Fetch,
+     log: &dyn Fn(String),
+ ) -> Result<(), String> {
+     let v = &pins.version;
++    let os = match sources::Os::current() {
++        sources::Os::Linux => "linux",
++        sources::Os::MacOs => "osx",
++        sources::Os::Windows => "windows",
++    };
++    let mut for_who = String::new();
+     match pass {
+         Ok(account::Launch {
+             owner: Some((owner, _)),
+             ..
+         }) => {
+-            let name = owner.name;
++            for_who = format!(" for {}", owner.name);
+             log(format!(
+-                "{name} owns Minecraft: downloading {v} from Mojang"
++                "{} owns Minecraft: downloading {v} from Mojang",
++                owner.name
+             ));
+-            let os = match sources::Os::current() {
+-                sources::Os::Linux => "linux",
+-                sources::Os::MacOs => "osx",
+-                sources::Os::Windows => "windows",
+-            };
+-            mojang::download(pins, dir, os, 8, fetch, &mojang::CANCEL, log).map_err(|e| {
+-                format!("\n  • Horizon tried to download {v} from Mojang for {name}, but: {e}")
+-            })
+         }
+-        // An owner by its last answer, who can't be asked now.
+-        Ok(pass) => Err(format!(
+-            "\n  • Downloading {v} from Mojang needs your Microsoft account, which could not be \
+-             checked: {}",
+-            pass.offline.unwrap_or_default()
+-        )),
+-        Err(_) if signed_in => Err(
+-            "\n  • No signed-in account owns Minecraft: Java Edition, so Horizon can't download it."
+-                .into(),
+-        ),
+-        Err(_) => Err(format!(
+-            "\n  • Or sign in with the Microsoft account that owns Minecraft: Horizon then \
+-             downloads {v} from Mojang itself."
+-        )),
++        // An offline name plays (nobody signed in), or the account could not be checked now:
++        // the game files are public, so they download all the same and the game starts
++        // offline. Only online play needs the account.
++        _ => log(format!("Downloading {v} from Mojang")),
+     }
++    mojang::download(pins, dir, os, 8, fetch, &mojang::CANCEL, log).map_err(|e| {
++        format!("\n  • Horizon tried to download {v} from Mojang{for_who}, but: {e}")
++    })
+ }
+ 
+ /// The Java home for this version: a runtime for precompiled exporters, a JDK for older
+@@ -3742,9 +3735,11 @@ mod tests {
+         fs::remove_dir_all(&dir).unwrap();
+     }
+ 
+-    /// The launcher downloads Mojang's game files (client jar, libraries, assets) only for an
++    /// The launcher downloads Mojang's game files (client jar, libraries, assets) for whoever
++    /// plays: an owning account, and an offline player too — the files are public, only online
++    /// play needs an account.
+     #[test]
+-    fn mojang_downloads_only_for_an_owner() {
++    fn mojang_downloads_for_an_owner_and_for_offline_too() {
+         let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
+         let _ = fs::remove_dir_all(&dir);
+         let pins = sources::Pins::read(&serde_json::json!({ "minecraft": {
+@@ -3760,17 +3755,15 @@ mod tests {
+         };
+         let log = |_: String| {};
+         let no_owner = || Ok(account::Launch::default());
+-        for (pass, signed_in) in [
+-            (Err(account::NoOwner), false),
+-            (Err(account::NoOwner), true),
+-            (no_owner(), false),
+-            (no_owner(), true),
+-        ] {
+-            assert!(download_for(&pins, &dir, pass, signed_in, &fetch, &log).is_err());
++        // No owner — nobody signed in, or the check failed: Mojang is asked all the same (and
++        // the download fails here, without network).
++        for pass in [Err(account::NoOwner), no_owner()] {
++            asked.lock().unwrap().clear();
++            assert!(download_for(&pins, &dir, pass, &fetch, &log).is_err());
++            assert!(!asked.lock().unwrap().is_empty());
+         }
+-        assert!(asked.lock().unwrap().is_empty());
+-        assert!(!dir.exists());
+-        // An owner: Mojang is asked (and the download fails here, without network).
++        let _ = fs::remove_dir_all(&dir);
++        // An owner: Mojang is asked too (and the download fails here, without network).
+         let owner = account::Account {
+             uuid: "069a79f444e94726a5befca90e38aaf5".into(),
+             name: "Notch".into(),
+@@ -3785,22 +3778,9 @@ mod tests {
+             owner: Some((owner, secrets)),
+             ..Default::default()
+         });
+-        assert!(download_for(&pins, &dir, pass, true, &fetch, &log).is_err());
+-        assert!(!asked.lock().unwrap().is_empty());
+-        let _ = fs::remove_dir_all(&dir);
+-
+-        // A store that lacks assets is not filled for a non-owner either: nothing is asked.
+-        fs::create_dir_all(dir.join("assets/indexes")).unwrap();
+-        fs::write(
+-            dir.join("assets/indexes/34.json"),
+-            r#"{"objects":{"a":{"hash":"00","size":1}}}"#,
+-        )
+-        .unwrap();
+         asked.lock().unwrap().clear();
+-        for (pass, signed_in) in [(Err(account::NoOwner), true), (no_owner(), true)] {
+-            assert!(download_for(&pins, &dir, pass, signed_in, &fetch, &log).is_err());
+-        }
+-        assert!(asked.lock().unwrap().is_empty());
++        assert!(download_for(&pins, &dir, pass, &fetch, &log).is_err());
++        assert!(!asked.lock().unwrap().is_empty());
+         let _ = fs::remove_dir_all(&dir);
+ 
+         // In the sources: one call downloads the game, in `download_for`, and the only caller
+-- 
+2.47.3
+

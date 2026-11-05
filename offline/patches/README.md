@@ -17,6 +17,9 @@ markers no longer block it).
 | `0004-Ad-free-remove-the-partner-banners.patch` | Removes the partner banners from the launcher (ad-free) |
 | `0005-Offline-build-quiet-sign-in-notices-and-fork-repo.patch` | Quiets sign-in notices; points the launcher's self-update at this fork (`LAUNCHER_REPO`) |
 | `0006-Drop-the-translations-of-the-removed-strings.patch` | Drops translations for strings the earlier patches removed |
+| `0007-Play-the-glass-home-button-without-the-ownership-check.patch` | The glass home's Play button calls the reduced `play_press`, so the offline build compiles |
+| `0008-Offline-build-the-glass-look-keeps-only-the-offline-account.patch` | The glass top bar and Settings' Account card drop the Microsoft button and card; the offline account fills them; drops the three strings' translations |
+| `0009-Java-Edition-plays-without-a-Microsoft-account.patch` | A Java instance plays with an offline name (vanilla `OfflinePlayer` UUID, no token) and Mojang's public game files download without an owner |
 
 See also [`../verify-release.py`](../verify-release.py): a dependency-free
 script users can run to check a downloaded release against `SHA256SUMS.sig`

@@ -1,0 +1,1623 @@
+From 18fa06662f457921b47f8041bff4c6f4bc9a5ab4 Mon Sep 17 00:00:00 2001
+From: 2ax4 <2ax4@users.noreply.github.com>
+Date: Thu, 5 Nov 2026 00:22:20 +0000
+Subject: [PATCH 1/2] Offline build: the glass look keeps only the offline
+ account
+
+The top bar drops the Sign in with Microsoft button: the account chip
+(who plays, and how) moves into its place, next to the settings button.
+
+Settings' Account card drops the Microsoft card with its white button and
+its glass plate: the offline account, its offline names and the skin panel
+are the whole card, at the full width. The three strings the card alone
+used go from every language table, as patch 0006's test asks.
+---
+ launcher/lang/af.json         |   3 -
+ launcher/lang/ar.json         |   3 -
+ launcher/lang/az.json         |   3 -
+ launcher/lang/ba.json         |   3 -
+ launcher/lang/be.json         |   3 -
+ launcher/lang/bg.json         |   3 -
+ launcher/lang/br.json         |   3 -
+ launcher/lang/bs.json         |   3 -
+ launcher/lang/ca.json         |   3 -
+ launcher/lang/cs.json         |   3 -
+ launcher/lang/cv.json         |   3 -
+ launcher/lang/cy.json         |   3 -
+ launcher/lang/da.json         |   3 -
+ launcher/lang/de.json         |   3 -
+ launcher/lang/el.json         |   3 -
+ launcher/lang/eo.json         |   3 -
+ launcher/lang/es.json         |   3 -
+ launcher/lang/et.json         |   3 -
+ launcher/lang/eu.json         |   3 -
+ launcher/lang/fa.json         |   3 -
+ launcher/lang/fi.json         |   3 -
+ launcher/lang/fil.json        |   3 -
+ launcher/lang/fo.json         |   3 -
+ launcher/lang/fr.json         |   3 -
+ launcher/lang/fur.json        |   3 -
+ launcher/lang/fy.json         |   3 -
+ launcher/lang/ga.json         |   3 -
+ launcher/lang/gd.json         |   3 -
+ launcher/lang/gl.json         |   3 -
+ launcher/lang/haw.json        |   3 -
+ launcher/lang/he.json         |   3 -
+ launcher/lang/hi.json         |   3 -
+ launcher/lang/hr.json         |   3 -
+ launcher/lang/hu.json         |   3 -
+ launcher/lang/hy.json         |   3 -
+ launcher/lang/id.json         |   3 -
+ launcher/lang/ig.json         |   3 -
+ launcher/lang/is.json         |   3 -
+ launcher/lang/it.json         |   3 -
+ launcher/lang/ja.json         |   3 -
+ launcher/lang/ka.json         |   3 -
+ launcher/lang/kk.json         |   3 -
+ launcher/lang/kn.json         |   3 -
+ launcher/lang/ko.json         |   3 -
+ launcher/lang/ky.json         |   3 -
+ launcher/lang/la.json         |   3 -
+ launcher/lang/lb.json         |   3 -
+ launcher/lang/li.json         |   3 -
+ launcher/lang/lmo.json        |   3 -
+ launcher/lang/lo.json         |   3 -
+ launcher/lang/lt.json         |   3 -
+ launcher/lang/lv.json         |   3 -
+ launcher/lang/mk.json         |   3 -
+ launcher/lang/mn.json         |   3 -
+ launcher/lang/ms.json         |   3 -
+ launcher/lang/mt.json         |   3 -
+ launcher/lang/nl.json         |   3 -
+ launcher/lang/no.json         |   3 -
+ launcher/lang/oc.json         |   3 -
+ launcher/lang/pl.json         |   3 -
+ launcher/lang/pt-br.json      |   3 -
+ launcher/lang/pt.json         |   3 -
+ launcher/lang/ro.json         |   3 -
+ launcher/lang/ru.json         |   3 -
+ launcher/lang/sah.json        |   3 -
+ launcher/lang/se.json         |   3 -
+ launcher/lang/sk.json         |   3 -
+ launcher/lang/sl.json         |   3 -
+ launcher/lang/so.json         |   3 -
+ launcher/lang/sq.json         |   3 -
+ launcher/lang/sr.json         |   3 -
+ launcher/lang/sv.json         |   3 -
+ launcher/lang/szl.json        |   3 -
+ launcher/lang/ta.json         |   3 -
+ launcher/lang/th.json         |   3 -
+ launcher/lang/tr.json         |   3 -
+ launcher/lang/tt.json         |   3 -
+ launcher/lang/uk.json         |   3 -
+ launcher/lang/ur.json         |   3 -
+ launcher/lang/uz.json         |   3 -
+ launcher/lang/vec.json        |   3 -
+ launcher/lang/vi.json         |   3 -
+ launcher/lang/yi.json         |   3 -
+ launcher/lang/yo.json         |   3 -
+ launcher/lang/zh.json         |   3 -
+ launcher/lang/zu.json         |   3 -
+ launcher/src/frame.rs         |  30 +-------
+ launcher/src/glass_account.rs | 129 +++-------------------------------
+ launcher/src/main.rs          |   4 +-
+ 89 files changed, 14 insertions(+), 407 deletions(-)
+
+diff --git a/launcher/lang/af.json b/launcher/lang/af.json
+index 17a7f525f..d43c6df46 100644
+--- a/launcher/lang/af.json
++++ b/launcher/lang/af.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Vanlyn name",
+   "Add a name": "Voeg 'n naam by",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 tot 16 letters, syfers of onderstrepe. Verander ook name vanaf die boonste balk. Aanlyn bedieners neem nie vanlyn name nie.",
+-  "Play online with your Microsoft account": "Speel aanlyn met jou Microsoft-rekening",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Meld aan met die rekening wat Minecraft: Java Edition besit. Jou naam en vel kom saam na aanlyn bedieners, soos in ander lanseerders.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft se eie bladsy maak in jou blaaier oop. Horizon sien nooit jou wagwoord nie.",
+   "1 hour": "1 uur",
+   "1 hour ago": "1 uur gelede",
+   "1 line": "1 reël",
+diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
+index d7a1ab4d2..664aa071c 100644
+--- a/launcher/lang/ar.json
++++ b/launcher/lang/ar.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "أسماء دون اتصال",
+   "Add a name": "أضف اسمًا",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "من 3 إلى 16 حرفًا أو رقمًا أو شرطة سفلية. يمكنك تبديل الأسماء من الشريط العلوي أيضًا. الخوادم عبر الإنترنت لا تقبل الأسماء دون اتصال.",
+-  "Play online with your Microsoft account": "العب عبر الإنترنت بحساب Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "سجّل الدخول بالحساب الذي يملك Minecraft: Java Edition. يرافقك اسمك ومظهرك إلى الخوادم عبر الإنترنت، كما في المشغلات الأخرى.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "تُفتح صفحة Microsoft نفسها في متصفحك. لا يرى Horizon كلمة مرورك أبدًا.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "يلوّن الأزرار والمفاتيح والسماء. اختر لونًا، أو اكتب أي لون بصيغة hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "يعود لون التمييز والزجاج والتمويه واللغة والخيارات أعلاه إلى ما يأتي به Horizon.",
+   "Reset the launcher's look": "إعادة تعيين مظهر المشغّل",
+diff --git a/launcher/lang/az.json b/launcher/lang/az.json
+index 114212bb5..b788ee573 100644
+--- a/launcher/lang/az.json
++++ b/launcher/lang/az.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Offline adlar",
+   "Add a name": "Ad əlavə edin",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-dən 16-a qədər hərf, rəqəm və ya alt xətt. Üst paneldən də adları dəyişin. Onlayn serverlər oflayn adlar götürmür.",
+-  "Play online with your Microsoft account": "Microsoft hesabınızla onlayn oynayın",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition-a sahib olan hesabla daxil olun. Adınız və dəriniz digər işəsalanlar kimi onlayn serverlərə gəlir.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Brauzerinizdə Microsoftun öz səhifəsi açılır. Horizon parolunuzu heç vaxt görmür.",
+   "1 hour": "1 saat",
+   "1 hour ago": "1 saat əvvəl",
+   "1 line": "1 sətir",
+diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
+index f06fb88e6..197742e8c 100644
+--- a/launcher/lang/ba.json
++++ b/launcher/lang/ba.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Офлайн исемдәр",
+   "Add a name": "Исем өҫтәү .",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-тән 16-ға тиклем хәреф, һан йәки аҫтына һыҙыҡ. Өҫкө панелдән дә исемдәрҙе алмаштырығыҙ. Онлайн серверҙар офлайн исемдәрҙе алмай.",
+-  "Play online with your Microsoft account": "Microsoft иҫәбегеҙ менән онлайн уйнағыҙ",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Баҫмаға эйә булған иҫәп яҙмаһы менән инергә. Һеҙҙең исем һәм тире менән бергә килә онлайн-серверҙар, башҡа стартерҙар кеүек.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Браузерығыҙҙа Microsoft үҙ бите асыла. Horizon бер ҡасан да һеҙҙең паролде күрмәй.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Төймәләрҙе, өҙгөстәрҙе һәм күкте төҫләй. Берен һайлап алығыҙ, йәки теләһә ниндәй алтылыҡ төҫтө яҙығыҙ.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент төҫө, быяла, размытие, тел һәм өҫтәге варианттар нисек Horizon суднолар ҡайтып.",
+   "Reset the launcher's look": "Сбросить старт&#8217;ы тышҡы ҡиәфәте",
+diff --git a/launcher/lang/be.json b/launcher/lang/be.json
+index ee8f5cd5b..a2a0ef959 100644
+--- a/launcher/lang/be.json
++++ b/launcher/lang/be.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Афлайн імёны",
+   "Add a name": "Дадайце імя",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Ад 3 да 16 літар, лічбаў або знакаў падкрэслівання. Таксама пераключайце імёны з верхняй панэлі. Інтэрнэт-серверы не прымаюць афлайн-імёны.",
+-  "Play online with your Microsoft account": "Гуляйце ў інтэрнэце са сваім уліковым запісам Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Увайдзіце з уліковым запісам, які валодае Minecraft: Java Edition. Ваша імя і скін прыходзяць на анлайн-серверы, як і ў іншых праграмах запуску.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "У вашым браўзеры адкрыецца ўласная старонка Microsoft. Horizon ніколі не бачыць ваш пароль.",
+   "1 hour": "1 гадзіна",
+   "1 hour ago": "1 гадзіну таму",
+   "1 line": "1 радок",
+diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
+index 7dc00b0b5..687141b8d 100644
+--- a/launcher/lang/bg.json
++++ b/launcher/lang/bg.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Офлайн имена",
+   "Add a name": "Добавяне на име",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "От 3 до 16 букви, цифри или долни черти. Можете да сменяте името и от горната лента. Онлайн сървърите не приемат офлайн имена.",
+-  "Play online with your Microsoft account": "Играйте онлайн с акаунта си в Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Влезте с акаунта, който притежава Minecraft: Java Edition. Името и скинът ви остават с вас и в онлайн сървърите, както в другите лаунчери.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Собствената страница на Microsoft се отваря в браузъра ви. Horizon никога не вижда паролата ви.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцентният цвят, стъклото, размазването, езикът и опциите по-горе се връщат както в Horizon по подразбиране.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Оцветява бутоните, превключвателите и небето. Избери цвят или въведи произволен hex цвят.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Експериментално. Вгражда нативните модове, на които имаш доверие, в отделна собствена игра.",
+diff --git a/launcher/lang/br.json b/launcher/lang/br.json
+index 0d6655ba5..5354d22ef 100644
+--- a/launcher/lang/br.json
++++ b/launcher/lang/br.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Anvioù ezlinenn",
+   "Add a name": "Ouzhpennañ un anv",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 da 16 lizherenn, sifroù pe islinennoù. Cheñch anvioù adalek ar varrenn uhelañ ivez. Ar servijerioù enlinenn ne gemeront ket anvioù ezlinenn.",
+-  "Play online with your Microsoft account": "C'hoari enlinenn gant ho kont Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "En em lugañ gant ar gont a zo perc'henn war Minecraft: Java Embannadur. Hoc'h anv hag ho kroc'hen a zeu war servijerioù enlinenn, evel e lañserioù all.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Pajenn Microsoft e-unan a zigor en ho merdeer. Horizon ne wel ket ho ker-tremen morse.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Livañ a ra ar boutonoù, ar c'hefluskerioù hag an oabl. Dibabit unan, pe skrivit ul liv c'hwezek bennak.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Liv ar pouez-mouezh, ar gwer, an disterañ, ar yezh hag an dibaboù meneget a-us a ya en-dro d'ar mod ma vez kaset Horizon.",
+   "Reset the launcher's look": "Adderaouekaat gwel al lañser",
+diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
+index c9e4a0e53..9d9775484 100644
+--- a/launcher/lang/bs.json
++++ b/launcher/lang/bs.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Offline imena",
+   "Add a name": "Dodajte ime",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 do 16 slova, brojeva ili donjih crta. Promijenite imena također sa gornje trake. Online serveri ne preuzimaju offline imena.",
+-  "Play online with your Microsoft account": "Igrajte na mreži sa svojim Microsoft nalogom",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Prijavite se sa nalogom koji poseduje Minecraft: Java Edition. Vaše ime i koža dolaze na mrežne servere, kao u drugim lanserima.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoftova vlastita stranica se otvara u vašem pretraživaču. Horizon nikada ne vidi vašu lozinku.",
+   "1 hour": "1 sat",
+   "1 hour ago": "prije 1 sat",
+   "1 line": "1 red",
+diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
+index 97590903d..bc1934690 100644
+--- a/launcher/lang/ca.json
++++ b/launcher/lang/ca.json
+@@ -1033,7 +1033,6 @@
+   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Els seus mons es van desar amb Minecraft {from}: {to} els actualitza per sempre i no els pot obrir si és més antic.",
+   "Launcher settings are back to their defaults": "La configuració del llançador ha tornat als valors per defecte",
+   "Microsoft account · online servers too": "Compte de Microsoft · també servidors en línia",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La pàgina de Microsoft s'obre al navegador. Horizon no veu mai la teva contrasenya.",
+   "Mod": "Mod",
+   "Mod · {instance}": "Mod · {instance}",
+   "My Horizon": "El meu Horizon",
+@@ -1045,7 +1044,6 @@
+   "Open the game folder": "Obre la carpeta del joc",
+   "Open {page}": "Obre {page}",
+   "Opened {path}": "S'ha obert {path}",
+-  "Play online with your Microsoft account": "Juga en línia amb el teu compte de Microsoft",
+   "Play {name}": "Juga a {name}",
+   "Play, install a mod, open a page": "Juga, instal·la un mod, obre una pàgina",
+   "Remove from {instance}": "Elimina de {instance}",
+@@ -1059,7 +1057,6 @@
+   "Search resource packs and modpacks": "Cerca paquets de recursos i modpacks",
+   "Search {count} Horizon mods": "Cerca entre {count} mods d'Horizon",
+   "Shader pack": "Paquet d'ombrejadors",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Inicia la sessió amb el compte que té Minecraft: Java Edition. El teu nom i el teu aspecte t'acompanyen als servidors en línia, com en altres llançadors.",
+   "What this change can't keep": "El que aquest canvi no pot conservar",
+   "just now": "ara mateix",
+   "soon": "aviat",
+diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
+index 1f5b19d61..245ac337f 100644
+--- a/launcher/lang/cs.json
++++ b/launcher/lang/cs.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline jména",
+   "Add a name": "Přidat jméno",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 až 16 písmen, číslic nebo podtržítek. Jméno můžete přepnout i v horní liště. Online servery offline jména nepřijímají.",
+-  "Play online with your Microsoft account": "Hrajte online se svým účtem Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Přihlaste se účtem, který vlastní Minecraft: Java Edition. Vaše jméno a skin vás doprovázejí na online servery, stejně jako v jiných launcherech.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Vlastní stránka Microsoftu se otevře ve vašem prohlížeči. Horizon vaše heslo nikdy nevidí.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Obarví tlačítka, přepínače a oblohu. Vyberte jednu, nebo zadejte libovolnou hex barvu.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Barva zvýraznění, sklo, rozmazání, jazyk a výše uvedené možnosti se vrátí do výchozího stavu Horizonu.",
+   "Reset the launcher's look": "Obnovit vzhled launcheru",
+diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
+index 9d30f049f..351ddc6bb 100644
+--- a/launcher/lang/cv.json
++++ b/launcher/lang/cv.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Офлайн ятсем",
+   "Add a name": "Ят хушӑр",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-16 саспалли, цифрӑсем е аялти йӗрсем. Ҫӳлти йӗртен ятсене те улӑштарӑр. Интернетри серверсем офлайн ятсене йышӑнмаҫҫӗ.",
+-  "Play online with your Microsoft account": "Хӑвӑрӑн Microsoft аккаунтпа онлайн выляса пӑхӑр",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Издание тытса тӑракан аккаунтпа кӗрӗр. Сирӗн ятӑрпа тир ытти лаунчерсенчи пекех онлайн-серверсем ҫине кӗреҫҫӗ.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Сирӗн браузерта Microsoft хӑйӗн страници уҫӑлать. Horizon сирӗн паролье нихӑҫан та курмасть.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Кнопкӑсене, выключательсене тата тӳпене тӗслет. Пӗрне суйласа илӗр е кирек мӗнле улттӑмӗш тӗспе те ҫырӑр.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент тӗсӗ, кантӑк, пӑтранчӑк, чӗлхе тата ҫӳлти вариантсем Horizon мӗнле ярса панине таврӑнаҫҫӗ.",
+   "Reset the launcher's look": "Пускавҫӑн сӑн-сӑпатне ҫӗнӗрен лартӑр",
+diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
+index 54f06cd38..aa3ab2f98 100644
+--- a/launcher/lang/cy.json
++++ b/launcher/lang/cy.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Enwau all-lein",
+   "Add a name": "Ychwanegu enw",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 i 16 llythyren, rhif neu danlinellu. Newidiwch enwau o'r bar uchaf hefyd. Nid yw gweinyddwyr ar-lein yn cymryd enwau all-lein.",
+-  "Play online with your Microsoft account": "Chwarae ar-lein gyda'ch cyfrif Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Mewngofnodwch gyda'r cyfrif sy'n berchen ar Minecraft: Java Edition. Daw eich enw a'ch croen i weinyddion ar-lein, fel mewn lanswyr eraill.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Mae tudalen Microsoft ei hun yn agor yn eich porwr. Nid yw Horizon byth yn gweld eich cyfrinair.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Yn lliwio'r botymau, y switshis a'r awyr. Dewiswch un, neu teipiwch unrhyw liw hecs.",
+   "1 hour": "1 awr",
+   "1 hour ago": "1 awr yn ôl",
+diff --git a/launcher/lang/da.json b/launcher/lang/da.json
+index 2d7685774..d71163da1 100644
+--- a/launcher/lang/da.json
++++ b/launcher/lang/da.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline navne",
+   "Add a name": "Tilføj et navn",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 til 16 bogstaver, tal eller understregninger. Du kan også skifte navn fra topbjælken. Onlineservere accepterer ikke offline navne.",
+-  "Play online with your Microsoft account": "Spil online med din Microsoft-konto",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Log ind med den konto, der ejer Minecraft: Java Edition. Dit navn og dit skin følger med til onlineservere, ligesom i andre launchere.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsofts egen side åbner i din browser. Horizon ser aldrig din adgangskode.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentfarve, glas, sløring, sprog og indstillingerne ovenfor vender tilbage til, hvordan Horizon leveres.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Farver knapperne, kontakterne og himlen. Vælg en, eller skriv en vilkårlig hex-farve.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentel. Bygger de native mods, du stoler på, ind i et spil for sig.",
+diff --git a/launcher/lang/de.json b/launcher/lang/de.json
+index 248825270..b05e430d8 100644
+--- a/launcher/lang/de.json
++++ b/launcher/lang/de.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline-Namen",
+   "Add a name": "Namen hinzufügen",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 bis 16 Buchstaben, Ziffern oder Unterstriche. Namen wechselst du auch in der oberen Leiste. Online-Server nehmen keine Offline-Namen an.",
+-  "Play online with your Microsoft account": "Mit deinem Microsoft-Konto online spielen",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Melde dich mit dem Konto an, dem Minecraft: Java Edition gehört. Dein Name und Skin kommen mit auf Online-Server, wie in anderen Launchern.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsofts eigene Seite öffnet sich in deinem Browser. Horizon sieht dein Passwort nie.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Färbt die Schaltflächen, die Schalter und den Himmel. Wähle eine, oder tippe eine beliebige Hex-Farbe.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akzentfarbe, Glas, Unschärfe, Sprache und die Optionen darüber kehren zum Auslieferungszustand von Horizon zurück.",
+   "Reset the launcher's look": "Aussehen des Launchers zurücksetzen",
+diff --git a/launcher/lang/el.json b/launcher/lang/el.json
+index 6226f64f2..2bb1b794b 100644
+--- a/launcher/lang/el.json
++++ b/launcher/lang/el.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Ονόματα εκτός σύνδεσης",
+   "Add a name": "Προσθήκη ονόματος",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 έως 16 γράμματα, αριθμοί ή κάτω παύλες. Μπορείτε επίσης να αλλάξετε όνομα από την επάνω γραμμή. Οι διαδικτυακοί διακομιστές δεν δέχονται ονόματα εκτός σύνδεσης.",
+-  "Play online with your Microsoft account": "Παίξτε online με τον λογαριασμό σας Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Συνδεθείτε με τον λογαριασμό που κατέχει το Minecraft: Java Edition. Το όνομα και το skin σας σας ακολουθούν στους διαδικτυακούς διακομιστές, όπως και σε άλλους launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Η σελίδα της ίδιας της Microsoft ανοίγει στο πρόγραμμα περιήγησής σας. Το Horizon δεν βλέπει ποτέ τον κωδικό πρόσβασής σας.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Χρωματίζει τα κουμπιά, τους διακόπτες και τον ουρανό. Διαλέξτε ένα ή πληκτρολογήστε οποιοδήποτε χρώμα hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Το χρώμα έμφασης, το γυαλί, το θάμπωμα, η γλώσσα και οι παραπάνω επιλογές επιστρέφουν στις προεπιλογές του Horizon.",
+   "Reset the launcher's look": "Επαναφορά εμφάνισης του launcher",
+diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
+index 4780acf8b..e0088d1ca 100644
+--- a/launcher/lang/eo.json
++++ b/launcher/lang/eo.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Senkonektaj nomoj",
+   "Add a name": "Aldonu nomon",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ĝis 16 literoj, ciferoj aŭ substrekoj. Ŝanĝu nomojn ankaŭ de la supra trinkejo. Retaj serviloj ne prenas eksterretajn nomojn.",
+-  "Play online with your Microsoft account": "Ludu interrete per via Microsoft konto",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Ensalutu kun la konto, kiu posedas Minecraft: Java Eldono. Via nomo kaj haŭto venas al interretaj serviloj, kiel en aliaj lanĉiloj.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La propra paĝo de Microsoft malfermiĝas en via retumilo. Horizon neniam vidas vian pasvorton.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Koloras la butonojn, la ŝaltilojn kaj la ĉielon. Elektu unu, aŭ tajpu ajnan hekskoloron.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akcentkoloro, vitro, malklareco, lingvo kaj la supraj elektoj reiras al kiel Horizon ekspediĝas.",
+   "Reset the launcher's look": "Restarigu la aspekton de la lanĉilo",
+diff --git a/launcher/lang/es.json b/launcher/lang/es.json
+index 6cd0fd697..354da07f7 100644
+--- a/launcher/lang/es.json
++++ b/launcher/lang/es.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nombres sin conexión",
+   "Add a name": "Añadir un nombre",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números o guiones bajos. También puedes cambiar de nombre en la barra superior. Los servidores en línea no aceptan nombres sin conexión.",
+-  "Play online with your Microsoft account": "Juega en línea con tu cuenta de Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Inicia sesión con la cuenta que tiene Minecraft: Java Edition. Tu nombre y tu skin te acompañan a los servidores en línea, como en otros launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La propia página de Microsoft se abre en tu navegador. Horizon nunca ve tu contraseña.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colorea los botones, los interruptores y el cielo. Elige uno, o escribe cualquier color hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "El color de acento, el cristal, el desenfoque, el idioma y las opciones de arriba vuelven a como viene Horizon.",
+   "Reset the launcher's look": "Restablecer el aspecto del launcher",
+diff --git a/launcher/lang/et.json b/launcher/lang/et.json
+index 8f96bde04..e3b289322 100644
+--- a/launcher/lang/et.json
++++ b/launcher/lang/et.json
+@@ -1033,7 +1033,6 @@
+   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Selle maailmad salvestas Minecraft {from}: {to} uuendab need jäädavalt ega saa neid avada, kui on vanem.",
+   "Launcher settings are back to their defaults": "Käivitaja seaded on taastatud vaikeväärtustele",
+   "Microsoft account · online servers too": "Microsofti konto · ka võrguserverid",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsofti enda leht avaneb teie brauseris. Horizon ei näe kunagi teie parooli.",
+   "Mod": "Modifikatsioon",
+   "Mod · {instance}": "Modifikatsioon · {instance}",
+   "My Horizon": "Minu Horizon",
+@@ -1045,7 +1044,6 @@
+   "Open the game folder": "Ava mängu kaust",
+   "Open {page}": "Ava {page}",
+   "Opened {path}": "Avatud: {path}",
+-  "Play online with your Microsoft account": "Mängige võrgus oma Microsofti kontoga",
+   "Play {name}": "Mängi: {name}",
+   "Play, install a mod, open a page": "Mängi, installi modifikatsioon, ava leht",
+   "Remove from {instance}": "Eemalda eksemplarist {instance}",
+@@ -1059,7 +1057,6 @@
+   "Search resource packs and modpacks": "Otsi ressursipakette ja modpacke",
+   "Search {count} Horizon mods": "Otsi {count} Horizoni modifikatsiooni seast",
+   "Shader pack": "Shader-pakett",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Logige sisse kontoga, millele kuulub Minecraft: Java Edition. Teie nimi ja välimus tulevad kaasa võrguserveritesse nagu teistes käivitajates.",
+   "What this change can't keep": "Mida see muudatus säilitada ei saa",
+   "just now": "just praegu",
+   "soon": "varsti",
+diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
+index 8b2823ea8..ae000988f 100644
+--- a/launcher/lang/eu.json
++++ b/launcher/lang/eu.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Lineaz kanpoko izenak",
+   "Add a name": "Gehitu izen bat",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 eta 16 letra, zenbaki edo azpimarra. Aldatu izenak goiko barratik ere. Lineako zerbitzariek ez dituzte lineaz kanpoko izenak hartzen.",
+-  "Play online with your Microsoft account": "Jokatu linean zure Microsoft kontuarekin",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Hasi saioa Minecraft: Java Edition jabea den kontuarekin. Zure izena eta azala lineako zerbitzarietara datoz, beste abiarazle batzuetan bezala.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft-en orria irekitzen da zure arakatzailean. Horizon ez du inoiz zure pasahitza ikusten.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Botoiak, etengailuak eta zerua koloreztatzen ditu. Aukeratu bat edo idatzi edozein kolore hexagonal.",
+   "1 hour": "Ordu 1",
+   "1 hour ago": "Duela ordu 1",
+diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
+index 5e5c59aaf..a6520ba7d 100644
+--- a/launcher/lang/fa.json
++++ b/launcher/lang/fa.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "نام‌های آفلاین",
+   "Add a name": "افزودن نام",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 تا 16 حرف، عدد یا زیرخط. از نوار بالا هم می‌توانید نام را عوض کنید. سرورهای آنلاین نام‌های آفلاین را نمی‌پذیرند.",
+-  "Play online with your Microsoft account": "با حساب Microsoft خود آنلاین بازی کنید",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "با حسابی وارد شوید که مالک Minecraft: Java Edition است. نام و اسکین شما مثل لانچرهای دیگر به سرورهای آنلاین هم می‌آید.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "صفحهٔ خود Microsoft در مرورگرتان باز می‌شود. Horizon هرگز رمز عبور شما را نمی‌بیند.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "دکمه‌ها، کلیدها و آسمان را رنگ می‌کند. یکی را انتخاب کنید یا هر رنگ hex دلخواهی را تایپ کنید.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "رنگ تأکیدی، شیشه، محوشدگی، زبان و گزینه‌های بالا به حالت پیش‌فرض Horizon برمی‌گردند.",
+   "Reset the launcher's look": "بازنشانی ظاهر لانچر",
+diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
+index 54eb73aa6..022ea6fa3 100644
+--- a/launcher/lang/fi.json
++++ b/launcher/lang/fi.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline-nimet",
+   "Add a name": "Lisää nimi",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3–16 kirjainta, numeroa tai alaviivaa. Nimeä voi vaihtaa myös yläpalkista. Verkkopalvelimet eivät hyväksy offline-nimiä.",
+-  "Play online with your Microsoft account": "Pelaa verkossa Microsoft-tililläsi",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Kirjaudu sisään tilillä, joka omistaa Minecraft: Java Editionin. Nimesi ja skinisi kulkevat mukanasi verkkopalvelimille, kuten muissakin käynnistysohjelmissa.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoftin oma sivu avautuu selaimessasi. Horizon ei koskaan näe salasanaasi.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Korostusväri, lasi, sumennus, kieli ja yllä olevat asetukset palaavat Horizonin oletuksiin.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Värittää painikkeet, kytkimet ja taivaan. Valitse väri tai kirjoita mikä tahansa hex-väri.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Kokeellinen. Rakentaa luottamasi natiivimodit omaksi pelikseen.",
+diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
+index 99d735fb1..cf159fd35 100644
+--- a/launcher/lang/fil.json
++++ b/launcher/lang/fil.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Mga offline na pangalan",
+   "Add a name": "Magdagdag ng pangalan",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 hanggang 16 na titik, numero o underscore. Magpalit din ng mga pangalan mula sa itaas na bar. Ang mga online na server ay hindi kumukuha ng mga offline na pangalan.",
+-  "Play online with your Microsoft account": "Maglaro online gamit ang iyong Microsoft account",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Mag-sign in gamit ang account na nagmamay-ari ng Minecraft: Java Edition. Ang iyong pangalan at balat ay kasama sa mga online na server, tulad ng sa iba pang mga launcher.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Ang sariling pahina ng Microsoft ay bubukas sa iyong browser. Hindi kailanman nakikita ni Horizon ang iyong password.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Kulayan ang mga pindutan, ang mga switch at ang kalangitan. Pumili ng isa, o mag-type ng anumang hex na kulay.",
+   "1 hour": "1 oras",
+   "1 hour ago": "1 oras ang nakalipas",
+diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
+index b88b16ad8..7680441fb 100644
+--- a/launcher/lang/fo.json
++++ b/launcher/lang/fo.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Nøvn uttanfyri netið",
+   "Add a name": "Legg navn til",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 til 16 bókstavir, tøl ella undirstrikur. Skift nøvn frá ovastu strikuni eisini. Net-ambætarar taka ikki offline nøvn.",
+-  "Play online with your Microsoft account": "Spæl á netinum við tínari Microsoft konto",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Rita inn við kontuni, sum eigur Minecraft: Java Útgáva. Títt navn og húð koma við á online ambætarar, eins og í øðrum launcher.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Egna síðan hjá Microsoft letur upp í tínum kaga. Horizon sær ongantíð títt loyniorð.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Litar knøttarnar, rotararnar og himmalin. Vel ein, ella skriva nakran hex lit.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Aksentlitur, glas, tjúkkur, mál og møguleikarnir omanfyri ganga aftur til hvussu Horizon skipar.",
+   "Reset the launcher's look": "Nullstilla útsjóndina á sjósetaranum",
+diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
+index 07af95b15..2a161b9c3 100644
+--- a/launcher/lang/fr.json
++++ b/launcher/lang/fr.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Noms hors ligne",
+   "Add a name": "Ajouter un nom",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 à 16 lettres, chiffres ou tirets bas. Change aussi de nom depuis la barre du haut. Les serveurs en ligne n'acceptent pas les noms hors ligne.",
+-  "Play online with your Microsoft account": "Joue en ligne avec ton compte Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Connecte-toi avec le compte qui possède Minecraft: Java Edition. Ton nom et ton skin te suivent sur les serveurs en ligne, comme dans les autres launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La page de Microsoft s'ouvre dans ton navigateur. Horizon ne voit jamais ton mot de passe.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colore les boutons, les interrupteurs et le ciel. Choisis-en une, ou tape n'importe quelle couleur hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "La couleur d'accent, le verre, le flou, la langue et les options au-dessus reviennent à ceux de Horizon par défaut.",
+   "Reset the launcher's look": "Réinitialiser l'apparence du launcher",
+diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
+index 0868a5b48..0148962a1 100644
+--- a/launcher/lang/fur.json
++++ b/launcher/lang/fur.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nons fûr linie",
+   "Add a name": "Azontâ un non",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 letaris, numars o sotlineis. Cambiâ nons ancje de barre superiôr. I servidôrs in linie a no cjapin nons fûr linie.",
+-  "Play online with your Microsoft account": "Zuegâ in rêt cul to conto Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Accedi cul conto che al à Minecraft: Java Edizion. Il to non e la tô piel a vegnin dongje dai servidôrs in rêt, come in altris lançadôrs.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La pagjine proprie di Microsoft si vierç tal navigadôr. Horizon no viôt mai la tô clâf.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colorâ i botons, i interrutôrs e il cîl. Scegli un, o scrivi cualsisei colôr esagonâl.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Colôr di acent, veri, sfume, lengaç e lis opzions parsore a tornin a cemût che Horizon al spedis.",
+   "Reset the launcher's look": "Azerâ l’aspiet dal lançadôr",
+diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
+index 34f9051eb..3e050e76b 100644
+--- a/launcher/lang/fy.json
++++ b/launcher/lang/fy.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Offline nammen",
+   "Add a name": "Foegje in namme ta",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 oant 16 letters, sifers of ûnderstreken. Skeakelje nammen ek fan 'e boppeste balke. Online tsjinners nimme gjin offline nammen.",
+-  "Play online with your Microsoft account": "Spielje online mei jo Microsoft akkount",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Oanmelde mei it akkount dat eigner is fan Minecraft: Java Edition. Jo namme en hûd komme mei nei online servers, lykas yn oare lansearders.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "De eigen side fan Microsoft iepenet yn jo browser. Horizon sjocht jo wachtwurd nea.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Kleurt de knoppen, de skeakels en de loft. Kies ien, of typ elke hekskleur.",
+   "1 hour": "1 oere",
+   "1 hour ago": "1 oere lyn",
+diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
+index cd7f40a03..c7e2c463e 100644
+--- a/launcher/lang/ga.json
++++ b/launcher/lang/ga.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Ainmneacha as líne",
+   "Add a name": "Cuir ainm leis",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 go 16 litir, uimhir nó béim. Athraigh ainmneacha ón mbarra uachtarach freisin. Ní ghlacann freastalaithe ar líne ainmneacha as líne.",
+-  "Play online with your Microsoft account": "Seinn ar líne le do chuntas Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Sínigh isteach leis an gcuntas ar leis Minecraft: Java Edition. Tagann d’ainm agus do chraiceann chuig freastalaithe ar líne, mar a dhéantar i lainseálaithe eile.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Osclaíonn leathanach Microsoft féin i do bhrabhsálaí. Ní fheiceann Horizon do phasfhocal riamh.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Dathanna na cnaipí, na lasca agus an spéir. Roghnaigh ceann amháin, nó clóscríobh dath heicsidheachúlach ar bith.",
+   "1 hour": "1 uair",
+   "1 hour ago": "1 uair ó shin",
+diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
+index dd82a6805..990c46f2c 100644
+--- a/launcher/lang/gd.json
++++ b/launcher/lang/gd.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Ainmean far loidhne",
+   "Add a name": "Cuir ainm ris",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 gu 16 litrichean, àireamhan no fo-sgrìobhaidhean. Atharraich ainmean bhon bhàr àrd cuideachd. Cha ghabh frithealaichean air-loidhne ainmean far loidhne.",
+-  "Play online with your Microsoft account": "Cluich air-loidhne leis a’ chunntas Microsoft agad",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Clàraich a-steach leis a’ chunntas leis a bheil Minecraft: Java Edition. Thig d’ ainm agus do chraiceann gu frithealaichean air-loidhne, mar ann an lannsaichean eile.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Tha duilleag Microsoft fhèin a’ fosgladh sa bhrobhsair agad. Horizon chan fhaic thu am facal-faire agad gu bràth.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "A’ dath na putanan, na suidsichean agus na speuran. Tagh aon, no sgrìobh dath hex sam bith.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Tha dath stràc, glainne, blur, cànan agus na roghainnean gu h-àrd a’ dol air ais gu mar a bhios soithichean Horizon.",
+   "Reset the launcher's look": "Ath-shuidhich sealladh an lannsair",
+diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
+index 0af8eb2fe..6839264b9 100644
+--- a/launcher/lang/gl.json
++++ b/launcher/lang/gl.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Nomes fóra de liña",
+   "Add a name": "Engade un nome",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números ou guións baixos. Cambia tamén os nomes desde a barra superior. Os servidores en liña non levan nomes sen conexión.",
+-  "Play online with your Microsoft account": "Xoga en liña coa túa conta de Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Inicia sesión coa conta propietaria de Minecraft: Java Edition. O teu nome e a túa pel aparecen nos servidores en liña, como noutros lanzadores.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "A propia páxina de Microsoft ábrese no teu navegador. Horizon nunca ve o teu contrasinal.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colorea os botóns, os interruptores e o ceo. Escolla un ou escriba calquera cor hexadecimal.",
+   "1 hour": "1 hora",
+   "1 hour ago": "hai 1 hora",
+diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
+index 8050c3ad9..0bbb25833 100644
+--- a/launcher/lang/haw.json
++++ b/launcher/lang/haw.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Nā inoa hoʻopahemo",
+   "Add a name": "Hoʻohui i kahi inoa",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 mau huapalapala, helu a kaha lalo paha. E hoʻololi i nā inoa mai ka pā luna. ʻAʻole lawe nā kikowaena pūnaewele i nā inoa hoʻopahemo.",
+-  "Play online with your Microsoft account": "E pāʻani ma ka pūnaewele me kāu moʻokāki Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "E ʻeʻe me ka moʻokāki nona ka Minecraft: Java Edition. Hele mai kou inoa a me kou ʻili i nā kikowaena pūnaewele, e like me nā mea hoʻolaha ʻē aʻe.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Wehe ʻia ko Microsoft ʻaoʻao ponoʻī ma kāu polokalamu kele pūnaewele. ʻAʻole ʻike ʻo Horizon i kāu ʻōlelo huna.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "E kala i nā pihi, nā kī a me ka lani. E koho i hoʻokahi, a e kikokiko i kekahi kala hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ʻO ka waihoʻoluʻu, aniani, blur, ʻōlelo a me nā koho ma luna e hoʻi i ke ʻano o Horizon moku.",
+   "Reset the launcher's look": "Hoʻoponopono hou i ke ʻano o ka mea hoʻolaha",
+diff --git a/launcher/lang/he.json b/launcher/lang/he.json
+index 36a4d53a2..bf7befa78 100644
+--- a/launcher/lang/he.json
++++ b/launcher/lang/he.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "שמות לא מקוונים",
+   "Add a name": "הוסף שם",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 עד 16 אותיות, ספרות או קווים תחתונים. אפשר להחליף שם גם מהסרגל העליון. שרתים מקוונים לא מקבלים שמות לא מקוונים.",
+-  "Play online with your Microsoft account": "שחק מקוון עם חשבון Microsoft שלך",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "היכנס עם החשבון שבבעלותו Minecraft: Java Edition. השם והסקין שלך עוברים איתך לשרתים מקוונים, כמו במשגרים אחרים.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "הדף של Microsoft עצמה נפתח בדפדפן שלך. Horizon אף פעם לא רואה את הסיסמה שלך.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "צבע ההדגשה, הזכוכית, הטשטוש, השפה והאפשרויות שלמעלה חוזרים לברירת המחדל של Horizon.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "צובע את הכפתורים, המתגים והשמיים. בחר צבע, או הקלד כל צבע hex.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "ניסיוני. בונה את המודים הנייטיב שאתה סומך עליהם למשחק נפרד משלהם.",
+diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
+index 920dc218a..529b7a882 100644
+--- a/launcher/lang/hi.json
++++ b/launcher/lang/hi.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "ऑफ़लाइन नाम",
+   "Add a name": "नाम जोड़ें",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 से 16 अक्षर, अंक या अंडरस्कोर। नाम ऊपर की पट्टी से भी बदलें। ऑनलाइन सर्वर ऑफ़लाइन नाम नहीं लेते।",
+-  "Play online with your Microsoft account": "अपने Microsoft खाते से ऑनलाइन खेलें",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "उस खाते से साइन इन करें जिसके पास Minecraft: Java Edition है। आपका नाम और स्किन ऑनलाइन सर्वरों पर साथ आते हैं, दूसरे लॉन्चरों की तरह।",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft का अपना पेज आपके ब्राउज़र में खुलता है। Horizon आपका पासवर्ड कभी नहीं देखता।",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "बटन, स्विच और आसमान को रंगता है। एक चुनें, या कोई भी hex रंग लिखें।",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "एक्सेंट रंग, ग्लास, ब्लर, भाषा और ऊपर के विकल्प Horizon के मूल रूप में लौट आते हैं।",
+   "Reset the launcher's look": "लॉन्चर का रूप रीसेट करें",
+diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
+index 2c5730627..331c2116c 100644
+--- a/launcher/lang/hr.json
++++ b/launcher/lang/hr.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Imena izvan mreže",
+   "Add a name": "Dodaj ime",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 do 16 slova, brojeva ili podvlaka. Imena mijenjaj i na gornjoj traci. Mrežni poslužitelji ne primaju imena izvan mreže.",
+-  "Play online with your Microsoft account": "Igraj na mreži sa svojim Microsoft računom",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Prijavi se računom koji posjeduje Minecraft: Java Edition. Tvoje ime i skin idu s tobom na mrežne poslužitelje, kao u drugim pokretačima.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoftova stranica otvara se u tvom pregledniku. Horizon nikad ne vidi tvoju lozinku.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Boja gumbe, prekidače i nebo. Odaberi jednu ili upiši bilo koju hex boju.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Boja naglaska, staklo, zamućenje, jezik i gornje opcije vraćaju se na Horizonove zadane.",
+   "Reset the launcher's look": "Vrati izgled pokretača",
+diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
+index 9c5dd08bf..e57d8d37b 100644
+--- a/launcher/lang/hu.json
++++ b/launcher/lang/hu.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline nevek",
+   "Add a name": "Név hozzáadása",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3–16 betű, szám vagy aláhúzásjel. A nevet a felső sávban is válthatja. Az online szerverek nem fogadják el az offline neveket.",
+-  "Play online with your Microsoft account": "Játsszon online a Microsoft-fiókjával",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Jelentkezzen be azzal a fiókkal, amelyhez a Minecraft: Java Edition tartozik. A neve és a skinje Önnel tart az online szerverekre, mint más indítókban.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "A Microsoft saját oldala nyílik meg a böngészőjében. A Horizon soha nem látja a jelszavát.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "A kiemelőszín, az üveg, az elmosás, a nyelv és a fenti beállítások visszaállnak a Horizon alapértelmezéseire.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Ezzel színeződnek a gombok, a kapcsolók és az ég. Válassz egyet, vagy írj be bármilyen hex színt.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Kísérleti. A megbízhatónak tartott natív modokat egy külön játékba építi.",
+diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
+index 5781e28e4..31d22b08f 100644
+--- a/launcher/lang/hy.json
++++ b/launcher/lang/hy.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Անցանց անուններ",
+   "Add a name": "Ավելացրեք անուն",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-ից 16 տառեր, թվեր կամ ընդգծումներ: Փոխեք անունները նաև վերևի տողից: Առցանց սերվերները չեն ընդունում անցանց անուններ:",
+-  "Play online with your Microsoft account": "Խաղացեք առցանց ձեր Microsoft հաշվի հետ",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Մուտք գործեք այն հաշիվով, որին պատկանում է Minecraft՝ Java Edition: Ձեր անունը և մաշկը գալիս են առցանց սերվերներին, ինչպես մյուս գործարկիչներում:",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Ձեր բրաուզերում բացվում է Microsoft-ի սեփական էջը: Horizon երբեք չի տեսնում ձեր գաղտնաբառը:",
+   "1 hour": "1 ժամ",
+   "1 hour ago": "1 ժամ առաջ",
+   "1 line": "1 տող",
+diff --git a/launcher/lang/id.json b/launcher/lang/id.json
+index 05367ef47..ee4f99a05 100644
+--- a/launcher/lang/id.json
++++ b/launcher/lang/id.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nama offline",
+   "Add a name": "Tambah nama",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 sampai 16 huruf, angka, atau garis bawah. Ganti nama juga dari bilah atas. Server online tidak menerima nama offline.",
+-  "Play online with your Microsoft account": "Main online dengan akun Microsoft-mu",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Masuk dengan akun yang memiliki Minecraft: Java Edition. Nama dan skin-mu ikut ke server online, seperti di launcher lain.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Halaman Microsoft sendiri terbuka di browser-mu. Horizon tidak pernah melihat kata sandimu.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Mewarnai tombol, sakelar, dan langit. Pilih satu, atau ketik warna hex apa pun.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Warna aksen, kaca, buram, bahasa, dan opsi di atas kembali seperti bawaan Horizon.",
+   "Reset the launcher's look": "Atur ulang tampilan launcher",
+diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
+index bb62b9d42..b247b7bf9 100644
+--- a/launcher/lang/ig.json
++++ b/launcher/lang/ig.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Aha ndị na-anọghị n'ịntanetị",
+   "Add a name": "Tinye aha",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ruo 16 mkpụrụedemede, ọnụọgụ ma ọ bụ mesie ike. Gbanwee aha site na n'elu mmanya kwa. Sava n'ịntanetị anaghị ewere aha ndị na-anọghị n'ịntanetị.",
+-  "Play online with your Microsoft account": "Jiri akaụntụ Microsoft gị gwuo egwu n'ịntanetị",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Banye na akaụntụ nke nwere Minecraft: Java mbipụta. Aha gị na akpụkpọ gị na-abịa na sava ịntanetị, dị ka ọ dị na ndị nrụpụta ndị ọzọ.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft Ibe nke ya ga-emepe na ihe nchọgharị gị. Horizon anaghị ahụ paswọọdụ gị.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Na-agba bọtịnụ, mgba ọkụ na mbara igwe. Họrọ otu, ma ọ bụ pịnye agba hex ọ bụla.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Agba ụda olu, iko, blur, asụsụ na nhọrọ ndị dị n'elu na-alaghachi azụ ka Horizon ụgbọ mmiri.",
+   "Reset the launcher's look": "Tọgharịa ọdịdị onye mbido",
+diff --git a/launcher/lang/is.json b/launcher/lang/is.json
+index 1105f97e6..3c44316c0 100644
+--- a/launcher/lang/is.json
++++ b/launcher/lang/is.json
+@@ -1033,7 +1033,6 @@
+   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Heimar þess voru vistaðir með Minecraft {from}: {to} uppfærir þá til frambúðar og getur ekki opnað þá ef hún er eldri.",
+   "Launcher settings are back to their defaults": "Stillingar ræsiforritsins eru komnar aftur í sjálfgefin gildi",
+   "Microsoft account · online servers too": "Microsoft-reikningur · líka netþjónar á netinu",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Síða Microsoft opnast í vafranum þínum. Horizon sér aldrei lykilorðið þitt.",
+   "Mod": "Mod",
+   "Mod · {instance}": "Mod · {instance}",
+   "My Horizon": "Mitt Horizon",
+@@ -1045,7 +1044,6 @@
+   "Open the game folder": "Opna leikjamöppuna",
+   "Open {page}": "Opna {page}",
+   "Opened {path}": "Opnaði {path}",
+-  "Play online with your Microsoft account": "Spilaðu á netinu með Microsoft-reikningnum þínum",
+   "Play {name}": "Spila {name}",
+   "Play, install a mod, open a page": "Spila, setja upp mod, opna síðu",
+   "Remove from {instance}": "Fjarlægja úr {instance}",
+@@ -1059,7 +1057,6 @@
+   "Search resource packs and modpacks": "Leita í aðfangapökkum og modpökkum",
+   "Search {count} Horizon mods": "Leita í {count} Horizon-mods",
+   "Shader pack": "Shader-pakki",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Skráðu þig inn með reikningnum sem á Minecraft: Java Edition. Nafnið þitt og húðin fylgja þér á netþjóna, eins og í öðrum ræsiforritum.",
+   "What this change can't keep": "Það sem þessi breyting getur ekki haldið",
+   "just now": "rétt í þessu",
+   "soon": "bráðum",
+diff --git a/launcher/lang/it.json b/launcher/lang/it.json
+index 332416072..15b45dfe7 100644
+--- a/launcher/lang/it.json
++++ b/launcher/lang/it.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nomi offline",
+   "Add a name": "Aggiungi un nome",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Da 3 a 16 lettere, numeri o trattini bassi. Puoi cambiare nome anche dalla barra in alto. I server online non accettano nomi offline.",
+-  "Play online with your Microsoft account": "Gioca online con il tuo account Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Accedi con l'account che possiede Minecraft: Java Edition. Il tuo nome e la tua skin ti seguono sui server online, come negli altri launcher.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La pagina di Microsoft si apre nel browser. Horizon non vede mai la tua password.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colora i pulsanti, gli interruttori e il cielo. Scegline uno o digita un qualsiasi colore esadecimale.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Colore d'accento, vetro, sfocatura, lingua e le opzioni sopra tornano come Horizon li fornisce.",
+   "Reset the launcher's look": "Reimposta l'aspetto del launcher",
+diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
+index 05422ee65..d1cdd4c87 100644
+--- a/launcher/lang/ja.json
++++ b/launcher/lang/ja.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "オフラインの名前",
+   "Add a name": "名前を追加",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3〜16 文字の英数字またはアンダースコア。名前は上部のバーからも切り替えられます。オンラインサーバーではオフラインの名前は使えません。",
+-  "Play online with your Microsoft account": "Microsoft アカウントでオンラインプレイ",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition を所有するアカウントでサインインしてください。名前とスキンは、ほかのランチャーと同じようにオンラインサーバーでも使われます。",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft 自身のページがブラウザで開きます。Horizon がパスワードを見ることはありません。",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "ボタン、スイッチ、空に色を付けます。選ぶか、任意の16進カラーを入力してください。",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "アクセントカラー、ガラス、ぼかし、言語、上のオプションが Horizon の出荷時の状態に戻ります。",
+   "Reset the launcher's look": "ランチャーの見た目をリセット",
+diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
+index 05e21367b..3e9fe8e3f 100644
+--- a/launcher/lang/ka.json
++++ b/launcher/lang/ka.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "ხაზგარეშე სახელები",
+   "Add a name": "დაამატეთ სახელი",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-დან 16-მდე ასო, რიცხვი ან ქვედა ხაზი. ასევე შეცვალეთ სახელები ზედა ზოლიდან. ონლაინ სერვერები არ იღებენ ხაზგარეშე სახელებს.",
+-  "Play online with your Microsoft account": "ითამაშეთ ონლაინ თქვენი Microsoft ანგარიშით",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "შედით ანგარიშით, რომელსაც ფლობს Minecraft: Java Edition. თქვენი სახელი და კანი მოდის ონლაინ სერვერებზე, ისევე როგორც სხვა გამშვებებში.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft-ის საკუთარი გვერდი იხსნება თქვენს ბრაუზერში. Horizon არასოდეს ხედავს თქვენს პაროლს.",
+   "1 hour": "1 საათი",
+   "1 hour ago": "1 საათის წინ",
+   "1 line": "1 სტრიქონი",
+diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
+index 441184fcb..bcfdf0626 100644
+--- a/launcher/lang/kk.json
++++ b/launcher/lang/kk.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Офлайн атаулар",
+   "Add a name": "Атын қосыңыз",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-16 әріп, сандар немесе астын сызу. Жоғарғы жолақтан атауларды да ауыстырыңыз. Онлайн серверлер желіден тыс атауларды алмайды.",
+-  "Play online with your Microsoft account": "Microsoft тіркелгісімен онлайн ойнаңыз",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition иесі тіркелгімен кіріңіз. Сіздің атыңыз бен мұқабаңыз басқа іске қосу құрылғыларындағы сияқты онлайн серверлерге келеді.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Браузеріңізде Microsoft-тың жеке беті ашылады. Horizon құпия сөзіңізді ешқашан көрмейді.",
+   "1 hour": "1 сағат",
+   "1 hour ago": "1 сағат бұрын",
+   "1 line": "1 жол",
+diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
+index 63a52a7f8..b0fbe06e4 100644
+--- a/launcher/lang/kn.json
++++ b/launcher/lang/kn.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "ಆಫ್ಲೈನ್ ಹೆಸರುಗಳು",
+   "Add a name": "ಹೆಸರನ್ನು ಸೇರಿಸಿ",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ರಿಂದ 16 ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು ಅಥವಾ ಅಂಡರ್‌ಸ್ಕೋರ್‌ಗಳು. ಮೇಲಿನ ಪಟ್ಟಿಯಿಂದಲೂ ಹೆಸರುಗಳನ್ನು ಬದಲಿಸಿ. ಆನ್‌ಲೈನ್ ಸರ್ವರ್‌ಗಳು ಆಫ್‌ಲೈನ್ ಹೆಸರುಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವುದಿಲ್ಲ.",
+-  "Play online with your Microsoft account": "ನಿಮ್ಮ Microsoft ಖಾತೆಯೊಂದಿಗೆ ಆನ್‌ಲೈನ್‌ನಲ್ಲಿ ಪ್ಲೇ ಮಾಡಿ",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java ಆವೃತ್ತಿಯನ್ನು ಹೊಂದಿರುವ ಖಾತೆಯೊಂದಿಗೆ ಸೈನ್ ಇನ್ ಮಾಡಿ. ನಿಮ್ಮ ಹೆಸರು ಮತ್ತು ಚರ್ಮವು ಇತರ ಲಾಂಚರ್‌ಗಳಂತೆ ಆನ್‌ಲೈನ್ ಸರ್ವರ್‌ಗಳಿಗೆ ಬರುತ್ತದೆ.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft ನ ಸ್ವಂತ ಪುಟವು ನಿಮ್ಮ ಬ್ರೌಸರ್‌ನಲ್ಲಿ ತೆರೆಯುತ್ತದೆ. Horizon ನಿಮ್ಮ ಪಾಸ್‌ವರ್ಡ್ ಅನ್ನು ಎಂದಿಗೂ ನೋಡುವುದಿಲ್ಲ.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "ಬಟನ್‌ಗಳು, ಸ್ವಿಚ್‌ಗಳು ಮತ್ತು ಆಕಾಶವನ್ನು ಬಣ್ಣ ಮಾಡುತ್ತದೆ. ಒಂದನ್ನು ಆರಿಸಿ ಅಥವಾ ಯಾವುದೇ ಹೆಕ್ಸ್ ಬಣ್ಣವನ್ನು ಟೈಪ್ ಮಾಡಿ.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ಉಚ್ಚಾರಣಾ ಬಣ್ಣ, ಗಾಜು, ಮಸುಕು, ಭಾಷೆ ಮತ್ತು ಮೇಲಿನ ಆಯ್ಕೆಗಳು ಹೇಗೆ Horizon ರವಾನೆಗೆ ಹಿಂತಿರುಗುತ್ತವೆ.",
+   "Reset the launcher's look": "ಲಾಂಚರ್‌ನ ನೋಟವನ್ನು ಮರುಹೊಂದಿಸಿ",
+diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
+index 6306e54ca..3728f7ea0 100644
+--- a/launcher/lang/ko.json
++++ b/launcher/lang/ko.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "오프라인 이름",
+   "Add a name": "이름 추가",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "영문자, 숫자, 밑줄 3~16자. 위쪽 막대에서도 이름을 바꿀 수 있습니다. 온라인 서버는 오프라인 이름을 받지 않습니다.",
+-  "Play online with your Microsoft account": "Microsoft 계정으로 온라인 플레이",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition을 소유한 계정으로 로그인하세요. 다른 런처처럼 이름과 스킨이 온라인 서버에서도 함께합니다.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft의 자체 페이지가 브라우저에서 열립니다. Horizon은 비밀번호를 절대 보지 않습니다.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "버튼, 스위치, 하늘에 색을 입힙니다. 하나를 고르거나 원하는 hex 색을 입력하세요.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "강조 색, 유리, 흐림, 언어와 위의 옵션이 Horizon 기본값으로 돌아갑니다.",
+   "Reset the launcher's look": "런처 모양 초기화",
+diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
+index 09293ebe6..54fb579e4 100644
+--- a/launcher/lang/ky.json
++++ b/launcher/lang/ky.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Оффлайн аттар",
+   "Add a name": "Аты кошуу",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3төн 16га чейинки тамгалар, сандар же астынкы сызыктар. Жогорку тилкеден ысымдарды да алмаштырыңыз. Онлайн серверлер оффлайн аталыштарын алышпайт.",
+-  "Play online with your Microsoft account": "Microsoft аккаунтуңуз менен онлайн ойноңуз",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Чыгарылышына ээ болгон каттоо эсеби менен кириңиз. Сиздин атыңыз жана териңиз башка ишке киргизгичтер сыяктуу онлайн серверлерге келет.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Браузериңизде Microsoft'дин жеке баракчасы ачылат. Horizon сырсөзүңүздү эч качан көрбөйт.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Баскычтарды, өчүргүчтөрдү жана асманды боёйт. Бирөөнү тандаңыз же каалаган алты бурчтуу түстү териңиз.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акценттин түсү, айнек, бүдөмүк, тил жана жогорудагы опциялар Horizon кантип жөнөтүлгөнүнө кайтып келет.",
+   "Reset the launcher's look": "Ишке киргизгичтин көрүнүшүн баштапкы абалга келтириңиз",
+diff --git a/launcher/lang/la.json b/launcher/lang/la.json
+index 0d4c7b617..3462a0e03 100644
+--- a/launcher/lang/la.json
++++ b/launcher/lang/la.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Online nomina",
+   "Add a name": "Nomen addere",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ad 16 litteras, numeros vel underscores. Nomina virgula etiam a vertice Cie. Online servers non nomina online.",
+-  "Play online with your Microsoft account": "Ludere online tuaMicrosoftpropter",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Sign in cum ratione quae possidetMinecraft:JavaEditio altera. Tuum nomen et pellis pervenerunt ad servientes online, sicut in aliis launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "MicrosoftPagina propria in navigatro tuo aperit.Horizonnumquam tua.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Bullae, virgas et aeri colorat. Colligunt unum, vel typus quemlibet hex colorem.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Color accentus, vitrum, labes, lingua et optiones supra recedunt ad quomodoHorizoncarinis.",
+   "Reset the launcher's look": "Reset Launcher est vultus",
+diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
+index 814396ee9..578de297a 100644
+--- a/launcher/lang/lb.json
++++ b/launcher/lang/lb.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Offline Nimm",
+   "Add a name": "Füügt en Numm",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 bis 16 Buschtawen, Zuelen oder Ënnersträicher. Wiesselt Nimm vun der ieweschter Bar och. Online Server huelen net offline Nimm.",
+-  "Play online with your Microsoft account": "Spillt online mat Ärem Microsoft Kont",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Mellt Iech un mat dem Kont deen Minecraft: Java Editioun gehéiert. Ären Numm an d'Haut kommen op Online Serveren, wéi an anere Startënnerlagen.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Dem Microsoft seng eege Säit gëtt an Ärem Browser op. Horizon gesäit Äert Passwuert ni.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Faarwt d'Knäppercher, d'Schalter an den Himmel. Wielt een, oder tippt iergendeng Hexfaarf.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akzentfaarf, Glas, Blur, Sprooch an d'Optiounen hei uewen ginn zréck op wéi Horizon Schëffer.",
+   "Reset the launcher's look": "Reset de Look vum Starter",
+diff --git a/launcher/lang/li.json b/launcher/lang/li.json
+index b240525fd..9b68469af 100644
+--- a/launcher/lang/li.json
++++ b/launcher/lang/li.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline naome",
+   "Add a name": "Voeg un naom toe",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 tot 16 letters, getalle of oonderstreep. Wissel de naome ouch vaan de baoveste balk. Online servers numme gein offline naome.",
+-  "Play online with your Microsoft account": "Speel online mit eur Microsoft-account",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Meld aan mit ut account det Minecraft: Java Editie beziet. Uw naam en huid komme op online servers, zjus wie in aandere launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft's eige pagina geit open in eur browser. Horizon zuut noets eur wachtwoord.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Kleur de knoppe, de schakelaars en de loch. Kies ein, of typ eder hexkleur.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentkleur, glaas, vervaag, taol en de opties heibove goon trök nao wie Horizon weert verstuurd.",
+   "Reset the launcher's look": "Reset de look vaan de launcher",
+diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
+index 4597200ff..e9e63eb5a 100644
+--- a/launcher/lang/lmo.json
++++ b/launcher/lang/lmo.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nom fœra linea",
+   "Add a name": "Aggiungi un nomm",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 letter, numer o sottolinei. Cambià anca i nomm de la barra superiur. I server online g’han minga di nomm fœura linea.",
+-  "Play online with your Microsoft account": "Gioca in linea cunt el tò cunt Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Accedi cunt el cunt che g’ha Minecraft: Java Ediziun. El tò nomm e la tò pel rivan süi server online, cuma en olter lanciador.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La pagina di Microsoft se derva in del browser. Horizon vede mai la tua password.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Culura i buttun, i interruttur e el ciel. Scegli un o scrif qual-sa-vöör culur esagonal.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Culur de accent, veder, sfocadüra, linguagg e i upziun de sora van indrée a cuma Horizon spediss.",
+   "Reset the launcher's look": "Ripristinà l’aspètt del lanciador",
+diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
+index b31395208..a612f0552 100644
+--- a/launcher/lang/lo.json
++++ b/launcher/lang/lo.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "ຊື່ອອບໄລນ໌",
+   "Add a name": "ເພີ່ມຊື່",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ຫາ 16 ຕົວອັກສອນ, ຕົວເລກ ຫຼື ຂີດກ້ອງ. ປ່ຽນຊື່ຈາກແຖບເທິງ. ເຊີບເວີອອນໄລນ໌ບໍ່ເອົາຊື່ອອບໄລນ໌.",
+-  "Play online with your Microsoft account": "ຫຼິ້ນອອນໄລນ໌ດ້ວຍບັນຊີ Microsoft ຂອງທ່ານ",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "ເຂົ້າສູ່ລະບົບດ້ວຍບັນຊີທີ່ເປັນເຈົ້າຂອງ Minecraft: Java Edition. ຊື່ ແລະຜິວໜັງຂອງເຈົ້າມາກັບເຊີບເວີອອນໄລນ໌, ຄືກັບຕົວເປີດໃຊ້ອື່ນໆ.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "ຫນ້າ Microsoft ຂອງຕົນເອງເປີດຢູ່ໃນຕົວທ່ອງເວັບຂອງທ່ານ. Horizon ບໍ່ເຄີຍເຫັນລະຫັດຜ່ານຂອງເຈົ້າ.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "ໃສ່ສີປຸ່ມ, ສະຫຼັບ ແລະທ້ອງຟ້າ. ເລືອກຫນຶ່ງ, ຫຼືພິມສີ hex ໃດ.",
+   "1 hour": "1 ຊົ່ວໂມງ",
+   "1 hour ago": "1 ຊົ່ວໂມງກ່ອນ",
+diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
+index 174beee5e..e8104585d 100644
+--- a/launcher/lang/lt.json
++++ b/launcher/lang/lt.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Vardai neprisijungus",
+   "Add a name": "Pridėti vardą",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Nuo 3 iki 16 raidžių, skaičių ar pabraukimo brūkšnių. Vardą galite pakeisti ir viršutinėje juostoje. Internetiniai serveriai nepriima vardų neprisijungus.",
+-  "Play online with your Microsoft account": "Žaiskite internetu su savo „Microsoft“ paskyra",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Prisijunkite paskyra, kuriai priklauso „Minecraft: Java Edition“. Jūsų vardas ir išvaizda keliauja su jumis į internetinius serverius, kaip ir kitose paleidimo priemonėse.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Naršyklėje atsidaro paties „Microsoft“ puslapis. „Horizon“ niekada nemato jūsų slaptažodžio.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akcento spalva, stiklas, suliejimas, kalba ir aukščiau esančios parinktys grįžta į numatytąsias Horizon reikšmes.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Nuspalvina mygtukus, jungiklius ir dangų. Pasirink spalvą arba įvesk bet kokią hex spalvą.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentinė funkcija. Tavo patikimus vietinius modus surenka į atskirą žaidimą.",
+diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
+index 1bdfc96d4..95bad2b07 100644
+--- a/launcher/lang/lv.json
++++ b/launcher/lang/lv.json
+@@ -1033,7 +1033,6 @@
+   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Tās pasaules saglabāja Minecraft {from}: {to} tās neatgriezeniski atjaunina un nevar tās atvērt, ja ir vecāka.",
+   "Launcher settings are back to their defaults": "Palaišanas programmas iestatījumi atjaunoti uz noklusējuma vērtībām",
+   "Microsoft account · online servers too": "Microsoft konts · arī tiešsaistes serveri",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft lapa tiek atvērta jūsu pārlūkā. Horizon nekad neredz jūsu paroli.",
+   "Mod": "Mods",
+   "Mod · {instance}": "Mods · {instance}",
+   "My Horizon": "Mans Horizon",
+@@ -1045,7 +1044,6 @@
+   "Open the game folder": "Atvērt spēles mapi",
+   "Open {page}": "Atvērt {page}",
+   "Opened {path}": "Atvērts: {path}",
+-  "Play online with your Microsoft account": "Spēlējiet tiešsaistē ar savu Microsoft kontu",
+   "Play {name}": "Spēlēt {name}",
+   "Play, install a mod, open a page": "Spēlēt, instalēt modu, atvērt lapu",
+   "Remove from {instance}": "Noņemt no {instance}",
+@@ -1059,7 +1057,6 @@
+   "Search resource packs and modpacks": "Meklēt resursu pakotnes un modpacks",
+   "Search {count} Horizon mods": "Meklēt starp {count} Horizon modiem",
+   "Shader pack": "Ēnotāju pakotne",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Pierakstieties ar kontu, kuram pieder Minecraft: Java Edition. Jūsu vārds un āda līdzi nonāk tiešsaistes serveros, tāpat kā citās palaišanas programmās.",
+   "What this change can't keep": "Ko šī izmaiņa nevar saglabāt",
+   "just now": "tikko",
+   "soon": "drīz",
+diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
+index db0ae744a..9bc3c1a81 100644
+--- a/launcher/lang/mk.json
++++ b/launcher/lang/mk.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Офлајн имиња",
+   "Add a name": "Додадете име",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 до 16 букви, бројки или долни црти. Префрлете ги имињата и од горната лента. Онлајн серверите не земаат офлајн имиња.",
+-  "Play online with your Microsoft account": "Играјте онлајн со вашата сметка на Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Пријавете се со сметката што ја поседува Minecraft: Java Edition. Вашето име и кожа доаѓаат на онлајн серверите, како и кај другите фрлачи.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Сопствената страница на Microsoft се отвора во вашиот прелистувач. Horizon никогаш не ја гледа вашата лозинка.",
+   "1 hour": "1 час",
+   "1 hour ago": "пред 1 час",
+   "1 line": "1 ред",
+diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
+index 5a64afa57..6d196dc83 100644
+--- a/launcher/lang/mn.json
++++ b/launcher/lang/mn.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Офлайн нэрс",
+   "Add a name": "Нэр нэмнэ үү",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-аас 16 үсэг, тоо эсвэл доогуур зураас. Дээд талбараас нэр солих. Онлайн серверүүд офлайн нэр авдаггүй.",
+-  "Play online with your Microsoft account": "Microsoft бүртгэлээрээ онлайнаар тогло",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition-ийг эзэмшдэг бүртгэлээр нэвтэрнэ үү. Таны нэр болон арьс бусад эхлүүлэгчтэй адил онлайн серверүүдтэй хамт ирдэг.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Таны хөтөч дээр Microsoft-ын өөрийн хуудас нээгдэнэ. Horizon таны нууц үгийг хэзээ ч харахгүй.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Товчлуур, унтраалга, тэнгэрийг өнгөөр будна. Аль нэгийг нь сонгох эсвэл дурын зургаан өнцөгтийг бичнэ үү.",
+   "1 hour": "1 цаг",
+   "1 hour ago": "1 цагийн өмнө",
+diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
+index f00c9c40c..5021d4269 100644
+--- a/launcher/lang/ms.json
++++ b/launcher/lang/ms.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Nama luar talian",
+   "Add a name": "Tambah nama",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 hingga 16 huruf, nombor atau garis bawah. Tukar nama dari bar atas juga. Pelayan dalam talian tidak menggunakan nama luar talian.",
+-  "Play online with your Microsoft account": "Main dalam talian dengan akaun Microsoft anda",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Log masuk dengan akaun yang memiliki Minecraft: Java Edition. Nama dan kulit anda disertakan dengan pelayan dalam talian, seperti dalam pelancar lain.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Halaman Microsoft sendiri dibuka dalam penyemak imbas anda. Horizon tidak pernah melihat kata laluan anda.",
+   "1 hour": "1 jam",
+   "1 hour ago": "1 jam yang lalu",
+   "1 line": "1 baris",
+diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
+index 8e99cb114..af5d71ddd 100644
+--- a/launcher/lang/mt.json
++++ b/launcher/lang/mt.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Ismijiet offline",
+   "Add a name": "Żid isem",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 sa 16-il ittri, numri jew underscore. Aqleb l-ismijiet mill-bar ta 'fuq ukoll. Is-servers onlajn ma jieħdux ismijiet offline.",
+-  "Play online with your Microsoft account": "Ilgħab online bil-kont tiegħek Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Idħol mal-kont li għandu Minecraft: Java Edizzjoni. Ismek u l-ġilda jiġu flimkien mas-servers online, bħal f'lanċjaturi oħra.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Il-paġna ta' Microsoft stess tiftaħ fil-browser tiegħek. Horizon qatt ma jara l-password tiegħek.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Kuluri l-buttuni, is-swiċċijiet u s-sema. Agħżel waħda, jew ittajpja kwalunkwe kulur hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Kulur aċċent, ħġieġ, ċċajpar, lingwa u l-għażliet t'hawn fuq imorru lura għal kif Horizon vapuri.",
+   "Reset the launcher's look": "Irrisettja d-dehra tal-lanċjar",
+diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
+index 85a81b7a3..81c3c3cd8 100644
+--- a/launcher/lang/nl.json
++++ b/launcher/lang/nl.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline namen",
+   "Add a name": "Naam toevoegen",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 tot 16 letters, cijfers of underscores. Je kunt ook van naam wisselen via de bovenste balk. Online servers accepteren geen offline namen.",
+-  "Play online with your Microsoft account": "Online spelen met je Microsoft-account",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Meld je aan met het account dat Minecraft: Java Edition bezit. Je naam en skin gaan mee naar online servers, net als in andere launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "De eigen pagina van Microsoft opent in je browser. Horizon ziet je wachtwoord nooit.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Kleurt de knoppen, de schakelaars en de lucht. Kies er een of typ een willekeurige hexkleur.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentkleur, glas, vervaging, taal en de opties hierboven gaan terug naar hoe Horizon ze levert.",
+   "Reset the launcher's look": "Uiterlijk van de launcher herstellen",
+diff --git a/launcher/lang/no.json b/launcher/lang/no.json
+index c1be45d49..fe27d3fc4 100644
+--- a/launcher/lang/no.json
++++ b/launcher/lang/no.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Frakoblede navn",
+   "Add a name": "Legg til et navn",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 til 16 bokstaver, tall eller understreker. Du kan også bytte navn fra topplinjen. Nettservere godtar ikke frakoblede navn.",
+-  "Play online with your Microsoft account": "Spill på nett med Microsoft-kontoen din",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Logg på med kontoen som eier Minecraft: Java Edition. Navnet og skinnet ditt følger med til nettservere, som i andre oppstartere.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsofts egen side åpnes i nettleseren din. Horizon ser aldri passordet ditt.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Aksentfarge, glass, uskarphet, språk og innstillingene over går tilbake til slik Horizon leveres.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Farger knappene, bryterne og himmelen. Velg en, eller skriv inn en hvilken som helst hex-farge.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentell. Bygger de native modsene du stoler på inn i et eget spill.",
+diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
+index 763778e0a..d9bc5eccf 100644
+--- a/launcher/lang/oc.json
++++ b/launcher/lang/oc.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Noms fòra linha",
+   "Add a name": "Ajustar un nom",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 letras, números o subrayados. Cambiar los noms dempuèi la barra superiora tanben. Los servidors en linha prenon pas de noms fòra linha.",
+-  "Play online with your Microsoft account": "Jugar en linha amb vòstre compte Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Connectatz-vos amb lo compte que possedís Minecraft: Java Edicion. Vòstre nom e pèl venon als servidors en linha, coma dins d'autres lançaires.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La pagina pròpria de Microsoft se dobrís dins vòstre navigador. Horizon vei pas jamai vòstre senhal.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colora los botons, los interruptors e lo cèl. Causissètz-ne un, o picatz quina color que siá hexadecimala.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Color d'accent, veire, flou, lengatge e las opcions çai-sus remontan a cossí Horizon s'expedís.",
+   "Reset the launcher's look": "Reïnicializar l'aspècte del lançaire",
+diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
+index 0ae6e6271..af85f6999 100644
+--- a/launcher/lang/pl.json
++++ b/launcher/lang/pl.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nazwy offline",
+   "Add a name": "Dodaj nazwę",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Od 3 do 16 liter, cyfr lub podkreśleń. Nazwę zmienisz też na górnym pasku. Serwery online nie przyjmują nazw offline.",
+-  "Play online with your Microsoft account": "Graj online na koncie Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Zaloguj się kontem, które ma Minecraft: Java Edition. Twoja nazwa i skin trafią z tobą na serwery online, jak w innych launcherach.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Strona Microsoftu otwiera się w przeglądarce. Horizon nigdy nie widzi twojego hasła.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Koloruje przyciski, przełączniki i niebo. Wybierz jeden albo wpisz dowolny kolor hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Kolor akcentu, szkło, rozmycie, język i opcje powyżej wracają do ustawień, z jakimi Horizon jest dostarczany.",
+   "Reset the launcher's look": "Przywróć wygląd launchera",
+diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
+index 72e9ee1cc..33d945794 100644
+--- a/launcher/lang/pt-br.json
++++ b/launcher/lang/pt-br.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nomes offline",
+   "Add a name": "Adicionar um nome",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números ou sublinhados. Troque de nome também pela barra superior. Servidores online não aceitam nomes offline.",
+-  "Play online with your Microsoft account": "Jogue online com sua conta Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Entre com a conta que tem o Minecraft: Java Edition. Seu nome e sua skin vão junto para os servidores online, como em outros launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "A própria página da Microsoft abre no seu navegador. O Horizon nunca vê sua senha.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colore os botões, os interruptores e o céu. Escolha uma, ou digite qualquer cor hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Cor de destaque, vidro, desfoque, idioma e as opções acima voltam ao padrão do Horizon.",
+   "Reset the launcher's look": "Redefinir a aparência do launcher",
+diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
+index e6757ff70..20d3457a4 100644
+--- a/launcher/lang/pt.json
++++ b/launcher/lang/pt.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nomes offline",
+   "Add a name": "Adicionar um nome",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números ou sublinhados. Mude de nome também na barra superior. Os servidores online não aceitam nomes offline.",
+-  "Play online with your Microsoft account": "Joga online com a tua conta Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Inicia sessão com a conta que tem o Minecraft: Java Edition. O teu nome e a tua skin vão contigo para os servidores online, como noutros launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "A própria página da Microsoft abre no teu navegador. O Horizon nunca vê a tua palavra-passe.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Dá cor aos botões, aos interruptores e ao céu. Escolhe uma, ou escreve qualquer cor hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "A cor de destaque, o vidro, o desfoque, o idioma e as opções acima voltam ao que o Horizon traz de origem.",
+   "Reset the launcher's look": "Repor o aspeto do launcher",
+diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
+index 839f39313..417e795d6 100644
+--- a/launcher/lang/ro.json
++++ b/launcher/lang/ro.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nume offline",
+   "Add a name": "Adăugați un nume",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Între 3 și 16 litere, cifre sau liniuțe de subliniere. Puteți schimba numele și din bara de sus. Serverele online nu acceptă nume offline.",
+-  "Play online with your Microsoft account": "Jucați online cu contul Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Conectați-vă cu contul care deține Minecraft: Java Edition. Numele și skinul vă însoțesc pe serverele online, ca în alte lansatoare.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Pagina Microsoft se deschide în browser. Horizon nu vă vede niciodată parola.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Culoarea de accent, sticla, estomparea, limba și opțiunile de mai sus revin la setările cu care vine Horizon.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colorează butoanele, comutatoarele și cerul. Alege una sau scrie orice culoare hex.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Experimental. Construiește modurile native în care ai încredere într-un joc separat.",
+diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
+index 90f79f110..556785f4e 100644
+--- a/launcher/lang/ru.json
++++ b/launcher/lang/ru.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Офлайн-имена",
+   "Add a name": "Добавить имя",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "От 3 до 16 букв, цифр или подчёркиваний. Имя можно сменить и в верхней панели. Онлайн-серверы не принимают офлайн-имена.",
+-  "Play online with your Microsoft account": "Играйте онлайн с учётной записью Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Войдите в учётную запись, которой принадлежит Minecraft: Java Edition. Имя и скин будут с вами на онлайн-серверах, как в других лаунчерах.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Страница Microsoft открывается в вашем браузере. Horizon никогда не видит ваш пароль.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Окрашивает кнопки, переключатели и небо. Выберите цвет или введите любой hex-цвет.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Цвет акцента, стекло, размытие, язык и параметры выше вернутся к тем, что были в Horizon изначально.",
+   "Reset the launcher's look": "Сбросить вид лаунчера",
+diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
+index 127d80ae0..efadabee3 100644
+--- a/launcher/lang/sah.json
++++ b/launcher/lang/sah.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Офлайн ааттар",
+   "Add a name": "Аат эбэн биэр",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-тэн 16-ҕа диэри буукуба, сыыппара эбэтэр аннынан тирэх. Үөһээҥҥи панелтан ааттары эмиэ уларыт. Онлайн сервердар офлайн ааттары ылбаттар.",
+-  "Play online with your Microsoft account": "Microsoft аккаунккытынан онлайн оонньоо",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java таһаарыылаах учуотунан киириҥ. Атын лаунчердарга курдук, эн ааккын уонна тирииҥ онлайн сервердэргэ киирэллэр.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Браузергар Microsoft бэйэтин страницата арыллар. Horizon парольгун хаһан да көрбөт.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Кнопкалары, переключательдары уонна халлааны өҥнүүр. Биири талыҥ, эбэтэр ханнык баҕарар шестиграннай өҥү суруйуҥ.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент өҥө, өстүөкүлэ, дьүһүннээһин, тыл уонна үөһээ этиллибит варианнар Horizon хайдах ыытылларыгар төннөллөр.",
+   "Reset the launcher's look": "Запускник көрүҥүн уларыт",
+diff --git a/launcher/lang/se.json b/launcher/lang/se.json
+index bd1953eec..9a1e67875 100644
+--- a/launcher/lang/se.json
++++ b/launcher/lang/se.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline namat",
+   "Add a name": "Bija nama",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 gitta 16 bustáva, loguid dahje vuollečuoggáid. Váldde namaid bajimus čuoggás maid. Neahttabálvalusat eai váldde offline namaid.",
+-  "Play online with your Microsoft account": "Speallat neahtas iežat Microsoft-kontuin",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Logge sisa dan konttuin mii oamasta Minecraft: Java Edition. Du namma ja ivdni bohtet neahttabálvalusaide, nugo eará álggaheaddjiin.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft iežas siidu rahppo neahttasiiddus. Horizon ii goassege oainne du beassansáni.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Sárgut nuppástusaid, čujuhusaid ja almmi. Vállje ovtta, dahje čále makkárge heksaivnni.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akseantaivdni, láse, čuovga, giella ja ovddit válljejumit mannet ruovttoluotta dasa mo Horizon sáddejuvvo.",
+   "Reset the launcher's look": "Nuppástuhttit álggaheaddji hámi",
+diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
+index 78bc4cfed..0c2901fb2 100644
+--- a/launcher/lang/sk.json
++++ b/launcher/lang/sk.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offline mená",
+   "Add a name": "Pridať meno",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 až 16 písmen, číslic alebo podčiarkovníkov. Meno môžete zmeniť aj v hornej lište. Online servery offline mená neprijímajú.",
+-  "Play online with your Microsoft account": "Hrajte online so svojím účtom Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Prihláste sa účtom, ktorý vlastní Minecraft: Java Edition. Vaše meno a skin vás budú sprevádzať aj na online serveroch, ako v iných spúšťačoch.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Vo vašom prehliadači sa otvorí vlastná stránka spoločnosti Microsoft. Horizon nikdy nevidí vaše heslo.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Farba zvýraznenia, sklo, rozmazanie, jazyk a možnosti vyššie sa vrátia k predvoľbám Horizonu.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Zafarbí tlačidlá, prepínače a oblohu. Vyber jednu alebo zadaj ľubovoľnú hex farbu.",
+   "Experimental. Builds the native mods you trust into a game of their own.": "Experimentálne. Zostaví natívne mody, ktorým dôveruješ, do samostatnej hry.",
+diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
+index 44e9f55e0..423f4f3c1 100644
+--- a/launcher/lang/sl.json
++++ b/launcher/lang/sl.json
+@@ -1033,7 +1033,6 @@
+   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Njegove svetove je shranil Minecraft {from}: {to} jih trajno nadgradi in jih ne more odpreti, če je starejši.",
+   "Launcher settings are back to their defaults": "Nastavitve zaganjalnika so ponastavljene na privzete",
+   "Microsoft account · online servers too": "Račun Microsoft · tudi spletni strežniki",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Stran Microsoft se odpre v vašem brskalniku. Horizon nikoli ne vidi vašega gesla.",
+   "Mod": "Modifikacija",
+   "Mod · {instance}": "Modifikacija · {instance}",
+   "My Horizon": "Moj Horizon",
+@@ -1045,7 +1044,6 @@
+   "Open the game folder": "Odpri mapo igre",
+   "Open {page}": "Odpri {page}",
+   "Opened {path}": "Odprto: {path}",
+-  "Play online with your Microsoft account": "Igrajte na spletu z računom Microsoft",
+   "Play {name}": "Igraj {name}",
+   "Play, install a mod, open a page": "Igraj, namesti modifikacijo, odpri stran",
+   "Remove from {instance}": "Odstrani iz {instance}",
+@@ -1059,7 +1057,6 @@
+   "Search resource packs and modpacks": "Išči pakete virov in modpacke",
+   "Search {count} Horizon mods": "Išči med {count} modifikacijami Horizon",
+   "Shader pack": "Paket senčil",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Prijavite se z računom, ki ima Minecraft: Java Edition. Vaše ime in koža vas spremljata na spletne strežnike, kot v drugih zaganjalnikih.",
+   "What this change can't keep": "Česa ta sprememba ne more ohraniti",
+   "just now": "pravkar",
+   "soon": "kmalu",
+diff --git a/launcher/lang/so.json b/launcher/lang/so.json
+index fd074c775..1b3b352e4 100644
+--- a/launcher/lang/so.json
++++ b/launcher/lang/so.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Magacyada khadka tooska ah",
+   "Add a name": "Magac ku dar",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ilaa 16 xaraf, tirooyinka ama hoosta. Ka beddel magacyada bar sare sidoo kale. Adeegayaasha khadka tooska ah ma qaataan magacyada offline.",
+-  "Play online with your Microsoft account": "Ku ciyaar khadka tooska ah akoonkaaga Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Ku gal akoontada leh Minecraft: Java Edition. Magacaaga iyo maqaarkaaga ayaa la socda server-yada khadka ah, sida soosaarayaasha kale.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Bogga Microsoft ayaa ka furan biraawsarkaaga. Horizon waligiis ma arko eraygaaga sirta ah",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Midabeeya badhamada, furayaasha iyo cirka. Mid dooro, ama ku qor midab kasta oo hex ah.",
+   "1 hour": "1 saac",
+   "1 hour ago": "1 saac ka hor",
+diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
+index 60af47845..85e1f9476 100644
+--- a/launcher/lang/sq.json
++++ b/launcher/lang/sq.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Emrat jashtë linje",
+   "Add a name": "Shto një emër",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 deri në 16 shkronja, numra ose nënvizime. Ndërroni edhe emrat nga shiriti i sipërm. Serverët online nuk marrin emra jashtë linje.",
+-  "Play online with your Microsoft account": "Luaj online me llogarinë tënde të Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Hyni me llogarinë që zotëron Minecraft: Java Edition. Emri dhe lëkura juaj vijnë së bashku në serverët në internet, si në lëshuesit e tjerë.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Faqja e vetë Microsoft hapet në shfletuesin tuaj. Horizon nuk e sheh kurrë fjalëkalimin tuaj.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Ngjyros butonat, çelsat dhe qiellin. Zgjidhni një ose shkruani ndonjë ngjyrë gjashtëkëndore.",
+   "1 hour": "1 orë",
+   "1 hour ago": "1 orë më parë",
+diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
+index 7b1b0f28c..9d0fffa73 100644
+--- a/launcher/lang/sr.json
++++ b/launcher/lang/sr.json
+@@ -1033,7 +1033,6 @@
+   "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Њене светове је сачувао Minecraft {from}: {to} их трајно надограђује, а не може да их отвори ако је старији.",
+   "Launcher settings are back to their defaults": "Подешавања покретача су враћена на подразумевана",
+   "Microsoft account · online servers too": "Microsoft налог · и онлајн сервери",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft-ова страница се отвара у вашем прегледачу. Horizon никада не види вашу лозинку.",
+   "Mod": "Мод",
+   "Mod · {instance}": "Мод · {instance}",
+   "My Horizon": "Мој Horizon",
+@@ -1045,7 +1044,6 @@
+   "Open the game folder": "Отвори фасциклу игре",
+   "Open {page}": "Отвори {page}",
+   "Opened {path}": "Отворено: {path}",
+-  "Play online with your Microsoft account": "Играјте онлајн са својим Microsoft налогом",
+   "Play {name}": "Играј {name}",
+   "Play, install a mod, open a page": "Играј, инсталирај мод, отвори страницу",
+   "Remove from {instance}": "Уклони из {instance}",
+@@ -1059,7 +1057,6 @@
+   "Search resource packs and modpacks": "Претражи пакете ресурса и модпакове",
+   "Search {count} Horizon mods": "Претражи {count} Horizon модова",
+   "Shader pack": "Пакет шејдера",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Пријавите се налогом који поседује Minecraft: Java Edition. Ваше име и скин иду са вама на онлајн сервере, као у другим покретачима.",
+   "What this change can't keep": "Шта ова промена не може да задржи",
+   "just now": "управо сада",
+   "soon": "ускоро",
+diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
+index 1a90a270f..c304e768f 100644
+--- a/launcher/lang/sv.json
++++ b/launcher/lang/sv.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Offlinenamn",
+   "Add a name": "Lägg till ett namn",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 till 16 bokstäver, siffror eller understreck. Du kan även byta namn från den övre raden. Onlineservrar tar inte emot offlinenamn.",
+-  "Play online with your Microsoft account": "Spela online med ditt Microsoft-konto",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Logga in med kontot som äger Minecraft: Java Edition. Ditt namn och din skin följer med till onlineservrar, precis som i andra launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsofts egen sida öppnas i din webbläsare. Horizon ser aldrig ditt lösenord.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Färgar knapparna, reglagen och himlen. Välj en, eller skriv valfri hexfärg.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentfärg, glas, oskärpa, språk och alternativen ovan återställs till hur Horizon levereras.",
+   "Reset the launcher's look": "Återställ launcherns utseende",
+diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
+index 4f2d056d5..1d99f9ff7 100644
+--- a/launcher/lang/szl.json
++++ b/launcher/lang/szl.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Miana poza linijōm",
+   "Add a name": "Przidej miano",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 do 16 literōw, cyfr abo podkreślōnych. Pōmiyń tyż miana z wiyrchnigo szynka. Serwery online niy przijmujōm mian offline.",
+-  "Play online with your Microsoft account": "Graj w internecie ze swojim kōntym Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Zalogowaj sie ze kōntym, kere posiado Minecraft: Java Edycyjo. Twoje miano i skōra przichodzōm na serwerach internetowych, jak w inkszych launcherach.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "W przeglōndarzu ôtworzi sie włosno strōna Microsoft. Horizon nikej niy widzi twojigo hasła.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Farbi guziki, przełōnczniki i niebo. Wybierz jedna abo wpisz leda jako farba sześciościynno.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Farba akcyntu, szkło, rozmycie, jynzyk i ôpcyje powyżyj wracajōm do tego, jak Horizon wysyła.",
+   "Reset the launcher's look": "Resetuj wyglōnd ôdpalacza",
+diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
+index 742e5c14b..377592999 100644
+--- a/launcher/lang/ta.json
++++ b/launcher/lang/ta.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "ஆஃப்லைன் பெயர்கள்",
+   "Add a name": "பெயரைச் சேர்க்கவும்",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 முதல் 16 எழுத்துகள், எண்கள் அல்லது அடிக்கோடுகள். மேல் பட்டியில் இருந்தும் பெயர்களை மாற்றவும். ஆன்லைன் சேவையகங்கள் ஆஃப்லைன் பெயர்களை எடுக்காது.",
+-  "Play online with your Microsoft account": "உங்கள் Microsoft கணக்குடன் ஆன்லைனில் விளையாடுங்கள்",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition ஐ வைத்திருக்கும் கணக்கில் உள்நுழையவும். மற்ற லாஞ்சர்களைப் போலவே உங்கள் பெயரும் தோலும் ஆன்லைன் சேவையகங்களுக்கு வரும்.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft-இன் சொந்தப் பக்கம் உங்கள் உலாவியில் திறக்கும். Horizon உங்கள் கடவுச்சொல்லை ஒருபோதும் பார்ப்பதில்லை.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "பொத்தான்கள், சுவிட்சுகள் மற்றும் வானத்தை வண்ணமயமாக்குகிறது. ஒன்றைத் தேர்ந்தெடுக்கவும் அல்லது ஏதேனும் ஹெக்ஸ் நிறத்தைத் தட்டச்சு செய்யவும்.",
+   "1 hour": "1 மணிநேரம்",
+   "1 hour ago": "1 மணிநேரம் முன்பு",
+diff --git a/launcher/lang/th.json b/launcher/lang/th.json
+index ad3cda55d..0b5eabc24 100644
+--- a/launcher/lang/th.json
++++ b/launcher/lang/th.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "ชื่อออฟไลน์",
+   "Add a name": "เพิ่มชื่อ",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "ตัวอักษร ตัวเลข หรือขีดล่าง 3 ถึง 16 ตัว เปลี่ยนชื่อจากแถบด้านบนได้ด้วย เซิร์ฟเวอร์ออนไลน์ไม่รับชื่อออฟไลน์",
+-  "Play online with your Microsoft account": "เล่นออนไลน์ด้วยบัญชี Microsoft ของคุณ",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "ลงชื่อเข้าใช้ด้วยบัญชีที่เป็นเจ้าของ Minecraft: Java Edition ชื่อและสกินของคุณจะติดตัวไปยังเซิร์ฟเวอร์ออนไลน์ เหมือนในลันเชอร์อื่น ๆ",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "หน้าของ Microsoft เองจะเปิดในเบราว์เซอร์ของคุณ Horizon ไม่เห็นรหัสผ่านของคุณเลย",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "ใช้ระบายสีปุ่ม สวิตช์ และท้องฟ้า เลือกหนึ่งสี หรือพิมพ์รหัสสี hex ใดก็ได้",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "สีเน้น กระจก ความเบลอ ภาษา และตัวเลือกด้านบนจะกลับเป็นค่าเริ่มต้นของ Horizon",
+   "Reset the launcher's look": "รีเซ็ตหน้าตาของลันเชอร์",
+diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
+index 076879a51..0750210b7 100644
+--- a/launcher/lang/tr.json
++++ b/launcher/lang/tr.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Çevrim dışı adlar",
+   "Add a name": "Ad ekle",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ila 16 harf, rakam veya alt çizgi. Adları üst çubuktan da değiştirebilirsin. Çevrim içi sunucular çevrim dışı adları kabul etmez.",
+-  "Play online with your Microsoft account": "Microsoft hesabınla çevrim içi oyna",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition'a sahip hesapla giriş yap. Adın ve görünümün, diğer başlatıcılarda olduğu gibi çevrim içi sunuculara da gelir.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft'un kendi sayfası tarayıcında açılır. Horizon parolanı asla görmez.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Düğmeleri, anahtarları ve gökyüzünü renklendirir. Birini seç ya da herhangi bir hex rengi yaz.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Vurgu rengi, cam, bulanıklık, dil ve yukarıdaki seçenekler Horizon'un varsayılanlarına döner.",
+   "Reset the launcher's look": "Başlatıcının görünümünü sıfırla",
+diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
+index 1c0ca8eae..adabfa067 100644
+--- a/launcher/lang/tt.json
++++ b/launcher/lang/tt.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Оффлайн исемнәр",
+   "Add a name": "Исем өстәгез",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 - 16 хәреф, сан яки аскы сызык. Nameгары сызыктан исемнәрне дә күчерегез. Онлайн серверлар оффлайн исемнәрне алмыйлар.",
+-  "Play online with your Microsoft account": "Microsoft счетыгыз белән онлайн уйнагыз",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java басмасы булган счет белән керегез. Сезнең исемегез һәм тирегез башка эшләтеп җибәрүчеләрдәге кебек онлайн серверларга керә.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoftның үз бите сезнең браузерда ачыла. Horizon серсүзне беркайчан да күрми.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Кнопкалар, ачкычлар һәм күк төсләре. Берсен сайлагыз, яки теләсә нинди алты төс языгыз.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Тиз төс, пыяла, төссезлек, тел һәм югарыдагы вариантлар Horizon җибәрүенә кайтып кала.",
+   "Reset the launcher's look": "Эшләткечнең тышкы кыяфәтен торгызу",
+diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
+index e7a664507..b4e959b1e 100644
+--- a/launcher/lang/uk.json
++++ b/launcher/lang/uk.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Офлайн-імена",
+   "Add a name": "Додати ім'я",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Від 3 до 16 літер, цифр або підкреслень. Ім'я можна змінити й у верхній панелі. Онлайн-сервери не приймають офлайн-імена.",
+-  "Play online with your Microsoft account": "Грайте онлайн з обліковим записом Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Увійдіть в обліковий запис, якому належить Minecraft: Java Edition. Ім'я та скін будуть з вами на онлайн-серверах, як в інших лаунчерах.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Сторінка Microsoft відкривається у вашому браузері. Horizon ніколи не бачить ваш пароль.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Фарбує кнопки, перемикачі та небо. Виберіть колір або введіть будь-який hex-колір.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Колір акценту, скло, розмиття, мова та параметри вище повернуться до початкових у Horizon.",
+   "Reset the launcher's look": "Скинути вигляд лаунчера",
+diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
+index 51f8bad11..001353515 100644
+--- a/launcher/lang/ur.json
++++ b/launcher/lang/ur.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "آف لائن نام",
+   "Add a name": "نام شامل کریں",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 سے 16 حروف، ہندسے یا انڈر سکور۔ اوپر والی بار سے بھی نام بدل سکتے ہیں۔ آن لائن سرورز آف لائن نام قبول نہیں کرتے۔",
+-  "Play online with your Microsoft account": "اپنے Microsoft اکاؤنٹ کے ساتھ آن لائن کھیلیں",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "اس اکاؤنٹ سے سائن ان کریں جو Minecraft: Java Edition کا مالک ہے۔ آپ کا نام اور اسکن دوسرے لانچرز کی طرح آن لائن سرورز پر بھی ساتھ جاتے ہیں۔",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft کا اپنا صفحہ آپ کے براؤزر میں کھلتا ہے۔ Horizon کبھی آپ کا پاس ورڈ نہیں دیکھتا۔",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "بٹنوں، سوئچز اور آسمان کو رنگ دیتا ہے۔ ایک چنیں، یا کوئی بھی hex رنگ ٹائپ کریں۔",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ایکسنٹ رنگ، شیشہ، دھندلاہٹ، زبان اور اوپر والے اختیارات Horizon کی ڈیفالٹ حالت پر واپس چلے جاتے ہیں۔",
+   "Reset the launcher's look": "لانچر کی شکل ری سیٹ کریں",
+diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
+index 19be59751..072e099a1 100644
+--- a/launcher/lang/uz.json
++++ b/launcher/lang/uz.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Oflayn nomlar",
+   "Add a name": "Ism qo'shing",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 dan 16 gacha harflar, raqamlar yoki pastki chiziq. Yuqori paneldagi nomlarni ham almashtiring. Onlayn serverlar oflayn nomlarni olmaydilar.",
+-  "Play online with your Microsoft account": "Microsoft hisob qaydnomangiz bilan onlayn o'ynang",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Minecraft: Java Edition-ga ega hisob qaydnomasi bilan tizimga kiring. Sizning ismingiz va teringiz boshqa ishga tushirgichlarda bo'lgani kabi onlayn serverlarga ham kiradi.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Brauzeringizda Microsoft-ning shaxsiy sahifasi ochiladi. Horizon hech qachon parolingizni ko'rmaydi.",
+   "1 hour": "1 soat",
+   "1 hour ago": "1 soat oldin",
+   "1 line": "1 qator",
+diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
+index cb253f6e6..f20345365 100644
+--- a/launcher/lang/vec.json
++++ b/launcher/lang/vec.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Nomi offline",
+   "Add a name": "Xonta un nome",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 lettere, numeri o sottolineature. Canbia anca i nomi dała bara in alto. I server online no i ciapa nomi offline.",
+-  "Play online with your Microsoft account": "Gioca online col tuo conto Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Accedi con el conto che possede Minecraft: Java Edition. El nome e ła skin i vien sui server online, come in altri launcher.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La pagina propia de Microsoft si abre nel tuo browser. Horizon no vede mai la vostra password.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colora i bottoni, i interruttori e il cielo. Scegli uno, o scrivi qualsiasi cołor esagonałe.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "El cołor de l’acento, el véro, ła sfocatura, el lenguajo e łe opsion sora łe va indrìo a come Horizon el vien spedìo.",
+   "Reset the launcher's look": "Reseta el look del lansador",
+diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
+index 24f3e59e3..706a5c67a 100644
+--- a/launcher/lang/vi.json
++++ b/launcher/lang/vi.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "Tên ngoại tuyến",
+   "Add a name": "Thêm tên",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Từ 3 đến 16 chữ cái, chữ số hoặc dấu gạch dưới. Bạn cũng có thể đổi tên từ thanh trên cùng. Máy chủ trực tuyến không chấp nhận tên ngoại tuyến.",
+-  "Play online with your Microsoft account": "Chơi trực tuyến bằng tài khoản Microsoft của bạn",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Đăng nhập bằng tài khoản sở hữu Minecraft: Java Edition. Tên và skin của bạn đi cùng bạn đến các máy chủ trực tuyến, giống như ở các launcher khác.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Trang của chính Microsoft mở trong trình duyệt của bạn. Horizon không bao giờ thấy mật khẩu của bạn.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Tô màu các nút, công tắc và bầu trời. Chọn một màu hoặc nhập bất kỳ mã màu hex nào.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Màu nhấn, kính, độ mờ, ngôn ngữ và các tùy chọn ở trên trở về mặc định của Horizon.",
+   "Reset the launcher's look": "Đặt lại giao diện launcher",
+diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
+index 7db552202..4706f9f2d 100644
+--- a/launcher/lang/yi.json
++++ b/launcher/lang/yi.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "אָפפלינע נעמען",
+   "Add a name": "לייג אַ נאָמען",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 צו 16 אותיות, נומערן אָדער אַנדערקאָרז. באַשטימען נעמען פון די שפּיץ באַר אויך. אָנליין סערווערס טאָן ניט נעמען אָפפלינע נעמען.",
+-  "Play online with your Microsoft account": "שפּיל אָנליין מיט דיין Microsoft חשבון",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "קלאָץ אין מיט די חשבון וואָס אָונז Minecraft: Java אַדישאַן. דיין נאָמען און הויט קומען צוזאמען צו אָנליין סערווערס, ווי אין אנדערע לאַונטשערס.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "די אייגענע בלאַט פון Microsoft עפֿנט זיך אין דיין בלעטערער. Horizon קיינמאָל זעט דיין פּאַראָל.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "קאָלאָורס די קנעפּלעך, די סוויטשיז און די הימל. קלייַבן איינער, אָדער טיפּ קיין העקס קאָליר.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "אַקצענט קאָליר, גלאז, בלער, שפּראַך און די אָפּציעס אויבן גיין צוריק צו ווי Horizon שיפן.",
+   "Reset the launcher's look": "באַשטעטיק די קוק פון די לאָנטשער",
+diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
+index 9d2f7bf1e..5205dd311 100644
+--- a/launcher/lang/yo.json
++++ b/launcher/lang/yo.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Awọn orukọ aisinipo",
+   "Add a name": "Fi orukọ kan kun",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 si 16 awọn lẹta, awọn nọmba tabi awọn abẹlẹ. Yipada awọn orukọ lati oke igi paapaa. Awọn olupin ori ayelujara ko gba awọn orukọ aisinipo.",
+-  "Play online with your Microsoft account": "Mu ṣiṣẹ lori ayelujara pẹlu akọọlẹ Microsoft rẹ",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Wọle pẹlu akọọlẹ ti o ni Minecraft: Java Edition. Orukọ rẹ ati awọ ara wa pẹlu awọn olupin ori ayelujara, bii ninu awọn ifilọlẹ miiran.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Oju-iwe ti ara rẹ Microsoft ṣii ni ẹrọ aṣawakiri rẹ. Horizon Ko ri ọrọ igbaniwọle rẹ rara.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Awọn awọ awọn bọtini, awọn yipada ati ọrun. Yan ọkan, tabi tẹ eyikeyi awọ hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Awọ arosọ, gilasi, blur, ede ati awọn aṣayan loke lọ pada si bii Horizon awọn ọkọ oju omi.",
+   "Reset the launcher's look": "Tun oju ifilọlẹ naa tunto",
+diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
+index 92bda2f94..9c5bc5ea4 100644
+--- a/launcher/lang/zh.json
++++ b/launcher/lang/zh.json
+@@ -1015,9 +1015,6 @@
+   "Offline names": "离线名称",
+   "Add a name": "添加名称",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 到 16 个字母、数字或下划线。也可以在顶栏切换名称。在线服务器不接受离线名称。",
+-  "Play online with your Microsoft account": "用 Microsoft 账户在线游玩",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "使用拥有 Minecraft: Java Edition 的账户登录。和其他启动器一样，你的名称和皮肤会随你进入在线服务器。",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Microsoft 自己的页面会在浏览器中打开。Horizon 永远看不到你的密码。",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "为按钮、开关和天空着色。选一个，或输入任意十六进制颜色。",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "强调色、玻璃、模糊、语言和以上选项恢复为 Horizon 的默认设置。",
+   "Reset the launcher's look": "重置启动器外观",
+diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
+index f2187d74d..61bc94822 100644
+--- a/launcher/lang/zu.json
++++ b/launcher/lang/zu.json
+@@ -1013,9 +1013,6 @@
+   "Offline names": "Amagama angaxhunyiwe ku-inthanethi",
+   "Add a name": "Engeza igama",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Izinhlamvu ezi-3 kuye kweziyi-16, izinombolo noma ama-underscore. Shintsha amagama ukusuka kubha ephezulu futhi. Amaseva aku-inthanethi awathathi amagama angaxhunyiwe ku-inthanethi.",
+-  "Play online with your Microsoft account": "Dlala ku-inthanethi nge-akhawunti yakho Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Ngena ngemvume nge-akhawunti ephethe Minecraft: Java Edition. Igama lakho nesikhumba kufika kumaseva aku-inthanethi, njengakwezinye iziqalisi.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "Ikhasi lika-Microsoft liyavuleka esipheqululini sakho. Horizon akalokothi ayibone iphasiwedi yakho.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Ifaka imibala ezinkinobho, amaswishi nesibhakabhaka. Khetha owodwa, noma bhala noma yimuphi umbala we-hex.",
+   "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Umbala we-accent, ingilazi, ukufiphala, ulimi kanye nezinketho ezingenhla zibuyela emuva endleleni Horizon yokuthutha.",
+   "Reset the launcher's look": "Setha kabusha ukubukeka kwesiqalisi",
+diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
+index 4d7ff6956..af945b617 100644
+--- a/launcher/src/frame.rs
++++ b/launcher/src/frame.rs
+@@ -597,38 +597,13 @@ impl Launcher {
+                     }
+                     cx.notify();
+                 }));
++        // The offline build keeps only the account chip in the top bar: who plays, right where
++        // the mockup's Sign in with Microsoft button was.
+         let account = div()
+             .relative()
+             .child(keyboard(chip, &t))
+             .children(self.glass_account_menu(cx));
+ 
+-        // Signing in with Microsoft, while nobody is: the mockup's button.
+-        let sign_in = (!matches!(self.accounts.player(), Player::Microsoft(_))).then(|| {
+-            keyboard(
+-                div()
+-                    .id("topbar-sign-in")
+-                    .relative()
+-                    .flex()
+-                    .items_center()
+-                    .gap(px(10.))
+-                    .h(px(44.))
+-                    .px(px(16.))
+-                    .rounded(px(radius::ROW))
+-                    .bg(white(fill::BUTTON))
+-                    .hover(|s| s.bg(white(fill::BUTTON_HOVER)))
+-                    .cursor_pointer()
+-                    .child(microsoft::logo(16.))
+-                    .child(
+-                        ui::text(14., FontWeight::MEDIUM, ink::FULL)
+-                            .child(tr("Sign in with Microsoft")),
+-                    )
+-                    .on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
+-                        this.start_sign_in();
+-                        cx.notify();
+-                    })),
+-                &t,
+-            )
+-        });
+         let settings = ui::icon_button(
+             "nav-Settings",
+             "sliders-horizontal",
+@@ -685,7 +660,6 @@ impl Launcher {
+                     .gap(px(6.))
+                     .children(build_log)
+                     .child(account)
+-                    .children(sign_in)
+                     .child(settings),
+             )
+     }
+diff --git a/launcher/src/glass_account.rs b/launcher/src/glass_account.rs
+index 97657ed31..59f786418 100644
+--- a/launcher/src/glass_account.rs
++++ b/launcher/src/glass_account.rs
+@@ -1,11 +1,9 @@
+ //! Settings' Account card in the glass look, as the mockup's: who plays now (a big head, the
+-//! name, how), the offline names as chips with a field to add one, and the Microsoft card
+-//! beside them with its white Sign in with Microsoft button.
++//! name, how), and the offline names as chips with a field to add one. The offline build has
++//! no Microsoft card: the account is the whole card, at the full width.
+ //!
+-//! Not in the mockup, kept in its patterns: the Microsoft accounts already signed in (in the
+-//! Microsoft card, with Play as, Refresh and Sign out), the name the game made up (a chip with
+-//! New name), each offline name's skin (a pencil in its chip) and the skin panel, the sign-in's
+-//! code, progress and problems.
++//! Not in the mockup, kept in its patterns: the name the game made up (a chip with
++//! New name), each offline name's skin (a pencil in its chip) and the skin panel.
+ 
+ use super::*;
+ use crate::glass_ui::{self as ui, white, Tone};
+@@ -14,14 +12,13 @@ use account::Player;
+ use horizon_theme::glass::{fill, ink, radius};
+ 
+ impl Launcher {
++    /// The account card: the whole of it is who plays now — the player, the offline names and
++    /// the field to add one. The offline build has no Microsoft card beside them.
+     pub(super) fn glass_account(&mut self, cx: &mut Context<Self>) -> Div {
+-        let left = self.glass_who_plays(cx);
+-        let right = self.glass_microsoft_card(cx);
+-        div()
+-            .flex()
+-            .gap(px(8.))
+-            .child(left.flex_1().min_w_0().p(px(24.)))
+-            .child(right.flex_none().w(px(400.)))
++        self.glass_who_plays(cx)
++            .flex_1()
++            .min_w_0()
++            .p(px(24.))
+     }
+ 
+     /// The player now, the offline names and the field to add one.
+@@ -250,110 +247,4 @@ impl Launcher {
+         )
+         .on_click(on_click)
+     }
+-
+-    /// The Microsoft card: the accounts signed in here, then adding one (the mockup's card).
+-    fn glass_microsoft_card(&mut self, cx: &mut Context<Self>) -> Div {
+-        let t = self.theme;
+-        let has_accounts = !self.accounts.accounts.is_empty();
+-        let (rows, _) = if has_accounts {
+-            ui::flat_rows(|| self.microsoft_rows(cx))
+-        } else {
+-            (div(), 0)
+-        };
+-        let (title, detail, action) = self.sign_in_parts(cx);
+-        let configured = account::client_id().is_some();
+-        let idle = self.sign_in_state.is_none()
+-            || matches!(self.sign_in_state, Some(SignInState::Done(_)));
+-        let first = !has_accounts && self.sign_in_target.is_none();
+-        let heading = if first {
+-            tr("Play online with your Microsoft account").to_string()
+-        } else {
+-            title
+-        };
+-        let note: AnyElement = if first && configured && self.sign_in_state.is_none() {
+-            div()
+-                .child(tr(
+-                    "Sign in with the account that owns Minecraft: Java Edition. Your name and \
+-                     skin come along to online servers, like in other launchers.",
+-                ))
+-                .into_any_element()
+-        } else {
+-            detail.into_any_element()
+-        };
+-        // Adding an account is the mockup's white button; signing one in again, the code and
+-        // the waiting keep their own buttons.
+-        let button: Option<AnyElement> = if configured && idle && self.sign_in_target.is_none() {
+-            Some(
+-                keyboard(
+-                    div()
+-                        .id("glass-sign-in")
+-                        .flex()
+-                        .items_center()
+-                        .justify_center()
+-                        .gap(px(10.))
+-                        .h(px(48.))
+-                        .w_full()
+-                        .mt(px(24.))
+-                        .rounded(px(radius::ROW))
+-                        .bg(gpui::white())
+-                        // On a light plate, Microsoft's white button keeps an edge.
+-                        .when(ui::light(), |d| d.border_1().border_color(ui::white(0.15)))
+-                        .cursor_pointer()
+-                        .hover(|s| s.opacity(0.9))
+-                        .font_family(horizon_theme::glass::FONT)
+-                        .text_size(px(15.))
+-                        .font_weight(FontWeight::SEMIBOLD)
+-                        .text_color(gpui::rgb(0x100a1f))
+-                        .child(microsoft::logo(18.))
+-                        .child(tr("Sign in with Microsoft")),
+-                    &t,
+-                )
+-                .on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
+-                    this.start_sign_in();
+-                    cx.notify();
+-                }))
+-                .into_any_element(),
+-            )
+-        } else {
+-            action.map(|a| div().mt(px(20.)).child(a).into_any_element())
+-        };
+-        div()
+-            .flex()
+-            .flex_col()
+-            .rounded(px(16.))
+-            .bg(white(0.045))
+-            .p(px(24.))
+-            .when(has_accounts, |d| {
+-                d.child(rows.mx(px(-16.)).mt(px(-16.)).mb(px(16.)))
+-            })
+-            .child(microsoft::logo(36.))
+-            .child(
+-                div()
+-                    .mt(px(20.))
+-                    .font_family(horizon_theme::glass::DISPLAY_FONT)
+-                    .font_weight(FontWeight::SEMIBOLD)
+-                    .text_size(px(22.))
+-                    .line_height(px(27.5))
+-                    .text_color(white(ink::FULL))
+-                    .child(heading),
+-            )
+-            .child(
+-                ui::text(14., FontWeight::NORMAL, 0.65)
+-                    .mt(px(8.))
+-                    .line_height(px(21.7))
+-                    .child(note),
+-            )
+-            .children(button)
+-            .when(configured, |d| {
+-                d.child(
+-                    ui::text(12., FontWeight::NORMAL, 0.45)
+-                        .mt(px(12.))
+-                        .line_height(px(18.))
+-                        .child(tr(
+-                            "Microsoft's own page opens in your browser. Horizon never sees your \
+-                             password.",
+-                        )),
+-                )
+-            })
+-    }
+ }
+diff --git a/launcher/src/main.rs b/launcher/src/main.rs
+index 6e178a7af..5e760bd89 100644
+--- a/launcher/src/main.rs
++++ b/launcher/src/main.rs
+@@ -3269,7 +3269,7 @@ impl Launcher {
+                 &t,
+             )),
+             // The glass look's Overview ends with the screenshots and the patch log: Prepare is in
+-            // Play's ⋯ menu, the Minecraft folder in the folder menu, signing in in the top bar.
++            // Play's ⋯ menu, the Minecraft folder in the folder menu.
+             None if t.glass => rows,
+             None => rows
+                 .child(index_row(
+@@ -3292,7 +3292,7 @@ impl Launcher {
+             )),
+         };
+         // The top bar shows who plays; a row only when there is something to do about it. The
+-        // glass look's top bar has Sign in with Microsoft and says Offline itself.
++        // glass look's top bar says Offline itself.
+         if !t.glass {
+             if self.owner == Some(false) {
+                 rows = rows.child(index_row(
+-- 
+2.47.3
+
