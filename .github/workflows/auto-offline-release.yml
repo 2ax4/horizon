@@ -88,17 +88,26 @@ jobs:
             git am --abort >/dev/null 2>&1 || true
             git reset --hard >/dev/null 2>&1 || true
             git clean -fdq >/dev/null 2>&1 || true
-            git fetch --filter=blob:none upstream "$refname" --no-tags
+            # Blobs, not just commits and trees: git am --3way rebuilds the patch's base
+            # from them ("sha1 information is lacking or useless" otherwise). --depth=1
+            # keeps it light while still carrying the tip tree's blobs.
+            git fetch --depth=1 upstream "$refname" --no-tags
             sha=$(git rev-parse "FETCH_HEAD^{commit}")
             git checkout -B attempt "$sha"
             ok=true
             failed_patch=""
             for p in /tmp/patches/*.patch; do
               echo "git am $(basename "$p")"
-              if ! git am --3way "$p"; then
-                failed_patch="$(basename "$p")"
-                ok=false
-                break
+              if ! git am "$p" 2>/tmp/am-fallback.log; then
+                # A plain apply fails when the context drifted. --3way can still merge it,
+                # but only when the patch's base blobs are in this checkout (they are
+                # missing for intermediate patch states), so fall back before giving up.
+                git am --abort >/dev/null 2>&1 || true
+                if ! git am --3way "$p" 2>>/tmp/am-fallback.log; then
+                  failed_patch="$(basename "$p")"
+                  ok=false
+                  break
+                fi
               fi
             done
             echo "::endgroup::"

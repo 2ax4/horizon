@@ -1,17 +1,17 @@
-From 0ff5fddedd3c8c6d31cac1da69f1631f011ab0d8 Mon Sep 17 00:00:00 2001
+From 8f5cb034e47ef2ee1fdd2437ca15d0053f6ff9d9 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
-Subject: [PATCH 2/7] Offline updates follow the fork's releases
+Subject: [PATCH] Offline updates follow the fork's releases
 
 ---
  crates/horizon-release-sign/release-keys.txt  |   1 +
  launcher/src/backend.rs                       |   2 +-
- launcher/src/backend/release_loading_tests.rs |  90 +++++++++++----
- launcher/src/signed.rs                        | 104 +++++++++++++++---
- 4 files changed, 158 insertions(+), 39 deletions(-)
+ launcher/src/backend/release_loading_tests.rs |  90 +++++++++++---
+ launcher/src/signed.rs                        | 116 +++++++++++++++---
+ 4 files changed, 169 insertions(+), 40 deletions(-)
 
 diff --git a/crates/horizon-release-sign/release-keys.txt b/crates/horizon-release-sign/release-keys.txt
-index c39be4435..c51015423 100644
+index c39be44..c510154 100644
 --- a/crates/horizon-release-sign/release-keys.txt
 +++ b/crates/horizon-release-sign/release-keys.txt
 @@ -3,3 +3,4 @@
@@ -20,10 +20,10 @@ index c39be4435..c51015423 100644
  MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
 +DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index d5bdb66cb..0ca07f370 100644
+index 2970c7b..2a7100f 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
-@@ -3717,7 +3717,7 @@ pub fn stage_update(release: &Release, progress: impl Fn(f32)) -> Result<Option<
+@@ -3775,7 +3775,7 @@ pub fn stage_update(release: &Release, progress: impl Fn(f32)) -> Result<Option<
      {
          return Ok(None);
      }
@@ -33,7 +33,7 @@ index d5bdb66cb..0ca07f370 100644
      remove_abandoned_stages(&work, std::time::SystemTime::now(), process_alive);
      let stage = new_stage_folder(&work)?;
 diff --git a/launcher/src/backend/release_loading_tests.rs b/launcher/src/backend/release_loading_tests.rs
-index d7f839bde..d64487c02 100644
+index d7f839b..d64487c 100644
 --- a/launcher/src/backend/release_loading_tests.rs
 +++ b/launcher/src/backend/release_loading_tests.rs
 @@ -42,33 +42,74 @@ fn baseline(load: impl Fn() -> Result<serde_json::Value, String>) -> (Vec<Releas
@@ -216,7 +216,7 @@ index d7f839bde..d64487c02 100644
              "{label}: before={} after={} ratio={:.3}x requests={}->{}",
              before.0,
 diff --git a/launcher/src/signed.rs b/launcher/src/signed.rs
-index 9f2b439ca..2c003e362 100644
+index 74e96b6..55dc225 100644
 --- a/launcher/src/signed.rs
 +++ b/launcher/src/signed.rs
 @@ -4,18 +4,18 @@
@@ -224,7 +224,7 @@ index 9f2b439ca..2c003e362 100644
  //! with a message saying why.
  
 -use crate::backend::REPO;
- use horizon_release_sign::{PublicKey, SIGNATURE, SUMS};
+ use horizon_release_sign::{PublicKey, SIGNATURE, SIGNATURE_V2, SUMS};
  
  /// Where a release's attached file downloads from (GitHub's fixed address for it).
 -pub fn asset_url(tag: &str, name: &str) -> String {
@@ -252,24 +252,25 @@ index 9f2b439ca..2c003e362 100644
          .map(|bytes| String::from_utf8_lossy(&bytes).into_owned());
      horizon_release_sign::signed_digest(tag, asset, sums.as_deref(), signature.as_deref(), keys)
  }
-@@ -34,13 +34,14 @@ pub fn digest(
- /// `nightly-<date>`): its checksums must be signed for the nightly channel
- /// (`horizon_release_sign::nightly_digest`), whatever tag serves them.
+@@ -36,14 +36,15 @@ pub fn digest(
+ /// checksums for exactly that version, so an older Nightly can't be served as a newer one. The
+ /// channel's SHA256SUMS.sig is for launchers from before and is not read.
  pub fn nightly_digest(
 +    repo: &str,
      tag: &str,
+     version: &str,
      asset: &str,
      keys: &[PublicKey],
      fetch: impl Fn(&str) -> Result<Option<Vec<u8>>, String>,
  ) -> Result<String, String> {
 -    let sums = fetch(&asset_url(tag, SUMS))?;
--    let signature = fetch(&asset_url(tag, SIGNATURE))?
+-    let signature = fetch(&asset_url(tag, SIGNATURE_V2))?
 +    let sums = fetch(&asset_url(repo, tag, SUMS))?;
-+    let signature = fetch(&asset_url(repo, tag, SIGNATURE))?
++    let signature = fetch(&asset_url(repo, tag, SIGNATURE_V2))?
          .map(|bytes| String::from_utf8_lossy(&bytes).into_owned());
-     horizon_release_sign::nightly_digest(asset, sums.as_deref(), signature.as_deref(), keys)
- }
-@@ -68,7 +69,13 @@ mod tests {
+     horizon_release_sign::nightly_digest(
+         version,
+@@ -77,7 +78,13 @@ mod tests {
              horizon_release_sign::legacy_digest("v2026.10.12", "horizon-linux-x86_64.tar.gz")
                  .expect("v2026.10.12 is from before signing");
          assert_eq!(
@@ -284,7 +285,7 @@ index 9f2b439ca..2c003e362 100644
              Ok(pinned.to_owned())
          );
      }
-@@ -92,21 +99,62 @@ mod tests {
+@@ -101,21 +108,62 @@ mod tests {
          };
          let keys = [key.public()];
          assert_eq!(
@@ -352,21 +353,25 @@ index 9f2b439ca..2c003e362 100644
 +        .is_err());
      }
  
-     /// The release channel never installs what was signed for the nightly channel, whatever tag it
-@@ -132,17 +180,37 @@ mod tests {
+     /// The release channel never installs what was signed for a Nightly, whatever tag it is served
+@@ -149,7 +197,14 @@ mod tests {
          };
-         let nightly = serving(horizon_release_sign::NIGHTLY);
+         let nightly = serving(horizon_release_sign::NIGHTLY, VERSION);
          assert_eq!(
--            nightly_digest("nightly", "horizon.zip", &keys, &nightly),
+-            nightly_digest("nightly", VERSION, "horizon.zip", &keys, &nightly),
 +            nightly_digest(
 +                crate::backend::REPO,
 +                "nightly",
++                VERSION,
 +                "horizon.zip",
 +                &keys,
 +                &nightly
 +            ),
              Ok(sha256_hex(b"game"))
          );
+         // Another version than the one signed (an older Nightly served as tonight's, or the reverse).
+@@ -163,7 +218,7 @@ mod tests {
+         .is_err());
          for tag in ["v0.2.81", "nightly", "nightly-2026-10-27"] {
              assert!(
 -                digest(tag, "horizon.zip", &keys, &nightly).is_err(),
@@ -374,9 +379,24 @@ index 9f2b439ca..2c003e362 100644
                  "{tag}"
              );
          }
-         let release = serving("v0.2.81");
+@@ -175,10 +230,33 @@ mod tests {
+                 nightly(url)
+             }
+         };
+-        let refused = nightly_digest("nightly", VERSION, "horizon.zip", &keys, old).unwrap_err();
++        let refused = nightly_digest(
++            crate::backend::REPO,
++            "nightly",
++            VERSION,
++            "horizon.zip",
++            &keys,
++            old,
++        )
++        .unwrap_err();
+         assert!(refused.contains("SHA256SUMS.v2.sig"), "{refused}");
+         let release = serving("v0.2.81", "v0.2.81");
 -        assert!(digest("v0.2.81", "horizon.zip", &keys, &release).is_ok());
--        assert!(nightly_digest("nightly", "horizon.zip", &keys, &release).is_err());
+-        assert!(nightly_digest("nightly", VERSION, "horizon.zip", &keys, &release).is_err());
 +        assert!(digest(
 +            crate::backend::REPO,
 +            "v0.2.81",
@@ -388,6 +408,7 @@ index 9f2b439ca..2c003e362 100644
 +        assert!(nightly_digest(
 +            crate::backend::REPO,
 +            "nightly",
++            VERSION,
 +            "horizon.zip",
 +            &keys,
 +            &release
