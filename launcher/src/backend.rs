@@ -1569,9 +1569,9 @@ fn preparer_binary(dir: &Path) -> Option<PathBuf> {
     binary.is_file().then_some(binary)
 }
 
-/// Downloads the pinned version from Mojang into `dir` when an account in the launcher owns
-/// Minecraft (asked again now), else says what signing in would do, as the last line of the
-/// not-found error.
+/// Downloads the pinned version from Mojang into `dir` for whoever plays: an account that owns
+/// Minecraft (asked again now) or an offline player with no account — the game files are
+/// public, only online play needs an account.
 fn download_for_owner(
     pins: &sources::Pins,
     dir: &Path,
@@ -1588,12 +1588,12 @@ fn download_for_owner(
     if let Err(e) = accounts.save() {
         log(format!("Horizon: the accounts are not saved: {e}"));
     }
-    download_for(pins, dir, pass, !accounts.accounts.is_empty(), fetch, log)
+    download_for(pins, dir, pass, fetch, log)
 }
 
 /// Downloads Minecraft `id` (any version on Mojang's list, its version file's sha1 from it) into
-/// Horizon's own game folder, in the official launcher's layout, for an account that owns the
-/// game (asked again now). Returns that folder.
+/// Horizon's own game folder, in the official launcher's layout, for whoever plays: an account
+/// that owns the game (asked again now), or offline with none. Returns that folder.
 pub fn download_version_for_owner(
     id: &str,
     manifest_sha1: &str,
@@ -1614,9 +1614,10 @@ pub fn download_version_for_owner(
     Ok(dir)
 }
 
-/// The command that starts a Java instance's Minecraft, for an account that owns the game: its
-/// version downloaded from Mojang the first time (then it starts offline too), the Java it needs
-/// (the instance's own, else one found here, else Mojang's, downloaded), and the game in the
+/// The command that starts a Java instance's Minecraft, for whoever plays (an account that
+/// owns the game, or an offline name): its version downloaded from Mojang the first time (then
+/// it starts offline too), the Java it needs (the instance's own, else one found here, else
+/// Mojang's, downloaded), and the game in the
 /// instance's folder. The caller wraps it (`launch::wrap`) and never logs it: it holds the token.
 /// A Java instance's game, ready to start; `server` (`host[:port]`) is joined once it has.
 pub fn java_game(
@@ -1709,50 +1710,42 @@ pub fn java_game(
     )
 }
 
-/// What [`download_for_owner`] does with the owner gate's answer: Mojang's files only for its
-/// `owner`, an account the services said owns the game just now.
+/// What [`download_for_owner`] does with the owner gate's answer: Mojang's public files
+/// download for whoever plays — the `owner` the services named just now, or an offline player
+/// with no account at all.
 fn download_for(
     pins: &sources::Pins,
     dir: &Path,
     pass: Result<account::Launch, account::NoOwner>,
-    signed_in: bool,
     fetch: sources::Fetch,
     log: &dyn Fn(String),
 ) -> Result<(), String> {
     let v = &pins.version;
+    let os = match sources::Os::current() {
+        sources::Os::Linux => "linux",
+        sources::Os::MacOs => "osx",
+        sources::Os::Windows => "windows",
+    };
+    let mut for_who = String::new();
     match pass {
         Ok(account::Launch {
             owner: Some((owner, _)),
             ..
         }) => {
-            let name = owner.name;
+            for_who = format!(" for {}", owner.name);
             log(format!(
-                "{name} owns Minecraft: downloading {v} from Mojang"
+                "{} owns Minecraft: downloading {v} from Mojang",
+                owner.name
             ));
-            let os = match sources::Os::current() {
-                sources::Os::Linux => "linux",
-                sources::Os::MacOs => "osx",
-                sources::Os::Windows => "windows",
-            };
-            mojang::download(pins, dir, os, 8, fetch, &mojang::CANCEL, log).map_err(|e| {
-                format!("\n  • Horizon tried to download {v} from Mojang for {name}, but: {e}")
-            })
         }
-        // An owner by its last answer, who can't be asked now.
-        Ok(pass) => Err(format!(
-            "\n  • Downloading {v} from Mojang needs your Microsoft account, which could not be \
-             checked: {}",
-            pass.offline.unwrap_or_default()
-        )),
-        Err(_) if signed_in => Err(
-            "\n  • No signed-in account owns Minecraft: Java Edition, so Horizon can't download it."
-                .into(),
-        ),
-        Err(_) => Err(format!(
-            "\n  • Or sign in with the Microsoft account that owns Minecraft: Horizon then \
-             downloads {v} from Mojang itself."
-        )),
+        // An offline name plays (nobody signed in), or the account could not be checked now:
+        // the game files are public, so they download all the same and the game starts
+        // offline. Only online play needs the account.
+        _ => log(format!("Downloading {v} from Mojang")),
     }
+    mojang::download(pins, dir, os, 8, fetch, &mojang::CANCEL, log).map_err(|e| {
+        format!("\n  • Horizon tried to download {v} from Mojang{for_who}, but: {e}")
+    })
 }
 
 /// The Java home for this version: a runtime for precompiled exporters, a JDK for older
@@ -3742,9 +3735,11 @@ mod tests {
         fs::remove_dir_all(&dir).unwrap();
     }
 
-    /// The launcher downloads Mojang's game files (client jar, libraries, assets) only for an
+    /// The launcher downloads Mojang's game files (client jar, libraries, assets) for whoever
+    /// plays: an owning account, and an offline player too — the files are public, only online
+    /// play needs an account.
     #[test]
-    fn mojang_downloads_only_for_an_owner() {
+    fn mojang_downloads_for_an_owner_and_for_offline_too() {
         let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
         let _ = fs::remove_dir_all(&dir);
         let pins = sources::Pins::read(&serde_json::json!({ "minecraft": {
@@ -3760,17 +3755,15 @@ mod tests {
         };
         let log = |_: String| {};
         let no_owner = || Ok(account::Launch::default());
-        for (pass, signed_in) in [
-            (Err(account::NoOwner), false),
-            (Err(account::NoOwner), true),
-            (no_owner(), false),
-            (no_owner(), true),
-        ] {
-            assert!(download_for(&pins, &dir, pass, signed_in, &fetch, &log).is_err());
+        // No owner — nobody signed in, or the check failed: Mojang is asked all the same (and
+        // the download fails here, without network).
+        for pass in [Err(account::NoOwner), no_owner()] {
+            asked.lock().unwrap().clear();
+            assert!(download_for(&pins, &dir, pass, &fetch, &log).is_err());
+            assert!(!asked.lock().unwrap().is_empty());
         }
-        assert!(asked.lock().unwrap().is_empty());
-        assert!(!dir.exists());
-        // An owner: Mojang is asked (and the download fails here, without network).
+        let _ = fs::remove_dir_all(&dir);
+        // An owner: Mojang is asked too (and the download fails here, without network).
         let owner = account::Account {
             uuid: "069a79f444e94726a5befca90e38aaf5".into(),
             name: "Notch".into(),
@@ -3785,22 +3778,9 @@ mod tests {
             owner: Some((owner, secrets)),
             ..Default::default()
         });
-        assert!(download_for(&pins, &dir, pass, true, &fetch, &log).is_err());
-        assert!(!asked.lock().unwrap().is_empty());
-        let _ = fs::remove_dir_all(&dir);
-
-        // A store that lacks assets is not filled for a non-owner either: nothing is asked.
-        fs::create_dir_all(dir.join("assets/indexes")).unwrap();
-        fs::write(
-            dir.join("assets/indexes/34.json"),
-            r#"{"objects":{"a":{"hash":"00","size":1}}}"#,
-        )
-        .unwrap();
         asked.lock().unwrap().clear();
-        for (pass, signed_in) in [(Err(account::NoOwner), true), (no_owner(), true)] {
-            assert!(download_for(&pins, &dir, pass, signed_in, &fetch, &log).is_err());
-        }
-        assert!(asked.lock().unwrap().is_empty());
+        assert!(download_for(&pins, &dir, pass, &fetch, &log).is_err());
+        assert!(!asked.lock().unwrap().is_empty());
         let _ = fs::remove_dir_all(&dir);
 
         // In the sources: one call downloads the game, in `download_for`, and the only caller

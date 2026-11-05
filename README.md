@@ -1,56 +1,3 @@
-> [!WARNING]
-> **Unofficial fork of [horizon-rust/horizon](https://github.com/horizon-rust/horizon).**
-> Play **without a Microsoft account**: offline accounts are supported. Partner banners are removed (ad-free).
-> The launcher updates itself from **this** fork.
-> **Download: [Releases](https://github.com/2ax4/horizon-offline-auto-update/releases).**
-> Only **cracked servers** accept offline accounts; premium servers still check a real Microsoft account.
-
-[![auto-offline-release](https://github.com/2ax4/horizon-offline-auto-update/actions/workflows/auto-offline-release.yml/badge.svg)](https://github.com/2ax4/horizon-offline-auto-update/actions/workflows/auto-offline-release.yml)
-
-<p align="center">
-  <img src="docs/media/offline-accounts.png" alt="The launcher's Settings page: an offline name set, no Microsoft account" width="720">
-</p>
-
-## What changed vs. upstream
-
-- **Offline accounts:** pick a name and play, no Microsoft login.
-- **Ad-free:** partner banners removed.
-- **Self-update from this fork:** the launcher checks this repo's Releases, not upstream's.
-- **Auto-built:** CI rebuilds an offline release whenever upstream ships a new one. Patches live in [`offline/patches`](offline/patches) ([what each patch does](offline/patches/README.md)).
-- **Signed:** every release ships `SHA256SUMS` + an Ed25519 `SHA256SUMS.sig`, verifiable with [`offline/verify-release.py`](offline/verify-release.py).
-- **Skipped versions:** if the patches don't apply to an upstream release, that version is skipped and the next one is built (e.g. upstream 0.2.36).
-
-## Install (offline fork)
-
-1. Download the launcher for your OS from [Releases](https://github.com/2ax4/horizon-offline-auto-update/releases).
-2. Verify the download (see below).
-3. Run it, set an offline name in **Settings**, and play.
-
-You still need your own copy of Java Edition files for the game to prepare its resources (see [Download](#download)).
-
-## Verify your download
-
-Every release ships `SHA256SUMS` and an Ed25519 signature `SHA256SUMS.sig`, made with the fork's release key. The launcher also checks this signature itself before it applies any self-update; these steps are for checking a file you downloaded by hand.
-
-```sh
-# put SHA256SUMS, SHA256SUMS.sig and the assets you downloaded in one folder, then:
-curl -fsSLO https://raw.githubusercontent.com/2ax4/horizon-offline-auto-update/main/offline/verify-release.py
-python3 verify-release.py launcher@0.2.37-offline
-```
-
-The script needs only Python 3.8+, self-tests its own Ed25519 math before trusting it, and exits non-zero if anything fails.
-
-Checksum-only, no Python needed:
-
-```sh
-sha256sum -c SHA256SUMS --ignore-missing        # Linux
-shasum -a 256 -c SHA256SUMS --ignore-missing    # macOS
-```
-
-On Windows (PowerShell): `Get-FileHash .\horizon-launcher-windows-x64.zip -Algorithm SHA256` and compare with the line in `SHA256SUMS`.
-
----
-
 <p align="center">
   <img src="docs/media/banner.webp" alt="The Horizon website: the game you know, rebuilt in Rust" width="100%">
 </p>
@@ -83,7 +30,7 @@ Minecraft: Java Edition 26.3, rewritten in Rust. Same worlds, same rules, same t
 
 ## Download
 
-Get **the Horizon launcher** from [playhorizon.dev](https://playhorizon.dev) or [the launcher releases](https://github.com/horizon-rust/horizon/releases?q=launcher&expanded=true) (Linux x86-64, macOS on Apple Silicon, macOS on Intel from the next Nightly, Windows x64). It installs and updates the game, prepares its files from your copy of Minecraft, and updates itself.
+Get **the Horizon launcher** from [playhorizon.dev](https://playhorizon.dev) or [the launcher releases](https://github.com/horizon-rust/horizon/releases?q=launcher-v&expanded=true) (Linux x86-64, macOS on Apple Silicon, macOS on Intel from the next Nightly, Windows x64). It installs and updates the game, prepares its files from your copy of Minecraft, and updates itself.
 
 **You need** a Microsoft account that owns Java Edition ([why](docs/microsoft-account.md)) and a GPU with Vulkan or OpenGL 3.3 (Linux), Vulkan or DirectX 12 (Windows), or a Mac (Apple Silicon, or Intel from the next Nightly). An existing Minecraft install (official launcher, Prism, MultiMC...) is reused; without one, Play downloads 26.3 from Mojang for your account. Step by step: [Install and first launch](https://playhorizon.dev/docs/install).
 
@@ -210,4 +157,4 @@ Skins served over https show the default skin unless already cached; pack icons 
 
 ## Author
 
-Made by [Ludovic Marie](https://lu4ovic.com) ([@ludovic111](https://github.com/ludovic111)). Offline fork maintained by [@2ax4](https://github.com/2ax4).
+Made by [Ludovic Marie](https://lu4ovic.com) ([@ludovic111](https://github.com/ludovic111)).

@@ -3269,7 +3269,7 @@ impl Launcher {
                 &t,
             )),
             // The glass look's Overview ends with the screenshots and the patch log: Prepare is in
-            // Play's ⋯ menu, the Minecraft folder in the folder menu, signing in in the top bar.
+            // Play's ⋯ menu, the Minecraft folder in the folder menu.
             None if t.glass => rows,
             None => rows
                 .child(index_row(
@@ -3292,7 +3292,7 @@ impl Launcher {
             )),
         };
         // The top bar shows who plays; a row only when there is something to do about it. The
-        // glass look's top bar has Sign in with Microsoft and says Offline itself.
+        // glass look's top bar says Offline itself.
         if !t.glass {
             if self.owner == Some(false) {
                 rows = rows.child(index_row(

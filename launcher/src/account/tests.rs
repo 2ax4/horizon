@@ -1210,6 +1210,30 @@ fn the_java_edition_plays_as_an_owner_even_offline() {
     );
 }
 
+#[test]
+fn the_java_edition_plays_offline_without_an_account() {
+    // An offline name: no owner gate and no network is touched, the game starts offline with
+    // vanilla's UUID for the name and no Microsoft token.
+    let mut accounts = Accounts::default();
+    accounts
+        .play_as(Player::Offline("Builder_1".into()))
+        .unwrap();
+    let player = java_player_with(
+        &offline(),
+        Some("test-client"),
+        &MemoryStore::default(),
+        &mut accounts,
+    )
+    .unwrap();
+    assert_eq!(player.name, "Builder_1");
+    assert_eq!(
+        player.uuid,
+        horizon_protocol::crypto::uuid_string(horizon_protocol::crypto::offline_uuid("Builder_1"))
+    );
+    assert_eq!(player.token, "0");
+    assert_eq!(player.xuid, "");
+}
+
 /// A secrets file of the test's own, gone first.
 fn secrets_file(name: &str) -> PathBuf {
     let dir = std::env::temp_dir().join(format!("horizon-secrets-{name}-{}", std::process::id()));

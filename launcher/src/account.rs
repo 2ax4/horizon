@@ -2284,7 +2284,8 @@ fn account_sessions_until(
 }
 
 /// Who plays the real Minecraft: Java Edition (a Java instance), past the owner gate itself
-/// ([`launch`]): the selected account when it owns the game, else one that does. With no answer
+/// ([`launch`]): the selected account when it owns the game, else one that does. An offline name
+/// plays without an account and without the gate: the game starts offline. With no answer
 /// from the services, an account that owned it plays with its last token. Mojang's game takes the
 /// token on its command line, as Mojang's launcher gives it; that command is never logged.
 pub fn java_player() -> Result<crate::java_launch::Player, String> {
@@ -2307,6 +2308,12 @@ fn java_player_with(
     store: &dyn SecretStore,
     accounts: &mut Accounts,
 ) -> Result<crate::java_launch::Player, String> {
+    // An offline name plays (a kept one, or the name the game made up): no owner gate and no
+    // Microsoft session. The game starts offline: its own worlds, LAN, and the servers that
+    // take offline names.
+    if accounts.selected.is_none() {
+        return Ok(offline_java_player(accounts));
+    }
     let pass = launch(ep, client_id, store, accounts).map_err(|e| e.to_string())?;
     let kept = || {
         let order = accounts.selected().into_iter().chain(&accounts.accounts);
@@ -2325,6 +2332,35 @@ fn java_player_with(
         token: secrets.minecraft_token,
         xuid: secrets.xuid.unwrap_or_default(),
     })
+}
+
+/// Java Edition's player for an offline name: the name, vanilla's UUID for it
+/// (`OfflinePlayer:` + the name, as a server would make it) and no Microsoft token or xuid.
+fn offline_java_player(accounts: &Accounts) -> crate::java_launch::Player {
+    // The name the game made up, once it has run (`horizon-player.txt`'s `name:` line, as
+    // horizon-client writes it).
+    let made_up = || {
+        std::fs::read_to_string(crate::backend::game_home().join("horizon-player.txt"))
+            .ok()?
+            .lines()
+            .find_map(|line| line.trim().strip_prefix("name:"))
+            .map(str::trim)
+            .filter(|n| !n.is_empty())
+            .map(str::to_owned)
+    };
+    let name = accounts
+        .offline_selected
+        .clone()
+        .or_else(made_up)
+        .unwrap_or_else(|| "Player".into());
+    crate::java_launch::Player {
+        uuid: horizon_protocol::crypto::uuid_string(horizon_protocol::crypto::offline_uuid(
+            &name,
+        )),
+        name,
+        token: "0".into(),
+        xuid: String::new(),
+    }
 }
 
 #[cfg(test)]
