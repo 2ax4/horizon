@@ -1,4 +1,4 @@
-From b6dcb4cafd3106ce01dc01a25299c23bdec2213f Mon Sep 17 00:00:00 2001
+From 23c95749ebdbf9581f6b8dd14d759f2ed5be2729 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH] Ad-free: remove the partner banners
@@ -435,10 +435,10 @@ index d6ac261..0000000
 -    }
 -}
 diff --git a/launcher/src/servers_page.rs b/launcher/src/servers_page.rs
-index dbc2761..0ac64c9 100644
+index 20d2033..5b4a01c 100644
 --- a/launcher/src/servers_page.rs
 +++ b/launcher/src/servers_page.rs
-@@ -1365,34 +1365,11 @@ impl Launcher {
+@@ -1369,34 +1369,11 @@ impl Launcher {
          {
              page = page.child(self.problem_notice(p, cx));
          }
@@ -476,7 +476,7 @@ index dbc2761..0ac64c9 100644
          }
          let mut list = div().flex().flex_col().border_t_1().border_color(t.rule);
          for (i, e) in self.servers.list.clone().into_iter().enumerate() {
-@@ -1438,7 +1415,7 @@ impl Launcher {
+@@ -1442,7 +1419,7 @@ impl Launcher {
                  &t,
              ));
          }

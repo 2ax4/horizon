@@ -1,4 +1,4 @@
-From 9858dbe27384270e273a4a815f3edb9fc0e299ce Mon Sep 17 00:00:00 2001
+From 4e0431e4121075e664d8f80e9aab110823cd1f14 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 22:45:00 +0000
 Subject: [PATCH] Play the glass home button without the ownership check

@@ -1,4 +1,4 @@
-From 59f51a4d5e7b87a69f53f71b9467d6a57b813ef3 Mon Sep 17 00:00:00 2001
+From 57777790f8e37a1312177540e533fae46b968de1 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH] Offline accounts: add and play with no Microsoft account
@@ -633,7 +633,7 @@ index 5d48c63..27dbf43 100644
              PlayPress::Play => {
                  play = play.on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index 6a4a387..860ab08 100644
+index d93cda3..16fc2da 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
 @@ -13,7 +13,6 @@ mod console;
@@ -650,9 +650,9 @@ index 6a4a387..860ab08 100644
  mod packs_page;
 -mod partner;
  mod perf;
+ mod picture_cache;
  mod plate;
- mod profile_heads;
-@@ -375,10 +373,6 @@ struct Launcher {
+@@ -383,10 +381,6 @@ struct Launcher {
      owner: Option<bool>,
      /// Play was refused (or Home's Sign in pressed): the owner gate's screen is open.
      owner_screen_open: bool,
@@ -663,7 +663,7 @@ index 6a4a387..860ab08 100644
      /// The game is waiting for its session (a token renewal), or a Java instance for its files
      /// and Java (`start_java`), before it starts.
      starting_client: Option<String>,
-@@ -514,30 +508,6 @@ impl Launcher {
+@@ -524,30 +518,6 @@ impl Launcher {
              }
          })
          .detach();
@@ -694,7 +694,7 @@ index 6a4a387..860ab08 100644
          let mut settings = Settings::load();
          i18n::set(settings.language());
          if settings.minecraft_dir.is_none() {
-@@ -678,8 +648,6 @@ impl Launcher {
+@@ -689,8 +659,6 @@ impl Launcher {
              keychain: None,
              owner: None,
              owner_screen_open: false,
@@ -703,7 +703,7 @@ index 6a4a387..860ab08 100644
              starting_client: None,
              play_when_prepared: None,
              friend_code: line_edit::LineEdit::new(String::new(), 256, 32),
-@@ -1202,8 +1170,7 @@ impl Launcher {
+@@ -1217,8 +1185,7 @@ impl Launcher {
                                  continue;
                              }
                          };
@@ -713,7 +713,7 @@ index 6a4a387..860ab08 100644
                              self.owner = Some(true);
                          }
                          if let Some(file) = file {
-@@ -1858,7 +1825,6 @@ impl Launcher {
+@@ -1873,7 +1840,6 @@ impl Launcher {
          self.starting_client = Some(tag.clone());
          self.play_pressed = Some(Instant::now());
          let tx = self.tx.clone();
@@ -721,7 +721,7 @@ index 6a4a387..860ab08 100644
          // Registry mods update before the game reads them (`horizon::auto`); native mods only
          // at start, where a build can follow.
          let auto = self
-@@ -1878,7 +1844,7 @@ impl Launcher {
+@@ -1893,7 +1859,7 @@ impl Launcher {
                      let _ = mods_tx.send(mods_page::Event::AutoUpdated(lines, Vec::new()));
                  }
              }
@@ -730,7 +730,7 @@ index 6a4a387..860ab08 100644
              let _ = tx.send(Msg::Session(session));
          });
      }
-@@ -2444,10 +2410,7 @@ fn segments<T: Copy + PartialEq + 'static>(
+@@ -2459,10 +2425,7 @@ fn segments<T: Copy + PartialEq + 'static>(
  #[derive(Clone, Copy, Debug, PartialEq, Eq)]
  enum PlayPress {
      Play,
@@ -741,7 +741,7 @@ index 6a4a387..860ab08 100644
      Nothing,
  }
  
-@@ -2494,13 +2457,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
+@@ -2509,13 +2472,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
      Some(next)
  }
  
@@ -758,7 +758,7 @@ index 6a4a387..860ab08 100644
      }
  }
  
-@@ -2508,7 +2469,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
+@@ -2523,7 +2484,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
  /// code, a pack's Play) starts it now: only when Play would play. Never while a preparation runs:
  /// the game would open on half-written files.
  fn starts_now(prepared: bool, preparing: bool, running: bool) -> bool {
@@ -767,7 +767,7 @@ index 6a4a387..860ab08 100644
  }
  
  /// Whether `tag` can start being deleted now: it is installed, no install is writing it, and it
-@@ -2914,7 +2875,6 @@ impl Launcher {
+@@ -2929,7 +2890,6 @@ impl Launcher {
              },
          ));
          let items = self.instance_items(heading, cx);
@@ -775,7 +775,7 @@ index 6a4a387..860ab08 100644
          let list = div()
              .flex()
              .flex_col()
-@@ -2930,8 +2890,6 @@ impl Launcher {
+@@ -2945,8 +2905,6 @@ impl Launcher {
          if !servers.is_empty() {
              list = list.child(heading(tr("SERVERS").into()));
          }
@@ -784,7 +784,7 @@ index 6a4a387..860ab08 100644
          for e in servers {
              let up = self.servers.is_up(&e.dir);
              let open = self.page == Page::Servers && self.servers.open.as_ref() == Some(&e.dir);
-@@ -3078,34 +3036,6 @@ impl Launcher {
+@@ -3093,34 +3051,6 @@ impl Launcher {
              }
              _ => {}
          }
@@ -819,7 +819,7 @@ index 6a4a387..860ab08 100644
          if !self.links.sponsor.is_empty() {
              foot = foot.child(link(
                  "sponsor",
-@@ -3135,11 +3065,7 @@ impl Launcher {
+@@ -3150,11 +3080,7 @@ impl Launcher {
                  .id("launcher-version")
                  .px(px(8.))
                  .pt(px(6.))
@@ -832,7 +832,7 @@ index 6a4a387..860ab08 100644
          );
          // Custom title bars carry the mark and name already.
          let brand = (!titlebar::draws_brand(window)).then(|| {
-@@ -3356,10 +3282,8 @@ impl Launcher {
+@@ -3371,10 +3297,8 @@ impl Launcher {
          let left = self.download_left();
          let steps = self.preparing.then(|| self.steps(&version, left));
  
@@ -844,7 +844,7 @@ index 6a4a387..860ab08 100644
              .flatten();
          // No launcher folder with Minecraft on this computer: an owner needs none.
          let no_install = self.settings.minecraft_dir.is_none();
-@@ -3374,7 +3298,7 @@ impl Launcher {
+@@ -3389,7 +3313,7 @@ impl Launcher {
                  &[("version", &version)],
              ),
              Some(false) => trf(
@@ -853,7 +853,7 @@ index 6a4a387..860ab08 100644
                  &[("version", &version)],
              ),
              None => backend::resources_summary(prepared, !silent, &version),
-@@ -3433,12 +3357,25 @@ impl Launcher {
+@@ -3448,12 +3372,25 @@ impl Launcher {
                          cx.notify();
                      })),
                  ),
@@ -885,7 +885,7 @@ index 6a4a387..860ab08 100644
              None => div().child(prepare),
          };
          let owner = self.owner == Some(true);
-@@ -3506,11 +3443,10 @@ impl Launcher {
+@@ -3521,11 +3458,10 @@ impl Launcher {
                  &t,
              )),
          };
@@ -900,7 +900,7 @@ index 6a4a387..860ab08 100644
                  rows = rows.child(index_row(
                      5,
                      tr("Microsoft account"),
-@@ -4066,7 +4002,6 @@ impl Launcher {
+@@ -4087,7 +4023,6 @@ impl Launcher {
              )
              .child(self.collection_section(cx))
              .children(self.agents_section(cx))
@@ -908,7 +908,7 @@ index 6a4a387..860ab08 100644
      }
  
      /// The warning before a native build: what the mods can do and which mods. The build starts
-@@ -5920,22 +5855,13 @@ mod tests {
+@@ -5943,22 +5878,13 @@ mod tests {
          );
      }
  

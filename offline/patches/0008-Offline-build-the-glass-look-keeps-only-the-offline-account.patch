@@ -1,4 +1,4 @@
-From cae97a569731cd158c8e538ad62973f81c87b913 Mon Sep 17 00:00:00 2001
+From e8100a2f9833711d08bc349b23ccb7e1a7509333 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Thu, 5 Nov 2026 00:22:20 +0000
 Subject: [PATCH] Offline build: the glass look keeps only the offline account
@@ -103,10 +103,10 @@ used go from every language table, as patch 0006's test asks.
  89 files changed, 14 insertions(+), 407 deletions(-)
 
 diff --git a/launcher/lang/af.json b/launcher/lang/af.json
-index ef6ec47..c25e1f4 100644
+index 0067ea4..9d33fae 100644
 --- a/launcher/lang/af.json
 +++ b/launcher/lang/af.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Vanlyn name",
    "Add a name": "Voeg 'n naam by",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 tot 16 letters, syfers of onderstrepe. Verander ook name vanaf die boonste balk. Aanlyn bedieners neem nie vanlyn name nie.",
@@ -117,10 +117,10 @@ index ef6ec47..c25e1f4 100644
    "1 hour ago": "1 uur gelede",
    "1 line": "1 reël",
 diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
-index 35ea34a..628b204 100644
+index 767830f..79256d5 100644
 --- a/launcher/lang/ar.json
 +++ b/launcher/lang/ar.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "أسماء دون اتصال",
    "Add a name": "أضف اسمًا",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "من 3 إلى 16 حرفًا أو رقمًا أو شرطة سفلية. يمكنك تبديل الأسماء من الشريط العلوي أيضًا. الخوادم عبر الإنترنت لا تقبل الأسماء دون اتصال.",
@@ -131,10 +131,10 @@ index 35ea34a..628b204 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "يعود لون التمييز والزجاج والتمويه واللغة والخيارات أعلاه إلى ما يأتي به Horizon.",
    "Reset the launcher's look": "إعادة تعيين مظهر المشغّل",
 diff --git a/launcher/lang/az.json b/launcher/lang/az.json
-index 7085152..8be63f7 100644
+index 1f46253..c6d98ca 100644
 --- a/launcher/lang/az.json
 +++ b/launcher/lang/az.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Offline adlar",
    "Add a name": "Ad əlavə edin",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-dən 16-a qədər hərf, rəqəm və ya alt xətt. Üst paneldən də adları dəyişin. Onlayn serverlər oflayn adlar götürmür.",
@@ -145,10 +145,10 @@ index 7085152..8be63f7 100644
    "1 hour ago": "1 saat əvvəl",
    "1 line": "1 sətir",
 diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
-index 685ea32..890f6c7 100644
+index d8aacc6..831ad99 100644
 --- a/launcher/lang/ba.json
 +++ b/launcher/lang/ba.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Офлайн исемдәр",
    "Add a name": "Исем өҫтәү .",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-тән 16-ға тиклем хәреф, һан йәки аҫтына һыҙыҡ. Өҫкө панелдән дә исемдәрҙе алмаштырығыҙ. Онлайн серверҙар офлайн исемдәрҙе алмай.",
@@ -159,10 +159,10 @@ index 685ea32..890f6c7 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент төҫө, быяла, размытие, тел һәм өҫтәге варианттар нисек Horizon суднолар ҡайтып.",
    "Reset the launcher's look": "Сбросить старт&#8217;ы тышҡы ҡиәфәте",
 diff --git a/launcher/lang/be.json b/launcher/lang/be.json
-index 041cb9f..d84e63f 100644
+index 5ac7a77..3fe5dd5 100644
 --- a/launcher/lang/be.json
 +++ b/launcher/lang/be.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Афлайн імёны",
    "Add a name": "Дадайце імя",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Ад 3 да 16 літар, лічбаў або знакаў падкрэслівання. Таксама пераключайце імёны з верхняй панэлі. Інтэрнэт-серверы не прымаюць афлайн-імёны.",
@@ -173,10 +173,10 @@ index 041cb9f..d84e63f 100644
    "1 hour ago": "1 гадзіну таму",
    "1 line": "1 радок",
 diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
-index 819add0..2ab4651 100644
+index 45c0594..f153386 100644
 --- a/launcher/lang/bg.json
 +++ b/launcher/lang/bg.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Офлайн имена",
    "Add a name": "Добавяне на име",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "От 3 до 16 букви, цифри или долни черти. Можете да сменяте името и от горната лента. Онлайн сървърите не приемат офлайн имена.",
@@ -187,10 +187,10 @@ index 819add0..2ab4651 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Оцветява бутоните, превключвателите и небето. Избери цвят или въведи произволен hex цвят.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Експериментално. Вгражда нативните модове, на които имаш доверие, в отделна собствена игра.",
 diff --git a/launcher/lang/br.json b/launcher/lang/br.json
-index 84238ce..ce83aa5 100644
+index 6ae374e..caa13ec 100644
 --- a/launcher/lang/br.json
 +++ b/launcher/lang/br.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Anvioù ezlinenn",
    "Add a name": "Ouzhpennañ un anv",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 da 16 lizherenn, sifroù pe islinennoù. Cheñch anvioù adalek ar varrenn uhelañ ivez. Ar servijerioù enlinenn ne gemeront ket anvioù ezlinenn.",
@@ -201,10 +201,10 @@ index 84238ce..ce83aa5 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Liv ar pouez-mouezh, ar gwer, an disterañ, ar yezh hag an dibaboù meneget a-us a ya en-dro d'ar mod ma vez kaset Horizon.",
    "Reset the launcher's look": "Adderaouekaat gwel al lañser",
 diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
-index 516898c..035d433 100644
+index dd8d0ec..acc399c 100644
 --- a/launcher/lang/bs.json
 +++ b/launcher/lang/bs.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Offline imena",
    "Add a name": "Dodajte ime",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 do 16 slova, brojeva ili donjih crta. Promijenite imena također sa gornje trake. Online serveri ne preuzimaju offline imena.",
@@ -215,10 +215,10 @@ index 516898c..035d433 100644
    "1 hour ago": "prije 1 sat",
    "1 line": "1 red",
 diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
-index 6e0fab0..bf76c3f 100644
+index 16e402c..73a1ec5 100644
 --- a/launcher/lang/ca.json
 +++ b/launcher/lang/ca.json
-@@ -1076,7 +1076,6 @@
+@@ -1077,7 +1077,6 @@
    "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Els seus mons es van desar amb Minecraft {from}: {to} els actualitza per sempre i no els pot obrir si és més antic.",
    "Launcher settings are back to their defaults": "La configuració del llançador ha tornat als valors per defecte",
    "Microsoft account · online servers too": "Compte de Microsoft · també servidors en línia",
@@ -226,7 +226,7 @@ index 6e0fab0..bf76c3f 100644
    "Mod": "Mod",
    "Mod · {instance}": "Mod · {instance}",
    "My Horizon": "El meu Horizon",
-@@ -1088,7 +1087,6 @@
+@@ -1089,7 +1088,6 @@
    "Open the game folder": "Obre la carpeta del joc",
    "Open {page}": "Obre {page}",
    "Opened {path}": "S'ha obert {path}",
@@ -234,7 +234,7 @@ index 6e0fab0..bf76c3f 100644
    "Play {name}": "Juga a {name}",
    "Play, install a mod, open a page": "Juga, instal·la un mod, obre una pàgina",
    "Remove from {instance}": "Elimina de {instance}",
-@@ -1102,7 +1100,6 @@
+@@ -1103,7 +1101,6 @@
    "Search resource packs and modpacks": "Cerca paquets de recursos i modpacks",
    "Search {count} Horizon mods": "Cerca entre {count} mods d'Horizon",
    "Shader pack": "Paquet d'ombrejadors",
@@ -243,10 +243,10 @@ index 6e0fab0..bf76c3f 100644
    "just now": "ara mateix",
    "soon": "aviat",
 diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
-index 27ca8a1..9091a34 100644
+index d2a228a..901ab6d 100644
 --- a/launcher/lang/cs.json
 +++ b/launcher/lang/cs.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline jména",
    "Add a name": "Přidat jméno",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 až 16 písmen, číslic nebo podtržítek. Jméno můžete přepnout i v horní liště. Online servery offline jména nepřijímají.",
@@ -257,10 +257,10 @@ index 27ca8a1..9091a34 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Barva zvýraznění, sklo, rozmazání, jazyk a výše uvedené možnosti se vrátí do výchozího stavu Horizonu.",
    "Reset the launcher's look": "Obnovit vzhled launcheru",
 diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
-index de0ecf9..50b4e11 100644
+index 292d6ff..20abb70 100644
 --- a/launcher/lang/cv.json
 +++ b/launcher/lang/cv.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Офлайн ятсем",
    "Add a name": "Ят хушӑр",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-16 саспалли, цифрӑсем е аялти йӗрсем. Ҫӳлти йӗртен ятсене те улӑштарӑр. Интернетри серверсем офлайн ятсене йышӑнмаҫҫӗ.",
@@ -271,10 +271,10 @@ index de0ecf9..50b4e11 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент тӗсӗ, кантӑк, пӑтранчӑк, чӗлхе тата ҫӳлти вариантсем Horizon мӗнле ярса панине таврӑнаҫҫӗ.",
    "Reset the launcher's look": "Пускавҫӑн сӑн-сӑпатне ҫӗнӗрен лартӑр",
 diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
-index b600e5d..10f1036 100644
+index 7d88924..52178da 100644
 --- a/launcher/lang/cy.json
 +++ b/launcher/lang/cy.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Enwau all-lein",
    "Add a name": "Ychwanegu enw",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 i 16 llythyren, rhif neu danlinellu. Newidiwch enwau o'r bar uchaf hefyd. Nid yw gweinyddwyr ar-lein yn cymryd enwau all-lein.",
@@ -285,10 +285,10 @@ index b600e5d..10f1036 100644
    "1 hour": "1 awr",
    "1 hour ago": "1 awr yn ôl",
 diff --git a/launcher/lang/da.json b/launcher/lang/da.json
-index a1697c3..9cdf473 100644
+index ab4ddc4..2000ec3 100644
 --- a/launcher/lang/da.json
 +++ b/launcher/lang/da.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline navne",
    "Add a name": "Tilføj et navn",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 til 16 bogstaver, tal eller understregninger. Du kan også skifte navn fra topbjælken. Onlineservere accepterer ikke offline navne.",
@@ -299,10 +299,10 @@ index a1697c3..9cdf473 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Farver knapperne, kontakterne og himlen. Vælg en, eller skriv en vilkårlig hex-farve.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentel. Bygger de native mods, du stoler på, ind i et spil for sig.",
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index 5cbf7ee..9f98661 100644
+index 41c332d..5769bbd 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline-Namen",
    "Add a name": "Namen hinzufügen",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 bis 16 Buchstaben, Ziffern oder Unterstriche. Namen wechselst du auch in der oberen Leiste. Online-Server nehmen keine Offline-Namen an.",
@@ -313,10 +313,10 @@ index 5cbf7ee..9f98661 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akzentfarbe, Glas, Unschärfe, Sprache und die Optionen darüber kehren zum Auslieferungszustand von Horizon zurück.",
    "Reset the launcher's look": "Aussehen des Launchers zurücksetzen",
 diff --git a/launcher/lang/el.json b/launcher/lang/el.json
-index 5e2d6b9..28db830 100644
+index ea15878..1863d51 100644
 --- a/launcher/lang/el.json
 +++ b/launcher/lang/el.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Ονόματα εκτός σύνδεσης",
    "Add a name": "Προσθήκη ονόματος",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 έως 16 γράμματα, αριθμοί ή κάτω παύλες. Μπορείτε επίσης να αλλάξετε όνομα από την επάνω γραμμή. Οι διαδικτυακοί διακομιστές δεν δέχονται ονόματα εκτός σύνδεσης.",
@@ -327,10 +327,10 @@ index 5e2d6b9..28db830 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Το χρώμα έμφασης, το γυαλί, το θάμπωμα, η γλώσσα και οι παραπάνω επιλογές επιστρέφουν στις προεπιλογές του Horizon.",
    "Reset the launcher's look": "Επαναφορά εμφάνισης του launcher",
 diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
-index e94b928..6e985c8 100644
+index a18274e..ceb5682 100644
 --- a/launcher/lang/eo.json
 +++ b/launcher/lang/eo.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Senkonektaj nomoj",
    "Add a name": "Aldonu nomon",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ĝis 16 literoj, ciferoj aŭ substrekoj. Ŝanĝu nomojn ankaŭ de la supra trinkejo. Retaj serviloj ne prenas eksterretajn nomojn.",
@@ -341,10 +341,10 @@ index e94b928..6e985c8 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akcentkoloro, vitro, malklareco, lingvo kaj la supraj elektoj reiras al kiel Horizon ekspediĝas.",
    "Reset the launcher's look": "Restarigu la aspekton de la lanĉilo",
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index eb2bb92..2757e51 100644
+index 2aca67e..de75d68 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nombres sin conexión",
    "Add a name": "Añadir un nombre",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números o guiones bajos. También puedes cambiar de nombre en la barra superior. Los servidores en línea no aceptan nombres sin conexión.",
@@ -355,10 +355,10 @@ index eb2bb92..2757e51 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "El color de acento, el cristal, el desenfoque, el idioma y las opciones de arriba vuelven a como viene Horizon.",
    "Reset the launcher's look": "Restablecer el aspecto del launcher",
 diff --git a/launcher/lang/et.json b/launcher/lang/et.json
-index 7e48e92..299f013 100644
+index f24b6fd..55c3aa7 100644
 --- a/launcher/lang/et.json
 +++ b/launcher/lang/et.json
-@@ -1076,7 +1076,6 @@
+@@ -1077,7 +1077,6 @@
    "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Selle maailmad salvestas Minecraft {from}: {to} uuendab need jäädavalt ega saa neid avada, kui on vanem.",
    "Launcher settings are back to their defaults": "Käivitaja seaded on taastatud vaikeväärtustele",
    "Microsoft account · online servers too": "Microsofti konto · ka võrguserverid",
@@ -366,7 +366,7 @@ index 7e48e92..299f013 100644
    "Mod": "Modifikatsioon",
    "Mod · {instance}": "Modifikatsioon · {instance}",
    "My Horizon": "Minu Horizon",
-@@ -1088,7 +1087,6 @@
+@@ -1089,7 +1088,6 @@
    "Open the game folder": "Ava mängu kaust",
    "Open {page}": "Ava {page}",
    "Opened {path}": "Avatud: {path}",
@@ -374,7 +374,7 @@ index 7e48e92..299f013 100644
    "Play {name}": "Mängi: {name}",
    "Play, install a mod, open a page": "Mängi, installi modifikatsioon, ava leht",
    "Remove from {instance}": "Eemalda eksemplarist {instance}",
-@@ -1102,7 +1100,6 @@
+@@ -1103,7 +1101,6 @@
    "Search resource packs and modpacks": "Otsi ressursipakette ja modpacke",
    "Search {count} Horizon mods": "Otsi {count} Horizoni modifikatsiooni seast",
    "Shader pack": "Shader-pakett",
@@ -383,10 +383,10 @@ index 7e48e92..299f013 100644
    "just now": "just praegu",
    "soon": "varsti",
 diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
-index 6f134ef..9ebd421 100644
+index 9de3824..61b8064 100644
 --- a/launcher/lang/eu.json
 +++ b/launcher/lang/eu.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Lineaz kanpoko izenak",
    "Add a name": "Gehitu izen bat",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 eta 16 letra, zenbaki edo azpimarra. Aldatu izenak goiko barratik ere. Lineako zerbitzariek ez dituzte lineaz kanpoko izenak hartzen.",
@@ -397,10 +397,10 @@ index 6f134ef..9ebd421 100644
    "1 hour": "Ordu 1",
    "1 hour ago": "Duela ordu 1",
 diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
-index 6b16dc0..aa8cd3d 100644
+index f80703f..5fd233d 100644
 --- a/launcher/lang/fa.json
 +++ b/launcher/lang/fa.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "نام‌های آفلاین",
    "Add a name": "افزودن نام",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 تا 16 حرف، عدد یا زیرخط. از نوار بالا هم می‌توانید نام را عوض کنید. سرورهای آنلاین نام‌های آفلاین را نمی‌پذیرند.",
@@ -411,10 +411,10 @@ index 6b16dc0..aa8cd3d 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "رنگ تأکیدی، شیشه، محوشدگی، زبان و گزینه‌های بالا به حالت پیش‌فرض Horizon برمی‌گردند.",
    "Reset the launcher's look": "بازنشانی ظاهر لانچر",
 diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
-index 7d69cce..6606955 100644
+index d009300..008a935 100644
 --- a/launcher/lang/fi.json
 +++ b/launcher/lang/fi.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline-nimet",
    "Add a name": "Lisää nimi",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3–16 kirjainta, numeroa tai alaviivaa. Nimeä voi vaihtaa myös yläpalkista. Verkkopalvelimet eivät hyväksy offline-nimiä.",
@@ -425,10 +425,10 @@ index 7d69cce..6606955 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Värittää painikkeet, kytkimet ja taivaan. Valitse väri tai kirjoita mikä tahansa hex-väri.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Kokeellinen. Rakentaa luottamasi natiivimodit omaksi pelikseen.",
 diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
-index 9ad88c8..b35b294 100644
+index 9ee2c43..5eb51f3 100644
 --- a/launcher/lang/fil.json
 +++ b/launcher/lang/fil.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Mga offline na pangalan",
    "Add a name": "Magdagdag ng pangalan",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 hanggang 16 na titik, numero o underscore. Magpalit din ng mga pangalan mula sa itaas na bar. Ang mga online na server ay hindi kumukuha ng mga offline na pangalan.",
@@ -439,10 +439,10 @@ index 9ad88c8..b35b294 100644
    "1 hour": "1 oras",
    "1 hour ago": "1 oras ang nakalipas",
 diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
-index bd767b5..02656d2 100644
+index 49bedca..26cb40c 100644
 --- a/launcher/lang/fo.json
 +++ b/launcher/lang/fo.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Nøvn uttanfyri netið",
    "Add a name": "Legg navn til",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 til 16 bókstavir, tøl ella undirstrikur. Skift nøvn frá ovastu strikuni eisini. Net-ambætarar taka ikki offline nøvn.",
@@ -453,10 +453,10 @@ index bd767b5..02656d2 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Aksentlitur, glas, tjúkkur, mál og møguleikarnir omanfyri ganga aftur til hvussu Horizon skipar.",
    "Reset the launcher's look": "Nullstilla útsjóndina á sjósetaranum",
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 3032c5a..f8d0857 100644
+index 4b973c0..3fa2609 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Noms hors ligne",
    "Add a name": "Ajouter un nom",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 à 16 lettres, chiffres ou tirets bas. Change aussi de nom depuis la barre du haut. Les serveurs en ligne n'acceptent pas les noms hors ligne.",
@@ -467,10 +467,10 @@ index 3032c5a..f8d0857 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "La couleur d'accent, le verre, le flou, la langue et les options au-dessus reviennent à ceux de Horizon par défaut.",
    "Reset the launcher's look": "Réinitialiser l'apparence du launcher",
 diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
-index 63114cb..0e292dc 100644
+index 4d2d4db..71ba723 100644
 --- a/launcher/lang/fur.json
 +++ b/launcher/lang/fur.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nons fûr linie",
    "Add a name": "Azontâ un non",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 letaris, numars o sotlineis. Cambiâ nons ancje de barre superiôr. I servidôrs in linie a no cjapin nons fûr linie.",
@@ -481,10 +481,10 @@ index 63114cb..0e292dc 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Colôr di acent, veri, sfume, lengaç e lis opzions parsore a tornin a cemût che Horizon al spedis.",
    "Reset the launcher's look": "Azerâ l’aspiet dal lançadôr",
 diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
-index b9d85b7..5644996 100644
+index bb57c01..24987c0 100644
 --- a/launcher/lang/fy.json
 +++ b/launcher/lang/fy.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Offline nammen",
    "Add a name": "Foegje in namme ta",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 oant 16 letters, sifers of ûnderstreken. Skeakelje nammen ek fan 'e boppeste balke. Online tsjinners nimme gjin offline nammen.",
@@ -495,10 +495,10 @@ index b9d85b7..5644996 100644
    "1 hour": "1 oere",
    "1 hour ago": "1 oere lyn",
 diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
-index 2c2c43f..e8d7625 100644
+index d88a239..51af859 100644
 --- a/launcher/lang/ga.json
 +++ b/launcher/lang/ga.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Ainmneacha as líne",
    "Add a name": "Cuir ainm leis",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 go 16 litir, uimhir nó béim. Athraigh ainmneacha ón mbarra uachtarach freisin. Ní ghlacann freastalaithe ar líne ainmneacha as líne.",
@@ -509,10 +509,10 @@ index 2c2c43f..e8d7625 100644
    "1 hour": "1 uair",
    "1 hour ago": "1 uair ó shin",
 diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
-index 34b8cbb..500e104 100644
+index 2f89c35..5925a4d 100644
 --- a/launcher/lang/gd.json
 +++ b/launcher/lang/gd.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Ainmean far loidhne",
    "Add a name": "Cuir ainm ris",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 gu 16 litrichean, àireamhan no fo-sgrìobhaidhean. Atharraich ainmean bhon bhàr àrd cuideachd. Cha ghabh frithealaichean air-loidhne ainmean far loidhne.",
@@ -523,10 +523,10 @@ index 34b8cbb..500e104 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Tha dath stràc, glainne, blur, cànan agus na roghainnean gu h-àrd a’ dol air ais gu mar a bhios soithichean Horizon.",
    "Reset the launcher's look": "Ath-shuidhich sealladh an lannsair",
 diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
-index d0bfe03..7b11f5d 100644
+index 2146b66..b6ecd18 100644
 --- a/launcher/lang/gl.json
 +++ b/launcher/lang/gl.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Nomes fóra de liña",
    "Add a name": "Engade un nome",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números ou guións baixos. Cambia tamén os nomes desde a barra superior. Os servidores en liña non levan nomes sen conexión.",
@@ -537,10 +537,10 @@ index d0bfe03..7b11f5d 100644
    "1 hour": "1 hora",
    "1 hour ago": "hai 1 hora",
 diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
-index e058724..d4f4471 100644
+index d56bf6d..7969d2b 100644
 --- a/launcher/lang/haw.json
 +++ b/launcher/lang/haw.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Nā inoa hoʻopahemo",
    "Add a name": "Hoʻohui i kahi inoa",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 mau huapalapala, helu a kaha lalo paha. E hoʻololi i nā inoa mai ka pā luna. ʻAʻole lawe nā kikowaena pūnaewele i nā inoa hoʻopahemo.",
@@ -551,10 +551,10 @@ index e058724..d4f4471 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ʻO ka waihoʻoluʻu, aniani, blur, ʻōlelo a me nā koho ma luna e hoʻi i ke ʻano o Horizon moku.",
    "Reset the launcher's look": "Hoʻoponopono hou i ke ʻano o ka mea hoʻolaha",
 diff --git a/launcher/lang/he.json b/launcher/lang/he.json
-index 04986eb..946e4db 100644
+index 7f516b9..175137c 100644
 --- a/launcher/lang/he.json
 +++ b/launcher/lang/he.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "שמות לא מקוונים",
    "Add a name": "הוסף שם",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 עד 16 אותיות, ספרות או קווים תחתונים. אפשר להחליף שם גם מהסרגל העליון. שרתים מקוונים לא מקבלים שמות לא מקוונים.",
@@ -565,10 +565,10 @@ index 04986eb..946e4db 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "צובע את הכפתורים, המתגים והשמיים. בחר צבע, או הקלד כל צבע hex.",
    "Experimental. Builds the native mods you trust into a game of their own.": "ניסיוני. בונה את המודים הנייטיב שאתה סומך עליהם למשחק נפרד משלהם.",
 diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
-index ee9af91..fc175f1 100644
+index 1894294..a57ad12 100644
 --- a/launcher/lang/hi.json
 +++ b/launcher/lang/hi.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "ऑफ़लाइन नाम",
    "Add a name": "नाम जोड़ें",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 से 16 अक्षर, अंक या अंडरस्कोर। नाम ऊपर की पट्टी से भी बदलें। ऑनलाइन सर्वर ऑफ़लाइन नाम नहीं लेते।",
@@ -579,10 +579,10 @@ index ee9af91..fc175f1 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "एक्सेंट रंग, ग्लास, ब्लर, भाषा और ऊपर के विकल्प Horizon के मूल रूप में लौट आते हैं।",
    "Reset the launcher's look": "लॉन्चर का रूप रीसेट करें",
 diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
-index 2846687..b4bc921 100644
+index 83b8822..d9dc1e9 100644
 --- a/launcher/lang/hr.json
 +++ b/launcher/lang/hr.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Imena izvan mreže",
    "Add a name": "Dodaj ime",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 do 16 slova, brojeva ili podvlaka. Imena mijenjaj i na gornjoj traci. Mrežni poslužitelji ne primaju imena izvan mreže.",
@@ -593,10 +593,10 @@ index 2846687..b4bc921 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Boja naglaska, staklo, zamućenje, jezik i gornje opcije vraćaju se na Horizonove zadane.",
    "Reset the launcher's look": "Vrati izgled pokretača",
 diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
-index 4e3c1c4..83999c2 100644
+index cec55b9..2f99211 100644
 --- a/launcher/lang/hu.json
 +++ b/launcher/lang/hu.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline nevek",
    "Add a name": "Név hozzáadása",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3–16 betű, szám vagy aláhúzásjel. A nevet a felső sávban is válthatja. Az online szerverek nem fogadják el az offline neveket.",
@@ -607,10 +607,10 @@ index 4e3c1c4..83999c2 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Ezzel színeződnek a gombok, a kapcsolók és az ég. Válassz egyet, vagy írj be bármilyen hex színt.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Kísérleti. A megbízhatónak tartott natív modokat egy külön játékba építi.",
 diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
-index da2e758..78637ab 100644
+index 98175af..32126d9 100644
 --- a/launcher/lang/hy.json
 +++ b/launcher/lang/hy.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Անցանց անուններ",
    "Add a name": "Ավելացրեք անուն",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-ից 16 տառեր, թվեր կամ ընդգծումներ: Փոխեք անունները նաև վերևի տողից: Առցանց սերվերները չեն ընդունում անցանց անուններ:",
@@ -621,10 +621,10 @@ index da2e758..78637ab 100644
    "1 hour ago": "1 ժամ առաջ",
    "1 line": "1 տող",
 diff --git a/launcher/lang/id.json b/launcher/lang/id.json
-index 8d2b81c..e552956 100644
+index d426c50..9ad419a 100644
 --- a/launcher/lang/id.json
 +++ b/launcher/lang/id.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nama offline",
    "Add a name": "Tambah nama",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 sampai 16 huruf, angka, atau garis bawah. Ganti nama juga dari bilah atas. Server online tidak menerima nama offline.",
@@ -635,10 +635,10 @@ index 8d2b81c..e552956 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Warna aksen, kaca, buram, bahasa, dan opsi di atas kembali seperti bawaan Horizon.",
    "Reset the launcher's look": "Atur ulang tampilan launcher",
 diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
-index 81f8782..d85bbf9 100644
+index 6eac0f8..48eb7e7 100644
 --- a/launcher/lang/ig.json
 +++ b/launcher/lang/ig.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Aha ndị na-anọghị n'ịntanetị",
    "Add a name": "Tinye aha",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ruo 16 mkpụrụedemede, ọnụọgụ ma ọ bụ mesie ike. Gbanwee aha site na n'elu mmanya kwa. Sava n'ịntanetị anaghị ewere aha ndị na-anọghị n'ịntanetị.",
@@ -649,10 +649,10 @@ index 81f8782..d85bbf9 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Agba ụda olu, iko, blur, asụsụ na nhọrọ ndị dị n'elu na-alaghachi azụ ka Horizon ụgbọ mmiri.",
    "Reset the launcher's look": "Tọgharịa ọdịdị onye mbido",
 diff --git a/launcher/lang/is.json b/launcher/lang/is.json
-index 4836813..b4ff4bc 100644
+index 647a5fd..ea15790 100644
 --- a/launcher/lang/is.json
 +++ b/launcher/lang/is.json
-@@ -1076,7 +1076,6 @@
+@@ -1077,7 +1077,6 @@
    "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Heimar þess voru vistaðir með Minecraft {from}: {to} uppfærir þá til frambúðar og getur ekki opnað þá ef hún er eldri.",
    "Launcher settings are back to their defaults": "Stillingar ræsiforritsins eru komnar aftur í sjálfgefin gildi",
    "Microsoft account · online servers too": "Microsoft-reikningur · líka netþjónar á netinu",
@@ -660,7 +660,7 @@ index 4836813..b4ff4bc 100644
    "Mod": "Mod",
    "Mod · {instance}": "Mod · {instance}",
    "My Horizon": "Mitt Horizon",
-@@ -1088,7 +1087,6 @@
+@@ -1089,7 +1088,6 @@
    "Open the game folder": "Opna leikjamöppuna",
    "Open {page}": "Opna {page}",
    "Opened {path}": "Opnaði {path}",
@@ -668,7 +668,7 @@ index 4836813..b4ff4bc 100644
    "Play {name}": "Spila {name}",
    "Play, install a mod, open a page": "Spila, setja upp mod, opna síðu",
    "Remove from {instance}": "Fjarlægja úr {instance}",
-@@ -1102,7 +1100,6 @@
+@@ -1103,7 +1101,6 @@
    "Search resource packs and modpacks": "Leita í aðfangapökkum og modpökkum",
    "Search {count} Horizon mods": "Leita í {count} Horizon-mods",
    "Shader pack": "Shader-pakki",
@@ -677,10 +677,10 @@ index 4836813..b4ff4bc 100644
    "just now": "rétt í þessu",
    "soon": "bráðum",
 diff --git a/launcher/lang/it.json b/launcher/lang/it.json
-index 55bc837..2d33d52 100644
+index 0e5c819..dace52e 100644
 --- a/launcher/lang/it.json
 +++ b/launcher/lang/it.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nomi offline",
    "Add a name": "Aggiungi un nome",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Da 3 a 16 lettere, numeri o trattini bassi. Puoi cambiare nome anche dalla barra in alto. I server online non accettano nomi offline.",
@@ -691,10 +691,10 @@ index 55bc837..2d33d52 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Colore d'accento, vetro, sfocatura, lingua e le opzioni sopra tornano come Horizon li fornisce.",
    "Reset the launcher's look": "Reimposta l'aspetto del launcher",
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index abc5de8..9dd146d 100644
+index 2dbaee0..6c1d418 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "オフラインの名前",
    "Add a name": "名前を追加",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3〜16 文字の英数字またはアンダースコア。名前は上部のバーからも切り替えられます。オンラインサーバーではオフラインの名前は使えません。",
@@ -705,10 +705,10 @@ index abc5de8..9dd146d 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "アクセントカラー、ガラス、ぼかし、言語、上のオプションが Horizon の出荷時の状態に戻ります。",
    "Reset the launcher's look": "ランチャーの見た目をリセット",
 diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
-index 9146068..eab61dc 100644
+index 11e4210..db1aa18 100644
 --- a/launcher/lang/ka.json
 +++ b/launcher/lang/ka.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "ხაზგარეშე სახელები",
    "Add a name": "დაამატეთ სახელი",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-დან 16-მდე ასო, რიცხვი ან ქვედა ხაზი. ასევე შეცვალეთ სახელები ზედა ზოლიდან. ონლაინ სერვერები არ იღებენ ხაზგარეშე სახელებს.",
@@ -719,10 +719,10 @@ index 9146068..eab61dc 100644
    "1 hour ago": "1 საათის წინ",
    "1 line": "1 სტრიქონი",
 diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
-index 38e9546..e75c747 100644
+index a33e7b9..19bc478 100644
 --- a/launcher/lang/kk.json
 +++ b/launcher/lang/kk.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Офлайн атаулар",
    "Add a name": "Атын қосыңыз",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-16 әріп, сандар немесе астын сызу. Жоғарғы жолақтан атауларды да ауыстырыңыз. Онлайн серверлер желіден тыс атауларды алмайды.",
@@ -733,10 +733,10 @@ index 38e9546..e75c747 100644
    "1 hour ago": "1 сағат бұрын",
    "1 line": "1 жол",
 diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
-index 4922ba3..a6da4a4 100644
+index 41457dc..caadeb2 100644
 --- a/launcher/lang/kn.json
 +++ b/launcher/lang/kn.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "ಆಫ್ಲೈನ್ ಹೆಸರುಗಳು",
    "Add a name": "ಹೆಸರನ್ನು ಸೇರಿಸಿ",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ರಿಂದ 16 ಅಕ್ಷರಗಳು, ಸಂಖ್ಯೆಗಳು ಅಥವಾ ಅಂಡರ್‌ಸ್ಕೋರ್‌ಗಳು. ಮೇಲಿನ ಪಟ್ಟಿಯಿಂದಲೂ ಹೆಸರುಗಳನ್ನು ಬದಲಿಸಿ. ಆನ್‌ಲೈನ್ ಸರ್ವರ್‌ಗಳು ಆಫ್‌ಲೈನ್ ಹೆಸರುಗಳನ್ನು ತೆಗೆದುಕೊಳ್ಳುವುದಿಲ್ಲ.",
@@ -747,10 +747,10 @@ index 4922ba3..a6da4a4 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ಉಚ್ಚಾರಣಾ ಬಣ್ಣ, ಗಾಜು, ಮಸುಕು, ಭಾಷೆ ಮತ್ತು ಮೇಲಿನ ಆಯ್ಕೆಗಳು ಹೇಗೆ Horizon ರವಾನೆಗೆ ಹಿಂತಿರುಗುತ್ತವೆ.",
    "Reset the launcher's look": "ಲಾಂಚರ್‌ನ ನೋಟವನ್ನು ಮರುಹೊಂದಿಸಿ",
 diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
-index 23d2324..6fb3d20 100644
+index 86ccfbf..fa0baa2 100644
 --- a/launcher/lang/ko.json
 +++ b/launcher/lang/ko.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "오프라인 이름",
    "Add a name": "이름 추가",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "영문자, 숫자, 밑줄 3~16자. 위쪽 막대에서도 이름을 바꿀 수 있습니다. 온라인 서버는 오프라인 이름을 받지 않습니다.",
@@ -761,10 +761,10 @@ index 23d2324..6fb3d20 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "강조 색, 유리, 흐림, 언어와 위의 옵션이 Horizon 기본값으로 돌아갑니다.",
    "Reset the launcher's look": "런처 모양 초기화",
 diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
-index da35459..fecff45 100644
+index 0e8592a..4ced2a2 100644
 --- a/launcher/lang/ky.json
 +++ b/launcher/lang/ky.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Оффлайн аттар",
    "Add a name": "Аты кошуу",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3төн 16га чейинки тамгалар, сандар же астынкы сызыктар. Жогорку тилкеден ысымдарды да алмаштырыңыз. Онлайн серверлер оффлайн аталыштарын алышпайт.",
@@ -775,10 +775,10 @@ index da35459..fecff45 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акценттин түсү, айнек, бүдөмүк, тил жана жогорудагы опциялар Horizon кантип жөнөтүлгөнүнө кайтып келет.",
    "Reset the launcher's look": "Ишке киргизгичтин көрүнүшүн баштапкы абалга келтириңиз",
 diff --git a/launcher/lang/la.json b/launcher/lang/la.json
-index 691ead9..6f4b7ac 100644
+index b81af1f..5fb8a33 100644
 --- a/launcher/lang/la.json
 +++ b/launcher/lang/la.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Online nomina",
    "Add a name": "Nomen addere",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ad 16 litteras, numeros vel underscores. Nomina virgula etiam a vertice Cie. Online servers non nomina online.",
@@ -789,10 +789,10 @@ index 691ead9..6f4b7ac 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Color accentus, vitrum, labes, lingua et optiones supra recedunt ad quomodoHorizoncarinis.",
    "Reset the launcher's look": "Reset Launcher est vultus",
 diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
-index 095433f..3fe8176 100644
+index cd384f1..72be522 100644
 --- a/launcher/lang/lb.json
 +++ b/launcher/lang/lb.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Offline Nimm",
    "Add a name": "Füügt en Numm",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 bis 16 Buschtawen, Zuelen oder Ënnersträicher. Wiesselt Nimm vun der ieweschter Bar och. Online Server huelen net offline Nimm.",
@@ -803,10 +803,10 @@ index 095433f..3fe8176 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akzentfaarf, Glas, Blur, Sprooch an d'Optiounen hei uewen ginn zréck op wéi Horizon Schëffer.",
    "Reset the launcher's look": "Reset de Look vum Starter",
 diff --git a/launcher/lang/li.json b/launcher/lang/li.json
-index 92a62f7..c8fd609 100644
+index afda61c..1e945f0 100644
 --- a/launcher/lang/li.json
 +++ b/launcher/lang/li.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline naome",
    "Add a name": "Voeg un naom toe",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 tot 16 letters, getalle of oonderstreep. Wissel de naome ouch vaan de baoveste balk. Online servers numme gein offline naome.",
@@ -817,10 +817,10 @@ index 92a62f7..c8fd609 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentkleur, glaas, vervaag, taol en de opties heibove goon trök nao wie Horizon weert verstuurd.",
    "Reset the launcher's look": "Reset de look vaan de launcher",
 diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
-index 58f2cff..fdb9918 100644
+index 05c6f23..de807ed 100644
 --- a/launcher/lang/lmo.json
 +++ b/launcher/lang/lmo.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nom fœra linea",
    "Add a name": "Aggiungi un nomm",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 letter, numer o sottolinei. Cambià anca i nomm de la barra superiur. I server online g’han minga di nomm fœura linea.",
@@ -831,10 +831,10 @@ index 58f2cff..fdb9918 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Culur de accent, veder, sfocadüra, linguagg e i upziun de sora van indrée a cuma Horizon spediss.",
    "Reset the launcher's look": "Ripristinà l’aspètt del lanciador",
 diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
-index 8829e4a..e658361 100644
+index b4cb18b..c38a34c 100644
 --- a/launcher/lang/lo.json
 +++ b/launcher/lang/lo.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "ຊື່ອອບໄລນ໌",
    "Add a name": "ເພີ່ມຊື່",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ຫາ 16 ຕົວອັກສອນ, ຕົວເລກ ຫຼື ຂີດກ້ອງ. ປ່ຽນຊື່ຈາກແຖບເທິງ. ເຊີບເວີອອນໄລນ໌ບໍ່ເອົາຊື່ອອບໄລນ໌.",
@@ -845,10 +845,10 @@ index 8829e4a..e658361 100644
    "1 hour": "1 ຊົ່ວໂມງ",
    "1 hour ago": "1 ຊົ່ວໂມງກ່ອນ",
 diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
-index 1b815b9..e595244 100644
+index 978fb2b..111949a 100644
 --- a/launcher/lang/lt.json
 +++ b/launcher/lang/lt.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Vardai neprisijungus",
    "Add a name": "Pridėti vardą",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Nuo 3 iki 16 raidžių, skaičių ar pabraukimo brūkšnių. Vardą galite pakeisti ir viršutinėje juostoje. Internetiniai serveriai nepriima vardų neprisijungus.",
@@ -859,10 +859,10 @@ index 1b815b9..e595244 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Nuspalvina mygtukus, jungiklius ir dangų. Pasirink spalvą arba įvesk bet kokią hex spalvą.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentinė funkcija. Tavo patikimus vietinius modus surenka į atskirą žaidimą.",
 diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
-index e46b7ba..3f3d3c7 100644
+index 81b4621..0491c16 100644
 --- a/launcher/lang/lv.json
 +++ b/launcher/lang/lv.json
-@@ -1076,7 +1076,6 @@
+@@ -1077,7 +1077,6 @@
    "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Tās pasaules saglabāja Minecraft {from}: {to} tās neatgriezeniski atjaunina un nevar tās atvērt, ja ir vecāka.",
    "Launcher settings are back to their defaults": "Palaišanas programmas iestatījumi atjaunoti uz noklusējuma vērtībām",
    "Microsoft account · online servers too": "Microsoft konts · arī tiešsaistes serveri",
@@ -870,7 +870,7 @@ index e46b7ba..3f3d3c7 100644
    "Mod": "Mods",
    "Mod · {instance}": "Mods · {instance}",
    "My Horizon": "Mans Horizon",
-@@ -1088,7 +1087,6 @@
+@@ -1089,7 +1088,6 @@
    "Open the game folder": "Atvērt spēles mapi",
    "Open {page}": "Atvērt {page}",
    "Opened {path}": "Atvērts: {path}",
@@ -878,7 +878,7 @@ index e46b7ba..3f3d3c7 100644
    "Play {name}": "Spēlēt {name}",
    "Play, install a mod, open a page": "Spēlēt, instalēt modu, atvērt lapu",
    "Remove from {instance}": "Noņemt no {instance}",
-@@ -1102,7 +1100,6 @@
+@@ -1103,7 +1101,6 @@
    "Search resource packs and modpacks": "Meklēt resursu pakotnes un modpacks",
    "Search {count} Horizon mods": "Meklēt starp {count} Horizon modiem",
    "Shader pack": "Ēnotāju pakotne",
@@ -887,10 +887,10 @@ index e46b7ba..3f3d3c7 100644
    "just now": "tikko",
    "soon": "drīz",
 diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
-index b2cb601..78bcd22 100644
+index 4244a5e..1798dfa 100644
 --- a/launcher/lang/mk.json
 +++ b/launcher/lang/mk.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Офлајн имиња",
    "Add a name": "Додадете име",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 до 16 букви, бројки или долни црти. Префрлете ги имињата и од горната лента. Онлајн серверите не земаат офлајн имиња.",
@@ -901,10 +901,10 @@ index b2cb601..78bcd22 100644
    "1 hour ago": "пред 1 час",
    "1 line": "1 ред",
 diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
-index 23ac070..c30c04e 100644
+index dadcf3f..39ee40d 100644
 --- a/launcher/lang/mn.json
 +++ b/launcher/lang/mn.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Офлайн нэрс",
    "Add a name": "Нэр нэмнэ үү",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-аас 16 үсэг, тоо эсвэл доогуур зураас. Дээд талбараас нэр солих. Онлайн серверүүд офлайн нэр авдаггүй.",
@@ -915,10 +915,10 @@ index 23ac070..c30c04e 100644
    "1 hour": "1 цаг",
    "1 hour ago": "1 цагийн өмнө",
 diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
-index d1e732e..95c674f 100644
+index 469873a..738d8df 100644
 --- a/launcher/lang/ms.json
 +++ b/launcher/lang/ms.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Nama luar talian",
    "Add a name": "Tambah nama",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 hingga 16 huruf, nombor atau garis bawah. Tukar nama dari bar atas juga. Pelayan dalam talian tidak menggunakan nama luar talian.",
@@ -929,10 +929,10 @@ index d1e732e..95c674f 100644
    "1 hour ago": "1 jam yang lalu",
    "1 line": "1 baris",
 diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
-index 9af5365..fa25649 100644
+index 26468ec..f70b670 100644
 --- a/launcher/lang/mt.json
 +++ b/launcher/lang/mt.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Ismijiet offline",
    "Add a name": "Żid isem",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 sa 16-il ittri, numri jew underscore. Aqleb l-ismijiet mill-bar ta 'fuq ukoll. Is-servers onlajn ma jieħdux ismijiet offline.",
@@ -943,10 +943,10 @@ index 9af5365..fa25649 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Kulur aċċent, ħġieġ, ċċajpar, lingwa u l-għażliet t'hawn fuq imorru lura għal kif Horizon vapuri.",
    "Reset the launcher's look": "Irrisettja d-dehra tal-lanċjar",
 diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
-index ab8d9f5..d192944 100644
+index 32c0fe3..f30c286 100644
 --- a/launcher/lang/nl.json
 +++ b/launcher/lang/nl.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline namen",
    "Add a name": "Naam toevoegen",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 tot 16 letters, cijfers of underscores. Je kunt ook van naam wisselen via de bovenste balk. Online servers accepteren geen offline namen.",
@@ -957,10 +957,10 @@ index ab8d9f5..d192944 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentkleur, glas, vervaging, taal en de opties hierboven gaan terug naar hoe Horizon ze levert.",
    "Reset the launcher's look": "Uiterlijk van de launcher herstellen",
 diff --git a/launcher/lang/no.json b/launcher/lang/no.json
-index f18a092..056117a 100644
+index 5c13b45..4f107ae 100644
 --- a/launcher/lang/no.json
 +++ b/launcher/lang/no.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Frakoblede navn",
    "Add a name": "Legg til et navn",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 til 16 bokstaver, tall eller understreker. Du kan også bytte navn fra topplinjen. Nettservere godtar ikke frakoblede navn.",
@@ -971,10 +971,10 @@ index f18a092..056117a 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Farger knappene, bryterne og himmelen. Velg en, eller skriv inn en hvilken som helst hex-farge.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentell. Bygger de native modsene du stoler på inn i et eget spill.",
 diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
-index b68758a..bd73a18 100644
+index 3d12c07..7e98f41 100644
 --- a/launcher/lang/oc.json
 +++ b/launcher/lang/oc.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Noms fòra linha",
    "Add a name": "Ajustar un nom",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 letras, números o subrayados. Cambiar los noms dempuèi la barra superiora tanben. Los servidors en linha prenon pas de noms fòra linha.",
@@ -985,10 +985,10 @@ index b68758a..bd73a18 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Color d'accent, veire, flou, lengatge e las opcions çai-sus remontan a cossí Horizon s'expedís.",
    "Reset the launcher's look": "Reïnicializar l'aspècte del lançaire",
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index 022a2c1..069e73b 100644
+index 0293e8e..d499b85 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nazwy offline",
    "Add a name": "Dodaj nazwę",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Od 3 do 16 liter, cyfr lub podkreśleń. Nazwę zmienisz też na górnym pasku. Serwery online nie przyjmują nazw offline.",
@@ -999,10 +999,10 @@ index 022a2c1..069e73b 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Kolor akcentu, szkło, rozmycie, język i opcje powyżej wracają do ustawień, z jakimi Horizon jest dostarczany.",
    "Reset the launcher's look": "Przywróć wygląd launchera",
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index 709e5e0..75b4deb 100644
+index c9d6746..a21edf3 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nomes offline",
    "Add a name": "Adicionar um nome",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números ou sublinhados. Troque de nome também pela barra superior. Servidores online não aceitam nomes offline.",
@@ -1013,10 +1013,10 @@ index 709e5e0..75b4deb 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Cor de destaque, vidro, desfoque, idioma e as opções acima voltam ao padrão do Horizon.",
    "Reset the launcher's look": "Redefinir a aparência do launcher",
 diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
-index 88724bd..fc0b359 100644
+index ae490a9..1532f6c 100644
 --- a/launcher/lang/pt.json
 +++ b/launcher/lang/pt.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nomes offline",
    "Add a name": "Adicionar um nome",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "De 3 a 16 letras, números ou sublinhados. Mude de nome também na barra superior. Os servidores online não aceitam nomes offline.",
@@ -1027,10 +1027,10 @@ index 88724bd..fc0b359 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "A cor de destaque, o vidro, o desfoque, o idioma e as opções acima voltam ao que o Horizon traz de origem.",
    "Reset the launcher's look": "Repor o aspeto do launcher",
 diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
-index b1aab41..7b5e58c 100644
+index cc25c25..14c6f0a 100644
 --- a/launcher/lang/ro.json
 +++ b/launcher/lang/ro.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nume offline",
    "Add a name": "Adăugați un nume",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Între 3 și 16 litere, cifre sau liniuțe de subliniere. Puteți schimba numele și din bara de sus. Serverele online nu acceptă nume offline.",
@@ -1041,10 +1041,10 @@ index b1aab41..7b5e58c 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colorează butoanele, comutatoarele și cerul. Alege una sau scrie orice culoare hex.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Experimental. Construiește modurile native în care ai încredere într-un joc separat.",
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index ac2c85d..68d55c5 100644
+index cc3d2ff..7219435 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Офлайн-имена",
    "Add a name": "Добавить имя",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "От 3 до 16 букв, цифр или подчёркиваний. Имя можно сменить и в верхней панели. Онлайн-серверы не принимают офлайн-имена.",
@@ -1055,10 +1055,10 @@ index ac2c85d..68d55c5 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Цвет акцента, стекло, размытие, язык и параметры выше вернутся к тем, что были в Horizon изначально.",
    "Reset the launcher's look": "Сбросить вид лаунчера",
 diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
-index 48d152f..f803d00 100644
+index fa2fe7a..96f508c 100644
 --- a/launcher/lang/sah.json
 +++ b/launcher/lang/sah.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Офлайн ааттар",
    "Add a name": "Аат эбэн биэр",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3-тэн 16-ҕа диэри буукуба, сыыппара эбэтэр аннынан тирэх. Үөһээҥҥи панелтан ааттары эмиэ уларыт. Онлайн сервердар офлайн ааттары ылбаттар.",
@@ -1069,10 +1069,10 @@ index 48d152f..f803d00 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент өҥө, өстүөкүлэ, дьүһүннээһин, тыл уонна үөһээ этиллибит варианнар Horizon хайдах ыытылларыгар төннөллөр.",
    "Reset the launcher's look": "Запускник көрүҥүн уларыт",
 diff --git a/launcher/lang/se.json b/launcher/lang/se.json
-index 0ef056f..58d7e2c 100644
+index b642b7e..fa2cb5d 100644
 --- a/launcher/lang/se.json
 +++ b/launcher/lang/se.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline namat",
    "Add a name": "Bija nama",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 gitta 16 bustáva, loguid dahje vuollečuoggáid. Váldde namaid bajimus čuoggás maid. Neahttabálvalusat eai váldde offline namaid.",
@@ -1083,10 +1083,10 @@ index 0ef056f..58d7e2c 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akseantaivdni, láse, čuovga, giella ja ovddit válljejumit mannet ruovttoluotta dasa mo Horizon sáddejuvvo.",
    "Reset the launcher's look": "Nuppástuhttit álggaheaddji hámi",
 diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
-index 79dd5ab..285be3e 100644
+index 1912d55..fc7b96a 100644
 --- a/launcher/lang/sk.json
 +++ b/launcher/lang/sk.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offline mená",
    "Add a name": "Pridať meno",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 až 16 písmen, číslic alebo podčiarkovníkov. Meno môžete zmeniť aj v hornej lište. Online servery offline mená neprijímajú.",
@@ -1097,10 +1097,10 @@ index 79dd5ab..285be3e 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Zafarbí tlačidlá, prepínače a oblohu. Vyber jednu alebo zadaj ľubovoľnú hex farbu.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Experimentálne. Zostaví natívne mody, ktorým dôveruješ, do samostatnej hry.",
 diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
-index 5e4f92a..8a7142c 100644
+index 392c54e..f6ad763 100644
 --- a/launcher/lang/sl.json
 +++ b/launcher/lang/sl.json
-@@ -1076,7 +1076,6 @@
+@@ -1077,7 +1077,6 @@
    "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Njegove svetove je shranil Minecraft {from}: {to} jih trajno nadgradi in jih ne more odpreti, če je starejši.",
    "Launcher settings are back to their defaults": "Nastavitve zaganjalnika so ponastavljene na privzete",
    "Microsoft account · online servers too": "Račun Microsoft · tudi spletni strežniki",
@@ -1108,7 +1108,7 @@ index 5e4f92a..8a7142c 100644
    "Mod": "Modifikacija",
    "Mod · {instance}": "Modifikacija · {instance}",
    "My Horizon": "Moj Horizon",
-@@ -1088,7 +1087,6 @@
+@@ -1089,7 +1088,6 @@
    "Open the game folder": "Odpri mapo igre",
    "Open {page}": "Odpri {page}",
    "Opened {path}": "Odprto: {path}",
@@ -1116,7 +1116,7 @@ index 5e4f92a..8a7142c 100644
    "Play {name}": "Igraj {name}",
    "Play, install a mod, open a page": "Igraj, namesti modifikacijo, odpri stran",
    "Remove from {instance}": "Odstrani iz {instance}",
-@@ -1102,7 +1100,6 @@
+@@ -1103,7 +1101,6 @@
    "Search resource packs and modpacks": "Išči pakete virov in modpacke",
    "Search {count} Horizon mods": "Išči med {count} modifikacijami Horizon",
    "Shader pack": "Paket senčil",
@@ -1125,10 +1125,10 @@ index 5e4f92a..8a7142c 100644
    "just now": "pravkar",
    "soon": "kmalu",
 diff --git a/launcher/lang/so.json b/launcher/lang/so.json
-index a499592..84e0c93 100644
+index 1739395..d7fe1a8 100644
 --- a/launcher/lang/so.json
 +++ b/launcher/lang/so.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Magacyada khadka tooska ah",
    "Add a name": "Magac ku dar",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ilaa 16 xaraf, tirooyinka ama hoosta. Ka beddel magacyada bar sare sidoo kale. Adeegayaasha khadka tooska ah ma qaataan magacyada offline.",
@@ -1139,10 +1139,10 @@ index a499592..84e0c93 100644
    "1 hour": "1 saac",
    "1 hour ago": "1 saac ka hor",
 diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
-index 3f32038..80a7938 100644
+index 9227c1b..e6eab1e 100644
 --- a/launcher/lang/sq.json
 +++ b/launcher/lang/sq.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Emrat jashtë linje",
    "Add a name": "Shto një emër",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 deri në 16 shkronja, numra ose nënvizime. Ndërroni edhe emrat nga shiriti i sipërm. Serverët online nuk marrin emra jashtë linje.",
@@ -1153,10 +1153,10 @@ index 3f32038..80a7938 100644
    "1 hour": "1 orë",
    "1 hour ago": "1 orë më parë",
 diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
-index fd4c3ac..a9b5f50 100644
+index 53e3c37..42062b6 100644
 --- a/launcher/lang/sr.json
 +++ b/launcher/lang/sr.json
-@@ -1076,7 +1076,6 @@
+@@ -1077,7 +1077,6 @@
    "Its worlds were saved by Minecraft {from}: {to} upgrades them for good, and can't open them if it is older.": "Њене светове је сачувао Minecraft {from}: {to} их трајно надограђује, а не може да их отвори ако је старији.",
    "Launcher settings are back to their defaults": "Подешавања покретача су враћена на подразумевана",
    "Microsoft account · online servers too": "Microsoft налог · и онлајн сервери",
@@ -1164,7 +1164,7 @@ index fd4c3ac..a9b5f50 100644
    "Mod": "Мод",
    "Mod · {instance}": "Мод · {instance}",
    "My Horizon": "Мој Horizon",
-@@ -1088,7 +1087,6 @@
+@@ -1089,7 +1088,6 @@
    "Open the game folder": "Отвори фасциклу игре",
    "Open {page}": "Отвори {page}",
    "Opened {path}": "Отворено: {path}",
@@ -1172,7 +1172,7 @@ index fd4c3ac..a9b5f50 100644
    "Play {name}": "Играј {name}",
    "Play, install a mod, open a page": "Играј, инсталирај мод, отвори страницу",
    "Remove from {instance}": "Уклони из {instance}",
-@@ -1102,7 +1100,6 @@
+@@ -1103,7 +1101,6 @@
    "Search resource packs and modpacks": "Претражи пакете ресурса и модпакове",
    "Search {count} Horizon mods": "Претражи {count} Horizon модова",
    "Shader pack": "Пакет шејдера",
@@ -1181,10 +1181,10 @@ index fd4c3ac..a9b5f50 100644
    "just now": "управо сада",
    "soon": "ускоро",
 diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
-index e71e5a2..0264bbf 100644
+index 9909b0b..a1d85ec 100644
 --- a/launcher/lang/sv.json
 +++ b/launcher/lang/sv.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Offlinenamn",
    "Add a name": "Lägg till ett namn",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 till 16 bokstäver, siffror eller understreck. Du kan även byta namn från den övre raden. Onlineservrar tar inte emot offlinenamn.",
@@ -1195,10 +1195,10 @@ index e71e5a2..0264bbf 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentfärg, glas, oskärpa, språk och alternativen ovan återställs till hur Horizon levereras.",
    "Reset the launcher's look": "Återställ launcherns utseende",
 diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
-index 44f06de..5c8e998 100644
+index fbbe736..9e2b5d6 100644
 --- a/launcher/lang/szl.json
 +++ b/launcher/lang/szl.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Miana poza linijōm",
    "Add a name": "Przidej miano",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 do 16 literōw, cyfr abo podkreślōnych. Pōmiyń tyż miana z wiyrchnigo szynka. Serwery online niy przijmujōm mian offline.",
@@ -1209,10 +1209,10 @@ index 44f06de..5c8e998 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Farba akcyntu, szkło, rozmycie, jynzyk i ôpcyje powyżyj wracajōm do tego, jak Horizon wysyła.",
    "Reset the launcher's look": "Resetuj wyglōnd ôdpalacza",
 diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
-index 54053c0..34c7947 100644
+index 5ee8cb0..8072eeb 100644
 --- a/launcher/lang/ta.json
 +++ b/launcher/lang/ta.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "ஆஃப்லைன் பெயர்கள்",
    "Add a name": "பெயரைச் சேர்க்கவும்",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 முதல் 16 எழுத்துகள், எண்கள் அல்லது அடிக்கோடுகள். மேல் பட்டியில் இருந்தும் பெயர்களை மாற்றவும். ஆன்லைன் சேவையகங்கள் ஆஃப்லைன் பெயர்களை எடுக்காது.",
@@ -1223,10 +1223,10 @@ index 54053c0..34c7947 100644
    "1 hour": "1 மணிநேரம்",
    "1 hour ago": "1 மணிநேரம் முன்பு",
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index de7a00d..15f7dc4 100644
+index aed3bf0..61daa50 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "ชื่อออฟไลน์",
    "Add a name": "เพิ่มชื่อ",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "ตัวอักษร ตัวเลข หรือขีดล่าง 3 ถึง 16 ตัว เปลี่ยนชื่อจากแถบด้านบนได้ด้วย เซิร์ฟเวอร์ออนไลน์ไม่รับชื่อออฟไลน์",
@@ -1237,10 +1237,10 @@ index de7a00d..15f7dc4 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "สีเน้น กระจก ความเบลอ ภาษา และตัวเลือกด้านบนจะกลับเป็นค่าเริ่มต้นของ Horizon",
    "Reset the launcher's look": "รีเซ็ตหน้าตาของลันเชอร์",
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index 88f7bb6..20c8041 100644
+index 1098ae6..cf5750d 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Çevrim dışı adlar",
    "Add a name": "Ad ekle",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 ila 16 harf, rakam veya alt çizgi. Adları üst çubuktan da değiştirebilirsin. Çevrim içi sunucular çevrim dışı adları kabul etmez.",
@@ -1251,10 +1251,10 @@ index 88f7bb6..20c8041 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Vurgu rengi, cam, bulanıklık, dil ve yukarıdaki seçenekler Horizon'un varsayılanlarına döner.",
    "Reset the launcher's look": "Başlatıcının görünümünü sıfırla",
 diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
-index 51de185..a408aec 100644
+index 1469179..ebcbfe4 100644
 --- a/launcher/lang/tt.json
 +++ b/launcher/lang/tt.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Оффлайн исемнәр",
    "Add a name": "Исем өстәгез",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 - 16 хәреф, сан яки аскы сызык. Nameгары сызыктан исемнәрне дә күчерегез. Онлайн серверлар оффлайн исемнәрне алмыйлар.",
@@ -1265,10 +1265,10 @@ index 51de185..a408aec 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Тиз төс, пыяла, төссезлек, тел һәм югарыдагы вариантлар Horizon җибәрүенә кайтып кала.",
    "Reset the launcher's look": "Эшләткечнең тышкы кыяфәтен торгызу",
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index 663adda..212c10c 100644
+index 1084eef..da18047 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Офлайн-імена",
    "Add a name": "Додати ім'я",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Від 3 до 16 літер, цифр або підкреслень. Ім'я можна змінити й у верхній панелі. Онлайн-сервери не приймають офлайн-імена.",
@@ -1279,10 +1279,10 @@ index 663adda..212c10c 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Колір акценту, скло, розмиття, мова та параметри вище повернуться до початкових у Horizon.",
    "Reset the launcher's look": "Скинути вигляд лаунчера",
 diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
-index f28d9af..22c782a 100644
+index 5cb46b6..61452c8 100644
 --- a/launcher/lang/ur.json
 +++ b/launcher/lang/ur.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "آف لائن نام",
    "Add a name": "نام شامل کریں",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 سے 16 حروف، ہندسے یا انڈر سکور۔ اوپر والی بار سے بھی نام بدل سکتے ہیں۔ آن لائن سرورز آف لائن نام قبول نہیں کرتے۔",
@@ -1293,10 +1293,10 @@ index f28d9af..22c782a 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ایکسنٹ رنگ، شیشہ، دھندلاہٹ، زبان اور اوپر والے اختیارات Horizon کی ڈیفالٹ حالت پر واپس چلے جاتے ہیں۔",
    "Reset the launcher's look": "لانچر کی شکل ری سیٹ کریں",
 diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
-index babd8d0..4e1ad5f 100644
+index 5b5a07a..73e29d5 100644
 --- a/launcher/lang/uz.json
 +++ b/launcher/lang/uz.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Oflayn nomlar",
    "Add a name": "Ism qo'shing",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 dan 16 gacha harflar, raqamlar yoki pastki chiziq. Yuqori paneldagi nomlarni ham almashtiring. Onlayn serverlar oflayn nomlarni olmaydilar.",
@@ -1307,10 +1307,10 @@ index babd8d0..4e1ad5f 100644
    "1 hour ago": "1 soat oldin",
    "1 line": "1 qator",
 diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
-index 96147e3..c354af7 100644
+index 6c9e9ff..204d019 100644
 --- a/launcher/lang/vec.json
 +++ b/launcher/lang/vec.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Nomi offline",
    "Add a name": "Xonta un nome",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 a 16 lettere, numeri o sottolineature. Canbia anca i nomi dała bara in alto. I server online no i ciapa nomi offline.",
@@ -1321,10 +1321,10 @@ index 96147e3..c354af7 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "El cołor de l’acento, el véro, ła sfocatura, el lenguajo e łe opsion sora łe va indrìo a come Horizon el vien spedìo.",
    "Reset the launcher's look": "Reseta el look del lansador",
 diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
-index 79f962d..52bf8f1 100644
+index 6c7df66..fe0498f 100644
 --- a/launcher/lang/vi.json
 +++ b/launcher/lang/vi.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "Tên ngoại tuyến",
    "Add a name": "Thêm tên",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Từ 3 đến 16 chữ cái, chữ số hoặc dấu gạch dưới. Bạn cũng có thể đổi tên từ thanh trên cùng. Máy chủ trực tuyến không chấp nhận tên ngoại tuyến.",
@@ -1335,10 +1335,10 @@ index 79f962d..52bf8f1 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Màu nhấn, kính, độ mờ, ngôn ngữ và các tùy chọn ở trên trở về mặc định của Horizon.",
    "Reset the launcher's look": "Đặt lại giao diện launcher",
 diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
-index e945ae4..0c6f78c 100644
+index afa0eeb..3c14c80 100644
 --- a/launcher/lang/yi.json
 +++ b/launcher/lang/yi.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "אָפפלינע נעמען",
    "Add a name": "לייג אַ נאָמען",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 צו 16 אותיות, נומערן אָדער אַנדערקאָרז. באַשטימען נעמען פון די שפּיץ באַר אויך. אָנליין סערווערס טאָן ניט נעמען אָפפלינע נעמען.",
@@ -1349,10 +1349,10 @@ index e945ae4..0c6f78c 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "אַקצענט קאָליר, גלאז, בלער, שפּראַך און די אָפּציעס אויבן גיין צוריק צו ווי Horizon שיפן.",
    "Reset the launcher's look": "באַשטעטיק די קוק פון די לאָנטשער",
 diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
-index df947c7..61d88d1 100644
+index 6f63e9b..3b55679 100644
 --- a/launcher/lang/yo.json
 +++ b/launcher/lang/yo.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Awọn orukọ aisinipo",
    "Add a name": "Fi orukọ kan kun",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 si 16 awọn lẹta, awọn nọmba tabi awọn abẹlẹ. Yipada awọn orukọ lati oke igi paapaa. Awọn olupin ori ayelujara ko gba awọn orukọ aisinipo.",
@@ -1363,10 +1363,10 @@ index df947c7..61d88d1 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Awọ arosọ, gilasi, blur, ede ati awọn aṣayan loke lọ pada si bii Horizon awọn ọkọ oju omi.",
    "Reset the launcher's look": "Tun oju ifilọlẹ naa tunto",
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index e1d0691..e6bde91 100644
+index b406320..422cf52 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
-@@ -1058,9 +1058,6 @@
+@@ -1059,9 +1059,6 @@
    "Offline names": "离线名称",
    "Add a name": "添加名称",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 到 16 个字母、数字或下划线。也可以在顶栏切换名称。在线服务器不接受离线名称。",
@@ -1377,10 +1377,10 @@ index e1d0691..e6bde91 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "强调色、玻璃、模糊、语言和以上选项恢复为 Horizon 的默认设置。",
    "Reset the launcher's look": "重置启动器外观",
 diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
-index 0b07097..7c42670 100644
+index 34aa68c..812a095 100644
 --- a/launcher/lang/zu.json
 +++ b/launcher/lang/zu.json
-@@ -1056,9 +1056,6 @@
+@@ -1057,9 +1057,6 @@
    "Offline names": "Amagama angaxhunyiwe ku-inthanethi",
    "Add a name": "Engeza igama",
    "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "Izinhlamvu ezi-3 kuye kweziyi-16, izinombolo noma ama-underscore. Shintsha amagama ukusuka kubha ephezulu futhi. Amaseva aku-inthanethi awathathi amagama angaxhunyiwe ku-inthanethi.",
@@ -1596,10 +1596,10 @@ index 97657ed..59f7864 100644
 -    }
  }
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index 860ab08..c448442 100644
+index 16fc2da..ebdf8f9 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
-@@ -3421,7 +3421,7 @@ impl Launcher {
+@@ -3436,7 +3436,7 @@ impl Launcher {
                  &t,
              )),
              // The glass look's Overview ends with the screenshots and the patch log: Prepare is in
@@ -1608,7 +1608,7 @@ index 860ab08..c448442 100644
              None if t.glass => rows,
              None => rows
                  .child(index_row(
-@@ -3444,7 +3444,7 @@ impl Launcher {
+@@ -3459,7 +3459,7 @@ impl Launcher {
              )),
          };
          // The top bar shows who plays; a row only when there is something to do about it. The
