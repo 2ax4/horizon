@@ -354,6 +354,10 @@ impl Game<'_> {
                         slot.extra.tame = old.extra.tame;
                         slot.extra.owner = old.extra.owner;
                     }
+                    // Entity.load mutates the existing living entity; its damage
+                    // cooldown and previous-hit amount are not read from saved NBT.
+                    slot.invulnerable = old.invulnerable;
+                    slot.last_hurt = old.last_hurt;
                     slot.ai = old.ai;
                     // Mob.readAdditionalSaveData updates persistent home fields,
                     // while retaining the rest of the live AI/runtime state.
@@ -361,6 +365,14 @@ impl Game<'_> {
                     slot.extra.armor_attributes = old.extra.armor_attributes;
                     slot.age = old.age;
                     slot.previous = slot.position;
+                    // Wolf.readAdditionalSaveData initializes persistent anger at
+                    // the live level clock, just as load_mob does on admission.
+                    if slot.species() == horizon_client::mobs::Species::Wolf {
+                        slot.extra.anger = horizon_client::mobs::anger_left(
+                            slot.extra.anger_end,
+                            self.world.game_time,
+                        );
+                    }
                 }
             }
             Target::Item(id) => {
@@ -388,9 +400,23 @@ impl Game<'_> {
                 }
             }
             Target::Frame(id) => {
-                let new = entity_nbt::item_frame_from_nbt(&tag, id).ok_or_else(stale)?;
-                if let Some(slot) = self.item_frames.iter_mut().find(|f| f.id == id) {
-                    *slot = new;
+                let mut new = entity_nbt::item_frame_from_nbt(&tag, id).ok_or_else(stale)?;
+                if let Some(i) = self.item_frames.iter().position(|f| f.id == id) {
+                    let old = &self.item_frames[i];
+                    // Entity.load cannot change the runtime type; saveWithoutId
+                    // deliberately omitted the decoder's type discriminator.
+                    new.glow = old.glow;
+                    // ItemFrame.readAdditionalSaveData: ItemStack.matches includes
+                    // count, item and components, before adopting the new stack.
+                    if old.item.as_ref().is_some_and(|a| {
+                        new.item
+                            .as_ref()
+                            .is_none_or(|b| a.count != b.count || !a.same_item_same_components(b))
+                    }) {
+                        let old = old.clone();
+                        self.remove_framed_map(&old);
+                    }
+                    self.item_frames[i] = new;
                 }
             }
             Target::Boat(id) => {
@@ -625,34 +651,33 @@ impl Game<'_> {
                 }
                 Ok(tag)
             }
-            DataRef::Block(p) => {
-                if let Some(tag) = self.moving_piston_data(*p) {
-                    return Ok(tag);
-                }
-                if let Some(tag) = self.comparator_data(*p).or_else(|| self.pot_data(*p)) {
-                    return Ok(tag);
-                }
-                let key = (p[0], p[1], p[2]);
-                let name = self.data_block_name(*p);
-                let e = self
-                    .world
-                    .block_entities
-                    .get(&key)
-                    .ok_or_else(|| err("commands.data.block.invalid", &[]))?;
-                // BlockEntity.saveWithFullMetadata: no chunk-only keepPacked,
-                // and the lock and custom name the model does not hold.
-                let mut tag = save::block_entity_data(key, e, &name, self.world.block_lock(key));
-                if let (Some(custom), Tag::Compound(map)) =
-                    (self.world.block_names.get(&key), &mut tag)
-                {
-                    map.entry("CustomName".into())
-                        .or_insert_with(|| Tag::String(custom.as_str().into()));
-                }
-                self.restore_loot_table(key, &mut tag);
-                Ok(tag)
-            }
+            DataRef::Block(p) => self
+                .block_entity_nbt(*p)
+                .ok_or_else(|| err("commands.data.block.invalid", &[])),
             DataRef::Storage(id) => Ok(self.score.storage.get(id)),
         }
+    }
+    /// `BlockEntity.saveWithFullMetadata` of the block entity at `p`: no
+    /// chunk-only keepPacked, and the lock and custom name the model does
+    /// not hold. `None` where there is no block entity.
+    pub(in crate::game) fn block_entity_nbt(&self, p: [i32; 3]) -> Option<Tag> {
+        // A live moving piston is the level's block entity there (#9617).
+        if let Some(tag) = self.moving_piston_data(p) {
+            return Some(tag);
+        }
+        if let Some(tag) = self.comparator_data(p).or_else(|| self.pot_data(p)) {
+            return Some(tag);
+        }
+        let key = (p[0], p[1], p[2]);
+        let name = self.data_block_name(p);
+        let e = self.world.block_entities.get(&key)?;
+        let mut tag = save::block_entity_data(key, e, &name, self.world.block_lock(key));
+        if let (Some(custom), Tag::Compound(map)) = (self.world.block_names.get(&key), &mut tag) {
+            map.entry("CustomName".into())
+                .or_insert_with(|| Tag::String(custom.as_str().into()));
+        }
+        self.restore_loot_table(key, &mut tag);
+        Some(tag)
     }
     pub(in crate::game) fn set_data_of(&mut self, r: &DataRef, tag: Tag) -> R<()> {
         match r {
@@ -1180,6 +1205,107 @@ impl Game<'_> {
             return Err(err("commands.summon.failed.uuid", &[]));
         }
         Ok(target)
+    }
+}
+
+#[cfg(test)]
+mod wolf_live_anger_tests {
+    use super::Target;
+    use crate::game::{Audio, Game, Options, Progress, Settings, load_resources};
+    use horizon_world::nbt::Tag;
+
+    #[test]
+    #[ignore = "needs prepared resources in HORIZON_TEST_RESOURCES"]
+    fn live_wolf_anger_writes_use_the_level_clock_and_keep_bee_state() {
+        let root = std::path::PathBuf::from(std::env::var_os("HORIZON_TEST_RESOURCES").unwrap());
+        let settings = Settings::default();
+        let loaded = load_resources(
+            root.clone(),
+            None,
+            &root,
+            &settings,
+            std::time::Instant::now(),
+            false,
+            true,
+            &Progress::new(),
+            &mut |_, _| unreachable!(),
+        )
+        .unwrap();
+        let mut options = Options::parse(std::iter::empty()).unwrap().unwrap();
+        options.resources = root.clone();
+        options.execution_role = crate::game::execution_role::ExecutionRole::IntegratedServer;
+        let mut game = Game::new(
+            &loaded.resources,
+            loaded.pack,
+            loaded.gui.unwrap(),
+            options,
+            settings,
+            Audio::silent(&root),
+            None,
+        )
+        .unwrap();
+        game.build_registries();
+        game.world.game_time = 12_345;
+        // Bee's independently modeled end is the first control, before the Wolf regression.
+        for (kind, health, number) in [("bee", 10.0_f32, 1), ("wolf", 8.0, 2)] {
+            game.mobs.clear();
+            let tag = Tag::Compound(
+                [
+                    (
+                        "id".into(),
+                        Tag::String(format!("minecraft:{kind}").as_str().into()),
+                    ),
+                    ("UUID".into(), Tag::IntArray(vec![316, 1, 0, number])),
+                    (
+                        "Pos".into(),
+                        Tag::List(vec![
+                            Tag::Double(10.5_f64.to_bits()),
+                            Tag::Double(200.0_f64.to_bits()),
+                            Tag::Double(10.5_f64.to_bits()),
+                        ]),
+                    ),
+                    ("Health".into(), Tag::Float(health.to_bits())),
+                    ("NoAI".into(), Tag::Byte(1)),
+                    ("NoGravity".into(), Tag::Byte(1)),
+                    ("Silent".into(), Tag::Byte(1)),
+                    ("PersistenceRequired".into(), Tag::Byte(1)),
+                    ("anger_end_time".into(), Tag::Long(-1)),
+                ]
+                .into_iter()
+                .collect(),
+            );
+            let id = game.load_mob(tag, None).unwrap();
+            let i = game.mobs.iter().position(|m| m.id == id).unwrap();
+            game.mobs[i].invulnerable = 17;
+            game.mobs[i].last_hurt = 2.0;
+            game.mobs[i].age = 6;
+            for end in [12_395, 12_395, 12_420, -1] {
+                let mut tag = game.mob_tree_nbt(i);
+                let Tag::Compound(fields) = &mut tag else {
+                    panic!("mob compound")
+                };
+                fields.insert("anger_end_time".into(), Tag::Long(end));
+                game.apply_entity_nbt(Target::Mob(id), tag).unwrap();
+                let saved = game.mob_tree_nbt(i);
+                assert_eq!(
+                    saved.get("anger_end_time"),
+                    Some(&Tag::Long(end)),
+                    "{kind} end={end}"
+                );
+                assert_eq!(game.world.game_time, 12_345);
+                assert_eq!(game.persist.uuids.get(&id), Some(&[316, 1, 0, number]));
+                assert_eq!(game.mobs[i].health, health);
+                assert!(game.mobs[i].no_ai);
+                assert_eq!(
+                    (
+                        game.mobs[i].invulnerable,
+                        game.mobs[i].last_hurt,
+                        game.mobs[i].age
+                    ),
+                    (17, 2.0, 6)
+                );
+            }
+        }
     }
 }
 
