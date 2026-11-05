@@ -1,4 +1,4 @@
-From 8f5cb034e47ef2ee1fdd2437ca15d0053f6ff9d9 Mon Sep 17 00:00:00 2001
+From efb0d0f5445508e9f25af60d196da709232b1f82 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH] Offline updates follow the fork's releases
@@ -7,8 +7,8 @@ Subject: [PATCH] Offline updates follow the fork's releases
  crates/horizon-release-sign/release-keys.txt  |   1 +
  launcher/src/backend.rs                       |   2 +-
  launcher/src/backend/release_loading_tests.rs |  90 +++++++++++---
- launcher/src/signed.rs                        | 116 +++++++++++++++---
- 4 files changed, 169 insertions(+), 40 deletions(-)
+ launcher/src/signed.rs                        | 117 +++++++++++++++---
+ 4 files changed, 170 insertions(+), 40 deletions(-)
 
 diff --git a/crates/horizon-release-sign/release-keys.txt b/crates/horizon-release-sign/release-keys.txt
 index c39be44..c510154 100644
@@ -216,7 +216,7 @@ index d7f839b..d64487c 100644
              "{label}: before={} after={} ratio={:.3}x requests={}->{}",
              before.0,
 diff --git a/launcher/src/signed.rs b/launcher/src/signed.rs
-index 74e96b6..55dc225 100644
+index 74e96b6..1f23112 100644
 --- a/launcher/src/signed.rs
 +++ b/launcher/src/signed.rs
 @@ -4,18 +4,18 @@
@@ -354,7 +354,7 @@ index 74e96b6..55dc225 100644
      }
  
      /// The release channel never installs what was signed for a Nightly, whatever tag it is served
-@@ -149,7 +197,14 @@ mod tests {
+@@ -149,11 +197,19 @@ mod tests {
          };
          let nightly = serving(horizon_release_sign::NIGHTLY, VERSION);
          assert_eq!(
@@ -370,7 +370,12 @@ index 74e96b6..55dc225 100644
              Ok(sha256_hex(b"game"))
          );
          // Another version than the one signed (an older Nightly served as tonight's, or the reverse).
-@@ -163,7 +218,7 @@ mod tests {
+         assert!(nightly_digest(
++            crate::backend::REPO,
+             "nightly",
+             "nightly-2026-10-29-1111111",
+             "horizon.zip",
+@@ -163,7 +219,7 @@ mod tests {
          .is_err());
          for tag in ["v0.2.81", "nightly", "nightly-2026-10-27"] {
              assert!(
@@ -379,7 +384,7 @@ index 74e96b6..55dc225 100644
                  "{tag}"
              );
          }
-@@ -175,10 +230,33 @@ mod tests {
+@@ -175,10 +231,33 @@ mod tests {
                  nightly(url)
              }
          };

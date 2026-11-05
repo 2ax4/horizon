@@ -31,13 +31,15 @@ jobs:
             asset: horizon-launcher-linux-x86_64.tar.gz
             binary: horizon-launcher
           - name: macos
-            os: macos-15
+            # macOS 26 arm64 instead of macos-15: the 15 arm64 pool is chronically congested
+            # ("The job was not acquired by Runner of type hosted"); 26 is a separate pool.
+            os: macos-26
             asset: horizon-launcher-macos-arm64.zip
             binary: horizon-launcher
           - name: macos-x64
             # Build x64 natively on the Intel hosted runner instead of cross-compiling
-            # on an arm64 host: the macOS arm64 pool is congested ("job was not acquired
-            # by Runner of type hosted") and Intel runners queue much faster.
+            # on an arm64 host: the macOS arm64 pool is congested and Intel runners
+            # queue much faster.
             os: macos-15-intel
             asset: horizon-launcher-macos-x64.zip
             binary: horizon-launcher
@@ -126,10 +128,13 @@ jobs:
               echo '```'
               echo '</details>'
             } >> "$GITHUB_STEP_SUMMARY"
+            # `|| true` keeps the step alive when grep finds nothing (GitHub runs bash with
+            # -eo pipefail: a no-match grep would otherwise abort before `exit "$status"`,
+            # reporting exit 1 and swallowing the real diagnostics).
             grep -E '^test .* FAILED$|^error(\[E[0-9]+\])?: ' test.log | sort -u | head -10 \
-              | while IFS= read -r line; do echo "::error title=cargo test (${{ matrix.name }})::${line}"; done
+              | while IFS= read -r line; do echo "::error title=cargo test (${{ matrix.name }})::${line}"; done || true
             grep -A 3 'panicked at ' test.log | grep -v '^--$' | sort -u | head -20 \
-              | while IFS= read -r line; do echo "::error title=panic detail (${{ matrix.name }})::$(printf '%s' "$line" | head -c 250)"; done
+              | while IFS= read -r line; do echo "::error title=panic detail (${{ matrix.name }})::$(printf '%s' "$line" | head -c 250)"; done || true
           fi
           exit "$status"
 
