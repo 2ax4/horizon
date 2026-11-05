@@ -209,6 +209,7 @@ mod tests {
         );
         // Another version than the one signed (an older Nightly served as tonight's, or the reverse).
         assert!(nightly_digest(
+            crate::backend::REPO,
             "nightly",
             "nightly-2026-10-29-1111111",
             "horizon.zip",
