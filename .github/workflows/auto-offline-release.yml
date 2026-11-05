@@ -24,7 +24,7 @@ concurrency:
 jobs:
   sync:
     name: upstream check
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     outputs:
       should_build: ${{ steps.pick.outputs.should_build }}
@@ -33,7 +33,7 @@ jobs:
       sha: ${{ steps.pick.outputs.sha }}
       alert: ${{ steps.pick.outputs.alert }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -224,7 +224,7 @@ jobs:
     name: patches need a rebase
     needs: sync
     if: needs.sync.outputs.alert != ''
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Fail the run so GitHub notifies you
         env:
@@ -237,7 +237,7 @@ jobs:
     name: remember the failed build
     needs: [sync, build]
     if: ${{ always() && needs.build.result == 'failure' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
       - name: Stop retrying this version and explain what broke
@@ -247,6 +247,27 @@ jobs:
           SHA: ${{ needs.sync.outputs.sha }}
           TAG: ${{ needs.sync.outputs.tag }}
         run: |
+          # Only mark the version as failed when the build itself failed. A job that
+          # GitHub could not even place on a hosted runner ("The job was not acquired
+          # by Runner of type hosted") never runs a single step, and the run can also
+          # die on a GitHub "Internal server error". Those are GitHub capacity/infra
+          # failures, not ours: do not record the marker, so the next cron run retries
+          # the same version automatically.
+          real_failure=false
+          while IFS=$'\t' read -r job_name step_count; do
+            if [ "${step_count:-0}" -gt 0 ]; then
+              real_failure=true
+              echo "  ${job_name}: failed after ${step_count} step(s) ran"
+            else
+              echo "::notice::${job_name} never acquired a hosted runner and ran 0 steps: transient GitHub capacity/infra failure, this will be retried"
+            fi
+          done < <(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs" --paginate \
+            --jq '.jobs[] | select(.conclusion == "failure") | [.name, (.steps | length)] | @tsv' \
+            || true)
+          if [ "$real_failure" != true ]; then
+            echo "::notice::no failing job ran any step: the run died on runner acquisition or a GitHub internal error. ${TAG} is NOT marked as failed; the next scheduled run rebuilds it."
+            exit 0
+          fi
           gh api "repos/${GITHUB_REPOSITORY}/git/refs" -f "ref=refs/tags/${MARKER}" -f "sha=${SHA}" >/dev/null || true
           failed_log="$(gh run view "$GITHUB_RUN_ID" -R "$GITHUB_REPOSITORY" --log-failed 2>/dev/null | tail -120 || true)"
           {
@@ -275,7 +296,7 @@ jobs:
     name: delete stale offline-failed markers
     needs: [sync, build]
     if: ${{ !cancelled() && needs.build.result == 'success' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 5
     steps:
       - name: Delete old offline-failed markers

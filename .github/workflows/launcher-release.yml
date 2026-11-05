@@ -35,8 +35,10 @@ jobs:
             asset: horizon-launcher-macos-arm64.zip
             binary: horizon-launcher
           - name: macos-x64
-            os: macos-15
-            target: x86_64-apple-darwin
+            # Build x64 natively on the Intel hosted runner instead of cross-compiling
+            # on an arm64 host: the macOS arm64 pool is congested ("job was not acquired
+            # by Runner of type hosted") and Intel runners queue much faster.
+            os: macos-15-intel
             asset: horizon-launcher-macos-x64.zip
             binary: horizon-launcher
     runs-on: ${{ matrix.os }}
@@ -48,7 +50,7 @@ jobs:
         working-directory: launcher
         shell: bash
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ inputs.ref }}
 
@@ -133,7 +135,7 @@ jobs:
 
       - name: Upload the test log (failure diagnostics)
         if: failure() && hashFiles('launcher/test.log') != ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: test-log-${{ matrix.name }}
           path: launcher/test.log
@@ -165,7 +167,7 @@ jobs:
 
       - name: Upload the build log (failure diagnostics)
         if: failure() && hashFiles('launcher/build.log') != ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: build-log-${{ matrix.name }}
           path: launcher/build.log
@@ -197,7 +199,7 @@ jobs:
           fi
           ls -l out
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: ${{ matrix.asset }}
           path: launcher/out/*
@@ -206,19 +208,19 @@ jobs:
   sign:
     name: sign
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     env:
       RELEASE_TAG: ${{ inputs.ref || github.ref_name }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ inputs.ref }}
           sparse-checkout: tools/ci/sign_release.sh
           sparse-checkout-cone-mode: false
           persist-credentials: false
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: dist
           pattern: horizon-launcher-*
@@ -247,7 +249,7 @@ jobs:
           cat dist/SHA256SUMS
           wc -c dist/SHA256SUMS.sig
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: signature
           path: dist/SHA256SUMS*
@@ -256,17 +258,17 @@ jobs:
 
   release:
     needs: [build, sign]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 15
     env:
       RELEASE_TAG: ${{ inputs.ref || github.ref_name }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           ref: ${{ inputs.ref }}
           persist-credentials: false
 
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           path: dist
           merge-multiple: true
@@ -295,11 +297,28 @@ jobs:
             echo
             printf '%s\n' "$up_body"
           } > "$body_file"
-          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
-            gh release delete "$RELEASE_TAG" --yes
+          # GitHub sometimes answers 500 ("Internal server error") mid-publish.
+          # Retry: delete whatever partial release exists, then create again.
+          published=false
+          for attempt in 1 2 3; do
+            if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+              gh release delete "$RELEASE_TAG" --yes || true
+            fi
+            if gh release create "$RELEASE_TAG" \
+              --title "Horizon launcher ${RELEASE_TAG#launcher@}" \
+              --notes-file "$body_file" \
+              dist/*
+            then
+              published=true
+              break
+            fi
+            if [ "$attempt" != 3 ]; then
+              echo "::warning::gh release create failed (attempt ${attempt}/3); GitHub may be having a transient issue, retrying in 30s"
+              sleep 30
+            fi
+          done
+          if [ "$published" != true ]; then
+            echo "::error::could not publish the release after 3 attempts: GitHub kept returning errors. The next scheduled run rebuilds and retries automatically."
+            exit 1
           fi
-          gh release create "$RELEASE_TAG" \
-            --title "Horizon launcher ${RELEASE_TAG#launcher@}" \
-            --notes-file "$body_file" \
-            dist/*
           rm -f "$body_file"
