@@ -90,6 +90,10 @@ jobs:
 
       - name: Tests
         if: runner.os != 'macOS'
+        env:
+          # The offline fork cannot regenerate docs/launcher-commands.md locally (no Rust
+          # toolchain), so let the test rewrite the file itself before checking it.
+          HORIZON_WRITE_DOCS: "1"
         run: |
           set +e
           cargo test --release --locked --no-fail-fast -- --skip platform_assets_are_published 2>&1 | tee test.log
@@ -98,17 +102,74 @@ jobs:
           if [ "$status" -ne 0 ]; then
             {
               echo "### cargo test failed (exit $status) on ${{ matrix.name }}"
+              echo
+              echo "<details open><summary>Which tests failed</summary>"
+              echo
               echo '```'
-              grep -E '^test .* FAILED$|^error(\[E[0-9]+\])?: |^error: could not compile|panicked at ' test.log | sort -u | head -40
+              grep -E '^test .* FAILED$|^error(\[E[0-9]+\])?: |^error: could not compile' test.log | sort -u | head -40
               echo '```'
+              echo '</details>'
+              echo
+              echo "<details open><summary>Full failure report — the panic messages say exactly what broke</summary>"
+              echo
+              echo '```'
+              sed -n '/^failures:$/,/^test result:/p' test.log | head -300
+              echo '```'
+              echo '</details>'
+              echo
+              echo "<details><summary>Last 120 lines of the whole test log</summary>"
+              echo
+              echo '```'
+              tail -120 test.log
+              echo '```'
+              echo '</details>'
             } >> "$GITHUB_STEP_SUMMARY"
             grep -E '^test .* FAILED$|^error(\[E[0-9]+\])?: ' test.log | sort -u | head -10 \
               | while IFS= read -r line; do echo "::error title=cargo test (${{ matrix.name }})::${line}"; done
+            grep -A 3 'panicked at ' test.log | grep -v '^--$' | sort -u | head -20 \
+              | while IFS= read -r line; do echo "::error title=panic detail (${{ matrix.name }})::$(printf '%s' "$line" | head -c 250)"; done
           fi
           exit "$status"
 
+      - name: Upload the test log (failure diagnostics)
+        if: failure() && hashFiles('launcher/test.log') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-log-${{ matrix.name }}
+          path: launcher/test.log
+          retention-days: 14
+
       - name: Build
-        run: cargo build --release --locked ${LAUNCHER_FEATURES:+--features "$LAUNCHER_FEATURES"} ${{ matrix.target && format('--target {0}', matrix.target) || '' }}
+        run: |
+          set +e
+          cargo build --release --locked ${LAUNCHER_FEATURES:+--features "$LAUNCHER_FEATURES"} ${{ matrix.target && format('--target {0}', matrix.target) || '' }} 2>&1 | tee build.log
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -ne 0 ]; then
+            {
+              echo "### cargo build failed (exit $status) on ${{ matrix.name }}"
+              echo
+              echo '```'
+              grep -E '^error(\[E[0-9]+\])?: |^error: could not compile' -A 5 build.log | head -150
+              echo '```'
+              echo
+              echo "<details><summary>Last 100 lines of the build log</summary>"
+              echo
+              echo '```'
+              tail -100 build.log
+              echo '```'
+              echo '</details>'
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit "$status"
+
+      - name: Upload the build log (failure diagnostics)
+        if: failure() && hashFiles('launcher/build.log') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log-${{ matrix.name }}
+          path: launcher/build.log
+          retention-days: 14
 
       - name: Version check
         run: |

@@ -62,6 +62,7 @@ jobs:
           mkdir -p /tmp/patches
           cp offline/patches/*.patch /tmp/patches/
           phash=$(cat /tmp/patches/*.patch .github/workflows/launcher-release.yml | sha256sum | cut -c1-8)
+          echo "patch set hash (phash): ${phash}; it changes whenever a patch or launcher-release.yml changes"
           newest=$(head -1 /tmp/candidates.txt)
           alert=""
           chosen=""
@@ -74,7 +75,7 @@ jobs:
               break
             fi
             if [ "${RETRY:-}" != true ] && git ls-remote --exit-code --tags origin "refs/tags/${marker}" >/dev/null 2>&1; then
-              echo "skipping ${version}: it already failed with these patches and workflows; change them, or run this workflow with retry"
+              echo "skipping ${version}: the marker tag ${marker} says it already failed with these patches and workflows; change them, or run this workflow with retry"
               continue
             fi
             refname=$(git ls-remote upstream "refs/tags/launcher@${version}" "refs/tags/launcher-v${version}" \
@@ -91,25 +92,61 @@ jobs:
             sha=$(git rev-parse "FETCH_HEAD^{commit}")
             git checkout -B attempt "$sha"
             ok=true
+            failed_patch=""
             for p in /tmp/patches/*.patch; do
               echo "git am $(basename "$p")"
-              git am --3way "$p" || {
+              if ! git am --3way "$p"; then
+                failed_patch="$(basename "$p")"
                 ok=false
                 break
-              }
+              fi
             done
             echo "::endgroup::"
             if [ "$ok" != true ]; then
-              echo "::warning::patches do not apply to upstream ${version}, trying the next older release"
-              git am --abort >/dev/null 2>&1 || true
+              conflicted=$(git diff --name-only --diff-filter=U || true)
+              echo "::warning::offline/patches do not apply to upstream ${version} (the first patch that failed: ${failed_patch:-unknown}); trying the next older release"
+              {
+                echo "### git am failed while applying offline/patches to upstream ${version}"
+                echo
+                echo "- upstream ref: \`${refname}\`"
+                echo "- the first patch that failed: \`offline/patches/${failed_patch:-unknown}\`"
+                echo
+                echo "<details open><summary>Conflicted files</summary>"
+                echo
+                echo '```'
+                if [ -n "$conflicted" ]; then printf '%s\n' "$conflicted"; else echo "(git am reported no unmerged paths: often a missing base blob or a deleted file; read the git am output above)"; fi
+                echo '```'
+                echo '</details>'
+                echo
+                echo "<details open><summary>The failing patch (git am --show-current-patch)</summary>"
+                echo
+                echo '```diff'
+                git am --show-current-patch=diff 2>/dev/null | head -120 || true
+                echo '```'
+                echo '</details>'
+                echo
+                echo "Rebase \`offline/patches/${failed_patch:-the failing patch}\` onto \`${refname}\` and push the new patch files."
+              } >> "$GITHUB_STEP_SUMMARY" || true
               git push origin "origin/main:refs/tags/${marker}" >/dev/null 2>&1 || true
               if [ "$version" = "$newest" ]; then
-                alert="offline/patches do not apply to upstream ${version}: rebase them onto it"
+                alert="offline/patches do not apply to upstream ${version}: the first patch that failed is offline/patches/${failed_patch:-unknown}; conflicted files: $(printf '%s' "$conflicted" | tr '\n' ' ')"
+                {
+                  echo "Upstream launcher ${version} was released and offline/patches do not apply to it."
+                  echo
+                  echo "- the first patch that failed: \`offline/patches/${failed_patch:-unknown}\`"
+                  echo "- conflicted files:"
+                  echo '```'
+                  if [ -n "$conflicted" ]; then printf '%s\n' "$conflicted"; else echo "none reported (see the run summary)"; fi
+                  echo '```'
+                  echo
+                  echo "Rebase them onto launcher@${version} and upload them again. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+                } > /tmp/issue-body.md
                 gh issue create -R "$GITHUB_REPOSITORY" \
                   --title "Offline patches do not apply to upstream ${version}" \
-                  --body "Upstream launcher ${version} was released and offline/patches do not apply to it. Rebase them onto launcher@${version} and upload them again. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+                  --body-file /tmp/issue-body.md \
                   >/dev/null 2>&1 || true
               fi
+              git am --abort >/dev/null 2>&1 || true
               continue
             fi
             chosen="$version"
@@ -201,8 +238,9 @@ jobs:
     needs: [sync, build]
     if: ${{ always() && needs.build.result == 'failure' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - name: Stop retrying this version until something changes
+      - name: Stop retrying this version and explain what broke
         env:
           GH_TOKEN: ${{ github.token }}
           MARKER: ${{ needs.sync.outputs.marker }}
@@ -210,9 +248,27 @@ jobs:
           TAG: ${{ needs.sync.outputs.tag }}
         run: |
           gh api "repos/${GITHUB_REPOSITORY}/git/refs" -f "ref=refs/tags/${MARKER}" -f "sha=${SHA}" >/dev/null || true
+          failed_log="$(gh run view "$GITHUB_RUN_ID" -R "$GITHUB_REPOSITORY" --log-failed 2>/dev/null | tail -120 || true)"
+          {
+            echo "The build of ${TAG} failed."
+            echo
+            echo "Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+            echo
+            if [ -n "$failed_log" ]; then
+              echo "<details open><summary>The failed steps' log (last 120 lines)</summary>"
+              echo
+              echo '```'
+              printf '%s\n' "$failed_log"
+              echo '```'
+              echo '</details>'
+              echo
+            fi
+            echo "It will not be retried until offline/patches or the workflows change, or this workflow is run with retry."
+            echo "The build job's summary and its test-log/build-log artifacts hold the full panic messages."
+          } > /tmp/issue-body.md
           gh issue create -R "$GITHUB_REPOSITORY" \
             --title "Offline build failed: ${TAG}" \
-            --body "The build of ${TAG} failed. It will not be retried until offline/patches or launcher-release.yml change, or this workflow is run with retry. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" \
+            --body-file /tmp/issue-body.md \
             >/dev/null 2>&1 || true
 
   cleanup-failed:
