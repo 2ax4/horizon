@@ -128,6 +128,16 @@ jobs:
           git show origin/main:.github/workflows/launcher-release.yml > .github/workflows/launcher-release.yml
           git show origin/main:.github/workflows/auto-offline-release.yml > .github/workflows/auto-offline-release.yml
           git checkout origin/main -- offline/patches
+          # The fork's own files must survive this CI commit: main's README replaces
+          # upstream's, and every file main has but the patched upstream tree does not
+          # (fork screenshots like docs/media/offline-*.png, offline/verify-release.py,
+          # extra workflow files) comes back from main. Without this, each release
+          # commit resets the README to upstream's and drops fork-only files.
+          git checkout origin/main -- README.md || true
+          comm -23 \
+            <(git ls-tree -r --name-only origin/main | sort) \
+            <(git ls-tree -r --name-only HEAD | sort) \
+            | while IFS= read -r f; do git checkout origin/main -- "$f"; done
           pub=$(printf '%s' "$RELEASE_SIGNING_KEY" | base64 --decode \
             | openssl pkey -inform DER -pubout -outform DER | tail -c 32 | base64)
           grep -qx "$pub" crates/horizon-release-sign/release-keys.txt || {

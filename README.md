@@ -7,9 +7,16 @@
 
 [![auto-offline-release](https://github.com/2ax4/horizon-offline-auto-update/actions/workflows/auto-offline-release.yml/badge.svg)](https://github.com/2ax4/horizon-offline-auto-update/actions/workflows/auto-offline-release.yml)
 
-<p align="center">
-  <img src="docs/media/offline-accounts.png" alt="The launcher's Settings page: an offline name set, no Microsoft account" width="720">
-</p>
+<table>
+  <tr>
+    <th width="50%" align="center">Home</th>
+    <th width="50%" align="center">Settings</th>
+  </tr>
+  <tr>
+    <td><img src="docs/media/offline-home.png" alt="The launcher's Home page: the selected instance ready to play, the version picker, Join a friend and the instance's tabs"></td>
+    <td><img src="docs/media/offline-settings.png" alt="The launcher's Settings page: the offline account, its offline names and skin, updates, appearance and accent colour"></td>
+  </tr>
+</table>
 
 ## What changed vs. upstream
 
@@ -35,7 +42,7 @@ Every release ships `SHA256SUMS` and an Ed25519 signature `SHA256SUMS.sig`, made
 ```sh
 # put SHA256SUMS, SHA256SUMS.sig and the assets you downloaded in one folder, then:
 curl -fsSLO https://raw.githubusercontent.com/2ax4/horizon-offline-auto-update/main/offline/verify-release.py
-python3 verify-release.py launcher@0.2.37-offline
+python3 verify-release.py launcher@0.2.41-offline
 ```
 
 The script needs only Python 3.8+, self-tests its own Ed25519 math before trusting it, and exits non-zero if anything fails.
