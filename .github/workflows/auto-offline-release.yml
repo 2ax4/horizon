@@ -70,10 +70,14 @@ jobs:
             [ -z "$version" ] && continue
             target="launcher@${version}-offline"
             marker="offline-failed/${version}-${phash}"
-            if gh release view "$target" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
-              echo "already released: ${target}, every older upstream version is covered by it"
+            if gh release view "$target" -R "$GITHUB_REPOSITORY" --json body -q .body 2>/dev/null | grep -qF "offline-phash:${phash}"; then
+              echo "already released: ${target} with this exact patch set (offline-phash:${phash}); every older upstream version is covered by it"
               break
             fi
+            # A release published from an older patch set (its body carries no matching
+            # offline-phash) does not cover the current patches: fall through and rebuild
+            # the same version. The publish step replaces the release, so the new assets
+            # take the old ones' place under the same tag.
             if [ "${RETRY:-}" != true ] && git ls-remote --exit-code --tags origin "refs/tags/${marker}" >/dev/null 2>&1; then
               echo "skipping ${version}: the marker tag ${marker} says it already failed with these patches and workflows; change them, or run this workflow with retry"
               continue
