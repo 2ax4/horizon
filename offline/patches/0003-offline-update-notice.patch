@@ -1,4 +1,4 @@
-From 8dc7b4dd8fba4703623dbf88df4f512e90862998 Mon Sep 17 00:00:00 2001
+From 4b46bd9c6d84fa0f98703311b0d5e496f83a1b47 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH] Offline updates follow the fork's releases
@@ -11,7 +11,7 @@ Subject: [PATCH] Offline updates follow the fork's releases
  4 files changed, 170 insertions(+), 40 deletions(-)
 
 diff --git a/crates/horizon-release-sign/release-keys.txt b/crates/horizon-release-sign/release-keys.txt
-index c39be44..c510154 100644
+index c39be4435..c51015423 100644
 --- a/crates/horizon-release-sign/release-keys.txt
 +++ b/crates/horizon-release-sign/release-keys.txt
 @@ -3,3 +3,4 @@
@@ -20,10 +20,10 @@ index c39be44..c510154 100644
  MU4oiIQcCxkZvbwSjjXs7SySCuM6ywRQ3nGaJYZG0gw=
 +DfcWSiaD14ScBMxU0btrJMPDSspw+flKz43XoXHSsh4=
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 2970c7b..2a7100f 100644
+index 253ced157..f7e37e958 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
-@@ -3775,7 +3775,7 @@ pub fn stage_update(release: &Release, progress: impl Fn(f32)) -> Result<Option<
+@@ -3873,7 +3873,7 @@ pub fn stage_update(release: &Release, progress: impl Fn(f32)) -> Result<Option<
      {
          return Ok(None);
      }
@@ -33,7 +33,7 @@ index 2970c7b..2a7100f 100644
      remove_abandoned_stages(&work, std::time::SystemTime::now(), process_alive);
      let stage = new_stage_folder(&work)?;
 diff --git a/launcher/src/backend/release_loading_tests.rs b/launcher/src/backend/release_loading_tests.rs
-index d7f839b..d64487c 100644
+index d7f839bde..d64487c02 100644
 --- a/launcher/src/backend/release_loading_tests.rs
 +++ b/launcher/src/backend/release_loading_tests.rs
 @@ -42,33 +42,74 @@ fn baseline(load: impl Fn() -> Result<serde_json::Value, String>) -> (Vec<Releas
@@ -216,7 +216,7 @@ index d7f839b..d64487c 100644
              "{label}: before={} after={} ratio={:.3}x requests={}->{}",
              before.0,
 diff --git a/launcher/src/signed.rs b/launcher/src/signed.rs
-index 74e96b6..1f23112 100644
+index 74e96b69b..1f2311274 100644
 --- a/launcher/src/signed.rs
 +++ b/launcher/src/signed.rs
 @@ -4,18 +4,18 @@

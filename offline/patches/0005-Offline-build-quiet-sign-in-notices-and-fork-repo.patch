@@ -1,4 +1,4 @@
-From 0ccd16d5df9e2f32fd76c33fdc4367165747c068 Mon Sep 17 00:00:00 2001
+From 19bca191c36222f8ec6be21c77c71aaa5f70ecc7 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH] Offline build: quiet sign-in notices and fork repo
@@ -8,7 +8,7 @@ Subject: [PATCH] Offline build: quiet sign-in notices and fork repo
  1 file changed, 31 insertions(+), 24 deletions(-)
 
 diff --git a/launcher/src/backend.rs b/launcher/src/backend.rs
-index 2a7100f..3d7bb37 100644
+index f7e37e958..36c5985c0 100644
 --- a/launcher/src/backend.rs
 +++ b/launcher/src/backend.rs
 @@ -10,6 +10,7 @@ use std::sync::mpsc::Sender;
@@ -44,7 +44,7 @@ index 2a7100f..3d7bb37 100644
                  github_tag,
                  &version,
                  asset,
-@@ -1980,8 +1991,6 @@ fn download_for_owner(
+@@ -2078,8 +2089,6 @@ fn download_for_owner(
      log: &dyn Fn(String),
  ) -> Result<(), String> {
      let mut accounts = account::Accounts::load();
@@ -53,7 +53,7 @@ index 2a7100f..3d7bb37 100644
      let pass = account::launch(
          &account::Endpoints::live(),
          account::client_id().as_deref(),
-@@ -2992,9 +3001,6 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
+@@ -3090,9 +3099,6 @@ pub fn need_prepared(tag: &str) -> Result<(), String> {
      }
  }
  
@@ -63,7 +63,7 @@ index 2a7100f..3d7bb37 100644
  pub fn client(tag: &str) -> Result<Command, String> {
      client_as(tag, None)
  }
-@@ -3008,7 +3014,7 @@ pub fn client_as(tag: &str, who: Option<&account::Player>) -> Result<Command, St
+@@ -3106,7 +3112,7 @@ pub fn client_as(tag: &str, who: Option<&account::Player>) -> Result<Command, St
          return Err(error);
      }
      let session = match who {
@@ -72,7 +72,7 @@ index 2a7100f..3d7bb37 100644
          Some(who) => account::session_for_game_as(&game_home(), who),
      }
      .map_err(|refused| format!("{refused} {}", crate::i18n::tr(SIGN_IN_HINT)))?;
-@@ -3182,13 +3188,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
+@@ -3280,13 +3286,25 @@ fn launcher_update_from(releases: &[Release], own: &str) -> Option<Release> {
  pub fn releases_and_updates(
      on_releases: impl FnOnce(Result<Vec<Release>, String>),
  ) -> Result<Updates, String> {
@@ -99,7 +99,7 @@ index 2a7100f..3d7bb37 100644
      on_releases: impl FnOnce(Result<Vec<Release>, String>),
  ) -> Result<Updates, String> {
      let list = match load() {
-@@ -3202,10 +3220,11 @@ fn releases_and_updates_with(
+@@ -3300,10 +3318,11 @@ fn releases_and_updates_with(
      let installed_versions = installed();
      let horizon = horizon_update(&installable_updates(&releases), &installed_versions)
          .or_else(|| architecture_update(&releases, &installed_versions));
@@ -112,7 +112,7 @@ index 2a7100f..3d7bb37 100644
      })
  }
  
-@@ -4269,13 +4288,6 @@ pub struct Settings {
+@@ -4368,13 +4387,6 @@ pub struct Settings {
      /// one now (the owner gate's screen).
      #[serde(default)]
      pub owner_notice_seen: bool,
@@ -126,7 +126,7 @@ index 2a7100f..3d7bb37 100644
      /// What the window does while the game runs. Stays by default.
      #[serde(default)]
      pub while_playing: WhilePlaying,
-@@ -4324,12 +4336,6 @@ pub struct Settings {
+@@ -4423,12 +4435,6 @@ pub struct Settings {
      /// An older file's switch for the release profile, read when `native_profile` is unset.
      #[serde(default, skip_serializing_if = "std::ops::Not::not")]
      pub native_release: bool,
@@ -139,7 +139,7 @@ index 2a7100f..3d7bb37 100644
  }
  
  impl Settings {
-@@ -4595,8 +4601,6 @@ mod tests {
+@@ -4694,8 +4700,6 @@ mod tests {
      }
  
      /// The launcher downloads Mojang's game files (client jar, libraries, assets) only for an
@@ -148,7 +148,7 @@ index 2a7100f..3d7bb37 100644
      #[test]
      fn mojang_downloads_only_for_an_owner() {
          let dir = std::env::temp_dir().join(format!("horizon-owner-only-{}", std::process::id()));
-@@ -4691,7 +4695,10 @@ mod tests {
+@@ -4790,7 +4794,10 @@ mod tests {
          };
          assert!(body("download_for").contains("mojang::download("));
          assert!(body("download_for_owner").contains("account::launch("));

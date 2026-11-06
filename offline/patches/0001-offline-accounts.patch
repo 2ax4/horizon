@@ -1,4 +1,4 @@
-From 57777790f8e37a1312177540e533fae46b968de1 Mon Sep 17 00:00:00 2001
+From 43ee3a878ff2f2e6e1d7faab2405867710571ea4 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH] Offline accounts: add and play with no Microsoft account
@@ -21,7 +21,7 @@ Subject: [PATCH] Offline accounts: add and play with no Microsoft account
  delete mode 100644 launcher/src/dev_options.rs
 
 diff --git a/docs/launcher-commands.md b/docs/launcher-commands.md
-index 0ab14d3..d527d65 100644
+index d69815ff3..3bd47fc1d 100644
 --- a/docs/launcher-commands.md
 +++ b/docs/launcher-commands.md
 @@ -188,8 +188,6 @@ MCP: `account_sign_out`, needs `confirm: true`.
@@ -43,7 +43,7 @@ index 0ab14d3..d527d65 100644
  
  - `NAME`
 diff --git a/launcher/src/account.rs b/launcher/src/account.rs
-index 58b898c..4c61858 100644
+index 58b898c4e..4c6185849 100644
 --- a/launcher/src/account.rs
 +++ b/launcher/src/account.rs
 @@ -6,8 +6,6 @@
@@ -184,7 +184,7 @@ index 58b898c..4c61858 100644
      (
          accounts.selected,
 diff --git a/launcher/src/account/tests.rs b/launcher/src/account/tests.rs
-index 0a1c643..1d27ac2 100644
+index 0a1c643f0..1d27ac299 100644
 --- a/launcher/src/account/tests.rs
 +++ b/launcher/src/account/tests.rs
 @@ -686,76 +686,48 @@ fn any_owner_opens_the_gate_and_the_one_who_plays_brings_the_session() {
@@ -315,7 +315,7 @@ index 0a1c643..1d27ac2 100644
      let dir = std::env::temp_dir().join(format!("horizon-accounts-{}", std::process::id()));
      let _ = std::fs::remove_dir_all(&dir);
 diff --git a/launcher/src/cli.rs b/launcher/src/cli.rs
-index dc6cf9a..6200b8a 100644
+index 506b90988..2dbc4f23e 100644
 --- a/launcher/src/cli.rs
 +++ b/launcher/src/cli.rs
 @@ -126,14 +126,16 @@ enum AccountCmd {
@@ -485,7 +485,7 @@ index dc6cf9a..6200b8a 100644
                  println!(
 diff --git a/launcher/src/dev_options.rs b/launcher/src/dev_options.rs
 deleted file mode 100644
-index a2ade17..0000000
+index a2ade17d7..000000000
 --- a/launcher/src/dev_options.rs
 +++ /dev/null
 @@ -1,62 +0,0 @@
@@ -552,7 +552,7 @@ index a2ade17..0000000
 -    }
 -}
 diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
-index 782cfd6..bcc53d8 100644
+index 782cfd6c2..bcc53d863 100644
 --- a/launcher/src/frame.rs
 +++ b/launcher/src/frame.rs
 @@ -470,36 +470,6 @@ impl Launcher {
@@ -606,7 +606,7 @@ index 782cfd6..bcc53d8 100644
  
          crate::glass::plate(radius::PANEL)
 diff --git a/launcher/src/glass_settings.rs b/launcher/src/glass_settings.rs
-index bc97ee3..584e81c 100644
+index bc97ee31c..584e81c8d 100644
 --- a/launcher/src/glass_settings.rs
 +++ b/launcher/src/glass_settings.rs
 @@ -471,8 +471,7 @@ impl Launcher {
@@ -620,7 +620,7 @@ index bc97ee3..584e81c 100644
          vec![account, updates, launcher, network, game, ai, about, data]
      }
 diff --git a/launcher/src/home.rs b/launcher/src/home.rs
-index 5d48c63..27dbf43 100644
+index 5d48c63c8..27dbf43bc 100644
 --- a/launcher/src/home.rs
 +++ b/launcher/src/home.rs
 @@ -243,7 +243,7 @@ impl Launcher {
@@ -633,7 +633,7 @@ index 5d48c63..27dbf43 100644
              PlayPress::Play => {
                  play = play.on_click(cx.listener(|this, _: &ClickEvent, _, cx| {
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index d93cda3..16fc2da 100644
+index 057b6492b..49bada7f2 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
 @@ -13,7 +13,6 @@ mod console;
@@ -663,7 +663,7 @@ index d93cda3..16fc2da 100644
      /// The game is waiting for its session (a token renewal), or a Java instance for its files
      /// and Java (`start_java`), before it starts.
      starting_client: Option<String>,
-@@ -524,30 +518,6 @@ impl Launcher {
+@@ -528,30 +522,6 @@ impl Launcher {
              }
          })
          .detach();
@@ -694,7 +694,7 @@ index d93cda3..16fc2da 100644
          let mut settings = Settings::load();
          i18n::set(settings.language());
          if settings.minecraft_dir.is_none() {
-@@ -689,8 +659,6 @@ impl Launcher {
+@@ -693,8 +663,6 @@ impl Launcher {
              keychain: None,
              owner: None,
              owner_screen_open: false,
@@ -703,7 +703,7 @@ index d93cda3..16fc2da 100644
              starting_client: None,
              play_when_prepared: None,
              friend_code: line_edit::LineEdit::new(String::new(), 256, 32),
-@@ -1217,8 +1185,7 @@ impl Launcher {
+@@ -1223,8 +1191,7 @@ impl Launcher {
                                  continue;
                              }
                          };
@@ -713,7 +713,7 @@ index d93cda3..16fc2da 100644
                              self.owner = Some(true);
                          }
                          if let Some(file) = file {
-@@ -1873,7 +1840,6 @@ impl Launcher {
+@@ -1881,7 +1848,6 @@ impl Launcher {
          self.starting_client = Some(tag.clone());
          self.play_pressed = Some(Instant::now());
          let tx = self.tx.clone();
@@ -721,7 +721,7 @@ index d93cda3..16fc2da 100644
          // Registry mods update before the game reads them (`horizon::auto`); native mods only
          // at start, where a build can follow.
          let auto = self
-@@ -1893,7 +1859,7 @@ impl Launcher {
+@@ -1901,7 +1867,7 @@ impl Launcher {
                      let _ = mods_tx.send(mods_page::Event::AutoUpdated(lines, Vec::new()));
                  }
              }
@@ -730,7 +730,7 @@ index d93cda3..16fc2da 100644
              let _ = tx.send(Msg::Session(session));
          });
      }
-@@ -2459,10 +2425,7 @@ fn segments<T: Copy + PartialEq + 'static>(
+@@ -2467,10 +2433,7 @@ fn segments<T: Copy + PartialEq + 'static>(
  #[derive(Clone, Copy, Debug, PartialEq, Eq)]
  enum PlayPress {
      Play,
@@ -741,7 +741,7 @@ index d93cda3..16fc2da 100644
      Nothing,
  }
  
-@@ -2509,13 +2472,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
+@@ -2517,13 +2480,11 @@ fn sign_in_change(shown: &mut Option<SignInState>, next: SignInState) -> Option<
      Some(next)
  }
  
@@ -758,7 +758,7 @@ index d93cda3..16fc2da 100644
      }
  }
  
-@@ -2523,7 +2484,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
+@@ -2531,7 +2492,7 @@ fn play_press(prepared: bool, owner: Option<bool>, busy: bool) -> PlayPress {
  /// code, a pack's Play) starts it now: only when Play would play. Never while a preparation runs:
  /// the game would open on half-written files.
  fn starts_now(prepared: bool, preparing: bool, running: bool) -> bool {
@@ -767,7 +767,7 @@ index d93cda3..16fc2da 100644
  }
  
  /// Whether `tag` can start being deleted now: it is installed, no install is writing it, and it
-@@ -2929,7 +2890,6 @@ impl Launcher {
+@@ -2937,7 +2898,6 @@ impl Launcher {
              },
          ));
          let items = self.instance_items(heading, cx);
@@ -775,7 +775,7 @@ index d93cda3..16fc2da 100644
          let list = div()
              .flex()
              .flex_col()
-@@ -2945,8 +2905,6 @@ impl Launcher {
+@@ -2953,8 +2913,6 @@ impl Launcher {
          if !servers.is_empty() {
              list = list.child(heading(tr("SERVERS").into()));
          }
@@ -784,7 +784,7 @@ index d93cda3..16fc2da 100644
          for e in servers {
              let up = self.servers.is_up(&e.dir);
              let open = self.page == Page::Servers && self.servers.open.as_ref() == Some(&e.dir);
-@@ -3093,34 +3051,6 @@ impl Launcher {
+@@ -3101,34 +3059,6 @@ impl Launcher {
              }
              _ => {}
          }
@@ -819,7 +819,7 @@ index d93cda3..16fc2da 100644
          if !self.links.sponsor.is_empty() {
              foot = foot.child(link(
                  "sponsor",
-@@ -3150,11 +3080,7 @@ impl Launcher {
+@@ -3158,11 +3088,7 @@ impl Launcher {
                  .id("launcher-version")
                  .px(px(8.))
                  .pt(px(6.))
@@ -832,7 +832,7 @@ index d93cda3..16fc2da 100644
          );
          // Custom title bars carry the mark and name already.
          let brand = (!titlebar::draws_brand(window)).then(|| {
-@@ -3371,10 +3297,8 @@ impl Launcher {
+@@ -3379,10 +3305,8 @@ impl Launcher {
          let left = self.download_left();
          let steps = self.preparing.then(|| self.steps(&version, left));
  
@@ -844,7 +844,7 @@ index d93cda3..16fc2da 100644
              .flatten();
          // No launcher folder with Minecraft on this computer: an owner needs none.
          let no_install = self.settings.minecraft_dir.is_none();
-@@ -3389,7 +3313,7 @@ impl Launcher {
+@@ -3397,7 +3321,7 @@ impl Launcher {
                  &[("version", &version)],
              ),
              Some(false) => trf(
@@ -853,7 +853,7 @@ index d93cda3..16fc2da 100644
                  &[("version", &version)],
              ),
              None => backend::resources_summary(prepared, !silent, &version),
-@@ -3448,12 +3372,25 @@ impl Launcher {
+@@ -3456,12 +3380,25 @@ impl Launcher {
                          cx.notify();
                      })),
                  ),
@@ -885,7 +885,7 @@ index d93cda3..16fc2da 100644
              None => div().child(prepare),
          };
          let owner = self.owner == Some(true);
-@@ -3521,11 +3458,10 @@ impl Launcher {
+@@ -3529,11 +3466,10 @@ impl Launcher {
                  &t,
              )),
          };
@@ -900,7 +900,7 @@ index d93cda3..16fc2da 100644
                  rows = rows.child(index_row(
                      5,
                      tr("Microsoft account"),
-@@ -4087,7 +4023,6 @@ impl Launcher {
+@@ -4094,7 +4030,6 @@ impl Launcher {
              )
              .child(self.collection_section(cx))
              .children(self.agents_section(cx))
@@ -908,7 +908,7 @@ index d93cda3..16fc2da 100644
      }
  
      /// The warning before a native build: what the mods can do and which mods. The build starts
-@@ -5943,22 +5878,13 @@ mod tests {
+@@ -5954,22 +5889,13 @@ mod tests {
          );
      }
  
@@ -937,7 +937,7 @@ index d93cda3..16fc2da 100644
  
      /// A server's Join (and every other shortcut) waits like Play: not while the version's
 diff --git a/launcher/src/mcp.rs b/launcher/src/mcp.rs
-index b278ae9..f2a208f 100644
+index b278ae968..f2a208fdc 100644
 --- a/launcher/src/mcp.rs
 +++ b/launcher/src/mcp.rs
 @@ -210,7 +210,6 @@ impl Session {
@@ -949,7 +949,7 @@ index b278ae9..f2a208f 100644
                      "sign_in": sign_in,
                  }))
 diff --git a/launcher/src/owner_page.rs b/launcher/src/owner_page.rs
-index 3e0acab..5cb3357 100644
+index 3e0acab44..5cb33571f 100644
 --- a/launcher/src/owner_page.rs
 +++ b/launcher/src/owner_page.rs
 @@ -1,28 +1,14 @@
@@ -1052,7 +1052,7 @@ index 3e0acab..5cb3357 100644
                  shell::action("owner-later", shell::Action::Quiet, &t)
                      .child(shell::label(tr("Not now").to_string()))
 diff --git a/launcher/src/switch_page.rs b/launcher/src/switch_page.rs
-index b968f9d..4192256 100644
+index b968f9d1e..419225692 100644
 --- a/launcher/src/switch_page.rs
 +++ b/launcher/src/switch_page.rs
 @@ -24,9 +24,7 @@ impl Launcher {
@@ -1067,7 +1067,7 @@ index b968f9d..4192256 100644
              Ok(()) => self.accounts = accounts,
              Err(e) => self.sign_in_state = Some(SignInState::Done(Err(e))),
 diff --git a/launcher/tests/owner_gate.rs b/launcher/tests/owner_gate.rs
-index 3a78692..8f263f9 100644
+index 3a7869272..8f263f93b 100644
 --- a/launcher/tests/owner_gate.rs
 +++ b/launcher/tests/owner_gate.rs
 @@ -1,25 +1,18 @@
