@@ -18,7 +18,9 @@ use crate::glass_ui as ui;
 use gpui::RenderImage;
 use horizon_cosmetics::prefs::{self, Others, Prefs};
 use horizon_cosmetics::{Item, Slot, Texture};
-use horizon_launcher::wardrobe::{Catalogue, Change, ClaimState, Error, Saved, Service, Session};
+use horizon_launcher::wardrobe::{
+    Catalogue, Change, Claim, ClaimState, Error, Me, Saved, Service, Session,
+};
 use horizon_theme::glass::{fill, ink, radius};
 use std::collections::HashMap;
 use std::sync::Arc;
@@ -83,6 +85,9 @@ struct Trip {
     saved: Saved,
     items: HashMap<String, Arc<Item>>,
     session: Option<Arc<Session>>,
+    /// Whether this trip is for an offline name: its outfit is this disk's alone, so the game
+    /// learns what it wears even when the service isn't reached.
+    offline: bool,
     result: Result<(), Error>,
 }
 
@@ -167,6 +172,25 @@ fn fetch_items(service: &Service, catalogue: &Catalogue) -> HashMap<String, Arc<
         .collect()
 }
 
+/// The offline name's skin as the preview takes it: the PNG the player picked for the name
+/// (`skins/<name>.png`), 64×64 only (the older 64×32 and missing ones show a plain figure).
+fn offline_skin(name: &str, slim: bool) -> Option<(Arc<Texture>, bool)> {
+    let (file, _) =
+        horizon_launcher::skins::files(&horizon_launcher::skins::dir(), name);
+    let png = std::fs::read(file).ok()?;
+    let image = image::load_from_memory(&png).ok()?.to_rgba8();
+    (image.dimensions() == (64, 64)).then(|| {
+        (
+            Arc::new(Texture {
+                width: 64,
+                height: 64,
+                rgba: image.into_raw(),
+            }),
+            slim,
+        )
+    })
+}
+
 /// The catalogue (the kept one's items if the service isn't reached), a session proved with
 /// Mojang, what waits sent, then the account's own answer with anything still waiting on top.
 fn refresh(service: &Service, account: &account::Account, trip: &mut Trip) -> Result<(), Error> {
@@ -188,6 +212,71 @@ fn refresh(service: &Service, account: &account::Account, trip: &mut Trip) -> Re
         &mut trip.saved,
         |id| account::session::join_server(&account.uuid, id),
     )
+}
+
+/// The offline name's refresh: the catalogue and its items from the service when it answers, the
+/// kept ones otherwise, and the outfit kept on this disk — everything the catalogue lists is
+/// owned here, and nothing is asked of Mojang (an offline name has no session to prove). What it
+/// wears waits on this disk alone, and the game is told all the same.
+fn refresh_offline(
+    service: &Service,
+    account: &account::Account,
+    trip: &mut Trip,
+) -> Result<(), Error> {
+    match service.catalogue() {
+        Ok(c) => {
+            trip.items = fetch_items(service, &c);
+            trip.saved.catalogue = Some(c);
+        }
+        Err(e) => {
+            if let Some(c) = &trip.saved.catalogue {
+                trip.items = fetch_items(service, c);
+            }
+            // Nothing kept yet and nothing asked for: the page says it's offline instead of an
+            // empty wardrobe.
+            if trip.saved.me.is_none() {
+                return Err(e);
+            }
+        }
+    }
+    let owned: Vec<String> = trip
+        .saved
+        .catalogue
+        .as_ref()
+        .map(|c| {
+            c.items
+                .iter()
+                .filter(|e| e.theme.is_none())
+                .map(|e| e.id.clone())
+                .collect()
+        })
+        .unwrap_or_default();
+    let me = trip.saved.me.get_or_insert_with(|| Me {
+        uuid: account.uuid.clone(),
+        name: account.name.clone(),
+        owned: Vec::new(),
+        equipped: Default::default(),
+        visible: true,
+        claim: Claim {
+            state: ClaimState::NotYet,
+            items: Vec::new(),
+            starts_at: None,
+            ends_at: None,
+            claimed: None,
+            open: false,
+            preview: false,
+            one_click: false,
+        },
+        purchases: Vec::new(),
+    });
+    me.uuid = account.uuid.clone();
+    me.name = account.name.clone();
+    for id in owned {
+        if !me.owned.contains(&id) {
+            me.owned.push(id);
+        }
+    }
+    Ok(())
 }
 
 /// `founder_visor` → "Founder Visor", for the preview's made-up names.
@@ -269,12 +358,19 @@ impl Launcher {
         let session = keep.as_ref().and_then(|w| w.session.clone());
         // The view keeps its camera from the last visit.
         let viewer = keep.as_ref().and_then(|w| w.viewer.clone());
+        let offline = !matches!(self.accounts.player(), account::Player::Microsoft(_));
+        let look = if offline {
+            let model = self.accounts.look(&account.name).model;
+            offline_skin(&account.name, model == horizon_launcher::skins::Model::Slim)
+        } else {
+            skin(&account)
+        };
         self.wardrobe = Some(Wardrobe {
             uuid: account.uuid.clone(),
             saved: saved.clone(),
             items: keep.map(|w| w.items).unwrap_or_default(),
             session: session.clone(),
-            skin: skin(&account),
+            skin: look,
             status: Status::Loading,
             busy: true,
             slot,
@@ -290,9 +386,14 @@ impl Launcher {
                 saved,
                 items: HashMap::new(),
                 session,
+                offline,
                 result: Ok(()),
             };
-            trip.result = refresh(&service, &account, &mut trip);
+            trip.result = if offline {
+                refresh_offline(&service, &account, &mut trip)
+            } else {
+                refresh(&service, &account, &mut trip)
+            };
             if let Err(e) = trip.saved.save(&dir(), &account.uuid) {
                 eprintln!("Horizon: the outfit is not saved: {e}");
             }
@@ -363,11 +464,21 @@ impl Launcher {
         .detach();
     }
 
-    /// The account the page is for: the selected one, if it signed in with Microsoft.
+    /// The account the page is for: the selected one, if it signed in with Microsoft; the
+    /// offline name's own otherwise (the offline build's Wardrobe and Shop work for it too —
+    /// everything it wears is kept on this disk, nothing asked of the service's sessions).
     fn wardrobe_account(&self) -> Option<account::Account> {
         match self.accounts.player() {
             account::Player::Microsoft(_) => self.accounts.selected().cloned(),
-            _ => None,
+            _ => {
+                let player = account::offline_java_player(&self.accounts);
+                Some(account::Account {
+                    uuid: player.uuid.replace('-', ""),
+                    name: player.name,
+                    skin: None,
+                    cape: None,
+                })
+            }
         }
     }
 
@@ -382,7 +493,7 @@ impl Launcher {
         }
         w.session = trip.session;
         w.saved = trip.saved;
-        if trip.result.is_ok() {
+        if trip.result.is_ok() || trip.offline {
             tell_the_game(&w.uuid, &w.saved);
         }
         w.status = match trip.result {
@@ -476,6 +587,7 @@ impl Launcher {
                 saved,
                 items: HashMap::new(),
                 session: None,
+                offline: false,
                 result,
             }
         });
@@ -515,6 +627,7 @@ impl Launcher {
                 saved,
                 items: HashMap::new(),
                 session: None,
+                offline: false,
                 // The page itself still stands when the service refuses: say why instead.
                 result: result.or_else(|e| if e.retry_later() { Err(e) } else { Ok(()) }),
             };

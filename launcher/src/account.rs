@@ -2348,7 +2348,8 @@ fn java_player_with(
 
 /// Java Edition's player for an offline name: the name, vanilla's UUID for it
 /// (`OfflinePlayer:` + the name, as a server would make it) and no Microsoft token or xuid.
-fn offline_java_player(accounts: &Accounts) -> crate::java_launch::Player {
+/// The Wardrobe's page takes the same name and UUID for an offline account of its own.
+pub fn offline_java_player(accounts: &Accounts) -> crate::java_launch::Player {
     // The name the game made up, once it has run (`horizon-player.txt`'s `name:` line, as
     // horizon-client writes it).
     let made_up = || {
