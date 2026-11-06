@@ -18,7 +18,7 @@ impl Launcher {
         self.glass_who_plays(cx)
             .flex_1()
             .min_w_0()
-            .p(px(24.))
+            .p(px(20.))
     }
 
     /// The player now, the offline names and the field to add one.
@@ -175,20 +175,20 @@ impl Launcher {
             .child(header)
             .child(
                 ui::text(13., FontWeight::MEDIUM, 0.6)
-                    .mt(px(32.))
+                    .mt(px(20.))
                     .child(tr("Offline names")),
             )
             .child(chips)
             .child(
                 ui::text(13., FontWeight::NORMAL, 0.5)
-                    .mt(px(12.))
+                    .mt(px(10.))
                     .line_height(px(19.5))
                     .child(tr(
                         "3 to 16 letters, numbers or underscores. Switch names from the top bar \
                          too. Online servers don't take offline names.",
                     )),
             )
-            .children(self.skin_panel(cx).map(|p| p.mt(px(16.))))
+            .children(self.skin_panel(cx).map(|p| p.mt(px(12.))))
     }
 
     /// An offline name's chip: its head and name, a tick on the one playing; white at 14 % for
