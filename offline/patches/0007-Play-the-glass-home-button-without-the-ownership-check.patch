@@ -1,4 +1,4 @@
-From 21fb11f8be0e515281786bfb5bf49550f6076efc Mon Sep 17 00:00:00 2001
+From d0d8d664e795b4fb8ced1825378f95dfc8f51f06 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 22:45:00 +0000
 Subject: [PATCH 5/9] Play the glass home button without the ownership check
@@ -13,10 +13,10 @@ what kept every offline release assetless since 0.2.38.
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/launcher/src/glass_home.rs b/launcher/src/glass_home.rs
-index 1089306de..89f27e7fb 100644
+index 2926e149e..25b2ae322 100644
 --- a/launcher/src/glass_home.rs
 +++ b/launcher/src/glass_home.rs
-@@ -405,7 +405,7 @@ impl Launcher {
+@@ -417,7 +417,7 @@ impl Launcher {
                      Some(_) => (tr("Update"), "download-04"),
                      None => (tr("Play"), "play"),
                  };

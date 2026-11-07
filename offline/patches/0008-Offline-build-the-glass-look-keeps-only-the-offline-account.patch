@@ -1,16 +1,9 @@
-From 6e5a93bcac9f8e17cc8036641c757209b0a1d80d Mon Sep 17 00:00:00 2001
+From e18931131f61a478333f69ca9ff2bb6c1eb0f1e9 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
-Date: Thu, 5 Nov 2026 00:22:20 +0000
+Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 6/9] Offline build: the glass look keeps only the offline
  account
 
-The top bar drops the Sign in with Microsoft button: the account chip
-(who plays, and how) moves into its place, next to the settings button.
-
-Settings' Account card drops the Microsoft card with its white button and
-its glass plate: the offline account, its offline names and the skin panel
-are the whole card, at the full width. The three strings the card alone
-used go from every language table, as patch 0006's test asks.
 ---
  launcher/lang/af.json         |   3 -
  launcher/lang/ar.json         |   3 -
@@ -104,7 +97,7 @@ used go from every language table, as patch 0006's test asks.
  89 files changed, 14 insertions(+), 418 deletions(-)
 
 diff --git a/launcher/lang/af.json b/launcher/lang/af.json
-index 18a1ff289..d569353bb 100644
+index 21078bf70..6523e4460 100644
 --- a/launcher/lang/af.json
 +++ b/launcher/lang/af.json
 @@ -1061,9 +1061,6 @@
@@ -118,7 +111,7 @@ index 18a1ff289..d569353bb 100644
    "1 hour ago": "1 uur gelede",
    "1 line": "1 reël",
 diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
-index 3e3d43874..e46766413 100644
+index e2b73f708..56a770c50 100644
 --- a/launcher/lang/ar.json
 +++ b/launcher/lang/ar.json
 @@ -1063,9 +1063,6 @@
@@ -132,7 +125,7 @@ index 3e3d43874..e46766413 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "يعود لون التمييز والزجاج والتمويه واللغة والخيارات أعلاه إلى ما يأتي به Horizon.",
    "Reset the launcher's look": "إعادة تعيين مظهر المشغّل",
 diff --git a/launcher/lang/az.json b/launcher/lang/az.json
-index df2a05ce4..ed66c05b0 100644
+index b1680c7db..a406999d5 100644
 --- a/launcher/lang/az.json
 +++ b/launcher/lang/az.json
 @@ -1061,9 +1061,6 @@
@@ -146,7 +139,7 @@ index df2a05ce4..ed66c05b0 100644
    "1 hour ago": "1 saat əvvəl",
    "1 line": "1 sətir",
 diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
-index 6f5be70d0..ef409cd4f 100644
+index 61993a4d2..6f2ca0544 100644
 --- a/launcher/lang/ba.json
 +++ b/launcher/lang/ba.json
 @@ -1061,9 +1061,6 @@
@@ -160,7 +153,7 @@ index 6f5be70d0..ef409cd4f 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент төҫө, быяла, размытие, тел һәм өҫтәге варианттар нисек Horizon суднолар ҡайтып.",
    "Reset the launcher's look": "Сбросить старт&#8217;ы тышҡы ҡиәфәте",
 diff --git a/launcher/lang/be.json b/launcher/lang/be.json
-index 4250cdbd2..c73e153c6 100644
+index c923435d8..356f63a3c 100644
 --- a/launcher/lang/be.json
 +++ b/launcher/lang/be.json
 @@ -1061,9 +1061,6 @@
@@ -174,7 +167,7 @@ index 4250cdbd2..c73e153c6 100644
    "1 hour ago": "1 гадзіну таму",
    "1 line": "1 радок",
 diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
-index d5e2d46db..912176330 100644
+index 08b1651db..6e4aa8c4d 100644
 --- a/launcher/lang/bg.json
 +++ b/launcher/lang/bg.json
 @@ -1063,9 +1063,6 @@
@@ -188,7 +181,7 @@ index d5e2d46db..912176330 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Оцветява бутоните, превключвателите и небето. Избери цвят или въведи произволен hex цвят.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Експериментално. Вгражда нативните модове, на които имаш доверие, в отделна собствена игра.",
 diff --git a/launcher/lang/br.json b/launcher/lang/br.json
-index 0c37a31c8..7f5e1f042 100644
+index 6c8db2d2e..ac3a05b1f 100644
 --- a/launcher/lang/br.json
 +++ b/launcher/lang/br.json
 @@ -1061,9 +1061,6 @@
@@ -202,7 +195,7 @@ index 0c37a31c8..7f5e1f042 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Liv ar pouez-mouezh, ar gwer, an disterañ, ar yezh hag an dibaboù meneget a-us a ya en-dro d'ar mod ma vez kaset Horizon.",
    "Reset the launcher's look": "Adderaouekaat gwel al lañser",
 diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
-index 0dd3e36d7..7c11eca8a 100644
+index 2492db902..9ee3142db 100644
 --- a/launcher/lang/bs.json
 +++ b/launcher/lang/bs.json
 @@ -1061,9 +1061,6 @@
@@ -216,7 +209,7 @@ index 0dd3e36d7..7c11eca8a 100644
    "1 hour ago": "prije 1 sat",
    "1 line": "1 red",
 diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
-index f4297a0fe..d5e6158ba 100644
+index 1a332f594..3cc86024c 100644
 --- a/launcher/lang/ca.json
 +++ b/launcher/lang/ca.json
 @@ -1081,7 +1081,6 @@
@@ -244,7 +237,7 @@ index f4297a0fe..d5e6158ba 100644
    "just now": "ara mateix",
    "soon": "aviat",
 diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
-index bcd1e1104..a866e120d 100644
+index 50ca9e15c..42ff8ccd2 100644
 --- a/launcher/lang/cs.json
 +++ b/launcher/lang/cs.json
 @@ -1063,9 +1063,6 @@
@@ -258,7 +251,7 @@ index bcd1e1104..a866e120d 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Barva zvýraznění, sklo, rozmazání, jazyk a výše uvedené možnosti se vrátí do výchozího stavu Horizonu.",
    "Reset the launcher's look": "Obnovit vzhled launcheru",
 diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
-index c05955617..b16c7f516 100644
+index 233a18e98..48d89dbdf 100644
 --- a/launcher/lang/cv.json
 +++ b/launcher/lang/cv.json
 @@ -1061,9 +1061,6 @@
@@ -272,7 +265,7 @@ index c05955617..b16c7f516 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент тӗсӗ, кантӑк, пӑтранчӑк, чӗлхе тата ҫӳлти вариантсем Horizon мӗнле ярса панине таврӑнаҫҫӗ.",
    "Reset the launcher's look": "Пускавҫӑн сӑн-сӑпатне ҫӗнӗрен лартӑр",
 diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
-index f9f2b6d8f..6fc51f89b 100644
+index f042778ba..42220bce1 100644
 --- a/launcher/lang/cy.json
 +++ b/launcher/lang/cy.json
 @@ -1061,9 +1061,6 @@
@@ -286,7 +279,7 @@ index f9f2b6d8f..6fc51f89b 100644
    "1 hour": "1 awr",
    "1 hour ago": "1 awr yn ôl",
 diff --git a/launcher/lang/da.json b/launcher/lang/da.json
-index 03543553f..bbe1e2c05 100644
+index b84a74a05..345d76d6e 100644
 --- a/launcher/lang/da.json
 +++ b/launcher/lang/da.json
 @@ -1063,9 +1063,6 @@
@@ -300,7 +293,7 @@ index 03543553f..bbe1e2c05 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Farver knapperne, kontakterne og himlen. Vælg en, eller skriv en vilkårlig hex-farve.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentel. Bygger de native mods, du stoler på, ind i et spil for sig.",
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index 14eb3a92f..ee03c3a0d 100644
+index 1c4895f53..9bf6e196e 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
 @@ -1063,9 +1063,6 @@
@@ -314,7 +307,7 @@ index 14eb3a92f..ee03c3a0d 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akzentfarbe, Glas, Unschärfe, Sprache und die Optionen darüber kehren zum Auslieferungszustand von Horizon zurück.",
    "Reset the launcher's look": "Aussehen des Launchers zurücksetzen",
 diff --git a/launcher/lang/el.json b/launcher/lang/el.json
-index a8c440a76..a43cba56d 100644
+index 0e60b1f22..5d1a20e43 100644
 --- a/launcher/lang/el.json
 +++ b/launcher/lang/el.json
 @@ -1063,9 +1063,6 @@
@@ -328,7 +321,7 @@ index a8c440a76..a43cba56d 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Το χρώμα έμφασης, το γυαλί, το θάμπωμα, η γλώσσα και οι παραπάνω επιλογές επιστρέφουν στις προεπιλογές του Horizon.",
    "Reset the launcher's look": "Επαναφορά εμφάνισης του launcher",
 diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
-index f3606b7a9..77206b385 100644
+index 37df6cd27..c5a2dac7b 100644
 --- a/launcher/lang/eo.json
 +++ b/launcher/lang/eo.json
 @@ -1061,9 +1061,6 @@
@@ -342,7 +335,7 @@ index f3606b7a9..77206b385 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akcentkoloro, vitro, malklareco, lingvo kaj la supraj elektoj reiras al kiel Horizon ekspediĝas.",
    "Reset the launcher's look": "Restarigu la aspekton de la lanĉilo",
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index ba334ff62..ff6419c2b 100644
+index a69804bed..101f8e4a4 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
 @@ -1063,9 +1063,6 @@
@@ -356,7 +349,7 @@ index ba334ff62..ff6419c2b 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "El color de acento, el cristal, el desenfoque, el idioma y las opciones de arriba vuelven a como viene Horizon.",
    "Reset the launcher's look": "Restablecer el aspecto del launcher",
 diff --git a/launcher/lang/et.json b/launcher/lang/et.json
-index ab6babb98..fea78a6b3 100644
+index 3201b6d81..5f6a40e92 100644
 --- a/launcher/lang/et.json
 +++ b/launcher/lang/et.json
 @@ -1081,7 +1081,6 @@
@@ -384,7 +377,7 @@ index ab6babb98..fea78a6b3 100644
    "just now": "just praegu",
    "soon": "varsti",
 diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
-index c9af50d64..a2cb451a7 100644
+index e6c9f6942..cb472e839 100644
 --- a/launcher/lang/eu.json
 +++ b/launcher/lang/eu.json
 @@ -1061,9 +1061,6 @@
@@ -398,7 +391,7 @@ index c9af50d64..a2cb451a7 100644
    "1 hour": "Ordu 1",
    "1 hour ago": "Duela ordu 1",
 diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
-index 141a68fac..fe8944ed3 100644
+index b7e3b1829..d01b0f86c 100644
 --- a/launcher/lang/fa.json
 +++ b/launcher/lang/fa.json
 @@ -1063,9 +1063,6 @@
@@ -412,7 +405,7 @@ index 141a68fac..fe8944ed3 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "رنگ تأکیدی، شیشه، محوشدگی، زبان و گزینه‌های بالا به حالت پیش‌فرض Horizon برمی‌گردند.",
    "Reset the launcher's look": "بازنشانی ظاهر لانچر",
 diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
-index 549c11568..101ccba4e 100644
+index 7f6b009d2..68473de10 100644
 --- a/launcher/lang/fi.json
 +++ b/launcher/lang/fi.json
 @@ -1063,9 +1063,6 @@
@@ -426,7 +419,7 @@ index 549c11568..101ccba4e 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Värittää painikkeet, kytkimet ja taivaan. Valitse väri tai kirjoita mikä tahansa hex-väri.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Kokeellinen. Rakentaa luottamasi natiivimodit omaksi pelikseen.",
 diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
-index c6fb1dc18..ef1153616 100644
+index 952a34590..f60a2eaee 100644
 --- a/launcher/lang/fil.json
 +++ b/launcher/lang/fil.json
 @@ -1061,9 +1061,6 @@
@@ -440,7 +433,7 @@ index c6fb1dc18..ef1153616 100644
    "1 hour": "1 oras",
    "1 hour ago": "1 oras ang nakalipas",
 diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
-index 32626391a..3509b1d71 100644
+index c55835f03..b7c273e6f 100644
 --- a/launcher/lang/fo.json
 +++ b/launcher/lang/fo.json
 @@ -1061,9 +1061,6 @@
@@ -454,7 +447,7 @@ index 32626391a..3509b1d71 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Aksentlitur, glas, tjúkkur, mál og møguleikarnir omanfyri ganga aftur til hvussu Horizon skipar.",
    "Reset the launcher's look": "Nullstilla útsjóndina á sjósetaranum",
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index c6d6df30e..0507ec80a 100644
+index 9441dac2d..02e26888e 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
 @@ -1063,9 +1063,6 @@
@@ -468,7 +461,7 @@ index c6d6df30e..0507ec80a 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "La couleur d'accent, le verre, le flou, la langue et les options au-dessus reviennent à ceux de Horizon par défaut.",
    "Reset the launcher's look": "Réinitialiser l'apparence du launcher",
 diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
-index 86002cde5..760d435a7 100644
+index 00c5948e4..03dcac10f 100644
 --- a/launcher/lang/fur.json
 +++ b/launcher/lang/fur.json
 @@ -1063,9 +1063,6 @@
@@ -482,7 +475,7 @@ index 86002cde5..760d435a7 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Colôr di acent, veri, sfume, lengaç e lis opzions parsore a tornin a cemût che Horizon al spedis.",
    "Reset the launcher's look": "Azerâ l’aspiet dal lançadôr",
 diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
-index e14a76deb..69a7d1f0e 100644
+index f564f01d7..b5076564f 100644
 --- a/launcher/lang/fy.json
 +++ b/launcher/lang/fy.json
 @@ -1061,9 +1061,6 @@
@@ -496,7 +489,7 @@ index e14a76deb..69a7d1f0e 100644
    "1 hour": "1 oere",
    "1 hour ago": "1 oere lyn",
 diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
-index 76261eedc..586ac15ae 100644
+index cf188c52c..e4c5951bc 100644
 --- a/launcher/lang/ga.json
 +++ b/launcher/lang/ga.json
 @@ -1061,9 +1061,6 @@
@@ -510,7 +503,7 @@ index 76261eedc..586ac15ae 100644
    "1 hour": "1 uair",
    "1 hour ago": "1 uair ó shin",
 diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
-index 8e14da665..95fb32093 100644
+index 9c7d57145..e30771ff8 100644
 --- a/launcher/lang/gd.json
 +++ b/launcher/lang/gd.json
 @@ -1061,9 +1061,6 @@
@@ -524,7 +517,7 @@ index 8e14da665..95fb32093 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Tha dath stràc, glainne, blur, cànan agus na roghainnean gu h-àrd a’ dol air ais gu mar a bhios soithichean Horizon.",
    "Reset the launcher's look": "Ath-shuidhich sealladh an lannsair",
 diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
-index 291e67a41..30a6b818f 100644
+index 0657cbaf3..7598fd0eb 100644
 --- a/launcher/lang/gl.json
 +++ b/launcher/lang/gl.json
 @@ -1061,9 +1061,6 @@
@@ -538,7 +531,7 @@ index 291e67a41..30a6b818f 100644
    "1 hour": "1 hora",
    "1 hour ago": "hai 1 hora",
 diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
-index 24fd01d52..457ff5f87 100644
+index 357a1d55c..3c550b0f2 100644
 --- a/launcher/lang/haw.json
 +++ b/launcher/lang/haw.json
 @@ -1061,9 +1061,6 @@
@@ -552,7 +545,7 @@ index 24fd01d52..457ff5f87 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ʻO ka waihoʻoluʻu, aniani, blur, ʻōlelo a me nā koho ma luna e hoʻi i ke ʻano o Horizon moku.",
    "Reset the launcher's look": "Hoʻoponopono hou i ke ʻano o ka mea hoʻolaha",
 diff --git a/launcher/lang/he.json b/launcher/lang/he.json
-index 3b93aecec..4756fe48f 100644
+index d67da1957..4957c90ca 100644
 --- a/launcher/lang/he.json
 +++ b/launcher/lang/he.json
 @@ -1063,9 +1063,6 @@
@@ -566,7 +559,7 @@ index 3b93aecec..4756fe48f 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "צובע את הכפתורים, המתגים והשמיים. בחר צבע, או הקלד כל צבע hex.",
    "Experimental. Builds the native mods you trust into a game of their own.": "ניסיוני. בונה את המודים הנייטיב שאתה סומך עליהם למשחק נפרד משלהם.",
 diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
-index 425a6c111..2fb0d56cf 100644
+index 8030e3257..edb7cad43 100644
 --- a/launcher/lang/hi.json
 +++ b/launcher/lang/hi.json
 @@ -1063,9 +1063,6 @@
@@ -580,7 +573,7 @@ index 425a6c111..2fb0d56cf 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "एक्सेंट रंग, ग्लास, ब्लर, भाषा और ऊपर के विकल्प Horizon के मूल रूप में लौट आते हैं।",
    "Reset the launcher's look": "लॉन्चर का रूप रीसेट करें",
 diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
-index a9d6cf13c..d94cd6bee 100644
+index 7cbc0442a..0020ef569 100644
 --- a/launcher/lang/hr.json
 +++ b/launcher/lang/hr.json
 @@ -1063,9 +1063,6 @@
@@ -594,7 +587,7 @@ index a9d6cf13c..d94cd6bee 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Boja naglaska, staklo, zamućenje, jezik i gornje opcije vraćaju se na Horizonove zadane.",
    "Reset the launcher's look": "Vrati izgled pokretača",
 diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
-index eec32b432..63e939c23 100644
+index 1b2d3ed7e..9e63a6e02 100644
 --- a/launcher/lang/hu.json
 +++ b/launcher/lang/hu.json
 @@ -1063,9 +1063,6 @@
@@ -608,7 +601,7 @@ index eec32b432..63e939c23 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Ezzel színeződnek a gombok, a kapcsolók és az ég. Válassz egyet, vagy írj be bármilyen hex színt.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Kísérleti. A megbízhatónak tartott natív modokat egy külön játékba építi.",
 diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
-index ba59fdae0..8c99de0a9 100644
+index c543272d0..7aff61624 100644
 --- a/launcher/lang/hy.json
 +++ b/launcher/lang/hy.json
 @@ -1061,9 +1061,6 @@
@@ -622,7 +615,7 @@ index ba59fdae0..8c99de0a9 100644
    "1 hour ago": "1 ժամ առաջ",
    "1 line": "1 տող",
 diff --git a/launcher/lang/id.json b/launcher/lang/id.json
-index 0d55b18d7..ee89cdf7a 100644
+index b41b7a98e..d1b731f69 100644
 --- a/launcher/lang/id.json
 +++ b/launcher/lang/id.json
 @@ -1063,9 +1063,6 @@
@@ -636,7 +629,7 @@ index 0d55b18d7..ee89cdf7a 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Warna aksen, kaca, buram, bahasa, dan opsi di atas kembali seperti bawaan Horizon.",
    "Reset the launcher's look": "Atur ulang tampilan launcher",
 diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
-index 4f051d026..73fdc9a13 100644
+index 73aee2434..6a12f33b2 100644
 --- a/launcher/lang/ig.json
 +++ b/launcher/lang/ig.json
 @@ -1061,9 +1061,6 @@
@@ -650,7 +643,7 @@ index 4f051d026..73fdc9a13 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Agba ụda olu, iko, blur, asụsụ na nhọrọ ndị dị n'elu na-alaghachi azụ ka Horizon ụgbọ mmiri.",
    "Reset the launcher's look": "Tọgharịa ọdịdị onye mbido",
 diff --git a/launcher/lang/is.json b/launcher/lang/is.json
-index 33dcaba44..51a365545 100644
+index 6ef64e270..5d96d11e6 100644
 --- a/launcher/lang/is.json
 +++ b/launcher/lang/is.json
 @@ -1081,7 +1081,6 @@
@@ -678,7 +671,7 @@ index 33dcaba44..51a365545 100644
    "just now": "rétt í þessu",
    "soon": "bráðum",
 diff --git a/launcher/lang/it.json b/launcher/lang/it.json
-index 2bebd4c3e..a756c2d03 100644
+index a492f1c7d..35ed3ae5c 100644
 --- a/launcher/lang/it.json
 +++ b/launcher/lang/it.json
 @@ -1063,9 +1063,6 @@
@@ -692,7 +685,7 @@ index 2bebd4c3e..a756c2d03 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Colore d'accento, vetro, sfocatura, lingua e le opzioni sopra tornano come Horizon li fornisce.",
    "Reset the launcher's look": "Reimposta l'aspetto del launcher",
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index 1a6c79ff9..fcf5cc59c 100644
+index 8e7134619..99241ce6d 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
 @@ -1063,9 +1063,6 @@
@@ -706,7 +699,7 @@ index 1a6c79ff9..fcf5cc59c 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "アクセントカラー、ガラス、ぼかし、言語、上のオプションが Horizon の出荷時の状態に戻ります。",
    "Reset the launcher's look": "ランチャーの見た目をリセット",
 diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
-index 1d8a1e7f1..a033ae42e 100644
+index 205c3b8cc..803899863 100644
 --- a/launcher/lang/ka.json
 +++ b/launcher/lang/ka.json
 @@ -1061,9 +1061,6 @@
@@ -720,7 +713,7 @@ index 1d8a1e7f1..a033ae42e 100644
    "1 hour ago": "1 საათის წინ",
    "1 line": "1 სტრიქონი",
 diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
-index df18b00f9..8919732db 100644
+index af2d66c3c..bff31d102 100644
 --- a/launcher/lang/kk.json
 +++ b/launcher/lang/kk.json
 @@ -1061,9 +1061,6 @@
@@ -734,7 +727,7 @@ index df18b00f9..8919732db 100644
    "1 hour ago": "1 сағат бұрын",
    "1 line": "1 жол",
 diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
-index 27877714d..573322b8c 100644
+index c1434c8e3..33b5ca5d5 100644
 --- a/launcher/lang/kn.json
 +++ b/launcher/lang/kn.json
 @@ -1061,9 +1061,6 @@
@@ -748,7 +741,7 @@ index 27877714d..573322b8c 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ಉಚ್ಚಾರಣಾ ಬಣ್ಣ, ಗಾಜು, ಮಸುಕು, ಭಾಷೆ ಮತ್ತು ಮೇಲಿನ ಆಯ್ಕೆಗಳು ಹೇಗೆ Horizon ರವಾನೆಗೆ ಹಿಂತಿರುಗುತ್ತವೆ.",
    "Reset the launcher's look": "ಲಾಂಚರ್‌ನ ನೋಟವನ್ನು ಮರುಹೊಂದಿಸಿ",
 diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
-index c0ae0671f..58fdcdff6 100644
+index 90a91901a..7826f5bd7 100644
 --- a/launcher/lang/ko.json
 +++ b/launcher/lang/ko.json
 @@ -1063,9 +1063,6 @@
@@ -762,7 +755,7 @@ index c0ae0671f..58fdcdff6 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "강조 색, 유리, 흐림, 언어와 위의 옵션이 Horizon 기본값으로 돌아갑니다.",
    "Reset the launcher's look": "런처 모양 초기화",
 diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
-index 52895dff1..b28417320 100644
+index 9410016d8..17c61756a 100644
 --- a/launcher/lang/ky.json
 +++ b/launcher/lang/ky.json
 @@ -1061,9 +1061,6 @@
@@ -776,7 +769,7 @@ index 52895dff1..b28417320 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акценттин түсү, айнек, бүдөмүк, тил жана жогорудагы опциялар Horizon кантип жөнөтүлгөнүнө кайтып келет.",
    "Reset the launcher's look": "Ишке киргизгичтин көрүнүшүн баштапкы абалга келтириңиз",
 diff --git a/launcher/lang/la.json b/launcher/lang/la.json
-index 82741444c..89ee1ba96 100644
+index 1f9ba8b0e..1238b5b4c 100644
 --- a/launcher/lang/la.json
 +++ b/launcher/lang/la.json
 @@ -1061,9 +1061,6 @@
@@ -790,7 +783,7 @@ index 82741444c..89ee1ba96 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Color accentus, vitrum, labes, lingua et optiones supra recedunt ad quomodoHorizoncarinis.",
    "Reset the launcher's look": "Reset Launcher est vultus",
 diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
-index fd35d78a0..2d0ad84a2 100644
+index 739ef2e88..f425ad0fb 100644
 --- a/launcher/lang/lb.json
 +++ b/launcher/lang/lb.json
 @@ -1061,9 +1061,6 @@
@@ -804,7 +797,7 @@ index fd35d78a0..2d0ad84a2 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akzentfaarf, Glas, Blur, Sprooch an d'Optiounen hei uewen ginn zréck op wéi Horizon Schëffer.",
    "Reset the launcher's look": "Reset de Look vum Starter",
 diff --git a/launcher/lang/li.json b/launcher/lang/li.json
-index 345262849..c70db8989 100644
+index 5efdec127..531347104 100644
 --- a/launcher/lang/li.json
 +++ b/launcher/lang/li.json
 @@ -1063,9 +1063,6 @@
@@ -818,7 +811,7 @@ index 345262849..c70db8989 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentkleur, glaas, vervaag, taol en de opties heibove goon trök nao wie Horizon weert verstuurd.",
    "Reset the launcher's look": "Reset de look vaan de launcher",
 diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
-index 9ead0056e..2004c489c 100644
+index a7bd65dcb..3555b18d8 100644
 --- a/launcher/lang/lmo.json
 +++ b/launcher/lang/lmo.json
 @@ -1063,9 +1063,6 @@
@@ -832,7 +825,7 @@ index 9ead0056e..2004c489c 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Culur de accent, veder, sfocadüra, linguagg e i upziun de sora van indrée a cuma Horizon spediss.",
    "Reset the launcher's look": "Ripristinà l’aspètt del lanciador",
 diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
-index defe07897..9a86b4571 100644
+index 03981fe11..40c9caa91 100644
 --- a/launcher/lang/lo.json
 +++ b/launcher/lang/lo.json
 @@ -1061,9 +1061,6 @@
@@ -846,7 +839,7 @@ index defe07897..9a86b4571 100644
    "1 hour": "1 ຊົ່ວໂມງ",
    "1 hour ago": "1 ຊົ່ວໂມງກ່ອນ",
 diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
-index 87a4dbae9..9eee1b4b4 100644
+index 32b1fb08f..0beef87a7 100644
 --- a/launcher/lang/lt.json
 +++ b/launcher/lang/lt.json
 @@ -1063,9 +1063,6 @@
@@ -860,7 +853,7 @@ index 87a4dbae9..9eee1b4b4 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Nuspalvina mygtukus, jungiklius ir dangų. Pasirink spalvą arba įvesk bet kokią hex spalvą.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentinė funkcija. Tavo patikimus vietinius modus surenka į atskirą žaidimą.",
 diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
-index 8230e656a..fa7a7c627 100644
+index a3638588d..1e3cc8110 100644
 --- a/launcher/lang/lv.json
 +++ b/launcher/lang/lv.json
 @@ -1081,7 +1081,6 @@
@@ -888,7 +881,7 @@ index 8230e656a..fa7a7c627 100644
    "just now": "tikko",
    "soon": "drīz",
 diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
-index 2835928ce..32e7a25d8 100644
+index ea9943f93..0a6e37b0c 100644
 --- a/launcher/lang/mk.json
 +++ b/launcher/lang/mk.json
 @@ -1061,9 +1061,6 @@
@@ -902,7 +895,7 @@ index 2835928ce..32e7a25d8 100644
    "1 hour ago": "пред 1 час",
    "1 line": "1 ред",
 diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
-index 53e2617f4..a8289fd2b 100644
+index 57ddd0409..9ab133eb9 100644
 --- a/launcher/lang/mn.json
 +++ b/launcher/lang/mn.json
 @@ -1061,9 +1061,6 @@
@@ -916,7 +909,7 @@ index 53e2617f4..a8289fd2b 100644
    "1 hour": "1 цаг",
    "1 hour ago": "1 цагийн өмнө",
 diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
-index cead9f437..4cb2421f1 100644
+index 45d08cf44..88831e528 100644
 --- a/launcher/lang/ms.json
 +++ b/launcher/lang/ms.json
 @@ -1061,9 +1061,6 @@
@@ -930,7 +923,7 @@ index cead9f437..4cb2421f1 100644
    "1 hour ago": "1 jam yang lalu",
    "1 line": "1 baris",
 diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
-index 73d57b5e1..76711146b 100644
+index 538a46d03..9ea2c661b 100644
 --- a/launcher/lang/mt.json
 +++ b/launcher/lang/mt.json
 @@ -1061,9 +1061,6 @@
@@ -944,7 +937,7 @@ index 73d57b5e1..76711146b 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Kulur aċċent, ħġieġ, ċċajpar, lingwa u l-għażliet t'hawn fuq imorru lura għal kif Horizon vapuri.",
    "Reset the launcher's look": "Irrisettja d-dehra tal-lanċjar",
 diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
-index 3a9e0423e..50b1461e7 100644
+index c6d962d94..5eaefb07f 100644
 --- a/launcher/lang/nl.json
 +++ b/launcher/lang/nl.json
 @@ -1063,9 +1063,6 @@
@@ -958,7 +951,7 @@ index 3a9e0423e..50b1461e7 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentkleur, glas, vervaging, taal en de opties hierboven gaan terug naar hoe Horizon ze levert.",
    "Reset the launcher's look": "Uiterlijk van de launcher herstellen",
 diff --git a/launcher/lang/no.json b/launcher/lang/no.json
-index f078fd270..aa1daa5fd 100644
+index 5b19627cd..d5254768c 100644
 --- a/launcher/lang/no.json
 +++ b/launcher/lang/no.json
 @@ -1063,9 +1063,6 @@
@@ -972,7 +965,7 @@ index f078fd270..aa1daa5fd 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Farger knappene, bryterne og himmelen. Velg en, eller skriv inn en hvilken som helst hex-farge.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Eksperimentell. Bygger de native modsene du stoler på inn i et eget spill.",
 diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
-index e4672a077..89bb6aaba 100644
+index d2fd7ad51..3a358d257 100644
 --- a/launcher/lang/oc.json
 +++ b/launcher/lang/oc.json
 @@ -1063,9 +1063,6 @@
@@ -986,7 +979,7 @@ index e4672a077..89bb6aaba 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Color d'accent, veire, flou, lengatge e las opcions çai-sus remontan a cossí Horizon s'expedís.",
    "Reset the launcher's look": "Reïnicializar l'aspècte del lançaire",
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index 3807ff0d1..3d25b0110 100644
+index caa8bbcb5..1064b6e25 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
 @@ -1063,9 +1063,6 @@
@@ -1000,7 +993,7 @@ index 3807ff0d1..3d25b0110 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Kolor akcentu, szkło, rozmycie, język i opcje powyżej wracają do ustawień, z jakimi Horizon jest dostarczany.",
    "Reset the launcher's look": "Przywróć wygląd launchera",
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index c02798fe5..7fb97bf65 100644
+index 140803b72..8bfa3e70b 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
 @@ -1063,9 +1063,6 @@
@@ -1014,7 +1007,7 @@ index c02798fe5..7fb97bf65 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Cor de destaque, vidro, desfoque, idioma e as opções acima voltam ao padrão do Horizon.",
    "Reset the launcher's look": "Redefinir a aparência do launcher",
 diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
-index 885c40cc3..e38792c0b 100644
+index fe67d6729..5741a81d2 100644
 --- a/launcher/lang/pt.json
 +++ b/launcher/lang/pt.json
 @@ -1063,9 +1063,6 @@
@@ -1028,7 +1021,7 @@ index 885c40cc3..e38792c0b 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "A cor de destaque, o vidro, o desfoque, o idioma e as opções acima voltam ao que o Horizon traz de origem.",
    "Reset the launcher's look": "Repor o aspeto do launcher",
 diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
-index f7af314b2..99d01d32e 100644
+index 4a9ed1324..a0d51dfcc 100644
 --- a/launcher/lang/ro.json
 +++ b/launcher/lang/ro.json
 @@ -1063,9 +1063,6 @@
@@ -1042,7 +1035,7 @@ index f7af314b2..99d01d32e 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colorează butoanele, comutatoarele și cerul. Alege una sau scrie orice culoare hex.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Experimental. Construiește modurile native în care ai încredere într-un joc separat.",
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index 16fc101b3..7af5bf219 100644
+index 27bfc038a..411e75011 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
 @@ -1063,9 +1063,6 @@
@@ -1056,7 +1049,7 @@ index 16fc101b3..7af5bf219 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Цвет акцента, стекло, размытие, язык и параметры выше вернутся к тем, что были в Horizon изначально.",
    "Reset the launcher's look": "Сбросить вид лаунчера",
 diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
-index c3f0611b0..31964ad73 100644
+index 2214e5a58..80597975a 100644
 --- a/launcher/lang/sah.json
 +++ b/launcher/lang/sah.json
 @@ -1063,9 +1063,6 @@
@@ -1070,7 +1063,7 @@ index c3f0611b0..31964ad73 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Акцент өҥө, өстүөкүлэ, дьүһүннээһин, тыл уонна үөһээ этиллибит варианнар Horizon хайдах ыытылларыгар төннөллөр.",
    "Reset the launcher's look": "Запускник көрүҥүн уларыт",
 diff --git a/launcher/lang/se.json b/launcher/lang/se.json
-index 52c519e81..3cd8a7f20 100644
+index af919bdc2..6265bd8e4 100644
 --- a/launcher/lang/se.json
 +++ b/launcher/lang/se.json
 @@ -1063,9 +1063,6 @@
@@ -1084,7 +1077,7 @@ index 52c519e81..3cd8a7f20 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Akseantaivdni, láse, čuovga, giella ja ovddit válljejumit mannet ruovttoluotta dasa mo Horizon sáddejuvvo.",
    "Reset the launcher's look": "Nuppástuhttit álggaheaddji hámi",
 diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
-index 2afd5e742..b25d540f5 100644
+index 30be8113d..a74afa417 100644
 --- a/launcher/lang/sk.json
 +++ b/launcher/lang/sk.json
 @@ -1063,9 +1063,6 @@
@@ -1098,7 +1091,7 @@ index 2afd5e742..b25d540f5 100644
    "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Zafarbí tlačidlá, prepínače a oblohu. Vyber jednu alebo zadaj ľubovoľnú hex farbu.",
    "Experimental. Builds the native mods you trust into a game of their own.": "Experimentálne. Zostaví natívne mody, ktorým dôveruješ, do samostatnej hry.",
 diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
-index ca1846e03..1ef727ed8 100644
+index 8d7357c97..41abaf3d4 100644
 --- a/launcher/lang/sl.json
 +++ b/launcher/lang/sl.json
 @@ -1081,7 +1081,6 @@
@@ -1126,7 +1119,7 @@ index ca1846e03..1ef727ed8 100644
    "just now": "pravkar",
    "soon": "kmalu",
 diff --git a/launcher/lang/so.json b/launcher/lang/so.json
-index eaa1f590d..39160a649 100644
+index 307fb046a..8d2f1503c 100644
 --- a/launcher/lang/so.json
 +++ b/launcher/lang/so.json
 @@ -1061,9 +1061,6 @@
@@ -1140,7 +1133,7 @@ index eaa1f590d..39160a649 100644
    "1 hour": "1 saac",
    "1 hour ago": "1 saac ka hor",
 diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
-index 82efddd1b..d7479ea4c 100644
+index 6dc0e8054..0f8e24a57 100644
 --- a/launcher/lang/sq.json
 +++ b/launcher/lang/sq.json
 @@ -1061,9 +1061,6 @@
@@ -1154,7 +1147,7 @@ index 82efddd1b..d7479ea4c 100644
    "1 hour": "1 orë",
    "1 hour ago": "1 orë më parë",
 diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
-index f322ee967..8b4fe486d 100644
+index dfe2924bf..ba995327c 100644
 --- a/launcher/lang/sr.json
 +++ b/launcher/lang/sr.json
 @@ -1081,7 +1081,6 @@
@@ -1182,7 +1175,7 @@ index f322ee967..8b4fe486d 100644
    "just now": "управо сада",
    "soon": "ускоро",
 diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
-index e69f9f752..2d95ed8a6 100644
+index 0e083aa93..81ff2737a 100644
 --- a/launcher/lang/sv.json
 +++ b/launcher/lang/sv.json
 @@ -1063,9 +1063,6 @@
@@ -1196,7 +1189,7 @@ index e69f9f752..2d95ed8a6 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Accentfärg, glas, oskärpa, språk och alternativen ovan återställs till hur Horizon levereras.",
    "Reset the launcher's look": "Återställ launcherns utseende",
 diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
-index 2a835dc1b..1212e1971 100644
+index c341726ff..07ce1d8f3 100644
 --- a/launcher/lang/szl.json
 +++ b/launcher/lang/szl.json
 @@ -1063,9 +1063,6 @@
@@ -1210,7 +1203,7 @@ index 2a835dc1b..1212e1971 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Farba akcyntu, szkło, rozmycie, jynzyk i ôpcyje powyżyj wracajōm do tego, jak Horizon wysyła.",
    "Reset the launcher's look": "Resetuj wyglōnd ôdpalacza",
 diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
-index d52c781e0..a73acc207 100644
+index 2b84e1b6d..0e6c01b44 100644
 --- a/launcher/lang/ta.json
 +++ b/launcher/lang/ta.json
 @@ -1061,9 +1061,6 @@
@@ -1224,7 +1217,7 @@ index d52c781e0..a73acc207 100644
    "1 hour": "1 மணிநேரம்",
    "1 hour ago": "1 மணிநேரம் முன்பு",
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index 3cdafe345..a1ae82792 100644
+index a2f3ec549..3f75a1f1d 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
 @@ -1063,9 +1063,6 @@
@@ -1238,7 +1231,7 @@ index 3cdafe345..a1ae82792 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "สีเน้น กระจก ความเบลอ ภาษา และตัวเลือกด้านบนจะกลับเป็นค่าเริ่มต้นของ Horizon",
    "Reset the launcher's look": "รีเซ็ตหน้าตาของลันเชอร์",
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index 7f0b5ef0f..8b87dacdc 100644
+index b08517885..3ff6db48e 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
 @@ -1063,9 +1063,6 @@
@@ -1252,7 +1245,7 @@ index 7f0b5ef0f..8b87dacdc 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Vurgu rengi, cam, bulanıklık, dil ve yukarıdaki seçenekler Horizon'un varsayılanlarına döner.",
    "Reset the launcher's look": "Başlatıcının görünümünü sıfırla",
 diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
-index bdef713b7..5dbf269c6 100644
+index da78048f3..704ae993c 100644
 --- a/launcher/lang/tt.json
 +++ b/launcher/lang/tt.json
 @@ -1061,9 +1061,6 @@
@@ -1266,7 +1259,7 @@ index bdef713b7..5dbf269c6 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Тиз төс, пыяла, төссезлек, тел һәм югарыдагы вариантлар Horizon җибәрүенә кайтып кала.",
    "Reset the launcher's look": "Эшләткечнең тышкы кыяфәтен торгызу",
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index f43907d32..87e3dbd1d 100644
+index f707d973a..4d9271827 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
 @@ -1063,9 +1063,6 @@
@@ -1280,7 +1273,7 @@ index f43907d32..87e3dbd1d 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Колір акценту, скло, розмиття, мова та параметри вище повернуться до початкових у Horizon.",
    "Reset the launcher's look": "Скинути вигляд лаунчера",
 diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
-index b5347d4d6..d250956ab 100644
+index 67b198c4f..e60a3573d 100644
 --- a/launcher/lang/ur.json
 +++ b/launcher/lang/ur.json
 @@ -1063,9 +1063,6 @@
@@ -1294,7 +1287,7 @@ index b5347d4d6..d250956ab 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "ایکسنٹ رنگ، شیشہ، دھندلاہٹ، زبان اور اوپر والے اختیارات Horizon کی ڈیفالٹ حالت پر واپس چلے جاتے ہیں۔",
    "Reset the launcher's look": "لانچر کی شکل ری سیٹ کریں",
 diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
-index 223180278..0dbd49ffb 100644
+index 14a372fd9..d55a59893 100644
 --- a/launcher/lang/uz.json
 +++ b/launcher/lang/uz.json
 @@ -1061,9 +1061,6 @@
@@ -1308,7 +1301,7 @@ index 223180278..0dbd49ffb 100644
    "1 hour ago": "1 soat oldin",
    "1 line": "1 qator",
 diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
-index 4a4f11a89..b43f054dc 100644
+index d4bad9e5c..839263db0 100644
 --- a/launcher/lang/vec.json
 +++ b/launcher/lang/vec.json
 @@ -1063,9 +1063,6 @@
@@ -1322,7 +1315,7 @@ index 4a4f11a89..b43f054dc 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "El cołor de l’acento, el véro, ła sfocatura, el lenguajo e łe opsion sora łe va indrìo a come Horizon el vien spedìo.",
    "Reset the launcher's look": "Reseta el look del lansador",
 diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
-index 079746eee..cf3c24e49 100644
+index 5fc823bb8..77aa23e0c 100644
 --- a/launcher/lang/vi.json
 +++ b/launcher/lang/vi.json
 @@ -1063,9 +1063,6 @@
@@ -1336,7 +1329,7 @@ index 079746eee..cf3c24e49 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Màu nhấn, kính, độ mờ, ngôn ngữ và các tùy chọn ở trên trở về mặc định của Horizon.",
    "Reset the launcher's look": "Đặt lại giao diện launcher",
 diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
-index b8d6706ea..5cf6a123d 100644
+index 48a1f17bd..95e2cdf6d 100644
 --- a/launcher/lang/yi.json
 +++ b/launcher/lang/yi.json
 @@ -1061,9 +1061,6 @@
@@ -1350,7 +1343,7 @@ index b8d6706ea..5cf6a123d 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "אַקצענט קאָליר, גלאז, בלער, שפּראַך און די אָפּציעס אויבן גיין צוריק צו ווי Horizon שיפן.",
    "Reset the launcher's look": "באַשטעטיק די קוק פון די לאָנטשער",
 diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
-index cb5f52227..da9f5a568 100644
+index ad7ce75d3..93c3d511b 100644
 --- a/launcher/lang/yo.json
 +++ b/launcher/lang/yo.json
 @@ -1061,9 +1061,6 @@
@@ -1364,7 +1357,7 @@ index cb5f52227..da9f5a568 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Awọ arosọ, gilasi, blur, ede ati awọn aṣayan loke lọ pada si bii Horizon awọn ọkọ oju omi.",
    "Reset the launcher's look": "Tun oju ifilọlẹ naa tunto",
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index 1b7d2bffc..2cf38e12f 100644
+index de2874a10..6ee784ea6 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
 @@ -1063,9 +1063,6 @@
@@ -1378,7 +1371,7 @@ index 1b7d2bffc..2cf38e12f 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "强调色、玻璃、模糊、语言和以上选项恢复为 Horizon 的默认设置。",
    "Reset the launcher's look": "重置启动器外观",
 diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
-index 22660ed6b..93b9029d8 100644
+index 9fd96d87e..56e471ccc 100644
 --- a/launcher/lang/zu.json
 +++ b/launcher/lang/zu.json
 @@ -1061,9 +1061,6 @@
@@ -1392,7 +1385,7 @@ index 22660ed6b..93b9029d8 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Umbala we-accent, ingilazi, ukufiphala, ulimi kanye nezinketho ezingenhla zibuyela emuva endleleni Horizon yokuthutha.",
    "Reset the launcher's look": "Setha kabusha ukubukeka kwesiqalisi",
 diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
-index bcd7d49ec..af5f27645 100644
+index 5378788f0..6021681ba 100644
 --- a/launcher/src/frame.rs
 +++ b/launcher/src/frame.rs
 @@ -657,38 +657,13 @@ impl Launcher {
@@ -1445,7 +1438,7 @@ index bcd7d49ec..af5f27645 100644
              )
      }
 diff --git a/launcher/src/glass_account.rs b/launcher/src/glass_account.rs
-index 9643c48a8..40d799b54 100644
+index 5627412f1..40d799b54 100644
 --- a/launcher/src/glass_account.rs
 +++ b/launcher/src/glass_account.rs
 @@ -1,11 +1,9 @@
@@ -1471,7 +1464,7 @@ index 9643c48a8..40d799b54 100644
 +    /// The account card: the whole of it is who plays now — the player, the offline names and
 +    /// the field to add one. The offline build has no Microsoft card beside them.
      pub(super) fn glass_account(&mut self, cx: &mut Context<Self>) -> Div {
--        let wide = self.window_width >= 1280.;
+-        let wide = self.window_width >= crate::glass_home::WIDE;
 -        let left = self.glass_who_plays(cx);
 -        let right = self.glass_microsoft_card(cx);
 -        if wide {

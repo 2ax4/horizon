@@ -1,4 +1,4 @@
-From 9625e8db57b2f9f41a7c79b2ccb9ecf73f582522 Mon Sep 17 00:00:00 2001
+From 622a7b716167762611601e76f6cb6fd4a60ae5ce Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
 Subject: [PATCH 1/9] Offline accounts: add and play with no Microsoft account
@@ -552,7 +552,7 @@ index a2ade17d7..000000000
 -    }
 -}
 diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
-index c57c648bd..bcd7d49ec 100644
+index 5e7fca335..5378788f0 100644
 --- a/launcher/src/frame.rs
 +++ b/launcher/src/frame.rs
 @@ -470,36 +470,6 @@ impl Launcher {
@@ -606,7 +606,7 @@ index c57c648bd..bcd7d49ec 100644
  
          crate::glass::plate(radius::PANEL)
 diff --git a/launcher/src/glass_settings.rs b/launcher/src/glass_settings.rs
-index 3a2b06dc4..784416ec0 100644
+index dd72cf81c..a33ccd804 100644
 --- a/launcher/src/glass_settings.rs
 +++ b/launcher/src/glass_settings.rs
 @@ -504,8 +504,7 @@ impl Launcher {

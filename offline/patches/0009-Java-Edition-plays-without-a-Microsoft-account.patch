@@ -1,4 +1,4 @@
-From 06f1ca67d3e161f6a02b0014123d2a0f660a8b9d Mon Sep 17 00:00:00 2001
+From a7755b232216bb742bee422480d4cd02bef2fccb Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Thu, 5 Nov 2026 00:22:25 +0000
 Subject: [PATCH 7/9] Java Edition plays without a Microsoft account
@@ -110,1120 +110,1120 @@ empty token.
  89 files changed, 362 insertions(+), 150 deletions(-)
 
 diff --git a/launcher/lang/af.json b/launcher/lang/af.json
-index d569353bb..12ff0a9fa 100644
+index 6523e4460..4c9edd7f7 100644
 --- a/launcher/lang/af.json
 +++ b/launcher/lang/af.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} is weggelaat: dit het {other} nodig, wat weggelaat is",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Bou nie op die Horizon wat jy speel nie ({code}): 'n bou laat dit weg totdat die outeur dit bywerk",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Waar jy is, word die stigtersstel deur 'n gratis betaalblad op playhorizon.dev geëis. Eis dit in die Winkel: dit maak die betaalblad vir jou oop.",
--  "The founder set can't be claimed from your country.": "Die stigtersstel kan nie uit jou land geëis word nie."
-+  "The founder set can't be claimed from your country.": "Die stigtersstel kan nie uit jou land geëis word nie.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die eis het nie deurgegaan nie: die kassa se adres is nie dié van Horizon nie.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ar.json b/launcher/lang/ar.json
-index e46766413..aa3209758 100644
+index 56a770c50..770546376 100644
 --- a/launcher/lang/ar.json
 +++ b/launcher/lang/ar.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "تم استبعاد {name}: يحتاج إلى {other}، الذي تم استبعاده",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "لا يُبنى على إصدار Horizon الذي تلعبه ({code}): يستبعده البناء حتى يحدّثه مؤلفه",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "في بلدك، يُستلَم طقم المؤسسين عبر عملية دفع مجانية على playhorizon.dev. استلمه من المتجر: سيفتح لك صفحة الدفع.",
--  "The founder set can't be claimed from your country.": "لا يمكن استلام طقم المؤسسين من بلدك."
-+  "The founder set can't be claimed from your country.": "لا يمكن استلام طقم المؤسسين من بلدك.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "لم تكتمل المطالبة: عنوان صفحة الدفع ليس عنوان Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/az.json b/launcher/lang/az.json
-index ed66c05b0..1b001a10c 100644
+index a406999d5..663d667d4 100644
 --- a/launcher/lang/az.json
 +++ b/launcher/lang/az.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} kənarda qaldı: ona {other} lazımdır, o da kənarda qaldı",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Oynadığın Horizon-da qurulmur ({code}): müəllifi yeniləyənə qədər quraşdırma onu kənarda saxlayır",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Olduğunuz yerdə qurucu dəsti playhorizon.dev saytında pulsuz ödəniş vasitəsilə alınır. Onu Mağazadan alın: ödəniş səhifəsini sizin üçün açacaq.",
--  "The founder set can't be claimed from your country.": "Qurucu dəsti sizin ölkənizdən alına bilməz."
-+  "The founder set can't be claimed from your country.": "Qurucu dəsti sizin ölkənizdən alına bilməz.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tələb keçmədi: ödəniş səhifəsinin ünvanı Horizon-a aid deyil.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ba.json b/launcher/lang/ba.json
-index ef409cd4f..0c6a49411 100644
+index 6f2ca0544..f8e0c533f 100644
 --- a/launcher/lang/ba.json
 +++ b/launcher/lang/ba.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} төшөрөп ҡалдырылды: уға {other} кәрәк, ә ул төшөрөп ҡалдырылды",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Һин уйнаған Horizon-да йыйылмай ({code}): авторы яңыртмайынса, йыйыу уны төшөрөп ҡалдыра",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Һеҙ булған ерҙә нигеҙләүселәр йыйылмаһы playhorizon.dev сайтында бушлай түләү аша алына. Уны Магазиндан алығыҙ: ул түләү битен үҙе аса.",
--  "The founder set can't be claimed from your country.": "Нигеҙләүселәр йыйылмаһын һеҙҙең илдән алып булмай."
-+  "The founder set can't be claimed from your country.": "Нигеҙләүселәр йыйылмаһын һеҙҙең илдән алып булмай.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап үтмәне: түләү адресы Horizon-дыҡы түгел.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/be.json b/launcher/lang/be.json
-index c73e153c6..33769117f 100644
+index 356f63a3c..246233bba 100644
 --- a/launcher/lang/be.json
 +++ b/launcher/lang/be.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} прапушчаны: яму патрэбны {other}, які прапушчаны",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Не збіраецца на Horizon, у які вы гуляеце ({code}): зборка прапусціць яго, пакуль аўтар не абновіць",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Там, дзе вы, набор заснавальніка атрымліваюць праз бясплатную аплату на playhorizon.dev. Атрымайце яго ў Краме: яна сама адкрые старонку аплаты.",
--  "The founder set can't be claimed from your country.": "Набор заснавальніка нельга атрымаць з вашай краіны."
-+  "The founder set can't be claimed from your country.": "Набор заснавальніка нельга атрымаць з вашай краіны.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заяўка не прайшла: адрас старонкі аплаты не належыць Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/bg.json b/launcher/lang/bg.json
-index 912176330..0fbd39b1a 100644
+index 6e4aa8c4d..dc00ebeff 100644
 --- a/launcher/lang/bg.json
 +++ b/launcher/lang/bg.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} е пропуснат: нуждае се от {other}, който е пропуснат",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Не се компилира на Horizon, който играете ({code}): компилацията го пропуска, докато авторът не го обнови",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Там, където сте, комплектът на основателите се взема чрез безплатно плащане на playhorizon.dev. Вземете го от Магазина: той ще отвори плащането вместо вас.",
--  "The founder set can't be claimed from your country.": "Комплектът на основателите не може да бъде взет от вашата държава."
-+  "The founder set can't be claimed from your country.": "Комплектът на основателите не може да бъде взет от вашата държава.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявката не мина: адресът на плащането не е на Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/br.json b/launcher/lang/br.json
-index 7f5e1f042..71318b190 100644
+index ac3a05b1f..c6fc046d9 100644
 --- a/launcher/lang/br.json
 +++ b/launcher/lang/br.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} a zo bet lezet a-gostez: ezhomm en deus eus {other}, a zo bet lezet a-gostez",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ne vez ket savet war an Horizon a c'hoarit ({code}): ur sevel a lez anezhañ a-gostez betek ma vo hizivaet gant e aozer",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "El lec'h m'emaoc'h, e vez goulennet ar sagad krouer dre ur paeañ digoust war playhorizon.dev. Goulennit anezhañ er Stal: digeriñ a ra ar paeañ evidoc'h.",
--  "The founder set can't be claimed from your country.": "N'haller ket goulenn ar sagad krouer eus ho pro."
-+  "The founder set can't be claimed from your country.": "N'haller ket goulenn ar sagad krouer eus ho pro.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "N'eo ket aet ar goulenn da benn: chomlec'h ar paeamant n'eo ket hini Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/bs.json b/launcher/lang/bs.json
-index 7c11eca8a..9c5dfca54 100644
+index 9ee3142db..9bb08e37c 100644
 --- a/launcher/lang/bs.json
 +++ b/launcher/lang/bs.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} je izostavljen: treba mu {other}, koji je izostavljen",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ne gradi se na Horizonu koji igraš ({code}): izgradnja ga izostavlja dok ga autor ne ažurira",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Tamo gdje ste, osnivački set se preuzima kroz besplatnu naplatu na playhorizon.dev. Preuzmite ga iz Prodavnice: ona vam otvara naplatu.",
--  "The founder set can't be claimed from your country.": "Osnivački set se ne može preuzeti iz vaše zemlje."
-+  "The founder set can't be claimed from your country.": "Osnivački set se ne može preuzeti iz vaše zemlje.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ca.json b/launcher/lang/ca.json
-index d5e6158ba..d4ff3505f 100644
+index 3cc86024c..740a01f6e 100644
 --- a/launcher/lang/ca.json
 +++ b/launcher/lang/ca.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "S'ha deixat fora {name}: necessita {other}, que s'ha deixat fora",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "No es compila a l'Horizon que jugues ({code}): la compilació el deixa fora fins que el seu autor l'actualitzi",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "On ets, el conjunt de fundadors es reclama amb un pagament gratuït a playhorizon.dev. Reclama'l des de la Botiga: t'obre el pagament.",
--  "The founder set can't be claimed from your country.": "El conjunt de fundadors no es pot reclamar des del teu país."
-+  "The founder set can't be claimed from your country.": "El conjunt de fundadors no es pot reclamar des del teu país.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamació no s'ha completat: l'adreça del pagament no és la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cs.json b/launcher/lang/cs.json
-index a866e120d..d13355763 100644
+index 42ff8ccd2..6b4fea737 100644
 --- a/launcher/lang/cs.json
 +++ b/launcher/lang/cs.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} byl vynechán: potřebuje {other}, který byl vynechán",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nesestaví se na Horizonu, který hraješ ({code}): sestavení ho vynechá, dokud ho autor neaktualizuje",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Tam, kde jste, se zakladatelská sada získává přes bezplatnou pokladnu na playhorizon.dev. Získejte ji v Obchodě: pokladnu vám otevře sám.",
--  "The founder set can't be claimed from your country.": "Zakladatelskou sadu nelze získat z vaší země."
-+  "The founder set can't be claimed from your country.": "Zakladatelskou sadu nelze získat z vaší země.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok se nepodařilo uplatnit: adresa platby nepatří Horizonu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cv.json b/launcher/lang/cv.json
-index b16c7f516..abd7ee97c 100644
+index 48d89dbdf..a570da49d 100644
 --- a/launcher/lang/cv.json
 +++ b/launcher/lang/cv.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} кӗртмен: ӑна {other} кирлӗ, ӑна та кӗртмен",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Эсӗ вылякан Horizon-ра пуҫтарӑнмасть ({code}): авторӗ ҫӗнетмесен, пуҫтару ӑна кӗртмест",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Эсир пур вырӑнта никӗслекен пуххине playhorizon.dev сайтӑнче тӳлевсӗр тӳлев урлӑ илеҫҫӗ. Ӑна Лавккаран илӗр: вӑл тӳлеве хӑех уҫать.",
--  "The founder set can't be claimed from your country.": "Никӗслекен пуххине сирӗн ҫӗршывран илме ҫук."
-+  "The founder set can't be claimed from your country.": "Никӗслекен пуххине сирӗн ҫӗршывран илме ҫук.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ыйту иртмерӗ: тӳлев адресӗ Horizon адресӗ мар.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/cy.json b/launcher/lang/cy.json
-index 6fc51f89b..1d714efbf 100644
+index 42220bce1..47016e995 100644
 --- a/launcher/lang/cy.json
 +++ b/launcher/lang/cy.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Gadawyd {name} allan: mae angen {other} arno, a adawyd allan",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nid yw'n adeiladu ar yr Horizon rwyt ti'n ei chwarae ({code}): mae adeiladu yn ei adael allan nes i'w awdur ei ddiweddaru",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Lle rydych chi, mae set y sylfaenwyr yn cael ei hawlio drwy daliad am ddim ar playhorizon.dev. Hawliwch hi o'r Siop: mae'n agor y taliad i chi.",
--  "The founder set can't be claimed from your country.": "Does dim modd hawlio set y sylfaenwyr o'ch gwlad chi."
-+  "The founder set can't be claimed from your country.": "Does dim modd hawlio set y sylfaenwyr o'ch gwlad chi.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ni aeth y cais drwodd: nid cyfeiriad Horizon yw cyfeiriad y ddesg dalu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/da.json b/launcher/lang/da.json
-index bbe1e2c05..478b96cf2 100644
+index 345d76d6e..529bf3f91 100644
 --- a/launcher/lang/da.json
 +++ b/launcher/lang/da.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} blev udeladt: den kræver {other}, som blev udeladt",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Bygger ikke på den Horizon, du spiller ({code}): et build udelader den, indtil forfatteren opdaterer den",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Der hvor du er, får du grundlæggersættet gennem en gratis betaling på playhorizon.dev. Gør krav på det i Butik: den åbner betalingen for dig.",
--  "The founder set can't be claimed from your country.": "Grundlæggersættet kan ikke fås fra dit land."
-+  "The founder set can't be claimed from your country.": "Grundlæggersættet kan ikke fås fra dit land.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anmodningen gik ikke igennem: checkoutets adresse er ikke Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/de.json b/launcher/lang/de.json
-index ee03c3a0d..cda938e98 100644
+index 9bf6e196e..f47c79b6a 100644
 --- a/launcher/lang/de.json
 +++ b/launcher/lang/de.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} wurde weggelassen: braucht {other}, das weggelassen wurde",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Lässt sich auf dem Horizon, das du spielst, nicht bauen ({code}): ein Build lässt es weg, bis sein Autor es aktualisiert",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Dort, wo du bist, wird das Gründer-Set über einen kostenlosen Checkout auf playhorizon.dev beansprucht. Beanspruche es im Shop: Er öffnet den Checkout für dich.",
--  "The founder set can't be claimed from your country.": "Das Gründer-Set kann in deinem Land nicht beansprucht werden."
-+  "The founder set can't be claimed from your country.": "Das Gründer-Set kann in deinem Land nicht beansprucht werden.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Die Anforderung ist fehlgeschlagen: Die Adresse des Checkouts gehört nicht zu Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nicht vorbereitet. Horizon kann Minecraft {version} aus deiner eigenen Installation vorbereiten; melde dich an, um es stattdessen von Mojang herunterzuladen."
  }
 diff --git a/launcher/lang/el.json b/launcher/lang/el.json
-index a43cba56d..ea2329d39 100644
+index 5d1a20e43..9f0f16dcc 100644
 --- a/launcher/lang/el.json
 +++ b/launcher/lang/el.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Το {name} παραλείφθηκε: χρειάζεται το {other}, που παραλείφθηκε",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Δεν χτίζεται στο Horizon που παίζεις ({code}): ένα χτίσιμο το παραλείπει μέχρι να το ενημερώσει ο δημιουργός του",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Εκεί που βρίσκεστε, το σετ ιδρυτών παραλαμβάνεται μέσω δωρεάν ολοκλήρωσης αγοράς στο playhorizon.dev. Διεκδικήστε το από το Κατάστημα: ανοίγει την πληρωμή για εσάς.",
--  "The founder set can't be claimed from your country.": "Το σετ ιδρυτών δεν μπορεί να διεκδικηθεί από τη χώρα σας."
-+  "The founder set can't be claimed from your country.": "Το σετ ιδρυτών δεν μπορεί να διεκδικηθεί από τη χώρα σας.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Η διεκδίκηση δεν ολοκληρώθηκε: η διεύθυνση της πληρωμής δεν ανήκει στο Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/eo.json b/launcher/lang/eo.json
-index 77206b385..d855d06c2 100644
+index c5a2dac7b..d8facb57c 100644
 --- a/launcher/lang/eo.json
 +++ b/launcher/lang/eo.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} estis preterlasita: ĝi bezonas {other}, kiu estis preterlasita",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ne konstruiĝas sur la Horizon, kiun vi ludas ({code}): konstruo preterlasas ĝin ĝis ĝia aŭtoro ĝisdatigos ĝin",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Kie vi estas, la fondinta aro estas postulata per senpaga pago ĉe playhorizon.dev. Postulu ĝin en la Vendejo: ĝi malfermas la pagon por vi.",
--  "The founder set can't be claimed from your country.": "La fondinta aro ne povas esti postulata el via lando."
-+  "The founder set can't be claimed from your country.": "La fondinta aro ne povas esti postulata el via lando.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La postulo ne sukcesis: la adreso de la pago ne estas tiu de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/es.json b/launcher/lang/es.json
-index ff6419c2b..d9c2b9e0f 100644
+index 101f8e4a4..3613a0151 100644
 --- a/launcher/lang/es.json
 +++ b/launcher/lang/es.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Se dejó fuera {name}: necesita {other}, que se dejó fuera",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "No se compila en el Horizon que juegas ({code}): la compilación lo deja fuera hasta que su autor lo actualice",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Donde estás, el set fundador se reclama con un pago gratuito en playhorizon.dev. Reclámalo desde la Tienda: te abre el pago.",
--  "The founder set can't be claimed from your country.": "El set fundador no se puede reclamar desde tu país."
-+  "The founder set can't be claimed from your country.": "El set fundador no se puede reclamar desde tu país.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La reclamación no se completó: la dirección del pago no es la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Sin preparar. Horizon puede preparar Minecraft {version} desde tu propia instalación; inicia sesión para descargarlo de Mojang."
  }
 diff --git a/launcher/lang/et.json b/launcher/lang/et.json
-index fea78a6b3..a76fa6b8c 100644
+index 5f6a40e92..8db2e17d0 100644
 --- a/launcher/lang/et.json
 +++ b/launcher/lang/et.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} jäeti välja: vajab modi {other}, mis jäeti välja",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ei ehitu Horizonil, mida mängid ({code}): ehitus jätab selle välja, kuni autor seda uuendab",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Seal, kus sa oled, saab asutajate komplekti tasuta makse kaudu saidil playhorizon.dev. Nõua seda Poest: see avab makse sinu eest.",
--  "The founder set can't be claimed from your country.": "Asutajate komplekti ei saa sinu riigist nõuda."
-+  "The founder set can't be claimed from your country.": "Asutajate komplekti ei saa sinu riigist nõuda.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nõue ei läinud läbi: makselehe aadress ei kuulu Horizonile.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/eu.json b/launcher/lang/eu.json
-index a2cb451a7..6d71eb914 100644
+index cb472e839..6f6d3d503 100644
 --- a/launcher/lang/eu.json
 +++ b/launcher/lang/eu.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} kanpoan utzi da: {other} behar du, eta hura kanpoan utzi da",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ez da eraikitzen jokatzen duzun Horizonen ({code}): eraikuntzak kanpoan uzten du egileak eguneratu arte",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Zauden lekuan, sortzaileen multzoa doako ordainketa baten bidez erreklamatzen da playhorizon.dev-en. Erreklamatu Dendatik: ordainketa irekiko dizu.",
--  "The founder set can't be claimed from your country.": "Sortzaileen multzoa ezin da zure herrialdetik erreklamatu."
-+  "The founder set can't be claimed from your country.": "Sortzaileen multzoa ezin da zure herrialdetik erreklamatu.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Eskaerak ez du aurrera egin: ordainketaren helbidea ez da Horizonena.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fa.json b/launcher/lang/fa.json
-index fe8944ed3..cdd846ef7 100644
+index d01b0f86c..4c32e0a94 100644
 --- a/launcher/lang/fa.json
 +++ b/launcher/lang/fa.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} کنار گذاشته شد: به {other} نیاز دارد که کنار گذاشته شد",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "روی Horizonی که بازی می‌کنی ساخته نمی‌شود ({code}): ساخت آن را کنار می‌گذارد تا سازنده‌اش به‌روزش کند",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "در جایی که هستید، مجموعهٔ بنیان‌گذاران از طریق پرداخت رایگان در playhorizon.dev دریافت می‌شود. آن را از فروشگاه دریافت کنید: صفحهٔ پرداخت را برایتان باز می‌کند.",
--  "The founder set can't be claimed from your country.": "مجموعهٔ بنیان‌گذاران از کشور شما قابل دریافت نیست."
-+  "The founder set can't be claimed from your country.": "مجموعهٔ بنیان‌گذاران از کشور شما قابل دریافت نیست.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "درخواست انجام نشد: نشانی صفحه پرداخت متعلق به Horizon نیست.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fi.json b/launcher/lang/fi.json
-index 101ccba4e..13ca5e2a2 100644
+index 68473de10..c16bb631b 100644
 --- a/launcher/lang/fi.json
 +++ b/launcher/lang/fi.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} jätettiin pois: se tarvitsee modin {other}, joka jätettiin pois",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ei käänny pelaamallasi Horizonilla ({code}): käännös jättää sen pois, kunnes tekijä päivittää sen",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Siellä missä olet, perustajasetti lunastetaan ilmaisella kassalla osoitteessa playhorizon.dev. Lunasta se Kaupasta: se avaa kassan puolestasi.",
--  "The founder set can't be claimed from your country.": "Perustajasettiä ei voi lunastaa maastasi."
-+  "The founder set can't be claimed from your country.": "Perustajasettiä ei voi lunastaa maastasi.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Lunastus ei onnistunut: kassan osoite ei ole Horizonin.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fil.json b/launcher/lang/fil.json
-index ef1153616..c66391a35 100644
+index f60a2eaee..7779aceb0 100644
 --- a/launcher/lang/fil.json
 +++ b/launcher/lang/fil.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Hindi isinama ang {name}: kailangan nito ang {other}, na hindi isinama",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Hindi nabubuo sa Horizon na nilalaro mo ({code}): hindi ito isasama ng build hangga't hindi ito ina-update ng may-akda",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Kung nasaan ka, kinukuha ang founder set sa pamamagitan ng libreng checkout sa playhorizon.dev. I-claim ito sa Shop: bubuksan nito ang checkout para sa iyo.",
--  "The founder set can't be claimed from your country.": "Hindi makukuha ang founder set mula sa iyong bansa."
-+  "The founder set can't be claimed from your country.": "Hindi makukuha ang founder set mula sa iyong bansa.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Hindi natuloy ang claim: hindi sa Horizon ang address ng checkout.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fo.json b/launcher/lang/fo.json
-index 3509b1d71..65d4240d3 100644
+index b7c273e6f..d5eef450e 100644
 --- a/launcher/lang/fo.json
 +++ b/launcher/lang/fo.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} varð útihildin: hon tørvar {other}, sum varð útihildin",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Byggir ikki á tí Horizon, tú spælir ({code}): ein bygging heldur hana úti, til høvundurin dagførir hana",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Har tú ert, fæst stovnarasettið gjøgnum ein ókeypis gjalding á playhorizon.dev. Krev tað í Handlinum: hann letur gjaldingina upp fyri teg.",
--  "The founder set can't be claimed from your country.": "Stovnarasettið kann ikki krevjast úr tínum landi."
-+  "The founder set can't be claimed from your country.": "Stovnarasettið kann ikki krevjast úr tínum landi.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravið gekk ikki gjøgnum: adressan á útrokningini er ikki hjá Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 0507ec80a..ef60ade13 100644
+index 02e26888e..68f6ee9da 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} a été laissé de côté : il a besoin de {other}, laissé de côté",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ne se compile pas sur le Horizon auquel vous jouez ({code}) : une compilation le laisse de côté jusqu'à ce que son auteur le mette à jour",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Là où vous êtes, le set fondateur se réclame par un paiement gratuit sur playhorizon.dev. Réclamez-le depuis la Boutique : elle ouvre le paiement pour vous.",
--  "The founder set can't be claimed from your country.": "Le set fondateur ne peut pas être réclamé depuis votre pays."
-+  "The founder set can't be claimed from your country.": "Le set fondateur ne peut pas être réclamé depuis votre pays.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "L'intensité du dépoli des panneaux.",
+   "Gather, build and stay alive": "Récoltez, construisez et restez en vie",
+   "Fly and build with every block": "Volez et construisez avec tous les blocs",
+-  "Play a map the way it was made": "Jouez une carte comme elle a été conçue"
++  "Play a map the way it was made": "Jouez une carte comme elle a été conçue",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demande n'a pas abouti : l'adresse du paiement n'est pas celle de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Non préparé. Horizon peut préparer Minecraft {version} depuis votre propre installation ; connectez-vous pour le télécharger depuis Mojang."
  }
 diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
-index 760d435a7..6bb23fe5d 100644
+index 03dcac10f..26e09e78f 100644
 --- a/launcher/lang/fur.json
 +++ b/launcher/lang/fur.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} al è stât lassât fûr: i covente {other}, che al è stât lassât fûr",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nol ven compilât su la version di Horizon che tu zuiis ({code}): une compilazion lu lasse fûr fin che il so autôr no lu inzorne",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Li che tu sês, il set dai fondadôrs si lu rivendiche cuntun paiament di bant su playhorizon.dev. Rivendichilu de Buteghe: e vierç il paiament par te.",
--  "The founder set can't be claimed from your country.": "Il set dai fondadôrs nol pues jessi rivendicât dal to paîs."
-+  "The founder set can't be claimed from your country.": "Il set dai fondadôrs nol pues jessi rivendicât dal to paîs.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richieste no je lade a bon fin: l'indirizz dal paiament nol è chel di Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fy.json b/launcher/lang/fy.json
-index 69a7d1f0e..0acc1f031 100644
+index b5076564f..b2a9328b0 100644
 --- a/launcher/lang/fy.json
 +++ b/launcher/lang/fy.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} is weilitten: it hat {other} nedich, dat weilitten is",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Bout net op de Horizon dy't do spilest ({code}): in bou lit it fuort oant de makker it bywurket",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Dêr't do bist, wurdt de oprjochterset oanfrege fia in fergese betelling op playhorizon.dev. Claim him yn de Winkel: dy iepenet de betelling foar dy.",
--  "The founder set can't be claimed from your country.": "De oprjochterset kin net út dyn lân claimd wurde."
-+  "The founder set can't be claimed from your country.": "De oprjochterset kin net út dyn lân claimd wurde.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "De oanspraak is net slagge: it adres fan de checkout is net dat fan Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ga.json b/launcher/lang/ga.json
-index 586ac15ae..a3f3a3576 100644
+index e4c5951bc..a148393bf 100644
 --- a/launcher/lang/ga.json
 +++ b/launcher/lang/ga.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Fágadh {name} amach: tá {other} ag teastáil uaidh, agus fágadh é sin amach",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ní thógtar é ar an Horizon a imríonn tú ({code}): fágann tógáil amach é go dtí go nuashonraíonn a údar é",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "San áit ina bhfuil tú, éilítear sraith na mbunaitheoirí trí sheiceáil saor in aisce ar playhorizon.dev. Éiligh ón Siopa í: osclaíonn sé an tseiceáil duit.",
--  "The founder set can't be claimed from your country.": "Ní féidir sraith na mbunaitheoirí a éileamh ó do thír."
-+  "The founder set can't be claimed from your country.": "Ní féidir sraith na mbunaitheoirí a éileamh ó do thír.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Níor éirigh leis an éileamh: ní é seoladh na seiceála amach seoladh Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/gd.json b/launcher/lang/gd.json
-index 95fb32093..fdc7abf7e 100644
+index e30771ff8..bf92bcb4a 100644
 --- a/launcher/lang/gd.json
 +++ b/launcher/lang/gd.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Chaidh {name} fhàgail às: feumaidh e {other}, a chaidh fhàgail às",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Cha tog e air an Horizon a tha thu a' cluich ({code}): fàgaidh togail às e gus an ùraich an t-ùghdar e",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Far a bheil thu, thèid seata an luchd-stèidheachaidh fhaighinn le pàigheadh an-asgaidh air playhorizon.dev. Faigh e on Bhùth: fosglaidh i am pàigheadh dhut.",
--  "The founder set can't be claimed from your country.": "Chan urrainn dhut seata an luchd-stèidheachaidh fhaighinn on dùthaich agad."
-+  "The founder set can't be claimed from your country.": "Chan urrainn dhut seata an luchd-stèidheachaidh fhaighinn on dùthaich agad.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cha deach an tagradh troimhe: chan e seòladh Horizon a th' ann an seòladh a' phàighidh.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/gl.json b/launcher/lang/gl.json
-index 30a6b818f..cbded701b 100644
+index 7598fd0eb..a91b7fd08 100644
 --- a/launcher/lang/gl.json
 +++ b/launcher/lang/gl.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Deixouse fóra {name}: precisa de {other}, que se deixou fóra",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Non se compila no Horizon ao que xogas ({code}): a compilación déixao fóra ata que o seu autor o actualice",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Onde estás, o conxunto de fundadores reclámase cun pagamento gratuíto en playhorizon.dev. Reclámao desde a Tenda: ábreche o pagamento.",
--  "The founder set can't be claimed from your country.": "O conxunto de fundadores non se pode reclamar desde o teu país."
-+  "The founder set can't be claimed from your country.": "O conxunto de fundadores non se pode reclamar desde o teu país.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "A reclamación non se completou: o enderezo do pagamento non é o de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/haw.json b/launcher/lang/haw.json
-index 457ff5f87..0f1a1bd67 100644
+index 3c550b0f2..b19584f7a 100644
 --- a/launcher/lang/haw.json
 +++ b/launcher/lang/haw.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Ua waiho ʻia ʻo {name}: pono iā ia ʻo {other}, i waiho ʻia",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "ʻAʻole i kūkulu ʻia ma ka Horizon āu e pāʻani nei ({code}): waiho ke kūkulu ʻana iā ia a hōʻano hou kona mea kākau",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Ma kou wahi, loaʻa ka pūʻulu hoʻokumu ma o ka uku manuahi ma playhorizon.dev. E kiʻi iā ia ma ka Hale kūʻai: wehe ia i ka uku nou.",
--  "The founder set can't be claimed from your country.": "ʻAʻole hiki ke kiʻi i ka pūʻulu hoʻokumu mai kou ʻāina."
-+  "The founder set can't be claimed from your country.": "ʻAʻole hiki ke kiʻi i ka pūʻulu hoʻokumu mai kou ʻāina.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "ʻAʻole i holomua ke koi: ʻaʻole nō Horizon ka helu wahi o ka uku.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/he.json b/launcher/lang/he.json
-index 4756fe48f..c89d9d45e 100644
+index 4957c90ca..45203d795 100644
 --- a/launcher/lang/he.json
 +++ b/launcher/lang/he.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} הושמט: הוא צריך את {other}, שהושמט",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "לא נבנה על ה-Horizon שבו אתה משחק ({code}): בנייה משמיטה אותו עד שהיוצר יעדכן אותו",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "במקום שבו אתה נמצא, את ערכת המייסדים מקבלים דרך תשלום חינמי ב-playhorizon.dev. קבל אותה מהחנות: היא פותחת לך את התשלום.",
--  "The founder set can't be claimed from your country.": "אי אפשר לקבל את ערכת המייסדים מהמדינה שלך."
-+  "The founder set can't be claimed from your country.": "אי אפשר לקבל את ערכת המייסדים מהמדינה שלך.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "הבקשה לא עברה: כתובת התשלום אינה של Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hi.json b/launcher/lang/hi.json
-index 2fb0d56cf..a6684dd49 100644
+index edb7cad43..e18f1d1b1 100644
 --- a/launcher/lang/hi.json
 +++ b/launcher/lang/hi.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} छोड़ दिया गया: इसे {other} चाहिए, जो छोड़ दिया गया",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "आप जो Horizon खेलते हैं उस पर नहीं बनता ({code}): बिल्ड इसे तब तक छोड़ देता है जब तक इसका लेखक इसे अपडेट न करे",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "आप जहाँ हैं, वहाँ संस्थापक सेट playhorizon.dev पर मुफ़्त चेकआउट से लिया जाता है। इसे दुकान से लें: वह आपके लिए चेकआउट खोल देती है।",
--  "The founder set can't be claimed from your country.": "संस्थापक सेट आपके देश से नहीं लिया जा सकता।"
-+  "The founder set can't be claimed from your country.": "संस्थापक सेट आपके देश से नहीं लिया जा सकता।",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "दावा पूरा नहीं हो सका: चेकआउट का पता Horizon का नहीं है।",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hr.json b/launcher/lang/hr.json
-index d94cd6bee..3f0efb6a0 100644
+index 0020ef569..d2e81bfff 100644
 --- a/launcher/lang/hr.json
 +++ b/launcher/lang/hr.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} je izostavljen: treba mu {other}, koji je izostavljen",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ne gradi se na Horizonu koji igraš ({code}): izgradnja ga izostavlja dok ga autor ne ažurira",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Tamo gdje ste, set osnivača preuzima se kroz besplatnu naplatu na playhorizon.dev. Preuzmite ga u Trgovini: ona vam otvara naplatu.",
--  "The founder set can't be claimed from your country.": "Set osnivača ne može se preuzeti iz vaše zemlje."
-+  "The founder set can't be claimed from your country.": "Set osnivača ne može se preuzeti iz vaše zemlje.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahtjev nije prošao: adresa plaćanja nije Horizonova.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hu.json b/launcher/lang/hu.json
-index 63e939c23..ad376e61c 100644
+index 9e63a6e02..0f6c971e7 100644
 --- a/launcher/lang/hu.json
 +++ b/launcher/lang/hu.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} kimaradt: szüksége van erre: {other}, ami kimaradt",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nem fordul le azon a Horizonon, amellyel játszol ({code}): a fordítás kihagyja, amíg a szerzője nem frissíti",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Ahol vagy, az alapítói szettet egy ingyenes fizetéssel lehet igényelni a playhorizon.dev oldalon. Igényeld a Boltban: megnyitja neked a fizetést.",
--  "The founder set can't be claimed from your country.": "Az alapítói szett nem igényelhető az országodból."
-+  "The founder set can't be claimed from your country.": "Az alapítói szett nem igényelhető az országodból.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Az igénylés nem sikerült: a fizetési oldal címe nem a Horizoné.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/hy.json b/launcher/lang/hy.json
-index 8c99de0a9..96d784b2d 100644
+index 7aff61624..1111616cf 100644
 --- a/launcher/lang/hy.json
 +++ b/launcher/lang/hy.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name}-ը բաց թողնվեց. նրան պետք է {other}-ը, որը բաց թողնվեց",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Չի կառուցվում քո խաղացած Horizon-ի վրա ({code}). կառուցումը բաց է թողնում այն, մինչև հեղինակը թարմացնի",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Այնտեղ, որտեղ դուք եք, հիմնադիրների հավաքածուն ստացվում է playhorizon.dev-ում անվճար վճարման միջոցով։ Ստացեք այն Խանութից․ այն կբացի վճարումը ձեզ համար։",
--  "The founder set can't be claimed from your country.": "Հիմնադիրների հավաքածուն հնարավոր չէ ստանալ ձեր երկրից։"
-+  "The founder set can't be claimed from your country.": "Հիմնադիրների հավաքածուն հնարավոր չէ ստանալ ձեր երկրից։",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Հայտը չանցավ․ վճարման էջի հասցեն Horizon-ինը չէ։",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/id.json b/launcher/lang/id.json
-index ee89cdf7a..21a7fbf03 100644
+index d1b731f69..6e2b59f85 100644
 --- a/launcher/lang/id.json
 +++ b/launcher/lang/id.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} tidak disertakan: membutuhkan {other}, yang tidak disertakan",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Tidak bisa dibangun di Horizon yang kamu mainkan ({code}): build tidak menyertakannya sampai pembuatnya memperbaruinya",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Di tempatmu, set pendiri diklaim lewat checkout gratis di playhorizon.dev. Klaim dari Toko: Toko akan membukakan checkout untukmu.",
--  "The founder set can't be claimed from your country.": "Set pendiri tidak bisa diklaim dari negaramu."
-+  "The founder set can't be claimed from your country.": "Set pendiri tidak bisa diklaim dari negaramu.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Klaim tidak berhasil: alamat checkout bukan milik Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ig.json b/launcher/lang/ig.json
-index 73fdc9a13..b6b4f1445 100644
+index 6a12f33b2..07decddf7 100644
 --- a/launcher/lang/ig.json
 +++ b/launcher/lang/ig.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "A hapụrụ {name}: ọ chọrọ {other}, nke a hapụrụ",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Anaghị ewu na Horizon ị na-egwu ({code}): owuwu na-ahapụ ya ruo mgbe onye dere ya ga-emelite ya",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "N'ebe ị nọ, a na-enweta otu ndị malitere site na ịkwụ ụgwọ n'efu na playhorizon.dev. Nweta ya site n'Ụlọ ahịa: ọ ga-emeghere gị ịkwụ ụgwọ ahụ.",
--  "The founder set can't be claimed from your country.": "Enweghị ike inweta otu ndị malitere site na mba gị."
-+  "The founder set can't be claimed from your country.": "Enweghị ike inweta otu ndị malitere site na mba gị.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Arịrịọ ahụ agaghị nke ọma: adreesị ibe ịkwụ ụgwọ abụghị nke Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/is.json b/launcher/lang/is.json
-index 51a365545..70a0537af 100644
+index 5d96d11e6..f779c6868 100644
 --- a/launcher/lang/is.json
 +++ b/launcher/lang/is.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} var sleppt: það þarf {other}, sem var sleppt",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Byggist ekki á þeirri Horizon sem þú spilar ({code}): smíði sleppir því þar til höfundurinn uppfærir það",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Þar sem þú ert færðu stofnendasettið með ókeypis greiðslu á playhorizon.dev. Gerðu tilkall til þess í Versluninni: hún opnar greiðsluna fyrir þig.",
--  "The founder set can't be claimed from your country.": "Ekki er hægt að gera tilkall til stofnendasettsins frá þínu landi."
-+  "The founder set can't be claimed from your country.": "Ekki er hægt að gera tilkall til stofnendasettsins frá þínu landi.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Beiðnin gekk ekki í gegn: heimilisfang greiðslunnar er ekki frá Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/it.json b/launcher/lang/it.json
-index a756c2d03..920522a07 100644
+index 35ed3ae5c..5ef46c1e6 100644
 --- a/launcher/lang/it.json
 +++ b/launcher/lang/it.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} è stato escluso: richiede {other}, che è stato escluso",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Non si compila sull'Horizon a cui giochi ({code}): una compilazione lo esclude finché il suo autore non lo aggiorna",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Dove ti trovi, il set dei fondatori si riscatta con un pagamento gratuito su playhorizon.dev. Riscattalo dal Negozio: apre il pagamento per te.",
--  "The founder set can't be claimed from your country.": "Il set dei fondatori non può essere riscattato dal tuo paese."
-+  "The founder set can't be claimed from your country.": "Il set dei fondatori non può essere riscattato dal tuo paese.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta non è andata a buon fine: l'indirizzo del pagamento non è quello di Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ja.json b/launcher/lang/ja.json
-index fcf5cc59c..b4eb392f8 100644
+index 99241ce6d..97245f9b8 100644
 --- a/launcher/lang/ja.json
 +++ b/launcher/lang/ja.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} は除外されました: 除外された {other} が必要です",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "プレイ中の Horizon ではビルドできません ({code}): 作者が更新するまでビルドから除外されます",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "お住まいの地域では、ファウンダーセットは playhorizon.dev の無料チェックアウトで受け取ります。ショップから受け取ってください。チェックアウトが開きます。",
--  "The founder set can't be claimed from your country.": "お住まいの国ではファウンダーセットを受け取れません。"
-+  "The founder set can't be claimed from your country.": "お住まいの国ではファウンダーセットを受け取れません。",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "受け取りに失敗しました。チェックアウトのアドレスが Horizon のものではありません。",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "未準備です。Horizon は自分のインストールから Minecraft {version} を準備できます。Mojang からダウンロードするにはサインインしてください。"
  }
 diff --git a/launcher/lang/ka.json b/launcher/lang/ka.json
-index a033ae42e..ed57fc9d8 100644
+index 803899863..a7e1c49bf 100644
 --- a/launcher/lang/ka.json
 +++ b/launcher/lang/ka.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} გამოტოვებულია: მას სჭირდება {other}, რომელიც გამოტოვებულია",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "არ იგება შენს Horizon-ზე ({code}): აწყობა მას გამოტოვებს, სანამ ავტორი არ განაახლებს",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "იქ, სადაც ხართ, დამფუძნებლების კომპლექტი playhorizon.dev-ზე უფასო გადახდით მიიღება. მიიღეთ ის მაღაზიიდან: ის თქვენთვის გახსნის გადახდას.",
--  "The founder set can't be claimed from your country.": "დამფუძნებლების კომპლექტის მიღება თქვენი ქვეყნიდან შეუძლებელია."
-+  "The founder set can't be claimed from your country.": "დამფუძნებლების კომპლექტის მიღება თქვენი ქვეყნიდან შეუძლებელია.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "მოთხოვნა ვერ შესრულდა: გადახდის მისამართი Horizon-ის არ არის.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/kk.json b/launcher/lang/kk.json
-index 8919732db..10c0ffcea 100644
+index bff31d102..694aa205f 100644
 --- a/launcher/lang/kk.json
 +++ b/launcher/lang/kk.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} алынып тасталды: оған {other} керек, ол алынып тасталды",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Сен ойнайтын Horizon-да жиналмайды ({code}): авторы жаңартқанша жинау оны алып тастайды",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Сіз тұрған жерде негізін қалаушылар жиынтығы playhorizon.dev сайтындағы тегін төлем арқылы алынады. Оны Дүкеннен алыңыз: ол төлемді сізге ашып береді.",
--  "The founder set can't be claimed from your country.": "Негізін қалаушылар жиынтығын сіздің еліңізден алу мүмкін емес."
-+  "The founder set can't be claimed from your country.": "Негізін қалаушылар жиынтығын сіздің еліңізден алу мүмкін емес.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Сұрау өтпеді: төлем мекенжайы Horizon-ның мекенжайы емес.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/kn.json b/launcher/lang/kn.json
-index 573322b8c..4c4bddafa 100644
+index 33b5ca5d5..9f38e8efa 100644
 --- a/launcher/lang/kn.json
 +++ b/launcher/lang/kn.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} ಅನ್ನು ಬಿಡಲಾಗಿದೆ: ಇದಕ್ಕೆ {other} ಬೇಕು, ಅದನ್ನು ಬಿಡಲಾಗಿದೆ",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "ನೀವು ಆಡುವ Horizon ನಲ್ಲಿ ಬಿಲ್ಡ್ ಆಗುವುದಿಲ್ಲ ({code}): ಅದರ ಲೇಖಕರು ನವೀಕರಿಸುವವರೆಗೆ ಬಿಲ್ಡ್ ಅದನ್ನು ಬಿಡುತ್ತದೆ",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "ನೀವು ಇರುವಲ್ಲಿ, ಸ್ಥಾಪಕರ ಸೆಟ್ ಅನ್ನು playhorizon.dev ನಲ್ಲಿ ಉಚಿತ ಚೆಕ್‌ಔಟ್ ಮೂಲಕ ಪಡೆಯಲಾಗುತ್ತದೆ. ಅಂಗಡಿಯಿಂದ ಪಡೆಯಿರಿ: ಅದು ನಿಮಗಾಗಿ ಚೆಕ್‌ಔಟ್ ತೆರೆಯುತ್ತದೆ.",
--  "The founder set can't be claimed from your country.": "ನಿಮ್ಮ ದೇಶದಿಂದ ಸ್ಥಾಪಕರ ಸೆಟ್ ಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ."
-+  "The founder set can't be claimed from your country.": "ನಿಮ್ಮ ದೇಶದಿಂದ ಸ್ಥಾಪಕರ ಸೆಟ್ ಪಡೆಯಲು ಸಾಧ್ಯವಿಲ್ಲ.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "ಕ್ಲೈಮ್ ಪೂರ್ಣಗೊಳ್ಳಲಿಲ್ಲ: ಚೆಕ್‌ಔಟ್‌ನ ವಿಳಾಸ Horizon ನದಲ್ಲ.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ko.json b/launcher/lang/ko.json
-index 58fdcdff6..08d4231f1 100644
+index 7826f5bd7..23cf1f4d0 100644
 --- a/launcher/lang/ko.json
 +++ b/launcher/lang/ko.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name}이(가) 제외되었습니다: 제외된 {other}이(가) 필요합니다",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "플레이 중인 Horizon에서 빌드되지 않습니다 ({code}): 제작자가 업데이트할 때까지 빌드에서 제외됩니다",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "현재 지역에서는 창립자 세트를 playhorizon.dev의 무료 결제로 받습니다. 상점에서 받으세요. 결제 화면을 열어 드립니다.",
--  "The founder set can't be claimed from your country.": "현재 국가에서는 창립자 세트를 받을 수 없습니다."
-+  "The founder set can't be claimed from your country.": "현재 국가에서는 창립자 세트를 받을 수 없습니다.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "받기가 완료되지 않았어요. 결제 주소가 Horizon의 주소가 아니에요.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ky.json b/launcher/lang/ky.json
-index b28417320..af4918347 100644
+index 17c61756a..bdcb91408 100644
 --- a/launcher/lang/ky.json
 +++ b/launcher/lang/ky.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} чыгарылып калды: ага {other} керек, ал чыгарылып калды",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Сен ойногон Horizon'до курулбайт ({code}): автору жаңыртмайынча курулуш аны чыгарып салат",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Сиз турган жерде негиздөөчүлөр топтому playhorizon.dev сайтындагы акысыз төлөм аркылуу алынат. Аны Дүкөндөн алыңыз: ал төлөмдү сизге ачып берет.",
--  "The founder set can't be claimed from your country.": "Негиздөөчүлөр топтомун сиздин өлкөңүздөн алууга болбойт."
-+  "The founder set can't be claimed from your country.": "Негиздөөчүлөр топтомун сиздин өлкөңүздөн алууга болбойт.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Талап өткөн жок: төлөмдүн дареги Horizon'ду эмес.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/la.json b/launcher/lang/la.json
-index 89ee1ba96..11bf1fec4 100644
+index 1238b5b4c..b36a3f2ea 100644
 --- a/launcher/lang/la.json
 +++ b/launcher/lang/la.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} omissus est: {other} eget, qui omissus est",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "In Horizonte quo ludis non construitur ({code}): constructio eum omittit donec auctor eum renovet",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Ubi es, copia conditorum per solutionem gratuitam in playhorizon.dev petitur. Pete eam ex Taberna: ea solutionem tibi aperit.",
--  "The founder set can't be claimed from your country.": "Copia conditorum ex patria tua peti non potest."
-+  "The founder set can't be claimed from your country.": "Copia conditorum ex patria tua peti non potest.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Postulatio non successit: inscriptio solutionis non est Horizontis.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lb.json b/launcher/lang/lb.json
-index 2d0ad84a2..d7fcf8048 100644
+index f425ad0fb..b9901a477 100644
 --- a/launcher/lang/lb.json
 +++ b/launcher/lang/lb.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} gouf ewechgelooss: brauch {other}, dat ewechgelooss gouf",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Baut net op dem Horizon, deen s du spills ({code}): e Build léisst et ewech, bis säin Auteur et aktualiséiert",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Do wou s du bass, gëtt de Grënner-Set iwwer eng gratis Bezuelung op playhorizon.dev gefuerdert. Fuerder en am Buttek: hien mécht d'Bezuelung fir dech op.",
--  "The founder set can't be claimed from your country.": "De Grënner-Set kann net aus dengem Land gefuerdert ginn."
-+  "The founder set can't be claimed from your country.": "De Grënner-Set kann net aus dengem Land gefuerdert ginn.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "D'Ufro ass net duerchgaangen: d'Adress vum Checkout ass net déi vun Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/li.json b/launcher/lang/li.json
-index c70db8989..92b280e6a 100644
+index 531347104..3330bbb35 100644
 --- a/launcher/lang/li.json
 +++ b/launcher/lang/li.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} is weggelaote: 't haet {other} nóddig, wat weggelaote is",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Bouwt neet op de Horizon die se speuls ({code}): 'ne bouw laot 't weg tot de maker 't biewerk",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Wo se bis, wurt de oprichtersset geclaimd via 'n gratis betaling op playhorizon.dev. Claim 'm in de Winkel: dae maak de betaling veur dich aope.",
--  "The founder set can't be claimed from your country.": "De oprichtersset kin neet oet dien land geclaimd waere."
-+  "The founder set can't be claimed from your country.": "De oprichtersset kin neet oet dien land geclaimd waere.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "De aanspraak is neet geslaag: 't adres van de checkout is neet dat van Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lmo.json b/launcher/lang/lmo.json
-index 2004c489c..ef2d8adbb 100644
+index 3555b18d8..55a74992d 100644
 --- a/launcher/lang/lmo.json
 +++ b/launcher/lang/lmo.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} l'è staa lassaa foeura: el gh'ha bisogn de {other}, che l'è staa lassaa foeura",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "El se compila minga in sul Horizon che te zughet ({code}): una compilazion la le lassa foeura fin che el so autor el l'aggiorna",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Lá indoe te seet, el set di fondador el se rivendica cont un pagament gratis su playhorizon.dev. Rivendighel del Negozi: el te derva el pagament.",
--  "The founder set can't be claimed from your country.": "El set di fondador el se po minga rivendicà del tò paes."
-+  "The founder set can't be claimed from your country.": "El set di fondador el se po minga rivendicà del tò paes.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta la gh'a minga fa: l'indirizz del pagament l'è minga quel de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lo.json b/launcher/lang/lo.json
-index 9a86b4571..1bcdcf065 100644
+index 40c9caa91..74e2256bb 100644
 --- a/launcher/lang/lo.json
 +++ b/launcher/lang/lo.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} ຖືກປະໄວ້: ມັນຕ້ອງການ {other} ເຊິ່ງຖືກປະໄວ້",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "ບໍ່ສາມາດສ້າງໃນ Horizon ທີ່ທ່ານຫຼິ້ນ ({code}): ການສ້າງຈະປະມັນໄວ້ຈົນກວ່າຜູ້ສ້າງຈະອັບເດດ",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "ຢູ່ບ່ອນທີ່ທ່ານຢູ່, ຊຸດຜູ້ກໍ່ຕັ້ງຮັບໄດ້ຜ່ານການຊຳລະເງິນຟຣີທີ່ playhorizon.dev. ຮັບມັນຈາກຮ້ານ: ມັນຈະເປີດການຊຳລະເງິນໃຫ້ທ່ານ.",
--  "The founder set can't be claimed from your country.": "ບໍ່ສາມາດຮັບຊຸດຜູ້ກໍ່ຕັ້ງຈາກປະເທດຂອງທ່ານໄດ້."
-+  "The founder set can't be claimed from your country.": "ບໍ່ສາມາດຮັບຊຸດຜູ້ກໍ່ຕັ້ງຈາກປະເທດຂອງທ່ານໄດ້.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "ການຮັບບໍ່ສຳເລັດ: ທີ່ຢູ່ຂອງໜ້າຊຳລະບໍ່ແມ່ນຂອງ Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lt.json b/launcher/lang/lt.json
-index 9eee1b4b4..7bb391b65 100644
+index 0beef87a7..3f5fa6010 100644
 --- a/launcher/lang/lt.json
 +++ b/launcher/lang/lt.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} praleistas: jam reikia {other}, kuris praleistas",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nesukompiliuojamas tavo žaidžiamame Horizon ({code}): kompiliavimas jį praleidžia, kol autorius jo neatnaujins",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Ten, kur esate, įkūrėjų rinkinys gaunamas per nemokamą apmokėjimą playhorizon.dev svetainėje. Gaukite jį Parduotuvėje: ji atidarys apmokėjimą už jus.",
--  "The founder set can't be claimed from your country.": "Įkūrėjų rinkinio negalima gauti iš jūsų šalies."
-+  "The founder set can't be claimed from your country.": "Įkūrėjų rinkinio negalima gauti iš jūsų šalies.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Prašymas nepavyko: atsiskaitymo adresas nepriklauso Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/lv.json b/launcher/lang/lv.json
-index fa7a7c627..af05de8e0 100644
+index 1e3cc8110..a4a4229c2 100644
 --- a/launcher/lang/lv.json
 +++ b/launcher/lang/lv.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} tika izlaists: tam vajag {other}, kas tika izlaists",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Neveidojas uz Horizon, ko tu spēlē ({code}): būvējums to izlaiž, līdz autors to atjaunina",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Tur, kur jūs esat, dibinātāju komplektu saņem ar bezmaksas apmaksu vietnē playhorizon.dev. Saņemiet to Veikalā: tas jums atvērs apmaksu.",
--  "The founder set can't be claimed from your country.": "Dibinātāju komplektu nevar saņemt no jūsu valsts."
-+  "The founder set can't be claimed from your country.": "Dibinātāju komplektu nevar saņemt no jūsu valsts.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Pieprasījums neizdevās: norēķina adrese nepieder Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mk.json b/launcher/lang/mk.json
-index 32e7a25d8..50538d6ba 100644
+index 0a6e37b0c..253319acf 100644
 --- a/launcher/lang/mk.json
 +++ b/launcher/lang/mk.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} е изоставен: му треба {other}, кој е изоставен",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Не се гради на Horizon што го играш ({code}): градењето го изоставува додека авторот не го ажурира",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Таму каде што сте, комплетот на основачите се зема преку бесплатно плаќање на playhorizon.dev. Земете го од Продавницата: таа ќе ви го отвори плаќањето.",
--  "The founder set can't be claimed from your country.": "Комплетот на основачите не може да се земе од вашата земја."
-+  "The founder set can't be claimed from your country.": "Комплетот на основачите не може да се земе од вашата земја.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Барањето не помина: адресата на плаќањето не е на Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mn.json b/launcher/lang/mn.json
-index a8289fd2b..2b1284c38 100644
+index 9ab133eb9..0b9daf700 100644
 --- a/launcher/lang/mn.json
 +++ b/launcher/lang/mn.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name}-г хассан: түүнд {other} хэрэгтэй, тэр нь хасагдсан",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Таны тоглодог Horizon дээр бүтэхгүй ({code}): зохиогч нь шинэчлэх хүртэл бүтээлт үүнийг хасна",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Таны байгаа газарт үүсгэн байгуулагчдын иж бүрдлийг playhorizon.dev дээрх үнэгүй төлбөрөөр авдаг. Үүнийг Дэлгүүрээс аваарай: төлбөрийг танд нээж өгнө.",
--  "The founder set can't be claimed from your country.": "Үүсгэн байгуулагчдын иж бүрдлийг таны улсаас авах боломжгүй."
-+  "The founder set can't be claimed from your country.": "Үүсгэн байгуулагчдын иж бүрдлийг таны улсаас авах боломжгүй.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Хүсэлт амжилтгүй боллоо: төлбөрийн хаяг Horizon-ых биш байна.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ms.json b/launcher/lang/ms.json
-index 4cb2421f1..276b21af5 100644
+index 88831e528..f00f872e0 100644
 --- a/launcher/lang/ms.json
 +++ b/launcher/lang/ms.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} ditinggalkan: ia memerlukan {other}, yang ditinggalkan",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Tidak dibina pada Horizon yang anda mainkan ({code}): binaan meninggalkannya sehingga pengarangnya mengemas kininya",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Di tempat anda, set pengasas dituntut melalui pembayaran percuma di playhorizon.dev. Tuntut dari Kedai: ia membuka pembayaran untuk anda.",
--  "The founder set can't be claimed from your country.": "Set pengasas tidak boleh dituntut dari negara anda."
-+  "The founder set can't be claimed from your country.": "Set pengasas tidak boleh dituntut dari negara anda.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Tuntutan tidak berjaya: alamat pembayaran bukan milik Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/mt.json b/launcher/lang/mt.json
-index 76711146b..39650b87e 100644
+index 9ea2c661b..2e359672a 100644
 --- a/launcher/lang/mt.json
 +++ b/launcher/lang/mt.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} tħalla barra: jeħtieġ {other}, li tħalla barra",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ma jinbeniex fuq il-Horizon li qed tilgħab ({code}): bini jħallih barra sakemm l-awtur jaġġornah",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Fejn int, is-sett tal-fundaturi jintalab permezz ta' ħlas b'xejn fuq playhorizon.dev. Itolbu mill-Ħanut: jiftaħlek il-ħlas.",
--  "The founder set can't be claimed from your country.": "Is-sett tal-fundaturi ma jistax jintalab minn pajjiżek."
-+  "The founder set can't be claimed from your country.": "Is-sett tal-fundaturi ma jistax jintalab minn pajjiżek.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "It-talba ma għaddietx: l-indirizz tal-ħlas mhuwiex ta' Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/nl.json b/launcher/lang/nl.json
-index 50b1461e7..329cf6312 100644
+index 5eaefb07f..5b70a8922 100644
 --- a/launcher/lang/nl.json
 +++ b/launcher/lang/nl.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} is weggelaten: het heeft {other} nodig, dat is weggelaten",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Bouwt niet op de Horizon die je speelt ({code}): een build laat het weg tot de maker het bijwerkt",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Waar jij bent, claim je de founder-set via een gratis checkout op playhorizon.dev. Claim hem in de Winkel: die opent de checkout voor je.",
--  "The founder set can't be claimed from your country.": "De founder-set kan niet vanuit jouw land worden geclaimd."
-+  "The founder set can't be claimed from your country.": "De founder-set kan niet vanuit jouw land worden geclaimd.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "De claim is niet gelukt: het adres van de checkout is niet dat van Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/no.json b/launcher/lang/no.json
-index aa1daa5fd..8707ad73c 100644
+index d5254768c..03b386ca7 100644
 --- a/launcher/lang/no.json
 +++ b/launcher/lang/no.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} ble utelatt: den trenger {other}, som ble utelatt",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Bygger ikke på Horizon-versjonen du spiller ({code}): en bygging utelater den til forfatteren oppdaterer den",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Der du er, får du grunnleggersettet gjennom en gratis betaling på playhorizon.dev. Gjør krav på det i Butikk: den åpner betalingen for deg.",
--  "The founder set can't be claimed from your country.": "Grunnleggersettet kan ikke fås fra landet ditt."
-+  "The founder set can't be claimed from your country.": "Grunnleggersettet kan ikke fås fra landet ditt.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kravet gikk ikke gjennom: adressen til utsjekkingen er ikke Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/oc.json b/launcher/lang/oc.json
-index 89bb6aaba..781c0a21a 100644
+index 3a358d257..e8274a39b 100644
 --- a/launcher/lang/oc.json
 +++ b/launcher/lang/oc.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} es estat daissat de caire: a besonh de {other}, daissat de caire",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Se compila pas sus l'Horizon que i jogas ({code}): una compilacion lo daissa de caire fins que son autor lo mete a jorn",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Ont sètz, lo lòt dels fondadors se reclama amb un pagament gratuit sus playhorizon.dev. Reclamatz-lo dins la Botiga: vos dobrís lo pagament.",
--  "The founder set can't be claimed from your country.": "Lo lòt dels fondadors se pòt pas reclamar dempuèi vòstre país."
-+  "The founder set can't be claimed from your country.": "Lo lòt dels fondadors se pòt pas reclamar dempuèi vòstre país.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La demanda a pas capitat : l'adreça del pagament es pas la de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/pl.json b/launcher/lang/pl.json
-index 3d25b0110..f8626c451 100644
+index 1064b6e25..4c63f9b32 100644
 --- a/launcher/lang/pl.json
 +++ b/launcher/lang/pl.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Pominięto {name}: potrzebuje {other}, który został pominięty",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nie buduje się na Horizonie, w który grasz ({code}): budowanie go pomija, dopóki autor go nie zaktualizuje",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Tam, gdzie jesteś, zestaw założyciela odbiera się przez bezpłatną płatność na playhorizon.dev. Odbierz go w Sklepie: otworzy płatność za ciebie.",
--  "The founder set can't be claimed from your country.": "Zestawu założyciela nie można odebrać z twojego kraju."
-+  "The founder set can't be claimed from your country.": "Zestawu założyciela nie można odebrać z twojego kraju.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Odbiór się nie powiódł: adres płatności nie należy do Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Nie przygotowano. Horizon może przygotować Minecraft {version} z Twojej własnej instalacji; zaloguj się, aby pobrać go z Mojang."
  }
 diff --git a/launcher/lang/pt-br.json b/launcher/lang/pt-br.json
-index 7fb97bf65..828e65fb2 100644
+index 8bfa3e70b..9cdb117c7 100644
 --- a/launcher/lang/pt-br.json
 +++ b/launcher/lang/pt-br.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} ficou de fora: precisa de {other}, que ficou de fora",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Não compila no Horizon que você joga ({code}): a compilação o deixa de fora até que o autor o atualize",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Onde você está, o conjunto fundador é resgatado por um checkout gratuito em playhorizon.dev. Resgate na Loja: ela abre o checkout para você.",
--  "The founder set can't be claimed from your country.": "O conjunto fundador não pode ser resgatado no seu país."
-+  "The founder set can't be claimed from your country.": "O conjunto fundador não pode ser resgatado no seu país.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "O resgate não foi concluído: o endereço do checkout não é o da Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Não preparado. O Horizon pode preparar o Minecraft {version} a partir da sua própria instalação; entre para baixá-lo da Mojang."
  }
 diff --git a/launcher/lang/pt.json b/launcher/lang/pt.json
-index e38792c0b..77a2ca34b 100644
+index 5741a81d2..5f4e9616d 100644
 --- a/launcher/lang/pt.json
 +++ b/launcher/lang/pt.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} ficou de fora: precisa de {other}, que ficou de fora",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Não compila no Horizon que jogas ({code}): a compilação deixa-o de fora até que o autor o atualize",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Onde está, o conjunto fundador obtém-se através de um pagamento gratuito em playhorizon.dev. Obtenha-o na Loja: ela abre o pagamento por si.",
--  "The founder set can't be claimed from your country.": "O conjunto fundador não pode ser obtido a partir do seu país."
-+  "The founder set can't be claimed from your country.": "O conjunto fundador não pode ser obtido a partir do seu país.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "O pedido não foi concluído: o endereço do pagamento não é o da Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ro.json b/launcher/lang/ro.json
-index 99d01d32e..69ab643fd 100644
+index a0d51dfcc..620d544ed 100644
 --- a/launcher/lang/ro.json
 +++ b/launcher/lang/ro.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} a fost omis: are nevoie de {other}, care a fost omis",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nu se compilează pe Horizon-ul pe care îl joci ({code}): compilarea îl omite până când autorul îl actualizează",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Acolo unde ești, setul fondatorilor se revendică printr-o plată gratuită pe playhorizon.dev. Revendică-l din Magazin: îți deschide plata.",
--  "The founder set can't be claimed from your country.": "Setul fondatorilor nu poate fi revendicat din țara ta."
-+  "The founder set can't be claimed from your country.": "Setul fondatorilor nu poate fi revendicat din țara ta.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Cererea nu a reușit: adresa plății nu aparține Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ru.json b/launcher/lang/ru.json
-index 7af5bf219..0096d588b 100644
+index 411e75011..e40acc96d 100644
 --- a/launcher/lang/ru.json
 +++ b/launcher/lang/ru.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} пропущен: ему нужен {other}, который пропущен",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Не собирается на Horizon, в который вы играете ({code}): сборка пропустит его, пока автор не обновит",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "В вашей стране набор основателя получают через бесплатное оформление на playhorizon.dev. Получите его в Магазине: он сам откроет оформление.",
--  "The founder set can't be claimed from your country.": "Набор основателя нельзя получить из вашей страны."
-+  "The founder set can't be claimed from your country.": "Набор основателя нельзя получить из вашей страны.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не прошла: адрес страницы оплаты не принадлежит Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не подготовлено. Horizon может подготовить Minecraft {version} из вашей собственной установки; войдите, чтобы скачать его с Mojang."
  }
 diff --git a/launcher/lang/sah.json b/launcher/lang/sah.json
-index 31964ad73..9d1779142 100644
+index 80597975a..2303bffc9 100644
 --- a/launcher/lang/sah.json
 +++ b/launcher/lang/sah.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} киллэриллибэтэ: кини {other} наада, ол эмиэ киллэриллибэтэ",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Эн оонньуур Horizon-ҥар хомуллубат ({code}): ааптар саҥардыар диэри хомуйуу киниэхэ киллэрбэт",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Эһиги баар сиргитигэр төрдүттэр иинэ playhorizon.dev сайтка босхо төлөбүр нөҥүө ылыллар. Кинини Маҕаһыынтан ылыҥ: төлөбүрү бэйэтэ арыйыа.",
--  "The founder set can't be claimed from your country.": "Төрдүттэр иинин эһиги дойдугуттан ылар кыах суох."
-+  "The founder set can't be claimed from your country.": "Төрдүттэр иинин эһиги дойдугуттан ылар кыах суох.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Көрдөбүл ааспата: төлөбүр аадырыһа Horizon буолбатах.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/se.json b/launcher/lang/se.json
-index 3cd8a7f20..ea88cd8e4 100644
+index 6265bd8e4..90cc0f0eb 100644
 --- a/launcher/lang/se.json
 +++ b/launcher/lang/se.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} guđđojuvvui olggobeallái: dat dárbbaša {other}, mii guđđojuvvui olggobeallái",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ii huksejuvvo Horizonis man speallat ({code}): huksen guođđá dan olggobeallái dassážii go dahkki ođasmahttá dan",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Doppe gos don leat, vuođđudeaddjiid sátta oažžu nuvttá máksima bokte playhorizon.dev:s. Gáibit dan Gávpis: dat rahpá máksima dutnje.",
--  "The founder set can't be claimed from your country.": "Vuođđudeaddjiid sáttá ii sáhte gáibidit du riikkas."
-+  "The founder set can't be claimed from your country.": "Vuođđudeaddjiid sáttá ii sáhte gáibidit du riikkas.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ohcan ii lihkostuvvan: mávsima čujuhus ii leat Horizona.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sk.json b/launcher/lang/sk.json
-index b25d540f5..89bc0d354 100644
+index a74afa417..e721c906c 100644
 --- a/launcher/lang/sk.json
 +++ b/launcher/lang/sk.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} bol vynechaný: potrebuje {other}, ktorý bol vynechaný",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nezostaví sa na Horizone, ktorý hráš ({code}): zostavenie ho vynechá, kým ho autor neaktualizuje",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Tam, kde ste, sa zakladateľská sada získava cez bezplatnú pokladňu na playhorizon.dev. Získajte ju v Obchode: pokladňu vám otvorí sám.",
--  "The founder set can't be claimed from your country.": "Zakladateľskú sadu nemožno získať z vašej krajiny."
-+  "The founder set can't be claimed from your country.": "Zakladateľskú sadu nemožno získať z vašej krajiny.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Nárok sa nepodarilo uplatniť: adresa platby nepatrí Horizonu.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sl.json b/launcher/lang/sl.json
-index 1ef727ed8..10ce4f780 100644
+index 41abaf3d4..d1af6df0e 100644
 --- a/launcher/lang/sl.json
 +++ b/launcher/lang/sl.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} je bil izpuščen: potrebuje {other}, ki je bil izpuščen",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Se ne zgradi na Horizonu, ki ga igraš ({code}): gradnja ga izpusti, dokler ga avtor ne posodobi",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Tam, kjer ste, se komplet ustanoviteljev prevzame z brezplačnim plačilom na playhorizon.dev. Prevzemite ga v Trgovini: odpre vam plačilo.",
--  "The founder set can't be claimed from your country.": "Kompleta ustanoviteljev ni mogoče prevzeti iz vaše države."
-+  "The founder set can't be claimed from your country.": "Kompleta ustanoviteljev ni mogoče prevzeti iz vaše države.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Zahteva ni uspela: naslov plačila ni Horizonov.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/so.json b/launcher/lang/so.json
-index 39160a649..2bd86298f 100644
+index 8d2f1503c..cf3b3e369 100644
 --- a/launcher/lang/so.json
 +++ b/launcher/lang/so.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} waa laga reebay: wuxuu u baahan yahay {other}, oo laga reebay",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Kuma dhismo Horizon-ka aad ciyaarto ({code}): dhismuhu wuu ka reebayaa ilaa qoraagiisu cusboonaysiiyo",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Meesha aad joogto, xirmada aasaasayaasha waxaa lagu helaa lacag-bixin bilaash ah oo ku taal playhorizon.dev. Ka qaado Dukaanka: wuxuu kuu furayaa lacag-bixinta.",
--  "The founder set can't be claimed from your country.": "Xirmada aasaasayaasha lagama heli karo dalkaaga."
-+  "The founder set can't be claimed from your country.": "Xirmada aasaasayaasha lagama heli karo dalkaaga.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Codsigu ma dhicin: ciwaanka bixintu ma aha kan Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sq.json b/launcher/lang/sq.json
-index d7479ea4c..6dcec7a93 100644
+index 0f8e24a57..e86efc375 100644
 --- a/launcher/lang/sq.json
 +++ b/launcher/lang/sq.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} u la jashtë: i duhet {other}, që u la jashtë",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Nuk ndërtohet në Horizon-in që luan ({code}): ndërtimi e lë jashtë derisa autori ta përditësojë",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Atje ku jeni, seti i themeluesve merret me një pagesë falas në playhorizon.dev. Merreni nga Dyqani: ai jua hap pagesën.",
--  "The founder set can't be claimed from your country.": "Seti i themeluesve nuk mund të merret nga vendi juaj."
-+  "The founder set can't be claimed from your country.": "Seti i themeluesve nuk mund të merret nga vendi juaj.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Kërkesa nuk kaloi: adresa e pagesës nuk është e Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sr.json b/launcher/lang/sr.json
-index 8b4fe486d..cbe7ccc8e 100644
+index ba995327c..22e568123 100644
 --- a/launcher/lang/sr.json
 +++ b/launcher/lang/sr.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} је изостављен: потребан му је {other}, који је изостављен",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Не гради се на Horizon-у који играш ({code}): изградња га изоставља док га аутор не ажурира",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Тамо где сте, комплет оснивача се преузима кроз бесплатну наплату на playhorizon.dev. Преузмите га у Продавници: она вам отвара наплату.",
--  "The founder set can't be claimed from your country.": "Комплет оснивача не може да се преузме из ваше земље."
-+  "The founder set can't be claimed from your country.": "Комплет оснивача не може да се преузме из ваше земље.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Захтев није прошао: адреса плаћања није Horizon-ова.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/sv.json b/launcher/lang/sv.json
-index 2d95ed8a6..495ea400a 100644
+index 81ff2737a..c31a16798 100644
 --- a/launcher/lang/sv.json
 +++ b/launcher/lang/sv.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} utelämnades: den behöver {other}, som utelämnades",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Bygger inte på den Horizon du spelar ({code}): ett bygge utelämnar den tills författaren uppdaterar den",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Där du är får du grundarsetet genom en gratis kassa på playhorizon.dev. Gör anspråk på det i Butik: den öppnar kassan åt dig.",
--  "The founder set can't be claimed from your country.": "Grundarsetet kan inte fås från ditt land."
-+  "The founder set can't be claimed from your country.": "Grundarsetet kan inte fås från ditt land.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Anspråket gick inte igenom: kassans adress är inte Horizons.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/szl.json b/launcher/lang/szl.json
-index 1212e1971..7e11cc439 100644
+index 07ce1d8f3..3de317997 100644
 --- a/launcher/lang/szl.json
 +++ b/launcher/lang/szl.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} zostoł pominiynty: potrzebuje {other}, kery zostoł pominiynty",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Niy buduje sie na Horizōnie, w kery grosz ({code}): budowanie go pomijo, aże autor go zaktualizuje",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Kaj ty żeś je, zestŏw zôłożycieli dostŏwŏ sie bez darmowõ płatność na playhorizon.dev. Weź go we Sklepie: ôn ôtworzi ci płatność.",
--  "The founder set can't be claimed from your country.": "Zestŏwu zôłożycieli niy idzie dostać z twojigo krajū."
-+  "The founder set can't be claimed from your country.": "Zestŏwu zôłożycieli niy idzie dostać z twojigo krajū.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Żōdanie sie niy udało: adresa płatności niy należy do Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/ta.json b/launcher/lang/ta.json
-index a73acc207..688cb6246 100644
+index 0e6c01b44..8ebe588fb 100644
 --- a/launcher/lang/ta.json
 +++ b/launcher/lang/ta.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} விடப்பட்டது: இதற்கு {other} தேவை, அது விடப்பட்டது",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "நீங்கள் விளையாடும் Horizon இல் உருவாகாது ({code}): அதன் ஆசிரியர் புதுப்பிக்கும் வரை உருவாக்கம் அதை விடுகிறது",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "நீங்கள் இருக்கும் இடத்தில், நிறுவனர் தொகுப்பு playhorizon.dev இல் இலவச செக்அவுட் மூலம் பெறப்படுகிறது. அதைக் கடையிலிருந்து பெறுங்கள்: அது உங்களுக்காக செக்அவுட்டைத் திறக்கும்.",
--  "The founder set can't be claimed from your country.": "உங்கள் நாட்டிலிருந்து நிறுவனர் தொகுப்பைப் பெற முடியாது."
-+  "The founder set can't be claimed from your country.": "உங்கள் நாட்டிலிருந்து நிறுவனர் தொகுப்பைப் பெற முடியாது.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "கோரிக்கை நிறைவேறவில்லை: செக்அவுட்டின் முகவரி Horizon-உடையது அல்ல.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index a1ae82792..7283c3504 100644
+index 3f75a1f1d..e83c1ee3e 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "ไม่ได้รวม {name}: ต้องใช้ {other} ซึ่งไม่ได้รวมไว้",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "บิลด์บน Horizon ที่คุณเล่นไม่ได้ ({code}): การบิลด์จะข้ามม็อดนี้ไปจนกว่าผู้สร้างจะอัปเดต",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "ในพื้นที่ของคุณ ต้องรับชุดผู้เล่นรุ่นแรกผ่านการชำระเงินแบบฟรีบน playhorizon.dev รับได้จากร้านค้า: ร้านค้าจะเปิดหน้าชำระเงินให้",
--  "The founder set can't be claimed from your country.": "รับชุดผู้เล่นรุ่นแรกจากประเทศของคุณไม่ได้"
-+  "The founder set can't be claimed from your country.": "รับชุดผู้เล่นรุ่นแรกจากประเทศของคุณไม่ได้",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/tr.json b/launcher/lang/tr.json
-index 8b87dacdc..2ee15234d 100644
+index 3ff6db48e..9694404c7 100644
 --- a/launcher/lang/tr.json
 +++ b/launcher/lang/tr.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} dışarıda bırakıldı: dışarıda bırakılan {other} gerekiyor",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Oynadığın Horizon'da derlenmiyor ({code}): yazarı güncelleyene kadar derleme onu dışarıda bırakır",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Bulunduğun yerde kurucu seti playhorizon.dev üzerinde ücretsiz bir ödeme ile alınır. Mağaza'dan al: ödemeyi senin için açar.",
--  "The founder set can't be claimed from your country.": "Kurucu seti ülkenden alınamaz."
-+  "The founder set can't be claimed from your country.": "Kurucu seti ülkenden alınamaz.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Talep tamamlanamadı: ödeme adresi Horizon'a ait değil.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Hazırlanmadı. Horizon, Minecraft {version} sürümünü kendi kurulumunuzdan hazırlayabilir; Mojang'dan indirmek için oturum açın."
  }
 diff --git a/launcher/lang/tt.json b/launcher/lang/tt.json
-index 5dbf269c6..9efdbc217 100644
+index 704ae993c..f6d00cef7 100644
 --- a/launcher/lang/tt.json
 +++ b/launcher/lang/tt.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} төшереп калдырылды: аңа {other} кирәк, ә ул төшереп калдырылды",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Син уйнаган Horizon'да җыелмый ({code}): авторы яңартмыйча, җыю аны төшереп калдыра",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Сез булган җирдә нигез салучылар комплекты playhorizon.dev сайтында бушлай түләү аша алына. Аны Кибеттән алыгыз: ул түләүне сезгә үзе ача.",
--  "The founder set can't be claimed from your country.": "Нигез салучылар комплектын сезнең илдән алып булмый."
-+  "The founder set can't be claimed from your country.": "Нигез салучылар комплектын сезнең илдән алып булмый.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Таләп узмады: түләү адресы Horizon'ныкы түгел.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/uk.json b/launcher/lang/uk.json
-index 87e3dbd1d..06a203459 100644
+index 4d9271827..5d5e8457f 100644
 --- a/launcher/lang/uk.json
 +++ b/launcher/lang/uk.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} пропущено: йому потрібен {other}, який пропущено",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Не збирається на Horizon, у який ви граєте ({code}): збирання пропустить його, доки автор не оновить",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Там, де ви є, набір засновника отримують через безкоштовне оформлення на playhorizon.dev. Отримайте його в Крамниці: вона сама відкриє оформлення.",
--  "The founder set can't be claimed from your country.": "Набір засновника не можна отримати з вашої країни."
-+  "The founder set can't be claimed from your country.": "Набір засновника не можна отримати з вашої країни.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Заявка не пройшла: адреса сторінки оплати не належить Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Не підготовлено. Horizon може підготувати Minecraft {version} із вашої власної установки; увійдіть, щоб завантажити його з Mojang."
  }
 diff --git a/launcher/lang/ur.json b/launcher/lang/ur.json
-index d250956ab..6a184d034 100644
+index e60a3573d..7fd2d4ba9 100644
 --- a/launcher/lang/ur.json
 +++ b/launcher/lang/ur.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} چھوڑ دیا گیا: اسے {other} چاہیے، جو چھوڑ دیا گیا",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "آپ جو Horizon کھیلتے ہیں اس پر نہیں بنتا ({code}): بلڈ اسے تب تک چھوڑ دیتا ہے جب تک اس کا مصنف اسے اپڈیٹ نہ کرے",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "آپ جہاں ہیں، وہاں بانیوں کا سیٹ playhorizon.dev پر مفت چیک آؤٹ کے ذریعے لیا جاتا ہے۔ اسے دکان سے لیں: وہ آپ کے لیے چیک آؤٹ کھول دیتی ہے۔",
--  "The founder set can't be claimed from your country.": "بانیوں کا سیٹ آپ کے ملک سے نہیں لیا جا سکتا۔"
-+  "The founder set can't be claimed from your country.": "بانیوں کا سیٹ آپ کے ملک سے نہیں لیا جا سکتا۔",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "دعویٰ مکمل نہیں ہو سکا: چیک آؤٹ کا پتہ Horizon کا نہیں ہے۔",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/uz.json b/launcher/lang/uz.json
-index 0dbd49ffb..eec069531 100644
+index d55a59893..8f2039091 100644
 --- a/launcher/lang/uz.json
 +++ b/launcher/lang/uz.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} chiqarib tashlandi: unga {other} kerak, u chiqarib tashlandi",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Siz o'ynaydigan Horizonda yig'ilmaydi ({code}): muallifi yangilamaguncha yig'ish uni chiqarib tashlaydi",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Siz turgan joyda asoschilar to‘plami playhorizon.dev saytidagi bepul to‘lov orqali olinadi. Uni Do‘kondan oling: u to‘lovni siz uchun ochib beradi.",
--  "The founder set can't be claimed from your country.": "Asoschilar to‘plamini sizning mamlakatingizdan olib bo‘lmaydi."
-+  "The founder set can't be claimed from your country.": "Asoschilar to‘plamini sizning mamlakatingizdan olib bo‘lmaydi.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Da’vo o‘tmadi: to‘lov manzili Horizon’niki emas.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/vec.json b/launcher/lang/vec.json
-index b43f054dc..7c4011f0f 100644
+index 839263db0..c93384d58 100644
 --- a/launcher/lang/vec.json
 +++ b/launcher/lang/vec.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} el xe stà lasà fora: el ga bisogno de {other}, che el xe stà lasà fora",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "No'l se compila sul Horizon che te zughi ({code}): na compilazion lo lasa fora fin che el so autor no lo ajorna",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Dove che te si, el set dei fondadori se lo riscata co un pagamento gratis su playhorizon.dev. Riscatelo dal Negozio: el te verze el pagamento.",
--  "The founder set can't be claimed from your country.": "El set dei fondadori no se pol riscatarlo dal to paese."
-+  "The founder set can't be claimed from your country.": "El set dei fondadori no se pol riscatarlo dal to paese.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "La richiesta no la xe ndà a bon fin: l'indirizzo del pagamento no 'l xe quel de Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/vi.json b/launcher/lang/vi.json
-index cf3c24e49..e411ae49e 100644
+index 77aa23e0c..f9cd3dbad 100644
 --- a/launcher/lang/vi.json
 +++ b/launcher/lang/vi.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "Đã bỏ qua {name}: cần {other}, mà {other} đã bị bỏ qua",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Không build được trên Horizon bạn đang chơi ({code}): bản build sẽ bỏ qua nó cho đến khi tác giả cập nhật",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Ở nơi bạn sống, bộ người sáng lập được nhận qua một lần thanh toán miễn phí trên playhorizon.dev. Hãy nhận nó trong Cửa hàng: cửa hàng sẽ mở trang thanh toán cho bạn.",
--  "The founder set can't be claimed from your country.": "Không thể nhận bộ người sáng lập từ quốc gia của bạn."
-+  "The founder set can't be claimed from your country.": "Không thể nhận bộ người sáng lập từ quốc gia của bạn.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Yêu cầu không thành công: địa chỉ trang thanh toán không phải của Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/yi.json b/launcher/lang/yi.json
-index 5cf6a123d..30d1c94ff 100644
+index 95e2cdf6d..c6ec37c01 100644
 --- a/launcher/lang/yi.json
 +++ b/launcher/lang/yi.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "{name} איז אויסגעלאָזט געוואָרן: עס דאַרף {other}, וואָס איז אויסגעלאָזט געוואָרן",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "בויט זיך נישט אויף דעם Horizon וואָס דו שפּילסט ({code}): אַ בוי לאָזט עס אויס ביז דער מחבר דערהייַנטיקט עס",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "וווּ דו ביסט, באַקומט מען דעם גרינדער־סעט דורך אַ פֿרייער באַצאָלונג אויף playhorizon.dev. נעם אים פֿון דער קראָם: זי עפֿנט פֿאַר דיר די באַצאָלונג.",
--  "The founder set can't be claimed from your country.": "מען קען נישט באַקומען דעם גרינדער־סעט פֿון דײַן לאַנד."
-+  "The founder set can't be claimed from your country.": "מען קען נישט באַקומען דעם גרינדער־סעט פֿון דײַן לאַנד.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "די פֿאָדערונג איז נישט דורכגעגאַנגען: די אַדרעס פֿון דער צאָלונג איז נישט פֿון Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/yo.json b/launcher/lang/yo.json
-index da9f5a568..48a4fddde 100644
+index 93c3d511b..25196b99a 100644
 --- a/launcher/lang/yo.json
 +++ b/launcher/lang/yo.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "A fi {name} sílẹ̀: ó nílò {other}, tí a fi sílẹ̀",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Kò kọ́ lórí Horizon tí o ń ṣe ({code}): ìkọ́ yóò fi sílẹ̀ títí òǹkọ̀wé rẹ̀ yóò fi ṣe àtúnṣe",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Níbi tí o wà, a máa ń gba àpapọ̀ olùdásílẹ̀ nípasẹ̀ ìsanwó ọ̀fẹ́ lórí playhorizon.dev. Gbà á láti Ṣọ́ọ̀bù: ó máa ṣí ìsanwó náà fún ọ.",
--  "The founder set can't be claimed from your country.": "A kò lè gba àpapọ̀ olùdásílẹ̀ láti orílẹ̀-èdè rẹ."
-+  "The founder set can't be claimed from your country.": "A kò lè gba àpapọ̀ olùdásílẹ̀ láti orílẹ̀-èdè rẹ.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Ìbéèrè náà kò yọrí: àdírẹ́sì ojú ìwé sísan owó kì í ṣe ti Horizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/zh.json b/launcher/lang/zh.json
-index 2cf38e12f..4f01a06c4 100644
+index 6ee784ea6..2b55b5d0d 100644
 --- a/launcher/lang/zh.json
 +++ b/launcher/lang/zh.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "已略过 {name}：它需要 {other}，而后者已被略过",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "无法在你玩的 Horizon 上构建（{code}）：在作者更新之前，构建会略过它",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "在你所在的地区，创始者套装需通过 playhorizon.dev 上的免费结账领取。请在商店中领取：商店会为你打开结账页面。",
--  "The founder set can't be claimed from your country.": "你所在的国家无法领取创始者套装。"
-+  "The founder set can't be claimed from your country.": "你所在的国家无法领取创始者套装。",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "领取未成功：结账页面的地址不是 Horizon 的。",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "尚未准备。Horizon 可以从你自己的安装中准备 Minecraft {version}；登录则以从 Mojang 下载。"
  }
 diff --git a/launcher/lang/zu.json b/launcher/lang/zu.json
-index 93b9029d8..5f5dd186e 100644
+index 56e471ccc..95525a787 100644
 --- a/launcher/lang/zu.json
 +++ b/launcher/lang/zu.json
-@@ -1220,5 +1220,7 @@
-   "{name} was left out: it needs {other}, which was left out": "I-{name} ishiywe ngaphandle: idinga i-{other}, eshiywe ngaphandle",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "Ayakhiwa ku-Horizon oyidlalayo ({code}): ukwakha kuyayishiya ngaphandle kuze kube umbhali wayo uyayibuyekeza",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "Lapho ukhona, isethi yabasunguli ithathwa ngokukhokha mahhala ku-playhorizon.dev. Yithathe esitolo: sizokuvulela ukukhokha.",
--  "The founder set can't be claimed from your country.": "Isethi yabasunguli ayikwazi ukuthathwa ezweni lakho."
-+  "The founder set can't be claimed from your country.": "Isethi yabasunguli ayikwazi ukuthathwa ezweni lakho.",
+@@ -1238,5 +1238,7 @@
+   "How frosted the panels are.": "How frosted the panels are.",
+   "Gather, build and stay alive": "Gather, build and stay alive",
+   "Fly and build with every block": "Fly and build with every block",
+-  "Play a map the way it was made": "Play a map the way it was made"
++  "Play a map the way it was made": "Play a map the way it was made",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "Isicelo asiphumelelanga: ikheli lokukhokha akulona elikaHorizon.",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
