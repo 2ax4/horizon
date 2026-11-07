@@ -1,7 +1,7 @@
-From de4a5dedd6be74aff8e82aef229b39ae77328ba2 Mon Sep 17 00:00:00 2001
+From 0a36867843cd926bc4412ecef142e6f395d21975 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
-Subject: [PATCH 4/9] Offline build: quiet sign-in notices and fork repo
+Subject: [PATCH] Offline build: quiet sign-in notices and fork repo
 
 ---
  launcher/src/backend.rs | 55 +++++++++++++++++++++++------------------

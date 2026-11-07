@@ -1,7 +1,7 @@
-From 622a7b716167762611601e76f6cb6fd4a60ae5ce Mon Sep 17 00:00:00 2001
+From 5cca440a8afa399ae614fe8d92ad039b945ba828 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
-Subject: [PATCH 1/9] Offline accounts: add and play with no Microsoft account
+Subject: [PATCH] Offline accounts: add and play with no Microsoft account
 
 ---
  docs/launcher-commands.md      |   4 -

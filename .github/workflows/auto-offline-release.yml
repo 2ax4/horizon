@@ -61,8 +61,8 @@ jobs:
           git remote add upstream https://github.com/horizon-rust/horizon.git
           mkdir -p /tmp/patches
           cp offline/patches/*.patch /tmp/patches/
-          phash=$(cat /tmp/patches/*.patch .github/workflows/launcher-release.yml | sha256sum | cut -c1-8)
-          echo "patch set hash (phash): ${phash}; it changes whenever a patch or launcher-release.yml changes"
+          phash=$(cat /tmp/patches/*.patch offline/lang-sync.py offline/lang-overrides.json .github/workflows/launcher-release.yml | sha256sum | cut -c1-8)
+          echo "patch set hash (phash): ${phash}; it changes whenever a patch, the offline lang data or launcher-release.yml changes"
           newest=$(head -1 /tmp/candidates.txt)
           alert=""
           chosen=""
@@ -194,6 +194,10 @@ jobs:
             echo "::error::RELEASE_SIGNING_KEY does not match any key in crates/horizon-release-sign/release-keys.txt: update the secret or the key inside offline/patches/0003-offline-update-notice.patch"
             exit 1
           }
+          # The language tables are not patched: lang-sync drops the removed
+          # strings' keys and adds the offline card's key to every table, in
+          # upstream's own JSON layout (see offline/lang-sync.py).
+          python3 offline/lang-sync.py
           git add -A .
           tree=$(git write-tree)
           if [ "$tree" = "$(git rev-parse 'origin/main^{tree}')" ]; then
