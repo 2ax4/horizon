@@ -1,7 +1,7 @@
-From 4b46bd9c6d84fa0f98703311b0d5e496f83a1b47 Mon Sep 17 00:00:00 2001
+From e79c4ee6aa3cf369b85523e7ea9e425eb8712ae6 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
-Subject: [PATCH] Offline updates follow the fork's releases
+Subject: [PATCH 2/9] Offline updates follow the fork's releases
 
 ---
  crates/horizon-release-sign/release-keys.txt  |   1 +

@@ -1,7 +1,7 @@
-From a19013f0254a737f8e4ab67a46d6df02ef0ae0a3 Mon Sep 17 00:00:00 2001
+From 36fa21988c258e77b7723331cffa566bb72ebb55 Mon Sep 17 00:00:00 2001
 From: Z User <z@container>
 Date: Thu, 5 Nov 2026 23:23:54 +0000
-Subject: [PATCH] The Wardrobe and the Shop work for an offline name
+Subject: [PATCH 9/9] The Wardrobe and the Shop work for an offline name
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit

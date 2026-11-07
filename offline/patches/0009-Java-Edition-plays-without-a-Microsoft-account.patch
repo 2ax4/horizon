@@ -1,7 +1,7 @@
-From 5fd94a4a77fe9349663decebbdcde7866e7cd4d9 Mon Sep 17 00:00:00 2001
+From 06f1ca67d3e161f6a02b0014123d2a0f660a8b9d Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Thu, 5 Nov 2026 00:22:25 +0000
-Subject: [PATCH] Java Edition plays without a Microsoft account
+Subject: [PATCH 7/9] Java Edition plays without a Microsoft account
 MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
@@ -409,7 +409,7 @@ index 3509b1d71..65d4240d3 100644
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 75a5c6817..badbc5450 100644
+index 0507ec80a..ef60ade13 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
 @@ -1220,5 +1220,7 @@
@@ -1072,15 +1072,15 @@ index a73acc207..688cb6246 100644
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index 251323d01..4ef43955a 100644
+index a1ae82792..7283c3504 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
 @@ -1220,5 +1220,7 @@
    "{name} was left out: it needs {other}, which was left out": "ไม่ได้รวม {name}: ต้องใช้ {other} ซึ่งไม่ได้รวมไว้",
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "สร้างบน Horizon ที่คุณเล่นไม่ได้ ({code}): การสร้างจะไม่รวมไว้จนกว่าผู้สร้างจะอัปเดต",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "ในพื้นที่ของคุณ ชุดผู้ก่อตั้งต้องรับผ่านการชำระเงินฟรีบน playhorizon.dev รับได้จากร้านค้า: ร้านค้าจะเปิดหน้าชำระเงินให้คุณ",
--  "The founder set can't be claimed from your country.": "ไม่สามารถรับชุดผู้ก่อตั้งจากประเทศของคุณได้"
-+  "The founder set can't be claimed from your country.": "ไม่สามารถรับชุดผู้ก่อตั้งจากประเทศของคุณได้",
+   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "บิลด์บน Horizon ที่คุณเล่นไม่ได้ ({code}): การบิลด์จะข้ามม็อดนี้ไปจนกว่าผู้สร้างจะอัปเดต",
+   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "ในพื้นที่ของคุณ ต้องรับชุดผู้เล่นรุ่นแรกผ่านการชำระเงินแบบฟรีบน playhorizon.dev รับได้จากร้านค้า: ร้านค้าจะเปิดหน้าชำระเงินให้",
+-  "The founder set can't be claimed from your country.": "รับชุดผู้เล่นรุ่นแรกจากประเทศของคุณไม่ได้"
++  "The founder set can't be claimed from your country.": "รับชุดผู้เล่นรุ่นแรกจากประเทศของคุณไม่ได้",
 +  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon",
 +  "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }

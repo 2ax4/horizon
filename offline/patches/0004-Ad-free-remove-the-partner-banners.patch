@@ -1,7 +1,7 @@
-From 078a30558eaee953794670f413b4abef6db158c0 Mon Sep 17 00:00:00 2001
+From b7d47f8cf72052845e50ca1e95603e565de40d5d Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Wed, 4 Nov 2026 13:35:56 +0000
-Subject: [PATCH] Ad-free: remove the partner banners
+Subject: [PATCH 3/9] Ad-free: remove the partner banners
 
 ---
  launcher/src/glass_servers.rs |  43 ----
@@ -435,7 +435,7 @@ index d6ac26123..000000000
 -    }
 -}
 diff --git a/launcher/src/servers_page.rs b/launcher/src/servers_page.rs
-index 20d20332e..5b4a01ce8 100644
+index 861c2c291..2499a7859 100644
 --- a/launcher/src/servers_page.rs
 +++ b/launcher/src/servers_page.rs
 @@ -1369,34 +1369,11 @@ impl Launcher {

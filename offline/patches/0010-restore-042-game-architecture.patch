@@ -1,8 +1,8 @@
-From 3647f5b9eb5358c628711f99e9594de844dbacfc Mon Sep 17 00:00:00 2001
+From 97b97a6488fdeb3c495b64af897e5c56df2765a1 Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Thu, 5 Nov 2026 15:10:01 +0000
-Subject: [PATCH] Restore the 0.2.42 game-architecture CLI setting and prune
- orphaned translations
+Subject: [PATCH 8/9] Restore the 0.2.42 game-architecture CLI setting and
+ prune orphaned translations
 
 The 0.2.42 rebase resolved the cli.rs conflicts with the 0.2.41 side, which
 dropped the game-architecture setting upstream added: the CLI key, its match
@@ -2748,7 +2748,7 @@ index 65d4240d3..606b6367c 100644
    "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index badbc5450..6af430d3d 100644
+index ef60ade13..5afe32332 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
 @@ -37,7 +37,6 @@
@@ -8535,117 +8535,117 @@ index 688cb6246..d8cd1bd08 100644
    "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index 4ef43955a..b8eec2d56 100644
+index 7283c3504..7e87d2965 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
 @@ -37,7 +37,6 @@
-   "Building {name}'s post-build step": "การสร้างขั้นตอนหลังการสร้างของ {name}",
-   "In use": "ในการใช้งาน",
-   "Prepare": "เตรียมตัว",
+   "Building {name}'s post-build step": "กำลังบิลด์ขั้นตอนหลังบิลด์ของ {name}",
+   "In use": "ใช้งานอยู่",
+   "Prepare": "เตรียม",
 -  "Developer options": "ตัวเลือกสำหรับนักพัฒนา",
-   "{online} of {max} players": "{online} จาก {max} ผู้เล่น",
-   "Minecraft {version} (Java Edition). Play downloads it from Mojang for your account the first time, with the Java it needs.": "Minecraft {version} (รุ่น Java) เล่นดาวน์โหลดจาก Mojang สำหรับบัญชีของคุณในครั้งแรก โดยมี Java ที่ต้องการ",
+   "{online} of {max} players": "ผู้เล่น {online} จาก {max}",
+   "Minecraft {version} (Java Edition). Play downloads it from Mojang for your account the first time, with the Java it needs.": "Minecraft {version} (Java Edition) ครั้งแรกที่กดเล่น ลันเชอร์จะดาวน์โหลดจาก Mojang สำหรับบัญชีของคุณ พร้อม Java ที่ต้องใช้",
    "Close": "ปิด",
 @@ -165,7 +164,6 @@
-   "Dark by default. System follows your computer's light or dark.": "มืดตามค่าเริ่มต้น ระบบจะติดตามแสงหรือความมืดของคอมพิวเตอร์ของคุณ",
-   "updated {date}": "อัปเดต {date}",
-   "No mod matches.": "ไม่มีการจับคู่ mod",
+   "Dark by default. System follows your computer's light or dark.": "ค่าเริ่มต้นคือมืด ส่วน ระบบ จะใช้ธีมสว่างหรือมืดตามคอมพิวเตอร์",
+   "updated {date}": "อัปเดตเมื่อ {date}",
+   "No mod matches.": "ไม่มีม็อดที่ตรงกัน",
 -  "HIDE": "ซ่อน",
    "Language": "ภาษา",
    "Open logs folder": "เปิดโฟลเดอร์บันทึก",
-   "Support the work below": "สนับสนุนงานด้านล่างครับ",
+   "Support the work below": "สนับสนุนงานด้านล่าง",
 @@ -184,7 +182,6 @@
-   "newest stable version": "เวอร์ชันเสถียรใหม่ล่าสุด",
-   "Choose image…": "เลือกภาพ...",
-   "No worlds yet: they appear here once you play one.": "ยังไม่มีโลก: จะปรากฏที่นี่เมื่อคุณเล่น",
--  "Offline names play without a Microsoft account that owns the game. Minecraft still comes from your own install.": "ชื่อออฟไลน์เล่นได้โดยไม่ต้องใช้บัญชี Microsoft ที่เป็นเจ้าของเกม Minecraft ยังคงมาจากการติดตั้งของคุณเอง",
-   "crash reports beside it": "รายงานข้อขัดข้องข้างๆ",
+   "newest stable version": "เวอร์ชันเสถียรล่าสุด",
+   "Choose image…": "เลือกรูป…",
+   "No worlds yet: they appear here once you play one.": "ยังไม่มีโลก: จะแสดงที่นี่เมื่อคุณเล่นสักโลก",
+-  "Offline names play without a Microsoft account that owns the game. Minecraft still comes from your own install.": "ชื่อออฟไลน์ใช้เล่นได้โดยไม่ต้องมีบัญชี Microsoft ที่มีเกม ส่วนตัว Minecraft ยังมาจากที่ติดตั้งไว้เอง",
+   "crash reports beside it": "พร้อมรายงานแครชข้างๆ",
    "Install all": "ติดตั้งทั้งหมด",
    "No group": "ไม่มีกลุ่ม",
 @@ -220,7 +217,6 @@
-   "GameMode": "โหมดเกม",
-   "While you play, the game sends an anonymous \"I'm playing\" ping once a minute, so the launcher can show how many people play Horizon right now. It holds: a random number made when the game starts and forgotten when it closes, the Horizon version, your OS (Linux, macOS or Windows), and whether you have a world open to LAN or friends. It doesn't hold: your account, your install ID, world or server names, or anything you do in the game, and the server doesn't keep your IP address. It is sent whatever the switches say.": "ในขณะที่คุณเล่น เกมจะส่ง Ping แบบไม่ระบุตัวตนว่า \"ฉันกำลังเล่น\" ต่อนาที เพื่อให้ Launcher สามารถแสดงจำนวนคนที่เล่น Horizon ได้ในขณะนี้ ประกอบด้วย: ตัวเลขสุ่มที่สร้างขึ้นเมื่อเกมเริ่มและถูกลืมเมื่อปิด เวอร์ชัน Horizon ระบบปฏิบัติการของคุณ (Linux, macOS หรือ Windows) และไม่ว่าคุณจะมีโลกที่เปิดกว้างสำหรับ LAN หรือเพื่อนก็ตาม ไม่เก็บ: บัญชีของคุณ, ID การติดตั้งของคุณ, ชื่อโลกหรือเซิร์ฟเวอร์ หรืออะไรก็ตามที่คุณทำในเกม และเซิร์ฟเวอร์จะไม่เก็บที่อยู่ IP ของคุณ มันจะถูกส่งไปไม่ว่าสวิตช์จะพูดอะไรก็ตาม",
-   "When you report it on Discord, attach the crash report file (or paste it with Copy report) and say what you were doing.": "เมื่อคุณรายงานบน Discord ให้แนบไฟล์รายงานข้อขัดข้อง (หรือวางพร้อมกับรายงานการคัดลอก) แล้วพูดสิ่งที่คุณกำลังทำ",
+   "GameMode": "GameMode",
+   "While you play, the game sends an anonymous \"I'm playing\" ping once a minute, so the launcher can show how many people play Horizon right now. It holds: a random number made when the game starts and forgotten when it closes, the Horizon version, your OS (Linux, macOS or Windows), and whether you have a world open to LAN or friends. It doesn't hold: your account, your install ID, world or server names, or anything you do in the game, and the server doesn't keep your IP address. It is sent whatever the switches say.": "ระหว่างเล่น เกมจะส่ง ping \"ฉันกำลังเล่น\" แบบไม่ระบุตัวตนนาทีละครั้ง เพื่อให้ลันเชอร์แสดงได้ว่าตอนนี้มีคนเล่น Horizon กี่คน ข้อมูลที่ส่งมี: ตัวเลขสุ่มที่สร้างตอนเกมเริ่มและทิ้งไปตอนปิดเกม เวอร์ชันของ Horizon ระบบปฏิบัติการ (Linux, macOS หรือ Windows) และคุณเปิดโลกให้ LAN หรือเพื่อนอยู่หรือไม่ สิ่งที่ไม่ได้ส่ง: บัญชีของคุณ ID การติดตั้ง ชื่อโลกหรือเซิร์ฟเวอร์ หรือสิ่งที่คุณทำในเกม และเซิร์ฟเวอร์ไม่เก็บที่อยู่ IP ของคุณ ping นี้ส่งเสมอไม่ว่าสวิตช์จะตั้งไว้แบบไหน",
+   "When you report it on Discord, attach the crash report file (or paste it with Copy report) and say what you were doing.": "เวลารายงานบน Discord ให้แนบไฟล์รายงานแครช (หรือวางด้วยปุ่ม คัดลอกรายงาน) และบอกว่ากำลังทำอะไรอยู่",
 -  "Get my server": "รับเซิร์ฟเวอร์ของฉัน",
-   "New instance": "ตัวอย่างใหม่",
+   "New instance": "อินสแตนซ์ใหม่",
    "Loading filters": "กำลังโหลดตัวกรอง",
    "Stopped": "หยุดแล้ว",
 @@ -229,7 +225,6 @@
-   "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon ไม่เคยเปิด Funnel: เซิร์ฟเวอร์ไม่ได้ถูกวางบนอินเทอร์เน็ตสาธารณะ แต่จะแชร์กับคนที่คุณเชิญเท่านั้น",
+   "Horizon never turns on Funnel: the server isn't put on the public internet, only shared with the people you invite.": "Horizon ไม่เปิด Funnel เด็ดขาด: เซิร์ฟเวอร์จะไม่ออกสู่อินเทอร์เน็ตสาธารณะ แชร์ให้เฉพาะคนที่คุณเชิญ",
    "Minecraft folder": "โฟลเดอร์ Minecraft",
-   "Feral's gamemoderun: CPU and scheduler tuned while you play.": "โหมดเกมของ Feral: ปรับ CPU และตัวกำหนดตารางเวลาในขณะที่คุณเล่น",
+   "Feral's gamemoderun: CPU and scheduler tuned while you play.": "gamemoderun ของ Feral: ปรับจูน CPU และตัวจัดตารางงานระหว่างเล่น",
 -  "15% off": "ลด 15%",
-   "Added {names}: turn it on below.": "เพิ่ม {names}: เปิดด้านล่าง",
-   "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "พอร์ตรับขวดของ {count} mod ที่คอมพิวเตอร์เครื่องนี้สามารถพอร์ตได้ในปัจจุบัน (เนื้อหาที่มีข้อมูลและทรัพย์สินเท่านั้น) จากลิงก์ของแพ็ก Modrinth หรือโฟลเดอร์ของคุณ และนำมันไป พอร์ตอยู่ที่นี่ใน {folder}",
-   "Mojang's version list isn't here yet.": "รายการเวอร์ชันของ Mojang ยังไม่อยู่ที่นี่",
+   "Added {names}: turn it on below.": "เพิ่ม {names} แล้ว: เปิดใช้ได้ด้านล่าง",
+   "Port gets the jars of the {count} mods this computer can port today (content with data and assets only) from the pack's own links, Modrinth, or your folder, and carries them over. The ports stay here, in {folder}.": "ปุ่มพอร์ตจะดึงไฟล์ jar ของ {count} ม็อดที่คอมพิวเตอร์เครื่องนี้พอร์ตได้ตอนนี้ (เฉพาะเนื้อหาที่มีแค่ data และ assets) จากลิงก์ของแพ็กเอง จาก Modrinth หรือจากโฟลเดอร์ของคุณ แล้วพอร์ตมาให้ ไฟล์ที่พอร์ตแล้วเก็บไว้ที่นี่ใน {folder}",
+   "Mojang's version list isn't here yet.": "ยังไม่ได้รายการเวอร์ชันจาก Mojang",
 @@ -304,7 +299,6 @@
-   "Make an invitation": "ทำคำเชิญ",
+   "Make an invitation": "สร้างคำเชิญ",
    "Version": "เวอร์ชัน",
    "Patch notes": "บันทึกการแก้ไข",
 -  "Your Minecraft server, {online}.": "เซิร์ฟเวอร์ Minecraft ของคุณ {online}",
-   "Crash reports": "รายงานข้อขัดข้อง",
-   "Offline name · the game's own · plays": "ชื่อออฟไลน์ · เกมของตัวเอง · เล่น",
-   "Slim arms": "แขนเพรียวบาง",
+   "Crash reports": "รายงานแครช",
+   "Offline name · the game's own · plays": "ชื่อออฟไลน์ · ชื่อที่เกมตั้งให้ · ใช้เล่นอยู่",
+   "Slim arms": "แขนแบบเพรียว",
 @@ -355,7 +349,6 @@
    "Local file · {file}": "ไฟล์ในเครื่อง · {file}",
-   "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "ภูมิทัศน์ของ Horizon เลือกรูปภาพ PNG, JPEG หรือ WebP ของคุณเอง",
+   "Horizon's landscape. Pick a PNG, JPEG or WebP picture of your own.": "ภาพทิวทัศน์ของ Horizon เลือกรูป PNG, JPEG หรือ WebP ของตัวเองได้",
    "Not needed": "ไม่จำเป็น",
--  "This build of the launcher has no Microsoft sign-in (HORIZON_MSA_CLIENT_ID), so it can't start the game.": "Launcher รุ่นนี้ไม่มีการลงชื่อเข้าใช้ Microsoft (HORIZON_MSA_CLIENT_ID) ดังนั้นจึงไม่สามารถเริ่มเกมได้",
-   "Offline name · plays": "ชื่อออฟไลน์ · เล่น",
-   "Run the game through": "ดำเนินเกมผ่าน",
-   "needed by another pack": "ต้องการอีกแพ็คหนึ่ง",
+-  "This build of the launcher has no Microsoft sign-in (HORIZON_MSA_CLIENT_ID), so it can't start the game.": "ลันเชอร์บิลด์นี้ไม่มีระบบลงชื่อเข้าใช้ Microsoft (HORIZON_MSA_CLIENT_ID) จึงเปิดเกมไม่ได้",
+   "Offline name · plays": "ชื่อออฟไลน์ · ใช้เล่นอยู่",
+   "Run the game through": "รันเกมผ่าน",
+   "needed by another pack": "แพ็กอื่นต้องใช้",
 @@ -394,7 +387,6 @@
-   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "ไม่ได้เตรียมตัว. เล่นดาวน์โหลด Minecraft {version} จาก Mojang สำหรับบัญชีของคุณและเตรียมพร้อม",
+   "Not prepared. Play downloads Minecraft {version} from Mojang for your account and prepares it.": "ยังไม่ได้เตรียม กดเล่นแล้วจะดาวน์โหลด Minecraft {version} จาก Mojang สำหรับบัญชีของคุณและเตรียมให้",
    "Join a friend": "เข้าร่วมกับเพื่อน",
-   "Not found. Choose the folder where your launcher keeps Minecraft.": "ไม่พบ เลือกโฟลเดอร์ที่ Launcher ของคุณเก็บ Minecraft ไว้",
--  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "ไม่ได้เตรียมตัว. ลงชื่อเข้าใช้ด้วยบัญชี Microsoft ที่เป็นเจ้าของ Minecraft {version} ก่อน",
+   "Not found. Choose the folder where your launcher keeps Minecraft.": "ไม่พบ เลือกโฟลเดอร์ที่ลันเชอร์ของคุณเก็บ Minecraft ไว้",
+-  "Not prepared. Sign in with the Microsoft account that owns Minecraft {version} first.": "ยังไม่ได้เตรียม ลงชื่อเข้าใช้ด้วยบัญชี Microsoft ที่มี Minecraft {version} ก่อน",
    "CurseForge (coming soon)": "CurseForge (เร็ว ๆ นี้)",
    "Copy report": "คัดลอกรายงาน",
-   "Reading the mods…": "กำลังอ่าน mods...",
+   "Reading the mods…": "กำลังอ่านม็อด…",
 @@ -431,7 +423,6 @@
    "On": "เปิด",
-   "{program} said: {output}": "{program} กล่าวว่า: {output}",
-   "Light": "เบา",
+   "{program} said: {output}": "{program} ตอบว่า: {output}",
+   "Light": "สว่าง",
 -  "Ready in under a minute": "พร้อมภายในไม่ถึงนาที",
    "the message in the server list": "ข้อความในรายการเซิร์ฟเวอร์",
    "Check for updates": "ตรวจสอบการอัปเดต",
-   "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "รูปแบบ modpack ของ Modrinth: ชุดทรัพยากรจาก Modrinth จะแสดงรายการตามการดาวน์โหลด ส่วนที่เหลือจะบรรจุอยู่ในนั้น",
+   "Modrinth's modpack format: resource packs from Modrinth are listed by their download, the rest is carried in it.": "รูปแบบม็อดแพ็กของ Modrinth: รีซอร์สแพ็กจาก Modrinth ใส่ไว้เป็นลิงก์ดาวน์โหลด ส่วนที่เหลือรวมอยู่ในไฟล์",
 @@ -448,7 +439,6 @@
-   "The wordmark, while the release list loads.": "เครื่องหมายคำในขณะที่โหลดรายการเผยแพร่",
+   "The wordmark, while the release list loads.": "โลโก้ Horizon ขณะโหลดรายการรุ่น",
    "Playing offline": "กำลังเล่นออฟไลน์",
    "Sign in to Tailscale": "ลงชื่อเข้าใช้ Tailscale",
--  "Offline names without an account": "ชื่อออฟไลน์ที่ไม่มีบัญชี",
-   "Help make Horizon faster and steadier?": "ช่วยทำให้ Horizon เร็วขึ้นและมั่นคงขึ้น?",
+-  "Offline names without an account": "ชื่อออฟไลน์แบบไม่ใช้บัญชี",
+   "Help make Horizon faster and steadier?": "ช่วยให้ Horizon เร็วขึ้นและเสถียรขึ้นไหม?",
    "Sign in to play": "ลงชื่อเข้าใช้เพื่อเล่น",
-   "Ported": "ย้ายแล้ว",
+   "Ported": "พอร์ตแล้ว",
 @@ -486,7 +476,6 @@
-   "None yet: drop a .zip here, or find some on the Mods page.": "ยังไม่มี: วาง .zip ที่นี่ หรือค้นหาบางส่วนในหน้า Mods",
-   "runs {command} after": "วิ่ง {command} หลังจากนั้น",
+   "None yet: drop a .zip here, or find some on the Mods page.": "ยังไม่มี: วางไฟล์ .zip ที่นี่ หรือหาได้ในหน้าม็อด",
+   "runs {command} after": "รัน {command} ทีหลัง",
    "downloaded": "ดาวน์โหลดแล้ว",
 -  "24/7 online": "ออนไลน์ตลอด 24 ชั่วโมงทุกวัน",
    "A new version is available": "มีเวอร์ชันใหม่",
    "Download again": "ดาวน์โหลดอีกครั้ง",
-   "Update this launcher with your package manager.": "Update this launcher with your package manager.",
+   "Update this launcher with your package manager.": "อัปเดตลันเชอร์นี้ด้วยตัวจัดการแพ็กเกจ",
 @@ -655,7 +644,6 @@
-   "{name} is a Java modpack: importing it on the Modpacks page.": "{name} เป็น Java modpack: นำเข้ามันบนหน้า Modpacks",
+   "{name} is a Java modpack: importing it on the Modpacks page.": "{name} เป็นม็อดแพ็ก Java: กำลังนำเข้าในหน้าม็อดแพ็ก",
    "Alpha": "อัลฟ่า",
    "Add mods": "เพิ่มม็อด",
 -  "PARTNER": "พันธมิตร",
-   "Upload this log to mclo.gs, a paste service for Minecraft logs? Anyone with the link can read it, until it is deleted or unread for 90 days. Your home folder, user name and account names are taken out first.": "อัปโหลดบันทึกนี้ไปที่ mclo.gs ซึ่งเป็นบริการวางสำหรับบันทึก Minecraft หรือไม่ ทุกคนที่มีลิงก์สามารถอ่านได้ จนกว่าจะถูกลบหรือยังไม่ได้อ่านเป็นเวลา 90 วัน โฟลเดอร์บ้าน ชื่อผู้ใช้ และชื่อบัญชีของคุณจะถูกดึงออกมาก่อน",
-   "{count} lines, the game is running": "{count} บรรทัด เกมกำลังดำเนินอยู่",
-   "Move to trash": "ย้ายไปที่ถังขยะ",
+   "Upload this log to mclo.gs, a paste service for Minecraft logs? Anyone with the link can read it, until it is deleted or unread for 90 days. Your home folder, user name and account names are taken out first.": "อัปโหลดบันทึกนี้ไปที่ mclo.gs บริการแปะบันทึกของ Minecraft ไหม? ใครที่มีลิงก์ก็อ่านได้ จนกว่าจะถูกลบหรือไม่มีใครเปิดอ่าน 90 วัน โฟลเดอร์ผู้ใช้ ชื่อผู้ใช้ และชื่อบัญชีจะถูกตัดออกก่อน",
+   "{count} lines, the game is running": "{count} บรรทัด เกมเปิดอยู่",
+   "Move to trash": "ย้ายไปถังขยะ",
 @@ -1000,7 +988,6 @@
    "On this network": "บนเครือข่ายนี้",
    "Open the logs": "เปิดบันทึก",
-   "Over the internet": "ผ่านทางอินเทอร์เน็ต",
--  "Partner": "พันธมิตร",
+   "Over the internet": "ผ่านอินเทอร์เน็ต",
+-  "Partner": "พาร์ตเนอร์",
    "Prepare the game files": "เตรียมไฟล์เกม",
    "Send": "ส่ง",
-   "Start the server to send commands": "เริ่มเซิร์ฟเวอร์เพื่อส่งคำสั่ง",
+   "Start the server to send commands": "เปิดเซิร์ฟเวอร์ก่อนจึงจะส่งคำสั่งได้",
 @@ -1221,6 +1208,5 @@
-   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "สร้างบน Horizon ที่คุณเล่นไม่ได้ ({code}): การสร้างจะไม่รวมไว้จนกว่าผู้สร้างจะอัปเดต",
-   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "ในพื้นที่ของคุณ ชุดผู้ก่อตั้งต้องรับผ่านการชำระเงินฟรีบน playhorizon.dev รับได้จากร้านค้า: ร้านค้าจะเปิดหน้าชำระเงินให้คุณ",
-   "The founder set can't be claimed from your country.": "ไม่สามารถรับชุดผู้ก่อตั้งจากประเทศของคุณได้",
+   "Doesn't build on the Horizon you play ({code}): a build leaves it out until its author updates it": "บิลด์บน Horizon ที่คุณเล่นไม่ได้ ({code}): การบิลด์จะข้ามม็อดนี้ไปจนกว่าผู้สร้างจะอัปเดต",
+   "Where you are, the founder set is claimed through a free checkout on playhorizon.dev. Claim it from the Shop: it opens the checkout for you.": "ในพื้นที่ของคุณ ต้องรับชุดผู้เล่นรุ่นแรกผ่านการชำระเงินแบบฟรีบน playhorizon.dev รับได้จากร้านค้า: ร้านค้าจะเปิดหน้าชำระเงินให้",
+   "The founder set can't be claimed from your country.": "รับชุดผู้เล่นรุ่นแรกจากประเทศของคุณไม่ได้",
 -  "The claim didn't go through: the checkout's address isn't Horizon's.": "รับสิทธิ์ไม่สำเร็จ: ที่อยู่ของหน้าชำระเงินไม่ใช่ของ Horizon",
    "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead.": "Not prepared. Horizon can prepare Minecraft {version} from your own install; sign in to download it from Mojang instead."
  }

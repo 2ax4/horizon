@@ -1,7 +1,8 @@
-From 49bc99a7cc70b2bb52b10638a85f47542150bef2 Mon Sep 17 00:00:00 2001
+From 6e5a93bcac9f8e17cc8036641c757209b0a1d80d Mon Sep 17 00:00:00 2001
 From: 2ax4 <2ax4@users.noreply.github.com>
 Date: Thu, 5 Nov 2026 00:22:20 +0000
-Subject: [PATCH] Offline build: the glass look keeps only the offline account
+Subject: [PATCH 6/9] Offline build: the glass look keeps only the offline
+ account
 
 The top bar drops the Sign in with Microsoft button: the account chip
 (who plays, and how) moves into its place, next to the settings button.
@@ -98,9 +99,9 @@ used go from every language table, as patch 0006's test asks.
  launcher/lang/zh.json         |   3 -
  launcher/lang/zu.json         |   3 -
  launcher/src/frame.rs         |  30 +-------
- launcher/src/glass_account.rs | 129 +++-------------------------------
+ launcher/src/glass_account.rs | 140 +++-------------------------------
  launcher/src/main.rs          |   4 +-
- 89 files changed, 14 insertions(+), 407 deletions(-)
+ 89 files changed, 14 insertions(+), 418 deletions(-)
 
 diff --git a/launcher/lang/af.json b/launcher/lang/af.json
 index 18a1ff289..d569353bb 100644
@@ -453,17 +454,17 @@ index 32626391a..3509b1d71 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Aksentlitur, glas, tjúkkur, mál og møguleikarnir omanfyri ganga aftur til hvussu Horizon skipar.",
    "Reset the launcher's look": "Nullstilla útsjóndina á sjósetaranum",
 diff --git a/launcher/lang/fr.json b/launcher/lang/fr.json
-index 8fe4720fc..75a5c6817 100644
+index c6d6df30e..0507ec80a 100644
 --- a/launcher/lang/fr.json
 +++ b/launcher/lang/fr.json
 @@ -1063,9 +1063,6 @@
    "Offline names": "Noms hors ligne",
    "Add a name": "Ajouter un nom",
-   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 à 16 lettres, chiffres ou tirets bas. Change aussi de nom depuis la barre du haut. Les serveurs en ligne n'acceptent pas les noms hors ligne.",
--  "Play online with your Microsoft account": "Joue en ligne avec ton compte Microsoft",
--  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Connecte-toi avec le compte qui possède Minecraft: Java Edition. Ton nom et ton skin te suivent sur les serveurs en ligne, comme dans les autres launchers.",
--  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La page de Microsoft s'ouvre dans ton navigateur. Horizon ne voit jamais ton mot de passe.",
-   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colore les boutons, les interrupteurs et le ciel. Choisis-en une, ou tape n'importe quelle couleur hex.",
+   "3 to 16 letters, numbers or underscores. Switch names from the top bar too. Online servers don't take offline names.": "3 à 16 lettres, chiffres ou tirets bas. Vous pouvez aussi changer de nom depuis la barre du haut. Les serveurs en ligne n'acceptent pas les noms hors ligne.",
+-  "Play online with your Microsoft account": "Jouez en ligne avec votre compte Microsoft",
+-  "Sign in with the account that owns Minecraft: Java Edition. Your name and skin come along to online servers, like in other launchers.": "Connectez-vous avec le compte qui possède Minecraft: Java Edition. Votre nom et votre skin vous suivent sur les serveurs en ligne, comme dans les autres launchers.",
+-  "Microsoft's own page opens in your browser. Horizon never sees your password.": "La page de Microsoft s'ouvre dans votre navigateur. Horizon ne voit jamais votre mot de passe.",
+   "Colours the buttons, the switches and the sky. Pick one, or type any hex colour.": "Colore les boutons, les interrupteurs et le ciel. Choisissez-en une, ou tapez n'importe quelle couleur hex.",
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "La couleur d'accent, le verre, le flou, la langue et les options au-dessus reviennent à ceux de Horizon par défaut.",
    "Reset the launcher's look": "Réinitialiser l'apparence du launcher",
 diff --git a/launcher/lang/fur.json b/launcher/lang/fur.json
@@ -1223,7 +1224,7 @@ index d52c781e0..a73acc207 100644
    "1 hour": "1 மணிநேரம்",
    "1 hour ago": "1 மணிநேரம் முன்பு",
 diff --git a/launcher/lang/th.json b/launcher/lang/th.json
-index 62e49c1d6..251323d01 100644
+index 3cdafe345..a1ae82792 100644
 --- a/launcher/lang/th.json
 +++ b/launcher/lang/th.json
 @@ -1063,9 +1063,6 @@
@@ -1391,10 +1392,10 @@ index 22660ed6b..93b9029d8 100644
    "Accent colour, glass, blur, language and the options above go back to how Horizon ships.": "Umbala we-accent, ingilazi, ukufiphala, ulimi kanye nezinketho ezingenhla zibuyela emuva endleleni Horizon yokuthutha.",
    "Reset the launcher's look": "Setha kabusha ukubukeka kwesiqalisi",
 diff --git a/launcher/src/frame.rs b/launcher/src/frame.rs
-index bcc53d863..9537b089d 100644
+index bcd7d49ec..af5f27645 100644
 --- a/launcher/src/frame.rs
 +++ b/launcher/src/frame.rs
-@@ -654,38 +654,13 @@ impl Launcher {
+@@ -657,38 +657,13 @@ impl Launcher {
                      }
                      cx.notify();
                  }));
@@ -1435,7 +1436,7 @@ index bcc53d863..9537b089d 100644
          let settings = ui::icon_button(
              "nav-Settings",
              "sliders-horizontal",
-@@ -742,7 +717,6 @@ impl Launcher {
+@@ -745,7 +720,6 @@ impl Launcher {
                      .gap(px(6.))
                      .children(build_log)
                      .child(account)
@@ -1444,7 +1445,7 @@ index bcc53d863..9537b089d 100644
              )
      }
 diff --git a/launcher/src/glass_account.rs b/launcher/src/glass_account.rs
-index 0a9541348..40d799b54 100644
+index 9643c48a8..40d799b54 100644
 --- a/launcher/src/glass_account.rs
 +++ b/launcher/src/glass_account.rs
 @@ -1,11 +1,9 @@
@@ -1463,20 +1464,31 @@ index 0a9541348..40d799b54 100644
  
  use super::*;
  use crate::glass_ui::{self as ui, white, Tone};
-@@ -14,14 +12,13 @@ use account::Player;
+@@ -14,25 +12,13 @@ use account::Player;
  use horizon_theme::glass::{fill, ink, radius};
  
  impl Launcher {
 +    /// The account card: the whole of it is who plays now — the player, the offline names and
 +    /// the field to add one. The offline build has no Microsoft card beside them.
      pub(super) fn glass_account(&mut self, cx: &mut Context<Self>) -> Div {
+-        let wide = self.window_width >= 1280.;
 -        let left = self.glass_who_plays(cx);
 -        let right = self.glass_microsoft_card(cx);
--        div()
--            .flex()
--            .gap(px(8.))
--            .child(left.flex_1().min_w_0().p(px(20.)))
--            .child(right.flex_none().w(px(360.)))
+-        if wide {
+-            div()
+-                .flex()
+-                .flex_row()
+-                .gap(px(8.))
+-                .child(left.flex_1().min_w(px(280.)).p(px(20.)))
+-                .child(right.flex_none().w(px(360.)))
+-        } else {
+-            div()
+-                .flex()
+-                .flex_col()
+-                .gap(px(16.))
+-                .child(left.w_full().min_w_0().p(px(20.)))
+-                .child(right.w_full())
+-        }
 +        self.glass_who_plays(cx)
 +            .flex_1()
 +            .min_w_0()
@@ -1484,7 +1496,7 @@ index 0a9541348..40d799b54 100644
      }
  
      /// The player now, the offline names and the field to add one.
-@@ -250,110 +247,4 @@ impl Launcher {
+@@ -261,110 +247,4 @@ impl Launcher {
          )
          .on_click(on_click)
      }
@@ -1596,7 +1608,7 @@ index 0a9541348..40d799b54 100644
 -    }
  }
 diff --git a/launcher/src/main.rs b/launcher/src/main.rs
-index 49bada7f2..1caef9116 100644
+index 3b08d8cb8..8b5ce9be7 100644
 --- a/launcher/src/main.rs
 +++ b/launcher/src/main.rs
 @@ -3444,7 +3444,7 @@ impl Launcher {
